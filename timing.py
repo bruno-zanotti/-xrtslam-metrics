@@ -1,18 +1,20 @@
 import numpy as np
 from collections import namedtuple
-from argparse import ArgumentParser
+from argparse import ArgumentParser, Namespace
 from pathlib import Path
 
-from .utils import NS_TO, check_monotonic_rows
+from utils import NUMBER_OF_NS_IN, TIME_UNITS, load_trajectory
 
-Stats = namedtuple("Stats", ["mean", "std", "min", "q1", "q2", "q3", "max"])
+args: Namespace  # Arguments from CLI
+
+TimingStats = namedtuple("TimingStats", ["mean", "std", "min", "q1", "q2", "q3", "max"])
 
 
-def stats_from_csv(csv_fn: str, i=0, j=-1, divide_by=1) -> Stats:
-    rows = np.genfromtxt(csv_fn, delimiter=",", comments="#", dtype=np.int64)
-    check_monotonic_rows(rows)
-    diffs = (rows[:, j] - rows[:, i]) / divide_by
-    return Stats(
+def get_timing_stats(csv_fn: Path, i=0, j=-1, units=None) -> TimingStats:
+    units = args.units if not units else units
+    rows = load_trajectory(csv_fn)
+    diffs = (rows[:, j] - rows[:, i]) / NUMBER_OF_NS_IN[units]
+    return TimingStats(
         np.mean(diffs),
         np.std(diffs),
         np.min(diffs),
@@ -37,16 +39,17 @@ def parse_args():
         type=str,
         help="Time units to show things on",
         default="ms",
-        choices=["ns", "ms", "s"],
+        choices=TIME_UNITS,
     )
     return parser.parse_args()
 
 
 def main():
-    user_args = parse_args()
-    csv_file = user_args.timing_csv
-    units = user_args.units
-    s = stats_from_csv(csv_file, divide_by=NS_TO[units])
+    global args
+    args = parse_args()
+    csv_file = args.timing_csv
+    units = args.units
+    s = get_timing_stats(csv_file, units=units)
     print(s)
 
 

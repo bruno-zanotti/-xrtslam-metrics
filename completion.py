@@ -1,68 +1,98 @@
+from collections import namedtuple
 from typing import Tuple
 import numpy as np
-from argparse import ArgumentParser
+from argparse import ArgumentParser, Namespace
 from pathlib import Path
 from tabulate import tabulate
-from .utils import NS_TO, check_monotonic_rows
+from utils import TIME_UNITS, NUMBER_OF_NS_IN, load_trajectory
+from dataclasses import dataclass
+
+args: Namespace  # Arguments from CLI
+
+
+@dataclass
+class CompletionStats:
+    first_tracked_ts: int
+    last_tracked_ts: int
+    first_gt_ts: int
+    last_gt_ts: int
+    nof_tracked_poses: int
+    nof_gt_poses: int
+
+    @property
+    def tracking_duration(self):
+        return self.last_tracked_ts - self.first_tracked_ts
+
+    @property
+    def gt_duration(self):
+        return self.last_gt_ts - self.first_gt_ts
+
+    @property
+    def tracking_completion(self):
+        return self.tracking_duration / self.gt_duration
+
+    def __str__(self):
+        units = args.units
+        div = NUMBER_OF_NS_IN[units]
+
+        table = [
+            ["Groundtruth poses", f"{self.nof_gt_poses}"],
+            ["Estimated poses", f"{self.nof_tracked_poses}"],
+            ["Tracking duration", f"{self.tracking_duration / div:.2f}{units}"],
+            ["Groundtruth duration", f"{self.gt_duration / div:.2f}{units}"],
+            ["Tracking completion", f"{self.tracking_completion * 100:.2f}%"],
+        ]
+        return tabulate(table, tablefmt="pipe")
 
 
 def parse_args():
     parser = ArgumentParser(
-        description="Determine the tracking duration compared to the footage duration",
+        description="Determine information about tracking completion based on groundtruth duration"
     )
     parser.add_argument(
-        "input_csv",
+        "tracking_csv",
         type=Path,
         help="File generated from Monado (either tracking.csv or timing.csv)",
     )
     parser.add_argument(
-        "frames_csv",
+        "groundtruth_csv",
         type=Path,
-        help="Dataset camera timestamp file (e.g. cam0/data.csv)",
+        help="Dataset groundtruth file",
     )
     parser.add_argument(
         "--units",
         type=str,
         help="Time units to show things on",
         default="s",
-        choices=NS_TO.keys(),
+        choices=TIME_UNITS,
     )
     return parser.parse_args()
 
 
+def get_completion_stats(tracking_csv: Path, gt_csv: Path) -> CompletionStats:
+    tdata = load_trajectory(tracking_csv)
+    gdata = load_trajectory(gt_csv)
+
+    ttss = tdata[:, 0]
+    gtss = gdata[:, 0]
+
+    t0, t1 = ttss[0], ttss[-1]
+    g0, g1 = gtss[0], gtss[-1]
+
+    stats = CompletionStats(t0, t1, g0, g1, ttss.size, gtss.size)
+    return stats
+
+
 def main():
-    user_args = parse_args()
-    input_csv = user_args.input_csv
-    frames_csv = user_args.frames_csv
-    units = user_args.units
+    global args
+    args = parse_args()
+    tracking_csv = args.tracking_csv
+    groundtruth_csv = args.groundtruth_csv
+    units = args.units
 
-    input_data = np.genfromtxt(input_csv, delimiter=",", comments="#", dtype=np.int64)
-    frame_data = np.genfromtxt(frames_csv, delimiter=",", comments="#", dtype=np.int64)
+    s = get_completion_stats(tracking_csv, groundtruth_csv)
 
-    check_monotonic_rows(input_data)
-    check_monotonic_rows(frame_data)
-
-    itss = input_data[:, 0]
-    ftss = frame_data[:, 0]
-
-    i0, i1 = itss[0], itss[-1]
-    f0, f1 = ftss[0], ftss[-1]
-
-    nof_tracked_poses = itss.size
-    nof_footage_frames = ftss.size
-    tracking_duration = i1 - i0
-    footage_duration = f1 - f0
-    tracking_completion = tracking_duration / footage_duration
-
-    table = [
-        ["Input frames", f"{nof_footage_frames}"],
-        ["Estimated poses", f"{nof_tracked_poses}"],
-        ["Tracking duration", f"{tracking_duration / NS_TO[units]:.2f}{units}"],
-        ["Footage duration", f"{footage_duration / NS_TO[units]:.2f}{units}"],
-        ["Tracking completion", f"{tracking_completion * 100:.2f}%"],
-    ]
-
-    print(tabulate(table))  # tablefmt="pipe" for markdown
+    print(str(s))
 
 
 if __name__ == "__main__":

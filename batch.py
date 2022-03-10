@@ -3,12 +3,13 @@ from typing import List
 from os import listdir, stat
 from os.path import exists
 from tabulate import tabulate
-from timing import stats_from_csv
+from timing import get_timing_stats
 
 # TODO: Use argparse
 DIVIDE_BY = 1000000  # TODO: Use --units (make it a parent argparser)
 EVALUATION_PATH = "evaluation"
 INDICES = {"K": (3, 4), "B": (4, 11), "O": (4, 5)}
+UNITS = "ms"
 
 
 def get_all_dataset_paths(eval_path: str) -> List[str]:
@@ -32,7 +33,7 @@ def main():
                 s = "—"
             else:
                 i, j = INDICES[system[0]]
-                s = stats_from_csv(timing_csv, i, j, DIVIDE_BY)
+                s = get_timing_stats(timing_csv, i, j, UNITS)
             stats[dataset][system] = s
 
     headers = ["Dataset"] + systems

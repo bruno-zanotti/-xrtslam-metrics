@@ -1,19 +1,9 @@
-import csv
-from typing import List
 import numpy as np
 from collections import namedtuple
-from os import listdir, stat
-from os.path import exists
-from tabulate import tabulate
 from argparse import ArgumentParser
 from pathlib import Path
 
-# TODO: Make these be args
-EVALUATION_PATH = "evaluation"
-INDICES = {"K": (3, 4), "B": (4, 11), "O": (4, 5)}
-# INDICES = {"K": (3, 4), "B": (6, 11), "O": (4, 5)}
-# INDICES = {"K": (3, 4), "B": (4, 5), "O": (4, 5)}
-DIVIDE_BY = 1000000
+NS_TO = {"ns": 1, "ms": 1e6, "s": 1e9}
 
 Stats = namedtuple("Stats", ["mean", "std", "min", "q1", "q2", "q3", "max"])
 
@@ -41,46 +31,31 @@ def stats_from_csv(csv_fn: str, i=0, j=-1, divide_by=1) -> Stats:
     )
 
 
-def get_all_dataset_paths(eval_path: str) -> List[str]:
-    return [
-        f"{eval_path}/{system}/{dataset}"
-        for system in listdir(f"{eval_path}/")
-        for dataset in listdir(f"{eval_path}/{system}")
-    ]
-
-
 def parse_args():
-    ArgumentParser()
-    parser = ArgumentParser(description="Evaluate timing data for Monado visual-inertial tracking")
-    parser.add_argument('timing_csv', type=Path, help="Timing file generated from Monado")
-    parser.add_argument('gt_csv', type=Path, help="Groundtruth file for the dataset")
+    parser = ArgumentParser(
+        description="Evaluate timing data for Monado visual-inertial tracking",
+    )
+    parser.add_argument(
+        "timing_csv",
+        type=Path,
+        help="Timing file generated from Monado",
+    )
+    parser.add_argument(
+        "--units",
+        type=str,
+        help="Time units to show things on",
+        default="ms",
+        choices=["ns", "ms", "s"],
+    )
+    return parser.parse_args()
+
 
 def main():
-    stats = {}
-    systems = listdir(EVALUATION_PATH)
-    datasets = {ds for s in systems for ds in listdir(f"{EVALUATION_PATH}/{s}")}
-
-    for dataset in datasets:
-        stats[dataset] = {}
-        for system in systems:
-            timing_csv = f"{EVALUATION_PATH}/{system}/{dataset}/timing.csv"
-            if not exists(timing_csv) or stat(timing_csv).st_size == 0:
-                s = "—"
-            else:
-                i, j = INDICES[system[0]]
-                s = stats_from_csv(timing_csv, i, j, DIVIDE_BY)
-            stats[dataset][system] = s
-
-    headers = ["Dataset"] + systems
-    rows = [
-        [d]
-        + [
-            f"{s.mean:.2f} ± {s.std:.2f}" if type(s) != str else s
-            for ss, s in stats[d].items()
-        ]
-        for d in stats
-    ]
-    print(tabulate(rows, headers, tablefmt="pipe"))
+    user_args = parse_args()
+    csv_file = user_args.timing_csv
+    units = user_args.units
+    s = stats_from_csv(csv_file, divide_by=NS_TO[units])
+    print(s)
 
 
 if __name__ == "__main__":

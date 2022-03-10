@@ -3,17 +3,9 @@ from collections import namedtuple
 from argparse import ArgumentParser
 from pathlib import Path
 
-NS_TO = {"ns": 1, "ms": 1e6, "s": 1e9}
+from .utils import NS_TO, check_monotonic_rows
 
 Stats = namedtuple("Stats", ["mean", "std", "min", "q1", "q2", "q3", "max"])
-
-
-def check_monotonic_rows(rows: np.ndarray) -> None:
-    last_ts = 0
-    for row in rows:
-        ts = row[0]
-        assert last_ts < ts
-        last_ts = ts
 
 
 def stats_from_csv(csv_fn: str, i=0, j=-1, divide_by=1) -> Stats:

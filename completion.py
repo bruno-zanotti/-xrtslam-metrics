@@ -7,8 +7,6 @@ from tabulate import tabulate
 from utils import TIME_UNITS, NUMBER_OF_NS_IN, load_trajectory
 from dataclasses import dataclass
 
-args: Namespace  # Arguments from CLI
-
 
 @dataclass
 class CompletionStats:
@@ -18,6 +16,7 @@ class CompletionStats:
     last_gt_ts: int
     nof_tracked_poses: int
     nof_gt_poses: int
+    units: str
 
     @property
     def tracking_duration(self):
@@ -32,14 +31,12 @@ class CompletionStats:
         return self.tracking_duration / self.gt_duration
 
     def __str__(self):
-        units = args.units
-        div = NUMBER_OF_NS_IN[units]
-
+        units = self.units
         table = [
             ["Groundtruth poses", f"{self.nof_gt_poses}"],
             ["Estimated poses", f"{self.nof_tracked_poses}"],
-            ["Tracking duration", f"{self.tracking_duration / div:.2f}{units}"],
-            ["Groundtruth duration", f"{self.gt_duration / div:.2f}{units}"],
+            ["Tracking duration", f"{self.tracking_duration:.2f}{units}"],
+            ["Groundtruth duration", f"{self.gt_duration:.2f}{units}"],
             ["Tracking completion", f"{self.tracking_completion * 100:.2f}%"],
         ]
         return tabulate(table, tablefmt="pipe")
@@ -69,28 +66,32 @@ def parse_args():
     return parser.parse_args()
 
 
-def get_completion_stats(tracking_csv: Path, gt_csv: Path) -> CompletionStats:
-    tdata = load_trajectory(tracking_csv)
-    gdata = load_trajectory(gt_csv)
-
+def get_completion_stats(
+    tdata: np.ndarray, gdata: np.ndarray, units: str = "s"
+) -> CompletionStats:
     ttss = tdata[:, 0]
     gtss = gdata[:, 0]
 
-    t0, t1 = ttss[0], ttss[-1]
-    g0, g1 = gtss[0], gtss[-1]
+    div = NUMBER_OF_NS_IN[units]
+    t0, t1, g0, g1 = np.array([ttss[0], ttss[-1], gtss[0], gtss[-1]]) / div
 
-    stats = CompletionStats(t0, t1, g0, g1, ttss.size, gtss.size)
+    stats = CompletionStats(t0, t1, g0, g1, ttss.size, gtss.size, units)
     return stats
 
 
+def load_completion_stats(tracking_csv: Path, gt_csv: Path, units) -> CompletionStats:
+    tdata = load_trajectory(tracking_csv)
+    gdata = load_trajectory(gt_csv)
+    return get_completion_stats(tdata, gdata, units)
+
+
 def main():
-    global args
     args = parse_args()
     tracking_csv = args.tracking_csv
     groundtruth_csv = args.groundtruth_csv
     units = args.units
 
-    s = get_completion_stats(tracking_csv, groundtruth_csv)
+    s = load_completion_stats(tracking_csv, groundtruth_csv, units)
 
     print(str(s))
 

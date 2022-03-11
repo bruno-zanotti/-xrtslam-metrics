@@ -7,6 +7,8 @@ from tabulate import tabulate
 from utils import TIME_UNITS, NUMBER_OF_NS_IN, load_trajectory
 from dataclasses import dataclass
 
+DEFAULT_TIME_UNITS = "s"
+
 
 @dataclass
 class CompletionStats:
@@ -16,7 +18,7 @@ class CompletionStats:
     last_gt_ts: int
     nof_tracked_poses: int
     nof_gt_poses: int
-    units: str
+    units: str = DEFAULT_TIME_UNITS
 
     @property
     def tracking_duration(self):
@@ -60,14 +62,14 @@ def parse_args():
         "--units",
         type=str,
         help="Time units to show things on",
-        default="s",
+        default=DEFAULT_TIME_UNITS,
         choices=TIME_UNITS,
     )
     return parser.parse_args()
 
 
 def get_completion_stats(
-    tdata: np.ndarray, gdata: np.ndarray, units: str = "s"
+    tdata: np.ndarray, gdata: np.ndarray, units: str = DEFAULT_TIME_UNITS
 ) -> CompletionStats:
     ttss = tdata[:, 0]
     gtss = gdata[:, 0]
@@ -91,9 +93,8 @@ def main():
     groundtruth_csv = args.groundtruth_csv
     units = args.units
 
-    s = load_completion_stats(tracking_csv, groundtruth_csv, units)
-
-    print(str(s))
+    stats = load_completion_stats(tracking_csv, groundtruth_csv, units)
+    print(str(stats))
 
 
 if __name__ == "__main__":

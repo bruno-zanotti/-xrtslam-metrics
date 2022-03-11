@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+
 import numpy as np
 from collections import namedtuple
 from argparse import ArgumentParser, Namespace

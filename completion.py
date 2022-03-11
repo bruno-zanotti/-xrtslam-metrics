@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+
 from collections import namedtuple
 from typing import Tuple
 import numpy as np

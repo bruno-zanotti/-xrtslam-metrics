@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+
 from collections import namedtuple
 from subprocess import run
 from os import environ

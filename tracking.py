@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+
 from typing import Tuple
 from matplotlib import scale
 import numpy as np

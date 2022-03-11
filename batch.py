@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+
 import csv
 from typing import List
 from os import listdir, stat

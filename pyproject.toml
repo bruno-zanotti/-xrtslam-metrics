@@ -1,0 +1,22 @@
+[tool.poetry]
+name = "xrtslam-metrics"
+version = "0.1.0"
+description = "Evaluation of Monado SLAM tracking metrics"
+authors = ["Mateo de Mayo <mateo.demayo@collabora.com>"]
+license = "BSL-1.0"
+
+[tool.poetry.dependencies]
+python = "3.10"
+numpy = "1.22.3"
+tabulate = "0.8.9"
+evo = "1.18.0"
+matplotlib = "3.5.1"
+
+[tool.poetry.dev-dependencies]
+mypy = "0.931"
+ipdb = "0.13.9"
+black = "22.1.0"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"

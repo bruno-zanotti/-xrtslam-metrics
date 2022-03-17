@@ -83,7 +83,7 @@ def get_completion_stats(
     return stats
 
 
-def load_completion_stats(tracking_csv: Path, gt_csv: Path, units) -> CompletionStats:
+def load_completion_stats(tracking_csv: Path, gt_csv: Path, units=DEFAULT_TIME_UNITS) -> CompletionStats:
     tdata = load_trajectory(tracking_csv)
     gdata = load_trajectory(gt_csv)
     return get_completion_stats(tdata, gdata, units)

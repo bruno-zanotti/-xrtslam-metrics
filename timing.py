@@ -5,16 +5,15 @@ from collections import namedtuple
 from argparse import ArgumentParser, Namespace
 from pathlib import Path
 
-from utils import NUMBER_OF_NS_IN, TIME_UNITS, load_trajectory
+from utils import NUMBER_OF_NS_IN, TIME_UNITS, load_timing
 
 DEFAULT_TIME_UNITS = "ms"
 
 TimingStats = namedtuple("TimingStats", ["mean", "std", "min", "q1", "q2", "q3", "max"])
 
 
-def get_timing_stats(csv_fn: Path, i=0, j=-1, units=DEFAULT_TIME_UNITS) -> TimingStats:
-    rows = load_trajectory(csv_fn)
-    diffs = (rows[:, j] - rows[:, i]) / NUMBER_OF_NS_IN[units]
+def get_timing_stats(timing_data: np.ndarray, i=0, j=-1, units=DEFAULT_TIME_UNITS):
+    diffs = (timing_data[:, j] - timing_data[:, i]) / NUMBER_OF_NS_IN[units]
     return TimingStats(
         np.mean(diffs),
         np.std(diffs),
@@ -24,6 +23,11 @@ def get_timing_stats(csv_fn: Path, i=0, j=-1, units=DEFAULT_TIME_UNITS) -> Timin
         np.quantile(diffs, 0.75),
         np.max(diffs),
     )
+
+
+def load_timing_stats(csv_fn: Path, **kwargs) -> TimingStats:
+    timing_data = load_timing(csv_fn)
+    return get_timing_stats(timing_data, **kwargs)
 
 
 def parse_args():
@@ -64,7 +68,7 @@ def main():
     start_ts_idx = args.start_ts_idx
     end_ts_idx = args.end_ts_idx
     units = args.units
-    s = get_timing_stats(csv_file, start_ts_idx, end_ts_idx, units)
+    s = load_timing_stats(csv_file, start_ts_idx, end_ts_idx, units)
     print(s)
 
 

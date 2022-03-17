@@ -15,7 +15,13 @@ def check_monotonic_rows(rows: np.ndarray) -> None:
 
 
 def load_trajectory(csv_fn: Path, dtype=np.int64) -> np.ndarray:
-    data = np.genfromtxt(csv_fn, delimiter=",", comments="#", dtype=dtype)
+    data = np.genfromtxt(
+        csv_fn, delimiter=",", comments="#", dtype=dtype, invalid_raise=False
+    )
     check_monotonic_rows(data)
     # TODO: Add unit quaternion check
     return data
+
+
+def load_timing(csv_fn: Path, dtype=np.int64) -> np.ndarray:
+    return load_trajectory(csv_fn, dtype)

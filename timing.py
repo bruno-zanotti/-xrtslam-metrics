@@ -1,12 +1,12 @@
 #!/usr/bin/env python
 
-from dataclasses import dataclass
 from typing import List, Optional, Tuple
 import numpy as np
 from argparse import ArgumentParser
 from pathlib import Path
+import matplotlib.pyplot as plt
 
-from utils import NUMBER_OF_NS_IN, TIME_UNITS, load_timing
+from utils import COLORS, NUMBER_OF_NS_IN, TIME_UNITS, load_timing
 
 DEFAULT_TIME_UNITS = "ms"
 
@@ -29,7 +29,9 @@ class TimingStats:
         else:
             raise Exception(f"Invalid parameters for {TimingStats.__name__}")
 
-        assert self.column_names is not None and self.timing_data is not None # silence mypy
+        # silence mypy
+        assert self.column_names is not None and self.timing_data is not None
+
         assert (
             len(self.column_names) == self.timing_data.shape[1]
         ), "column names differ from data columns"
@@ -43,10 +45,11 @@ class TimingStats:
         ), f"columns '{first}' or '{last}' not in {self.column_names=}"
         self.first_column = first
         self.last_column = last
-        i, j = self.column_names.index(first), self.column_names.index(last)
+        self.i = self.column_names.index(first)
+        self.j = self.column_names.index(last)
 
         self.diffs = (
-            self.timing_data[:, j] - self.timing_data[:, i]
+            self.timing_data[:, self.j] - self.timing_data[:, self.i]
         ) / NUMBER_OF_NS_IN[self.units]
 
     @property
@@ -79,6 +82,39 @@ class TimingStats:
 
     def __str__(self) -> str:
         return f"TimingStats(mean={self.mean}, std={self.std}, min={self.min}, q1={self.q1}, q2={self.q2}, q3={self.q3}, max={self.max}) from '{self.first_column}' to '{self.last_column}'"
+
+    def plot(self) -> None:
+        td = self.timing_data
+
+        framepose_tss = (td[:, 0] - td[0, 0]) / NUMBER_OF_NS_IN["s"]
+
+        td1 = np.concatenate((td[:, 0].reshape(td.shape[0], 1), td[:, :-1]), axis=1)
+        td2 = td - td1
+        assert not td2[:, 0].any(), "first column should be zeroed out by this point"
+        # assert td2[123, 7] == td[123, 7] - td[123, 6] # random check that should pass
+        td3 = td2 / NUMBER_OF_NS_IN[self.units]
+
+        deltas_by_column = [td3[:, i] for i, cn in enumerate(self.column_names)]
+
+        labels = [
+            f"{i+1}. {cn}"
+            for i, cn in enumerate(self.column_names[self.i : self.j + 1])
+        ]
+
+        fig, ax = plt.subplots()
+        ax.stackplot(
+            framepose_tss,
+            deltas_by_column[self.i : self.j + 1],
+            labels=labels,
+            colors=COLORS,
+            alpha=0.8,
+        )
+        ax.legend(loc="upper right")
+        ax.set_title("Stacked timing")
+        ax.set_xlabel("Dataset time (s)")
+        ax.set_ylabel("Processing duration (ms)")
+
+        plt.show()
 
 
 def parse_args():
@@ -118,10 +154,6 @@ def parse_args():
     return parser.parse_args()
 
 
-def plot_timing(csv_file: Path, timing_data: np.ndarray) -> None:
-    pass
-
-
 def main():
     global args
     args = parse_args()
@@ -134,7 +166,7 @@ def main():
     print(s)
 
     if plot:
-        plot_timing(csv_file)
+        s.plot()
 
 
 if __name__ == "__main__":

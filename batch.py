@@ -13,7 +13,11 @@ DIVIDE_BY = 1000000  # TODO: Use --units (make it a parent argparser)
 EVALUATION_PATH = Path("runs")
 # EVALUATION_PATH = Path("runs-max-speed")
 TARGETS_PATH = Path("targets")
-INDICES = {"K": (3, 4), "B": (4, 11), "O": (4, 5)}
+TIMING_COLUMNS = {
+    "K": ("tracker_pushed", "processed"),
+    "B": ("opticalflow_received", "vio_produced"),
+    "O": ("about_to_process", "processed"),
+}
 UNITS = "ms"
 
 SimpleMeasureF = Callable[[Path, str], str]
@@ -49,8 +53,8 @@ def foreach_dataset(
 
 def timing_main():
     def measure_timing(result_csv: Path, sys_name: str) -> str:
-        i, j = INDICES[sys_name[0]]
-        s = load_timing_stats(result_csv, i=i, j=j)
+        col1, col2 = TIMING_COLUMNS[sys_name[0]]
+        s = load_timing_stats(result_csv, col1, col2)
         return f"{s.mean:.2f} ± {s.std:.2f}"
 
     foreach_dataset("timing.csv", None, measure_timing)

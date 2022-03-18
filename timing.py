@@ -12,7 +12,7 @@ DEFAULT_TIME_UNITS = "ms"
 TimingStats = namedtuple("TimingStats", ["mean", "std", "min", "q1", "q2", "q3", "max"])
 
 
-def get_timing_stats(timing_data: np.ndarray, i=0, j=-1, units=DEFAULT_TIME_UNITS):
+def get_timing_stats(timing_data: np.ndarray, i: int, j: int, units=DEFAULT_TIME_UNITS):
     diffs = (timing_data[:, j] - timing_data[:, i]) / NUMBER_OF_NS_IN[units]
     return TimingStats(
         np.mean(diffs),
@@ -25,9 +25,17 @@ def get_timing_stats(timing_data: np.ndarray, i=0, j=-1, units=DEFAULT_TIME_UNIT
     )
 
 
-def load_timing_stats(csv_fn: Path, **kwargs) -> TimingStats:
-    timing_data = load_timing(csv_fn)
-    return get_timing_stats(timing_data, **kwargs)
+def load_timing_stats(
+    csv_fn: Path, col1: str, col2: str, units=DEFAULT_TIME_UNITS
+) -> TimingStats:
+    column_names, timing_data = load_timing(csv_fn)
+
+    assert (
+        col1 in column_names and col2 in column_names
+    ), f"columns '{col1}' or '{col2}' not in {column_names=}"
+
+    i, j = column_names.index(col1), column_names.index(col2)
+    return get_timing_stats(timing_data, i, j, units)
 
 
 def parse_args():
@@ -40,16 +48,16 @@ def parse_args():
         help="Timing file generated from Monado",
     )
     parser.add_argument(
-        "--start_ts_idx",
-        type=int,
-        default=0,
-        help="Column index of timing_csv to use as first timestamp",
+        "first_column",
+        type=str,
+        # default="tracker_receiving_left_frame", TODO: Standardize a couple of column names
+        help="Column name of timing_csv to use as first timestamp",
     )
     parser.add_argument(
-        "--end_ts_idx",
-        type=int,
-        default=-1,
-        help="Column index of timing_csv to use as last timestamp",
+        "last_column",
+        type=str,
+        # default="tracker_processed_pose", TODO: Standardize a couple of column names
+        help="Column name of timing_csv to use as last timestamp",
     )
     parser.add_argument(
         "--units",
@@ -65,10 +73,10 @@ def main():
     global args
     args = parse_args()
     csv_file = args.timing_csv
-    start_ts_idx = args.start_ts_idx
-    end_ts_idx = args.end_ts_idx
+    first_column = args.first_column
+    last_column = args.last_column
     units = args.units
-    s = load_timing_stats(csv_file, start_ts_idx, end_ts_idx, units)
+    s = load_timing_stats(csv_file, first_column, last_column, units)
     print(s)
 
 

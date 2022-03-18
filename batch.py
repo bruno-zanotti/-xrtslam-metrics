@@ -2,7 +2,7 @@
 
 from typing import Callable, Optional, Union
 from tabulate import tabulate
-from timing import load_timing_stats
+from timing import TimingStats
 from completion import load_completion_stats
 from tracking import get_tracking_ape_stats, get_tracking_rpe_stats
 from pathlib import Path
@@ -53,8 +53,7 @@ def foreach_dataset(
 
 def timing_main():
     def measure_timing(result_csv: Path, sys_name: str) -> str:
-        col1, col2 = TIMING_COLUMNS[sys_name[0]]
-        s = load_timing_stats(result_csv, col1, col2)
+        s = TimingStats(csv_fn=result_csv, cols=TIMING_COLUMNS[sys_name[0]])
         return f"{s.mean:.2f} ± {s.std:.2f}"
 
     foreach_dataset("timing.csv", None, measure_timing)

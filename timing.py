@@ -1,41 +1,84 @@
 #!/usr/bin/env python
 
+from dataclasses import dataclass
+from typing import List, Optional, Tuple
 import numpy as np
-from collections import namedtuple
-from argparse import ArgumentParser, Namespace
+from argparse import ArgumentParser
 from pathlib import Path
 
 from utils import NUMBER_OF_NS_IN, TIME_UNITS, load_timing
 
 DEFAULT_TIME_UNITS = "ms"
 
-TimingStats = namedtuple("TimingStats", ["mean", "std", "min", "q1", "q2", "q3", "max"])
 
+class TimingStats:
+    def __init__(
+        self,
+        csv_fn: Optional[Path] = None,
+        column_names: Optional[List[str]] = None,
+        timing_data: Optional[np.ndarray] = None,
+        cols: Optional[Tuple[str, str]] = None,
+        units: str = DEFAULT_TIME_UNITS,
+    ):
+        self.units = units
+        if column_names and timing_data:
+            self.column_names = column_names
+            self.timing_data = timing_data
+        elif csv_fn:
+            self.column_names, self.timing_data = load_timing(csv_fn)
+        else:
+            raise Exception(f"Invalid parameters for {TimingStats.__name__}")
 
-def get_timing_stats(timing_data: np.ndarray, i: int, j: int, units=DEFAULT_TIME_UNITS):
-    diffs = (timing_data[:, j] - timing_data[:, i]) / NUMBER_OF_NS_IN[units]
-    return TimingStats(
-        np.mean(diffs),
-        np.std(diffs),
-        np.min(diffs),
-        np.quantile(diffs, 0.25),
-        np.median(diffs),
-        np.quantile(diffs, 0.75),
-        np.max(diffs),
-    )
+        assert self.column_names is not None and self.timing_data is not None # silence mypy
+        assert (
+            len(self.column_names) == self.timing_data.shape[1]
+        ), "column names differ from data columns"
 
+        if cols:
+            self.set_cols(*cols)
 
-def load_timing_stats(
-    csv_fn: Path, col1: str, col2: str, units=DEFAULT_TIME_UNITS
-) -> TimingStats:
-    column_names, timing_data = load_timing(csv_fn)
+    def set_cols(self, first: str, last: str):
+        assert (
+            first in self.column_names and last in self.column_names
+        ), f"columns '{first}' or '{last}' not in {self.column_names=}"
+        self.first_column = first
+        self.last_column = last
+        i, j = self.column_names.index(first), self.column_names.index(last)
 
-    assert (
-        col1 in column_names and col2 in column_names
-    ), f"columns '{col1}' or '{col2}' not in {column_names=}"
+        self.diffs = (
+            self.timing_data[:, j] - self.timing_data[:, i]
+        ) / NUMBER_OF_NS_IN[self.units]
 
-    i, j = column_names.index(col1), column_names.index(col2)
-    return get_timing_stats(timing_data, i, j, units)
+    @property
+    def mean(self):
+        return np.mean(self.diffs)
+
+    @property
+    def std(self):
+        return np.std(self.diffs)
+
+    @property
+    def min(self):
+        return np.min(self.diffs)
+
+    @property
+    def q1(self):
+        return np.quantile(self.diffs, 0.25)
+
+    @property
+    def q2(self):
+        return np.median(self.diffs)
+
+    @property
+    def q3(self):
+        return np.quantile(self.diffs, 0.75)
+
+    @property
+    def max(self):
+        return np.max(self.diffs)
+
+    def __str__(self) -> str:
+        return f"TimingStats(mean={self.mean}, std={self.std}, min={self.min}, q1={self.q1}, q2={self.q2}, q3={self.q3}, max={self.max}) from '{self.first_column}' to '{self.last_column}'"
 
 
 def parse_args():
@@ -60,6 +103,12 @@ def parse_args():
         help="Column name of timing_csv to use as last timestamp",
     )
     parser.add_argument(
+        "-p",
+        "--plot",
+        help="Whether to plot a stacked timing graph",
+        action="store_true",
+    )
+    parser.add_argument(
         "--units",
         type=str,
         help="Time units to show things on",
@@ -69,15 +118,23 @@ def parse_args():
     return parser.parse_args()
 
 
+def plot_timing(csv_file: Path, timing_data: np.ndarray) -> None:
+    pass
+
+
 def main():
     global args
     args = parse_args()
     csv_file = args.timing_csv
     first_column = args.first_column
     last_column = args.last_column
+    plot = args.plot
     units = args.units
-    s = load_timing_stats(csv_file, first_column, last_column, units)
+    s = TimingStats(csv_fn=csv_file, cols=(first_column, last_column), units=units)
     print(s)
+
+    if plot:
+        plot_timing(csv_file)
 
 
 if __name__ == "__main__":

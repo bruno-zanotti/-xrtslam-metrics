@@ -43,7 +43,7 @@ def parse_args():
     parser.add_argument(
         "-p",
         "--plot",
-        help="Dataset groundtruth file",
+        help="Enable to show trajectory plot",
         action="store_true",
     )
     return parser.parse_args()

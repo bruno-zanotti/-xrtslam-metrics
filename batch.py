@@ -1,12 +1,13 @@
 #!/usr/bin/env python
 
+from pathlib import Path
 from typing import Callable, Optional, Union
+
+import pandas as pd
 from tabulate import tabulate
 from timing import TimingStats
 from completion import load_completion_stats
 from tracking import get_tracking_ape_stats, get_tracking_rpe_stats
-from pathlib import Path
-import pandas as pd
 
 # TODO: Use argparse
 DIVIDE_BY = 1000000  # TODO: Use --units (make it a parent argparser)

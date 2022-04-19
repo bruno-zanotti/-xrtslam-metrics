@@ -1,13 +1,13 @@
 #!/usr/bin/env python
 
-from collections import namedtuple
-from typing import Tuple
-import numpy as np
-from argparse import ArgumentParser, Namespace
+from argparse import ArgumentParser
 from pathlib import Path
-from tabulate import tabulate
-from utils import TIME_UNITS, NUMBER_OF_NS_IN, load_trajectory
 from dataclasses import dataclass
+
+import numpy as np
+from tabulate import tabulate
+
+from utils import TIME_UNITS, NUMBER_OF_NS_IN, load_trajectory
 
 DEFAULT_TIME_UNITS = "s"
 
@@ -83,7 +83,9 @@ def get_completion_stats(
     return stats
 
 
-def load_completion_stats(tracking_csv: Path, gt_csv: Path, units=DEFAULT_TIME_UNITS) -> CompletionStats:
+def load_completion_stats(
+    tracking_csv: Path, gt_csv: Path, units=DEFAULT_TIME_UNITS
+) -> CompletionStats:
     tdata = load_trajectory(tracking_csv)
     gdata = load_trajectory(gt_csv)
     return get_completion_stats(tdata, gdata, units)

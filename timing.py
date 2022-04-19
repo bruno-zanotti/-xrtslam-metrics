@@ -1,9 +1,10 @@
 #!/usr/bin/env python
 
-from typing import List, Optional, Tuple
-import numpy as np
 from argparse import ArgumentParser
 from pathlib import Path
+from typing import List, Optional, Tuple
+
+import numpy as np
 import matplotlib.pyplot as plt
 
 from utils import COLORS, NUMBER_OF_NS_IN, TIME_UNITS, load_timing
@@ -101,7 +102,7 @@ class TimingStats:
             for i, cn in enumerate(self.column_names[self.i : self.j + 1])
         ]
 
-        fig, ax = plt.subplots()
+        _, ax = plt.subplots()
         ax.stackplot(
             framepose_tss,
             deltas_by_column[self.i : self.j + 1],
@@ -155,7 +156,6 @@ def parse_args():
 
 
 def main():
-    global args
     args = parse_args()
     csv_file = args.timing_csv
     first_column = args.first_column

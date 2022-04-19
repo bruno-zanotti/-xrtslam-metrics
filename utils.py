@@ -1,6 +1,7 @@
-from typing import List, Tuple
-import numpy as np
 from pathlib import Path
+from typing import List, Tuple
+
+import numpy as np
 
 NUMBER_OF_NS_IN = {"ns": 1, "us": 1e3, "ms": 1e6, "s": 1e9}
 TIME_UNITS = NUMBER_OF_NS_IN.keys()
@@ -51,7 +52,7 @@ def load_trajectory(csv_fn: Path, dtype=np.int64) -> np.ndarray:
 def load_timing(csv_fn: Path, dtype=np.int64) -> Tuple[List[str], np.ndarray]:
     timing_data = load_trajectory(csv_fn, dtype)
 
-    with open(csv_fn, "r") as f:
+    with open(csv_fn, "r", encoding="utf8") as f:
         first_line = next(f)
     assert (
         first_line[0] == "#" and first_line[-1] == "\n"

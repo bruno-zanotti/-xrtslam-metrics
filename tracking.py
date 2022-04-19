@@ -1,11 +1,10 @@
 #!/usr/bin/env python
 
 from typing import Tuple
-from matplotlib import scale
-import numpy as np
 from pathlib import Path
 from argparse import ArgumentParser
 
+import matplotlib.pyplot as plt
 from evo.tools import file_interface, plot
 from evo.tools.plot import PlotMode
 from evo.core import sync
@@ -13,10 +12,8 @@ from evo.core.trajectory import PoseTrajectory3D
 import evo.main_ape as main_ape
 import evo.main_rpe as main_rpe
 from evo.core.metrics import PoseRelation, Unit
-from evo.tools.settings import SETTINGS
 
-from completion import get_completion_stats, CompletionStats
-from utils import load_trajectory
+from completion import CompletionStats
 
 
 def parse_args():
@@ -73,7 +70,8 @@ def get_sanitized_trajectories(
     # TODO: PR with a more realtime-appropriate trajectory alignment.
     # `associate_trajectories`` synchronizes the two trajectories as follows:
     # 1. The trajectory with less poses is kept
-    # 2. In the second trajectory only the poses with closest timestamps to the first trajectory are kept.
+    # 2. In the second trajectory only the poses with closest timestamps to the
+    #    first trajectory are kept.
     # A way of syncing trajectories a tad more meaningful for VR would be to
     # always use the previously tracked pose for each groundtruth pose.
     traj_ref, traj_est = sync.associate_trajectories(traj_ref, traj_est)
@@ -104,8 +102,6 @@ def get_tracking_ape_stats(
     )
 
     if show_plot:
-        import matplotlib.pyplot as plt
-
         fig = plt.figure()
         plot_mode = PlotMode.xyz
         ax = plot.prepare_axis(fig, plot_mode)
@@ -151,8 +147,6 @@ def get_tracking_rpe_stats(
     )
 
     if show_plot:
-        import matplotlib.pyplot as plt
-
         fig = plt.figure()
         plot_mode = PlotMode.xyz
         ax = plot.prepare_axis(fig, plot_mode)

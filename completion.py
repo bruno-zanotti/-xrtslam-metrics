@@ -56,9 +56,9 @@ def parse_args():
         help="File generated from Monado (either tracking.csv or timing.csv)",
     )
     parser.add_argument(
-        "groundtruth_csv",
+        "cam_timestamps_csv",
         type=Path,
-        help="Dataset groundtruth file",
+        help="Dataset cam0.csv (groundtruth file also works but is less precise)",
     )
     parser.add_argument(
         "--units",

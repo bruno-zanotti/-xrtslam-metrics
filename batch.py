@@ -53,6 +53,7 @@ def foreach_dataset(
 
 
 def timing_main():
+    print("\nAverage pose estimation time [ms]\n")
     def measure_timing(result_csv: Path, sys_name: str) -> str:
         s = TimingStats(csv_fn=result_csv, cols=TIMING_COLUMNS[sys_name[0]])
         return f"{s.mean:.2f} ± {s.std:.2f}"
@@ -61,6 +62,7 @@ def timing_main():
 
 
 def completion_main():
+    print("\nAverage completion percentage [%]\n")
     def measure_completion(result_csv: Path, target_csv: Path) -> str:
         s = load_completion_stats(result_csv, target_csv)
         r = (
@@ -74,6 +76,7 @@ def completion_main():
 
 
 def ate_main():
+    print("\nAbsolute trajectory error (ATE) [m]\n")
     def measure_ape(result_csv: Path, target_csv: Path) -> str:
         s = get_tracking_ape_stats(result_csv, target_csv)[0].stats
         return f"{s['mean']:.3f} ± {s['std']:.3f}"
@@ -82,9 +85,10 @@ def ate_main():
 
 
 def rte_main():
+    print("\nRelative trajectory error (RTE) [m]\n")
     def measure_rpe(result_csv: Path, target_csv: Path) -> str:
         s = get_tracking_rpe_stats(result_csv, target_csv)[0].stats
-        return f"{s['mean']:.3f} ± {s['std']:.3f}"
+        return f"{s['mean']:.6f} ± {s['std']:.6f}"
 
     foreach_dataset("tracking.csv", "gt.csv", measure_rpe)
 

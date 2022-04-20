@@ -7,9 +7,7 @@ from typing import List, Optional, Tuple
 import numpy as np
 import matplotlib.pyplot as plt
 
-from utils import COLORS, NUMBER_OF_NS_IN, TIME_UNITS, load_timing
-
-DEFAULT_TIME_UNITS = "ms"
+from utils import COLORS, NUMBER_OF_NS_IN, TIME_UNITS, DEFAULT_TIME_UNITS, load_timing
 
 
 class TimingStats:

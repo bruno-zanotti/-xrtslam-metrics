@@ -5,6 +5,7 @@ import numpy as np
 
 NUMBER_OF_NS_IN = {"ns": 1, "us": 1e3, "ms": 1e6, "s": 1e9}
 TIME_UNITS = NUMBER_OF_NS_IN.keys()
+DEFAULT_TIME_UNITS = "ms"
 COLORS = [  # Regular cycle
     "#2196F3",  # blue
     "#4CAF50",  # green
@@ -64,3 +65,43 @@ def load_timing(csv_fn: Path, dtype=np.int64) -> Tuple[List[str], np.ndarray]:
     ), "column names differ from data columns"
 
     return column_names, timing_data
+
+
+# Logging utils
+
+
+def color_string(string, fg=None):
+    ANSI_COLORS = {  # List some colors that may be needed
+        "red": "\033[31m",
+        "pink": "\033[38;5;206m",
+        "green": "\033[32m",
+        "orange": "\033[33m",
+        "blue": "\033[34m",
+        "cyan": "\033[36m",
+        "lightred": "\033[91m",
+        "lightgreen": "\033[92m",
+        "yellow": "\033[93m",
+        "lightblue": "\033[94m",
+        "lightcyan": "\033[96m",
+        "brightwhite": "\u001b[37;1m",
+        "brightmagenta": "\u001b[35;1m",
+    }
+    endcolor = "\033[0m"
+    return f"{ANSI_COLORS.get(fg, '')}{string}{endcolor}"
+
+
+def info(*lines):
+    for line in lines:
+        print(f"{color_string('[I] ', fg='cyan')}{line}")
+
+
+def error(*lines, should_exit=True):
+    for line in lines:
+        print(f"{color_string('[E] ', fg='lightred')}{line}")
+    if should_exit:
+        exit(1)
+
+
+def warning(*lines):
+    for line in lines:
+        print(f"{color_string('[W] ', fg='yellow')}{line}")

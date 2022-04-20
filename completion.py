@@ -9,7 +9,7 @@ from tabulate import tabulate
 
 from utils import TIME_UNITS, NUMBER_OF_NS_IN, load_trajectory
 
-DEFAULT_TIME_UNITS = "s"
+DEFAULT_TIME_UNITS = "s"  # Do not use utils.DEFAULT_TIME_UNITS
 
 
 @dataclass

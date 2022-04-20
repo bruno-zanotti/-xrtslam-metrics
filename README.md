@@ -37,7 +37,10 @@ See what percentage of the dataset the run was able to complete without crashing
 See ATE or RTE stats for a particular run.
 
 ```bash
-./tracking.py ate test/data/runs/Basalt/EV202/tracking.csv test/data/targets/EV202/gt.csv --plot --plot_mode xyz
+./tracking.py ate test/data/targets/EV202/gt.csv test/data/runs/Basalt/EV202/tracking.csv --plot --plot_mode xyz
+
+# Or if you want to compare multiple trajectories
+./tracking.py ate test/data/targets/EMH02/gt.csv test/data/runs/Basalt/EMH02/tracking.csv test/data/runs/ORB-SLAM3/EMH02/tracking.csv --plot --plot_mode xy
 ```
 
 ### Batch comparison

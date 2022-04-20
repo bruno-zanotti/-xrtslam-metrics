@@ -6,6 +6,7 @@ import numpy as np
 NUMBER_OF_NS_IN = {"ns": 1, "us": 1e3, "ms": 1e6, "s": 1e9}
 TIME_UNITS = NUMBER_OF_NS_IN.keys()
 DEFAULT_TIME_UNITS = "ms"
+COMPLETION_FULL_SINCE = 0.98  # Completion ratio to consider a complete run
 COLORS = [  # Regular cycle
     "#2196F3",  # blue
     "#4CAF50",  # green
@@ -31,6 +32,8 @@ COLORS = [  # Regular cycle
     "#263238",  # shade of gray
     "#212121",  # shade of gray
 ] + ["#000000"] * 100
+
+make_color_iterator = lambda: (c for c in COLORS)
 
 
 def check_monotonic_rows(rows: np.ndarray) -> None:
@@ -102,6 +105,6 @@ def error(*lines, should_exit=True):
         exit(1)
 
 
-def warning(*lines):
+def warn(*lines):
     for line in lines:
         print(f"{color_string('[W] ', fg='yellow')}{line}")

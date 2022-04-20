@@ -9,8 +9,8 @@ import pandas as pd
 from tabulate import tabulate
 from timing import TimingStats
 from completion import load_completion_stats
-from tracking import get_tracking_ape_stats, get_tracking_rpe_stats
-from utils import error
+from tracking import get_tracking_stats
+from utils import COMPLETION_FULL_SINCE, error
 
 
 @dataclass
@@ -76,7 +76,7 @@ def completion_main(batch: Batch):
         s = load_completion_stats(result_csv, target_csv)
         r = (
             f"{s.tracking_completion * 100:.2f}%"
-            if s.tracking_completion < 0.98
+            if s.tracking_completion < COMPLETION_FULL_SINCE
             else "✓"
         )
         return r
@@ -88,7 +88,8 @@ def ate_main(batch: Batch):
     print("\nAbsolute trajectory error (ATE) [m]\n")
 
     def measure_ape(result_csv: Path, target_csv: Path) -> str:
-        s = get_tracking_ape_stats(result_csv, target_csv)[0].stats
+        results = get_tracking_stats("ate", [result_csv], target_csv, silence=True)
+        s = results[result_csv].stats
         return f"{s['mean']:.3f} ± {s['std']:.3f}"
 
     foreach_dataset(batch, "tracking.csv", "gt.csv", measure_ape)
@@ -98,7 +99,8 @@ def rte_main(batch: Batch):
     print("\nRelative trajectory error (RTE) [m]\n")
 
     def measure_rpe(result_csv: Path, target_csv: Path) -> str:
-        s = get_tracking_rpe_stats(result_csv, target_csv)[0].stats
+        results = get_tracking_stats("rte", [result_csv], target_csv, silence=True)
+        s = results[result_csv].stats
         return f"{s['mean']:.6f} ± {s['std']:.6f}"
 
     foreach_dataset(batch, "tracking.csv", "gt.csv", measure_rpe)

@@ -183,7 +183,8 @@ def main():
         assert False
 
     print(result)
-    print(completion)
+    # print("\nCompletion:")
+    # print(completion)
 
     # TODO: Try to reuse EVO settings as much as possible
     # TODO: Bring position/rpy graphs as well like in evo_traj

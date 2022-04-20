@@ -94,10 +94,10 @@ def load_completion_stats(
 def main():
     args = parse_args()
     tracking_csv = args.tracking_csv
-    groundtruth_csv = args.groundtruth_csv
+    cam_timestamps_csv = args.cam_timestamps_csv
     units = args.units
 
-    stats = load_completion_stats(tracking_csv, groundtruth_csv, units)
+    stats = load_completion_stats(tracking_csv, cam_timestamps_csv, units)
     print(str(stats))
 
 

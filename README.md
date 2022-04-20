@@ -53,3 +53,10 @@ will be fixed once standard start/end column names are in place.
   --timing Kimera tracker_pushed processed \
   --timing ORB-SLAM3 about_to_process processed
 ```
+
+`batch.py` expects the `targets` directory to have camera timestamps `cam0.csv`
+and optionally groundtruth `gt.csv` files that you can get from the datasets
+themselves. To ease things a bit, you can uncompress `tar -xvf
+test/data/targets-full.tar.xz -C test/data/` to get those files for all EuRoC,
+TUM-VI room, and [our custom (without
+groundtruth)](https://bit.ly/monado-datasets) inside `test/data/targets`.

@@ -2,3 +2,4 @@
 __pycache__
 evaluation
 .mypy_cache
+test/data

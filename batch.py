@@ -90,7 +90,7 @@ def ate_main(batch: Batch):
     def measure_ape(result_csv: Path, target_csv: Path) -> str:
         results = get_tracking_stats("ate", [result_csv], target_csv, silence=True)
         s = results[result_csv].stats
-        return f"{s['mean']:.3f} ± {s['std']:.3f}"
+        return f"{s['rmse']:.3f} ± {s['std']:.3f}"  # Notice that std runs over APE while rmse over APE²
 
     foreach_dataset(batch, "tracking.csv", "gt.csv", measure_ape)
 
@@ -101,7 +101,7 @@ def rte_main(batch: Batch):
     def measure_rpe(result_csv: Path, target_csv: Path) -> str:
         results = get_tracking_stats("rte", [result_csv], target_csv, silence=True)
         s = results[result_csv].stats
-        return f"{s['mean']:.6f} ± {s['std']:.6f}"
+        return f"{s['rmse']:.6f ± {s['std']:.6f}}"  # Notice that std runs over RPE while rmse over RPE²
 
     foreach_dataset(batch, "tracking.csv", "gt.csv", measure_rpe)
 

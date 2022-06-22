@@ -3,9 +3,10 @@
 from argparse import ArgumentParser, RawTextHelpFormatter
 from dataclasses import dataclass
 from pathlib import Path
-from typing import Callable, Dict, Optional, Tuple, Union
+from typing import Any, Callable, Dict, Optional, Tuple, Union
 
 import pandas as pd
+import numpy as np
 from tabulate import tabulate
 from timing import TimingStats
 from features import FeaturesStats
@@ -21,16 +22,18 @@ class Batch:
     timing_columns: Dict[str, Tuple[str, str]]
 
 
-SimpleMeasureF = Callable[[Path, str], str]
-TargetMeasureF = Callable[[Path, Path], str]
+SimpleMeasureF = Callable[[Path, str], Any]
+TargetMeasureF = Callable[[Path, Path], Any]
 MeasureFunction = Union[SimpleMeasureF, TargetMeasureF]
+MeasureStringFunction = Callable[[Any], str]
 
 
 def foreach_dataset(
     batch: Batch,
     result_fn: str,
     target_fn: Optional[str],
-    measure_str,  #: MeasureFunction
+    measure,  #: MeasureFunction
+    measure_str: MeasureStringFunction,
 ):
     sys_dirs = [r for r in batch.evaluation_path.iterdir() if r.is_dir()]
     ordered_set = {d.name: 0 for r in sys_dirs for d in r.iterdir() if d.is_dir()}
@@ -46,34 +49,48 @@ def foreach_dataset(
                 result_csv = ds_dir / result_fn
                 if result_csv.exists() and result_csv.stat().st_size != 0:
                     if target_fn is None:
-                        df[sys_name][ds_name] = measure_str(result_csv, sys_name)
+                        df[sys_name][ds_name] = measure(result_csv, sys_name)
                     else:
                         target_csv = batch.targets_path / ds_name / target_fn
                         if target_csv.exists():
-                            df[sys_name][ds_name] = measure_str(result_csv, target_csv)
+                            df[sys_name][ds_name] = measure(result_csv, target_csv)
 
-    print(tabulate(df, headers="keys", tablefmt="pipe"))
+    # Add average row
+    avg_row = df.apply(lambda col: col.mean(), result_type="reduce")
+    new_index = df.shape[0]
+    df.loc[new_index] = avg_row
+    df = df.rename({new_index: "[AVG]"})
+    df_to_string = df.applymap(measure_str)
+    print(tabulate(df_to_string, headers="keys", tablefmt="pipe"))
 
 
 def timing_main(batch: Batch):
-    print("\nAverage pose estimation time [ms]\n")
+    print("\nAverage (± stdev) pose estimation time [ms]\n")
 
-    def measure_timing(result_csv: Path, sys_name: str) -> str:
+    def measure_timing(result_csv: Path, sys_name: str) -> np.ndarray:
         cols = batch.timing_columns.get(sys_name, DEFAULT_TIMING_COLS)
         s = TimingStats(csv_fn=result_csv, cols=cols)
-        return f"{s.mean:.2f} ± {s.std:.2f}"
+        return np.array([s.mean, s.std])
 
-    foreach_dataset(batch, "timing.csv", None, measure_timing)
+    def measure_timing_str(measure: np.ndarray) -> str:
+        mean, std = measure
+        return f"{mean:.2f} ± {std:.2f}"
+
+    foreach_dataset(batch, "timing.csv", None, measure_timing, measure_timing_str)
 
 
 def features_main(batch: Batch):
-    print("\nAverage (± stdev) feature count for each camera\n")
+    print("\nAverage feature count for each camera\n")
 
-    def measure_features(result_csv: Path, sys_name: str) -> str:
+    def measure_features(result_csv: Path, sys_name: str) -> np.ndarray:
         s = FeaturesStats(csv_fn=result_csv)
-        return f"{s.mean.astype(int)} ± {s.std.astype(int)}"
+        return np.array([s.mean, s.std])
 
-    foreach_dataset(batch, "features.csv", None, measure_features)
+    def measure_features_str(measure: np.ndarray) -> str:
+        mean, std = measure
+        return f"{mean.astype(int)} ± {std.astype(int)}"
+
+    foreach_dataset(batch, "features.csv", None, measure_features, measure_features_str)
 
 
 def completion_main(batch: Batch):
@@ -81,14 +98,14 @@ def completion_main(batch: Batch):
 
     def measure_completion(result_csv: Path, target_csv: Path) -> str:
         s = load_completion_stats(result_csv, target_csv)
-        r = (
-            f"{s.tracking_completion * 100:.2f}%"
-            if s.tracking_completion < COMPLETION_FULL_SINCE
-            else "✓"
-        )
-        return r
+        return s.tracking_completion
 
-    foreach_dataset(batch, "tracking.csv", "cam0.csv", measure_completion)
+    def measure_completion_str(completion: float) -> str:
+        return f"{completion * 100:.2f}%" if completion < COMPLETION_FULL_SINCE else "✓"
+
+    foreach_dataset(
+        batch, "tracking.csv", "cam0.csv", measure_completion, measure_completion_str
+    )
 
 
 def ate_main(batch: Batch):
@@ -97,9 +114,14 @@ def ate_main(batch: Batch):
     def measure_ape(result_csv: Path, target_csv: Path) -> str:
         results = get_tracking_stats("ate", [result_csv], target_csv, silence=True)
         s = results[result_csv].stats
-        return f"{s['rmse']:.3f} ± {s['std']:.3f}"  # Notice that std runs over APE while rmse over APE²
+        # Notice that std runs over APE while rmse over APE²
+        return np.array([s["rmse"], s["std"]])
 
-    foreach_dataset(batch, "tracking.csv", "gt.csv", measure_ape)
+    def measure_ape_str(measure: np.ndarray) -> str:
+        rmse, std = measure
+        return f"{rmse:.3f} ± {std:.3f}"
+
+    foreach_dataset(batch, "tracking.csv", "gt.csv", measure_ape, measure_ape_str)
 
 
 def rte_main(batch: Batch):
@@ -108,9 +130,14 @@ def rte_main(batch: Batch):
     def measure_rpe(result_csv: Path, target_csv: Path) -> str:
         results = get_tracking_stats("rte", [result_csv], target_csv, silence=True)
         s = results[result_csv].stats
-        return f"{s['rmse']:.6f} ± {s['std']:.6f}"  # Notice that std runs over RPE while rmse over RPE²
+        # Notice that std runs over RPE while rmse over RPE²
+        return np.array([s["rmse"], s["std"]])
 
-    foreach_dataset(batch, "tracking.csv", "gt.csv", measure_rpe)
+    def measure_rpe_str(measure: np.ndarray) -> str:
+        rmse, std = measure
+        return f"{rmse:.6f} ± {std:.6f}"
+
+    foreach_dataset(batch, "tracking.csv", "gt.csv", measure_rpe, measure_rpe_str)
 
 
 def parse_args():

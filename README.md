@@ -21,7 +21,7 @@ start/end CSV column names are specified the script assumes defaults (see
 `DEFAULT_TIMING_COLUMNS`).
 
 ```bash
-./timing.py test/data/runs/Basalt/TR5/timing.csv tracker_pushed vio_produced --plot
+./timing.py test/data/runs/Basalt/TR5/timing.csv --plot
 ```
 
 ### Completion

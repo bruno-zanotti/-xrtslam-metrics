@@ -7,7 +7,7 @@ from dataclasses import dataclass
 import numpy as np
 from tabulate import tabulate
 
-from utils import TIME_UNITS, NUMBER_OF_NS_IN, load_trajectory
+from utils import TIME_UNITS, NUMBER_OF_NS_IN, load_csv
 
 DEFAULT_TIME_UNITS = "s"  # Do not use utils.DEFAULT_TIME_UNITS
 
@@ -86,8 +86,8 @@ def get_completion_stats(
 def load_completion_stats(
     tracking_csv: Path, gt_csv: Path, units=DEFAULT_TIME_UNITS
 ) -> CompletionStats:
-    tdata = load_trajectory(tracking_csv)
-    gdata = load_trajectory(gt_csv)
+    tdata = load_csv(tracking_csv)
+    gdata = load_csv(gt_csv)
     return get_completion_stats(tdata, gdata, units)
 
 

@@ -13,7 +13,7 @@ from utils import (
     NUMBER_OF_NS_IN,
     TIME_UNITS,
     DEFAULT_TIME_UNITS,
-    load_timing,
+    load_csv_safer,
 )
 
 
@@ -31,7 +31,7 @@ class TimingStats:
             self.column_names = column_names
             self.timing_data = timing_data
         elif csv_fn:
-            self.column_names, self.timing_data = load_timing(csv_fn)
+            self.column_names, self.timing_data = load_csv_safer(csv_fn)
         else:
             raise Exception(f"Invalid parameters for {TimingStats.__name__}")
 

@@ -10,7 +10,7 @@ from tabulate import tabulate
 from timing import TimingStats
 from completion import load_completion_stats
 from tracking import get_tracking_stats
-from utils import COMPLETION_FULL_SINCE, error
+from utils import COMPLETION_FULL_SINCE, DEFAULT_TIMING_COLS, error
 
 
 @dataclass
@@ -58,12 +58,8 @@ def timing_main(batch: Batch):
     print("\nAverage pose estimation time [ms]\n")
 
     def measure_timing(result_csv: Path, sys_name: str) -> str:
-        if sys_name not in batch.timing_columns:
-            error(  # TODO: Make standard column names and use them instead
-                f"Timing columns for run '{sys_name}' were not specified with --timing"
-            )
-
-        s = TimingStats(csv_fn=result_csv, cols=batch.timing_columns[sys_name])
+        cols = batch.timing_columns.get(sys_name, DEFAULT_TIMING_COLS)
+        s = TimingStats(csv_fn=result_csv, cols=cols)
         return f"{s.mean:.2f} ± {s.std:.2f}"
 
     foreach_dataset(batch, "timing.csv", None, measure_timing)
@@ -132,8 +128,11 @@ def parse_args():
         "--timing",
         action="append",
         nargs=3,
+        default=[],
         help="For each <run> directory in <runs_dir> specify the first and last"
-        "timing column names to use as --timing <run> <first_col> <last_col>",
+        "timing column names to use as --timing <run> <first_col> <last_col>."
+        "If a <run> is not specified assuming"
+        f"<first_col> = {DEFAULT_TIMING_COLS[0]} and <last_col> = {DEFAULT_TIMING_COLS[1]}",
     )
     return parser.parse_args()
 

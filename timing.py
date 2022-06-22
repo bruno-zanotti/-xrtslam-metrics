@@ -7,7 +7,14 @@ from typing import List, Optional, Tuple
 import numpy as np
 import matplotlib.pyplot as plt
 
-from utils import COLORS, NUMBER_OF_NS_IN, TIME_UNITS, DEFAULT_TIME_UNITS, load_timing
+from utils import (
+    COLORS,
+    DEFAULT_TIMING_COLS,
+    NUMBER_OF_NS_IN,
+    TIME_UNITS,
+    DEFAULT_TIME_UNITS,
+    load_timing,
+)
 
 
 class TimingStats:
@@ -126,16 +133,18 @@ def parse_args():
         help="Timing file generated from Monado",
     )
     parser.add_argument(
-        "first_column",
+        "-fc",
+        "--first_column",
         type=str,
-        # default="tracker_receiving_left_frame", TODO: Standardize a couple of column names
-        help="Column name of timing_csv to use as first timestamp",
+        default=DEFAULT_TIMING_COLS[0],
+        help="Column name of timing_csv to use as first timestamp (default: frames_received)",
     )
     parser.add_argument(
-        "last_column",
+        "-lc",
+        "--last_column",
         type=str,
-        # default="tracker_processed_pose", TODO: Standardize a couple of column names
-        help="Column name of timing_csv to use as last timestamp",
+        default=DEFAULT_TIMING_COLS[1],
+        help="Column name of timing_csv to use as last timestamp (default: pose_produced)",
     )
     parser.add_argument(
         "-p",

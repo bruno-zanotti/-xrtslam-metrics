@@ -16,9 +16,9 @@ Run `poetry install` on the root directory.
 
 ### Timing
 
-See a plot of the times each pose from the dataset took to compute. Needs the
-`timing.csv` generated from the run, and the start/end column names you want to
-compare.
+See a plot of the times each pose from the dataset took to compute. If no
+start/end CSV column names are specified the script assumes defaults (see
+`DEFAULT_TIMING_COLUMNS`).
 
 ```bash
 ./timing.py test/data/runs/Basalt/TR5/timing.csv tracker_pushed vio_produced --plot
@@ -51,10 +51,7 @@ need to specify the start/end timing column for each run name. The latter
 will be fixed once standard start/end column names are in place.
 
 ```bash
-./batch.py test/data/runs/ test/data/targets/ \
-  --timing Basalt opticalflow_received vio_produced \
-  --timing Kimera tracker_pushed processed \
-  --timing ORB-SLAM3 about_to_process processed
+./batch.py test/data/runs/ test/data/targets/
 ```
 
 `batch.py` expects the `targets` directory to have camera timestamps `cam0.csv`

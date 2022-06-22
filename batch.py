@@ -8,6 +8,7 @@ from typing import Callable, Dict, Optional, Tuple, Union
 import pandas as pd
 from tabulate import tabulate
 from timing import TimingStats
+from features import FeaturesStats
 from completion import load_completion_stats
 from tracking import get_tracking_stats
 from utils import COMPLETION_FULL_SINCE, DEFAULT_TIMING_COLS, error
@@ -63,6 +64,16 @@ def timing_main(batch: Batch):
         return f"{s.mean:.2f} ± {s.std:.2f}"
 
     foreach_dataset(batch, "timing.csv", None, measure_timing)
+
+
+def features_main(batch: Batch):
+    print("\nAverage (± stdev) feature count for each camera\n")
+
+    def measure_features(result_csv: Path, sys_name: str) -> str:
+        s = FeaturesStats(csv_fn=result_csv)
+        return f"{s.mean.astype(int)} ± {s.std.astype(int)}"
+
+    foreach_dataset(batch, "features.csv", None, measure_features)
 
 
 def completion_main(batch: Batch):
@@ -148,6 +159,7 @@ def batch_from_args(args) -> Batch:
 def main():
     batch = batch_from_args(parse_args())
     timing_main(batch)
+    features_main(batch)
     completion_main(batch)
     ate_main(batch)
     rte_main(batch)

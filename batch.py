@@ -12,7 +12,7 @@ from timing import TimingStats
 from features import FeaturesStats
 from completion import load_completion_stats
 from tracking import get_tracking_stats
-from utils import COMPLETION_FULL_SINCE, DEFAULT_TIMING_COLS, error
+from utils import COMPLETION_FULL_SINCE, DEFAULT_TIMING_COLS, isnan
 
 
 @dataclass
@@ -39,7 +39,7 @@ def foreach_dataset(
     ordered_set = {d.name: 0 for r in sys_dirs for d in r.iterdir() if d.is_dir()}
     ds_names = sorted(ordered_set.keys())
     sys_names = sorted([d.name for d in sys_dirs])
-    df = pd.DataFrame("—", columns=sys_names, index=ds_names)
+    df = pd.DataFrame(None, columns=sys_names, index=ds_names)
 
     for sys_dir in sys_dirs:
         for ds_name in ds_names:
@@ -60,7 +60,8 @@ def foreach_dataset(
     new_index = df.shape[0]
     df.loc[new_index] = avg_row
     df = df.rename({new_index: "[AVG]"})
-    df_to_string = df.applymap(measure_str)
+    measure_str_none = lambda m: "—" if isnan(m) else measure_str(m)
+    df_to_string = df.applymap(measure_str_none)
     print(tabulate(df_to_string, headers="keys", tablefmt="pipe"))
 
 

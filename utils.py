@@ -1,6 +1,6 @@
 from pathlib import Path
-from typing import List, Tuple
-
+from typing import List, Tuple, Iterable
+import math
 import numpy as np
 
 NUMBER_OF_NS_IN = {"ns": 1, "us": 1e3, "ms": 1e6, "s": 1e9}
@@ -35,6 +35,12 @@ COLORS = [  # Regular cycle
 ] + ["#000000"] * 100
 
 make_color_iterator = lambda: (c for c in COLORS)
+
+
+def isnan(obj):
+    if isinstance(obj, Iterable):
+        return False
+    return math.isnan(obj)
 
 
 def check_monotonic_rows(rows: np.ndarray) -> None:

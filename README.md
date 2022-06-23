@@ -24,6 +24,15 @@ start/end CSV column names are specified the script assumes defaults (see
 ./timing.py test/data/runs/Basalt/TR5/timing.csv --plot
 ```
 
+### Features
+
+See the number of features each pose was computed with.
+It supports comparing multiple files as well.
+
+```bash
+./features.py --plot test/data/runs/Basalt/EMH02/features.csv
+```
+
 ### Completion
 
 See what percentage of the dataset the run was able to complete without crashing.

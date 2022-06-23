@@ -33,8 +33,37 @@ COLORS = [  # Regular cycle
     "#263238",  # shade of gray
     "#212121",  # shade of gray
 ] + ["#000000"] * 100
+DARK_COLORS = [  # Regular cycle
+    "#1976D2",  # blue
+    "#388E3C",  # green
+    "#FFA000",  # amber
+    "#C2185B",  # pink
+    "#512DA8",  # deeppurple
+    "#0097A7",  # cyan
+    "#AFB42B",  # lime
+    "#E64A19",  # deeporange
+    "#7B1FA2",  # purple
+    "#0288D1",  # lightblue
+    "#689F38",  # lightgreen
+    "#F57C00",  # orange
+    "#303F9F",  # indigo
+    "#00796B",  # teal
+    "#FBC02D",  # yellow
+    "#D32F2F",  # red
+    "#5D4037",  # brown
+    "#455A64",  # bluegrey
+] + ["#000000"] * 100
 
 make_color_iterator = lambda: (c for c in COLORS)
+
+
+def moving_average_smooth(values: np.ndarray, window_size=100):
+    n = window_size
+    cs = np.cumsum(values)
+    moving_avg = (cs[n:] - cs[:-n]) / n
+    padded_w_zeros = np.zeros(values.shape)
+    padded_w_zeros[n:] = moving_avg
+    return padded_w_zeros
 
 
 def isnan(obj):

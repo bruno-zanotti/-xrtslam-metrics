@@ -27,6 +27,7 @@ class TimingStats:
         units: str = DEFAULT_TIME_UNITS,
     ):
         self.units = units
+        self.csv_fn = csv_fn
         if column_names and timing_data:
             self.column_names = column_names
             self.timing_data = timing_data
@@ -87,7 +88,7 @@ class TimingStats:
         return np.max(self.diffs)
 
     def __str__(self) -> str:
-        return f"TimingStats(mean={self.mean}, std={self.std}, min={self.min}, q1={self.q1}, q2={self.q2}, q3={self.q3}, max={self.max}) from '{self.first_column}' to '{self.last_column}'"
+        return f"[{self.csv_fn}]\nTimingStats(mean={self.mean}, std={self.std}, min={self.min}, q1={self.q1}, q2={self.q2}, q3={self.q3}, max={self.max}) from '{self.first_column}' to '{self.last_column}'"
 
     def plot(self) -> None:
         td = self.timing_data
@@ -128,8 +129,9 @@ def parse_args():
         description="Evaluate timing data for Monado visual-inertial tracking",
     )
     parser.add_argument(
-        "timing_csv",
+        "timing_csvs",
         type=Path,
+        nargs="+",
         help="Timing file generated from Monado",
     )
     parser.add_argument(
@@ -137,14 +139,14 @@ def parse_args():
         "--first_column",
         type=str,
         default=DEFAULT_TIMING_COLS[0],
-        help="Column name of timing_csv to use as first timestamp (default: frames_received)",
+        help="Column name of timing_csvs to use as first timestamp (default: frames_received)",
     )
     parser.add_argument(
         "-lc",
         "--last_column",
         type=str,
         default=DEFAULT_TIMING_COLS[1],
-        help="Column name of timing_csv to use as last timestamp (default: pose_produced)",
+        help="Column name of timing_csvs to use as last timestamp (default: pose_produced)",
     )
     parser.add_argument(
         "-p",
@@ -164,16 +166,18 @@ def parse_args():
 
 def main():
     args = parse_args()
-    csv_file = args.timing_csv
+    csv_files = args.timing_csvs
     first_column = args.first_column
     last_column = args.last_column
     plot = args.plot
     units = args.units
-    s = TimingStats(csv_fn=csv_file, cols=(first_column, last_column), units=units)
-    print(s)
 
-    if plot:
-        s.plot()
+    for csv_file in csv_files:
+        s = TimingStats(csv_fn=csv_file, cols=(first_column, last_column), units=units)
+        print(s)
+
+        if plot:
+            s.plot()
 
 
 if __name__ == "__main__":

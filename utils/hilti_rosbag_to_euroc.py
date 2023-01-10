@@ -29,7 +29,7 @@ def main():
     csv_file = open(csv_path, "w")
     csv_file.write("#timestamp [ns],w_RS_S_x [rad s^-1],w_RS_S_y [rad s^-1],w_RS_S_z [rad s^-1],a_RS_S_x [m s^-2],a_RS_S_y [m s^-2],a_RS_S_z [m s^-2]\r\n")
     for topic, msg, t in bag.read_messages(topics=["/alphasense/imu"]):
-        t = int(f"{msg.header.stamp.secs}{msg.header.stamp.nsecs}")
+        t = int(f"{msg.header.stamp.secs}{msg.header.stamp.nsecs:09d}")
         w = msg.angular_velocity
         a = msg.linear_acceleration
         csv_file.write(f"{t},{w.x},{w.y},{w.z},{a.x},{a.y},{a.z}\r\n")

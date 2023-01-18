@@ -10,13 +10,8 @@ import rosbag
 from cv_bridge import CvBridge
 from sensor_msgs.msg import Image
 
-def main():
-    parser = argparse.ArgumentParser(description="Make EuRoC dataset from Hilti ROS bag")
-    parser.add_argument("bag", type=Path)
-    parser.add_argument("output_path", type=Path)
-    args = parser.parse_args()
-    bag_path = args.bag
-    euroc_path = args.output_path
+def main_ds(bag_path, euroc_path):
+    print("Converting Hilti dataset")
 
     mav0_path = euroc_path / "mav0"
     mav0_path.mkdir(parents=True, exist_ok=True)
@@ -63,6 +58,50 @@ def main():
         print(f"Done.")
 
     bag.close()
+
+def main_gt(hilti_gt_path, output_path):
+    print("Converting Hilti groundtruth")
+    with open(hilti_gt_path, "r") as f:
+        contents = f.read()
+
+    first_line = "#timestamp [ns], p_RS_R_x [m], p_RS_R_y [m], p_RS_R_z [m], q_RS_w [], q_RS_x [], q_RS_y [], q_RS_z []\r\n"
+    lines = contents.split("\n")
+    lines = [l for l in lines if l] # Remove empty lines
+    lines = [l.split(" ") for l in lines] # Make lines into lists
+    lines = [l[0:4] + [l[7]] + l[4:7] for l in lines] # Swap xyzw to wxyz
+    lines = [[f"{l[0].split('.')[0]}{l[0].split('.')[1].ljust(9, '0')}"] + l[1:] for l in lines]
+    lines = [",".join(l) for l in lines] # Back to comma-separated strings
+    lines = "\r\n".join(lines) + "\r\n" # Back to a big string with CRLF EOL
+    lines = first_line + lines # Add header
+
+    with open(output_path, "w") as f:
+        f.write(lines)
+
+
+def main():
+    parser = argparse.ArgumentParser(description="Make EuRoC dataset from Hilti ROS bag")
+
+    subparsers = parser.add_subparsers(help="Convert hilti rosbag or groundtruth file to euroc format", dest="mode", required=True)
+
+    parser_ds = subparsers.add_parser('ds', help='Convert hilti rosbag to euroc dataset')
+    parser_ds.add_argument("bag", type=Path)
+    parser_ds.add_argument("output_path", type=Path)
+
+    parser_gt = subparsers.add_parser('gt', help='Convert hilti groundtruth file to euroc groundtruth csv')
+    parser_gt.add_argument("hilti_gt_path", help="The hilti groundtruth input file")
+    parser_gt.add_argument("output_path", help="The euroc groundtruth file to write", default="out.csv")
+
+    args = parser.parse_args()
+    if args.mode == "ds":
+        bag_path = args.bag
+        euroc_path = args.output_path
+        main_ds(bag_path, euroc_path)
+    elif args.mode == "gt":
+        hilti_gt_path = args.hilti_gt_path
+        output_path = args.output_path
+        main_gt(hilti_gt_path, output_path)
+    else:
+        raise Exception(f"Invalid mode={args.mode}")
 
     return 0
 

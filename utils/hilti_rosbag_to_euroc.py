@@ -89,7 +89,10 @@ def main_gt(hilti_gt_path, output_path):
 
 def main():
     parser = argparse.ArgumentParser(
-        description="Make EuRoC dataset from Hilti ROS bag"
+        description="Make EuRoC dataset from Hilti ROS bag.\n\n"
+        "Usage example for dataset exp14 (get it from https://hilti-challenge.com/dataset-2022.html):\n"
+        "$ ./utils/hilti_rosbag_to_euroc.py ds bags/exp14_basement_2.bag exp14\n"
+        "$ ./utils/hilti_rosbag_to_euroc.py gt ~/Downloads/exp14_basement_2_imu.txt exp14/mav0/state_groundtruth_estimate0/data.csv\n"
     )
 
     subparsers = parser.add_subparsers(

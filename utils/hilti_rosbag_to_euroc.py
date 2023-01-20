@@ -74,8 +74,8 @@ def main_gt(hilti_gt_path, output_path):
     lines = "\r\n".join(lines) + "\r\n" # Back to a big string with CRLF EOL
     lines = first_line + lines # Add header
 
-    with open(output_path, "w") as f:
-        f.write(lines)
+    output_path.parent.mkdir(exist_ok=True, parents=True)
+    output_path.write_text(lines)
 
 
 def main():
@@ -88,8 +88,8 @@ def main():
     parser_ds.add_argument("output_path", type=Path)
 
     parser_gt = subparsers.add_parser('gt', help='Convert hilti groundtruth file to euroc groundtruth csv')
-    parser_gt.add_argument("hilti_gt_path", help="The hilti groundtruth input file")
-    parser_gt.add_argument("output_path", help="The euroc groundtruth file to write", default="out.csv")
+    parser_gt.add_argument("hilti_gt_path", type=Path, help="The hilti groundtruth input file")
+    parser_gt.add_argument("output_path", type=Path, help="The euroc groundtruth file to write", default="out.csv")
 
     args = parser.parse_args()
     if args.mode == "ds":

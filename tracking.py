@@ -1,18 +1,25 @@
 #!/usr/bin/env python
 
-from typing import Dict, List, Tuple
+from typing import Dict, List, Tuple, Sequence
 from pathlib import Path
 from argparse import ArgumentParser
+import numpy as np
 
 import matplotlib.pyplot as plt
 from evo.tools import file_interface, plot
 from evo.tools.plot import PlotMode
 from evo.core import sync
+import evo.core.geometry as geometry
+from evo.core import lie_algebra as lie
 from evo.core.result import Result
-from evo.core.trajectory import PoseTrajectory3D
+import evo.core.transformations as tr
+from evo.core.trajectory import PoseTrajectory3D, PosePath3D
 import evo.main_ape as main_ape
 import evo.main_rpe as main_rpe
 from evo.core.metrics import PoseRelation, Unit
+import logging
+
+logger = logging.getLogger(__name__)
 
 from completion import CompletionStats
 from utils import COMPLETION_FULL_SINCE, error, make_color_iterator, warn
@@ -27,7 +34,7 @@ def parse_args():
         type=str,
         help="What tracking metric to compute",
         default="ate",
-        choices=["ate", "rte"],
+        choices=["ate", "rte", "seg"],
     )
     parser.add_argument(
         "groundtruth_csv",
@@ -142,13 +149,115 @@ def compute_tracking_stats(
             est_name=tracking_csv,
             support_loop=False,  # Seems to only be used to not modify the input trajectories in jupyter notebooks
         )
+    elif metric == "seg":
+        INITIAL_ALIGNMENT_TIME_S = 5
+        SEGMENT_ALIGNMENT_TIME_S = 1
+        ERROR_TOLERANCE_PER_SEGMENT_M = 0.10
+
+        seconds_from_start = np.array(
+            [t - traj_est.timestamps[0] for t in traj_est.timestamps]
+        )
+        initial_alignment_n = sum(seconds_from_start < INITIAL_ALIGNMENT_TIME_S)
+        poses_count = len(traj_est.timestamps)
+
+        r_a, t_a, s = geometry.umeyama_alignment(
+            traj_est.positions_xyz[0:initial_alignment_n, :].T,
+            traj_ref.positions_xyz[0:initial_alignment_n, :].T,
+            False,
+        )
+        # import ipdb; ipdb.set_trace()
+        transform_from(traj_est, lie.se3(r_a, t_a), 0)
+
+        error_array = np.zeros(poses_count)
+        interest_points = np.zeros((poses_count, 3))
+
+        i = 0
+        interest_points[i] = traj_est.positions_xyz[i]
+        import ipdb; ipdb.set_trace()
+        while i < poses_count:
+            error3d = traj_est.positions_xyz[i] - traj_ref.positions_xyz[i]
+            error1d = np.linalg.norm(error3d)
+            error_array[i] = error1d
+            if error1d > ERROR_TOLERANCE_PER_SEGMENT_M:
+                interest_points[i] = traj_est.positions_xyz[i]
+
+
+                # Look for index that is 1 second after i
+                forward_1s_n = i
+                seconds_from_start_i = seconds_from_start[i]
+                while seconds_from_start[forward_1s_n] < seconds_from_start_i:
+                    forward_1s_n += 1
+
+                r_a, t_a, s = geometry.umeyama_alignment(
+                    traj_est.positions_xyz[i:forward_1s_n, :].T,
+                    traj_ref.positions_xyz[i:forward_1s_n, :].T,
+                    False,
+                )
+                transform_from(traj_est, lie.se3(r_a, t_a), i)
+
+            i += 1
+
+            seg_result = Result()
+            metric_name = "Segments"
+            seg_result.add_info(
+                {
+                    "title": "Segments Metric TITLE",
+                    "ref_name": "groundtruth",
+                    "est_name": tracking_csv,
+                    "label": "{} {}".format(metric_name, "({})".format("m METERS")),
+                }
+            )
+            seg_result.add_stats({
+                # "rmse"
+                # "mean"
+                # "median"
+                # "std"
+                "min": 0,
+                "max": ERROR_TOLERANCE_PER_SEGMENT_M,
+                # "sse"
+            })
+            seg_result.add_np_array("error_array", error_array)
+
+            seg_result.info["title"] = "Segment Metric TITTLTLTLE"
+            logger.info(seg_result.pretty_str())
+            seg_result.add_trajectory("groundtruth", traj_ref)
+            seg_result.add_trajectory(tracking_csv, traj_est)
+            seg_result.add_np_array("seconds_from_start", seconds_from_start)
+            seg_result.add_np_array("timestamps", traj_est.timestamps)
+            seg_result.add_np_array("distances_from_start", traj_ref.distances)
+            seg_result.add_np_array("distances", traj_est.distances)
+            seg_result.add_np_array("interest_points", interest_points)
+            import ipdb; ipdb.set_trace()
+            return seg_result
+
+            # result = {}
+            # trajectories[tracking_csv],
+            # np_arrays["error_array"]
+
+            # align the trajectories
     else:
         error("Unexpected branch taken")
     return result
 
 
+def se3_poses_to_xyz_quat_wxyz(
+    poses: Sequence[np.ndarray],
+) -> Tuple[np.ndarray, np.ndarray]:
+    xyz = np.array([pose[:3, 3] for pose in poses])
+    quat_wxyz = np.array([tr.quaternion_from_matrix(pose) for pose in poses])
+    return xyz, quat_wxyz
+
+
+def transform_from(traj_est: PosePath3D, t: np.ndarray, i: int) -> None:
+    traj_est._poses_se3[i:] = [np.dot(t, p) for p in traj_est.poses_se3[i:]]
+    (
+        traj_est._positions_xyz[i:],
+        traj_est._orientations_quat_wxyz[i:],
+    ) = se3_poses_to_xyz_quat_wxyz(traj_est.poses_se3[i:])
+
+
 def get_tracking_stats(
-    metric: str,  # rte, ate
+    metric: str,  # rte, ate, seg
     tracking_csvs: List[Path],
     groundtruth_csv: Path,
     pose_relation: PoseRelation = PoseRelation.translation_part,
@@ -184,6 +293,7 @@ def get_tracking_stats(
                     min_map=result.stats["min"],
                     max_map=result.stats["max"],
                 )
+                ax.plot(result.np_arrays['interest_points'])
             else:
                 plot.traj(
                     ax,

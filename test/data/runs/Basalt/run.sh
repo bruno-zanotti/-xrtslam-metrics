@@ -2,15 +2,20 @@
 
 export EUROC_MAX_SPEED=off
 export SHOW_GUI=1
+export INSTALL_DIR=/usr/local/etc/basalt
 
-export euroc_config=$bsltdeps/basalt/data/monado/euroc.toml
-export tumvi_config=$bsltdeps/basalt/data/monado/tumvi.toml
-export d640_config=$bsltdeps/basalt/data/monado/d455-640x480.toml
-export d848_config=$bsltdeps/basalt/data/monado/d455-848x480.toml
-export ody_config=$bsltdeps/basalt/data/monado/odysseyplus_rt8.toml
-# export ody_config=$bsltdeps/basalt/data/monado/odysseyplus_kb4.toml
+export euroc_config=$INSTALL_DIR/euroc.toml
+export tumvi_config=$INSTALL_DIR/tumvi.toml
+export d640_config=$INSTALL_DIR/d455-640x480.toml
+export d848_config=$INSTALL_DIR/d455-848x480.toml
+export ody_config=$INSTALL_DIR/odysseyplus_rt8.toml
+# export ody_config=$INSTALL_DIR/odysseyplus_kb4.toml
 
-sed -i "s/show-gui=./show-gui=$SHOW_GUI/" $bsltdeps/basalt/data/monado/*.toml
+if [ -w $INSTALL_DIR ]; then
+  sed -i "s/show-gui=./show-gui=$SHOW_GUI/" $INSTALL_DIR/*.toml
+else
+  sudo sed -i "s/show-gui=./show-gui=$SHOW_GUI/" $INSTALL_DIR/*.toml
+fi
 
 date +%s >> startfinish
 monado-cli slambatch $euroc/MH_01_easy/           $euroc_config EMH01 || echo "EMH01"  >> faillist

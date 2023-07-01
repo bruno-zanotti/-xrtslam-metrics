@@ -4,6 +4,7 @@ from typing import Dict, List, Tuple, Sequence
 from pathlib import Path
 from argparse import ArgumentParser
 import numpy as np
+from copy import deepcopy
 
 import matplotlib.pyplot as plt
 from evo.tools import file_interface, plot
@@ -150,68 +151,92 @@ def compute_tracking_stats(
             support_loop=False,  # Seems to only be used to not modify the input trajectories in jupyter notebooks
         )
     elif metric == "seg":
+
+        # stamps = np.divide(mat[:, 0], 1e9)  # n x 1  -  nanoseconds to seconds
+        # xyz = mat[:, 1:4]  # n x 3
+        # quat = mat[:, 4:8]  # n x 4
+        # logger.debug("Loaded {} stamps and poses from: {}".format(
+        #     len(stamps), file_path))
+        # return PoseTrajectory3D(xyz, quat, stamps)
+
         INITIAL_ALIGNMENT_TIME_S = 5
         SEGMENT_ALIGNMENT_TIME_S = 1
-        ERROR_TOLERANCE_PER_SEGMENT_M = 0.05
+        ERROR_TOLERANCE_PER_SEGMENT_M = 0.120
 
-        seconds_from_start = np.array(
-            [t - traj_est.timestamps[0] for t in traj_est.timestamps]
-        )
-        initial_alignment_n = sum(seconds_from_start < INITIAL_ALIGNMENT_TIME_S)
+        segments = []
+
+        # seconds_from_start = np.array(
+        #     [t - traj_est.timestamps[0] for t in traj_est.timestamps]
+        # )
         poses_count = len(traj_est.timestamps)
 
-        r_a, t_a, s = geometry.umeyama_alignment(
-            traj_est.positions_xyz[0:initial_alignment_n, :].T,
-            traj_ref.positions_xyz[0:initial_alignment_n, :].T,
-            False,
-        )
-        transform_from(traj_est, lie.se3(r_a, t_a), 0)
-
-        error_array = np.zeros(poses_count)
-        interest_points = np.zeros((poses_count, 3))
-
+        # initial_alignment_n = next(
+        #     i for i, s in seconds_from_start if s >= INITIAL_ALIGNMENT_TIME_S
+        # )
         i = 0
-        interest_points[i] = traj_est.positions_xyz[i]
+        traj_est.align_origin(traj_ref)
+        remainder = deepcopy(traj_est)
+        # segment, remainder = split_segment(traj_ref, traj_est, remainder, i)
+        # segments.append(segment)
 
+        # r_a, t_a, s = geometry.umeyama_alignment(
+        #     traj_est.positions_xyz[0:initial_alignment_n, :].T,
+        #     traj_ref.positions_xyz[0:initial_alignment_n, :].T,
+        #     False,
+        # )
+        # transform_from(traj_est, lie.se3(r_a, t_a), 0)
 
-        fig, plot_mode = plt.figure(), PlotMode("xy")
-        ax = plot.prepare_axis(fig, plot_mode)
-        plot.traj(ax, plot_mode, traj_ref, style="--", color="gray", label="gt")
-        plot.traj(ax, plot_mode, traj_est, label=f"{i=}", alpha=0.75)
-        plt.show()
-        print(f"{poses_count=}")
+        point_errors = np.zeros(poses_count)
         while i < poses_count:
-            error3d = traj_est.positions_xyz[i] - traj_ref.positions_xyz[i]
-            error1d = np.linalg.norm(error3d)
-            error_array[i] = error1d
-            print(f"{i=} {error1d=}")
-            if error1d > ERROR_TOLERANCE_PER_SEGMENT_M:
-                print("RESET")
-                interest_points[i] = traj_est.positions_xyz[i]
-
-                # Look for index that is 1 second after i
-                forward_1s_n = i
-                seconds_from_start_i = seconds_from_start[i]
-                while (
-                    forward_1s_n < poses_count
-                    and seconds_from_start[forward_1s_n] < seconds_from_start_i + 1
-                ):
-                    forward_1s_n += 1
-
-                r_a, t_a, s = geometry.umeyama_alignment(
-                    traj_est.positions_xyz[i:forward_1s_n, :].T,
-                    traj_ref.positions_xyz[i:forward_1s_n, :].T,
-                    False,
-                )
-
-                transform_from(traj_est, lie.se3(r_a, t_a), i)
-
-                fig, plot_mode = plt.figure(), PlotMode("xy")
-                ax = plot.prepare_axis(fig, plot_mode)
-                plot.traj(ax, plot_mode, traj_ref, style="--", color="gray", label="gt")
-                plot.traj(ax, plot_mode, traj_est, label=f"{i=}", alpha=0.75)
-                plt.show()
+            e = get_point_error(traj_est, traj_ref, i)
+            point_errors[i] = e
+            if e > ERROR_TOLERANCE_PER_SEGMENT_M:
+                print(e)
+                segment, remainder = split_segment(traj_ref, traj_est, remainder, i)
+                segments.append(segment)
             i += 1
+
+        # i = 0
+        # interest_points[i] = traj_est.positions_xyz[i]
+
+        # fig, plot_mode = plt.figure(), PlotMode("xy")
+        # ax = plot.prepare_axis(fig, plot_mode)
+        # plot.traj(ax, plot_mode, traj_ref, style="--", color="gray", label="gt")
+        # plot.traj(ax, plot_mode, traj_est, label=f"{i=}", alpha=0.75)
+        # plt.show()
+        # print(f"{poses_count=}")
+        # while i < poses_count:
+        #     error3d = traj_est.positions_xyz[i] - traj_ref.positions_xyz[i]
+        #     error1d = np.linalg.norm(error3d)
+        #     error_array[i] = error1d
+        #     print(f"{i=} {error1d=}")
+        #     if error1d > ERROR_TOLERANCE_PER_SEGMENT_M:
+        #         print("RESET")
+        #         interest_points[i] = traj_est.positions_xyz[i]
+
+        #         # Look for index that is 1 second after i
+        #         forward_1s_n = i
+        #         seconds_from_start_i = seconds_from_start[i]
+        #         while (
+        #             forward_1s_n < poses_count
+        #             and seconds_from_start[forward_1s_n] < seconds_from_start_i + 1
+        #         ):
+        #             forward_1s_n += 1
+
+        #         r_a, t_a, s = geometry.umeyama_alignment(
+        #             traj_est.positions_xyz[i:forward_1s_n, :].T,
+        #             traj_ref.positions_xyz[i:forward_1s_n, :].T,
+        #             False,
+        #         )
+
+        #         transform_from(traj_est, lie.se3(r_a, t_a), i)
+
+        #         fig, plot_mode = plt.figure(), PlotMode("xy")
+        #         ax = plot.prepare_axis(fig, plot_mode)
+        #         plot.traj(ax, plot_mode, traj_ref, style="--", color="gray", label="gt")
+        #         plot.traj(ax, plot_mode, traj_est, label=f"{i=}", alpha=0.75)
+        #         plt.show()
+        #     i += 1
 
         seg_result = Result()
         metric_name = "Segments"
@@ -236,17 +261,36 @@ def compute_tracking_stats(
                 # "sse"
             }
         )
-        seg_result.add_np_array("error_array", error_array)
+        seg_result.add_np_array("error_array", point_errors)
 
         seg_result.info["title"] = "Segment Metric TITTLTLTLE"
         logger.info(seg_result.pretty_str())
         seg_result.add_trajectory("groundtruth", traj_ref)
         seg_result.add_trajectory(tracking_csv, traj_est)
-        seg_result.add_np_array("seconds_from_start", seconds_from_start)
+        # seg_result.add_np_array("seconds_from_start", seconds_from_start)
         seg_result.add_np_array("timestamps", traj_est.timestamps)
         seg_result.add_np_array("distances_from_start", traj_ref.distances)
         seg_result.add_np_array("distances", traj_est.distances)
-        seg_result.add_np_array("interest_points", interest_points)
+        # seg_result.add_np_array("interest_points", interest_points)
+
+        fig, plot_mode = plt.figure(), PlotMode("xy")
+        ax = plot.prepare_axis(fig, plot_mode)
+        plot.traj(ax, plot_mode, traj_ref, style="--", color="gray", label="gt")
+        colors = make_color_iterator()
+        for i, segment in enumerate(segments):
+            plot.traj(
+                ax, plot_mode, segment, label=f"{i=}", alpha=0.75, color=next(colors)
+            )
+            # plot.traj_colormap(
+            #     ax,
+            #     segment,
+            #     point_errors,
+            #     plot_mode,
+            #     min_map=result.stats["min"],
+            #     max_map=result.stats["max"],
+            # )
+        plt.show()
+
         return seg_result
 
         # result = {}
@@ -259,6 +303,79 @@ def compute_tracking_stats(
     return result
 
 
+def split_segment(
+    traj_ref: PoseTrajectory3D,
+    traj_est: PoseTrajectory3D,
+    remainder: PoseTrajectory3D,
+    i: int,
+):
+    """
+
+    Cuts the trajectory `remainder` of traj_est at index i (index i w.r.t traj_est), it returns a pair with
+    - first element being a segment from start of `remainder` up to index i unmodified
+    - second element being the remainder of the trajectory from index i, but
+    aligned with traj_ref by matching point i with traj_ref[i]
+
+    NOTE: This function modifies `remainder`.
+    """
+
+    # seconds_from_start = np.array(
+    #     [t - traj_est.timestamps[0] for t in traj_est.timestamps]
+    # )
+    # initial_alignment_n = next(
+    #     i for i, s in seconds_from_start if s >= INITIAL_ALIGNMENT_TIME_S
+    # )
+    # r_a, t_a, s = geometry.umeyama_alignment(
+    #     traj_est.positions_xyz[0:initial_alignment_n, :].T,
+    #     traj_ref.positions_xyz[0:initial_alignment_n, :].T,
+    #     False,
+    # )
+    # transform_from(traj_est, lie.se3(r_a, t_a), 0)
+
+    remainder_ts0 = remainder.timestamps[0]
+    remainder_start_i = next(i for i, ts in enumerate(traj_est.timestamps) if ts == remainder_ts0)
+    remainder_i = i - remainder_start_i
+    segment = create_subtrajectory(remainder, 0, remainder_i + 1)
+    print(f"{remainder_i=} {remainder_start_i=} {i=}")
+
+    i_ts = traj_est.timestamps[i]
+    remainder.reduce_to_time_range(i_ts, end_timestamp=None)
+    align_origin_at_ref_idx(remainder, traj_ref, i)
+
+    return segment, remainder
+
+
+def create_subtrajectory(traj: PoseTrajectory3D, i: int, j: int) -> PoseTrajectory3D:
+    stamps = traj.timestamps[i:j]
+    xyz = traj.positions_xyz[i:j]
+    quat = traj.orientations_quat_wxyz[i:j]
+    return PoseTrajectory3D(xyz, quat, stamps)
+
+
+def align_origin_at_ref_idx(
+    traj: PoseTrajectory3D, traj_ref: PoseTrajectory3D, i: int = 0
+) -> np.ndarray:
+    """
+    align the origin to the origin of a reference trajectory
+    :param traj_ref: reference trajectory
+    :return: the used transformation
+    """
+    if traj.num_poses == 0 or traj_ref.num_poses == 0:
+        raise Exception("can't align an empty trajectory...")
+    traj_origin = traj.poses_se3[0]
+    traj_ref_origin = traj_ref.poses_se3[i]
+    to_ref_origin = np.dot(traj_ref_origin, lie.se3_inverse(traj_origin))
+    logger.debug("Origin alignment transformation:\n{}".format(to_ref_origin))
+    traj.transform(to_ref_origin)
+    return to_ref_origin
+
+
+def get_point_error(full: PoseTrajectory3D, traj_ref: PoseTrajectory3D, i: int):
+    error3d = full.positions_xyz[i] - traj_ref.positions_xyz[i]
+    error = np.linalg.norm(error3d)
+    return error
+
+
 def se3_poses_to_xyz_quat_wxyz(
     poses: Sequence[np.ndarray],
 ) -> Tuple[np.ndarray, np.ndarray]:
@@ -267,7 +384,7 @@ def se3_poses_to_xyz_quat_wxyz(
     return xyz, quat_wxyz
 
 
-def transform_from(traj_est: PosePath3D, t: np.ndarray, i: int) -> None:
+def transform_from(traj_est: PoseTrajectory3D, t: np.ndarray, i: int) -> None:
     traj_est._poses_se3[i:] = [np.dot(t, p) for p in traj_est.poses_se3[i:]]
     (
         traj_est._positions_xyz[i:],
@@ -286,6 +403,7 @@ def get_tracking_stats(
     silence: bool = False,
 ) -> Dict[Path, Result]:
     results = {}
+    ref_name = str(groundtruth_csv)
     for tracking_csv in tracking_csvs:
         result = compute_tracking_stats(
             metric, tracking_csv, groundtruth_csv, pose_relation, alignment, silence

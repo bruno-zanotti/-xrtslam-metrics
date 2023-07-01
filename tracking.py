@@ -152,7 +152,7 @@ def compute_tracking_stats(
     elif metric == "seg":
         INITIAL_ALIGNMENT_TIME_S = 5
         SEGMENT_ALIGNMENT_TIME_S = 1
-        ERROR_TOLERANCE_PER_SEGMENT_M = 0.10
+        ERROR_TOLERANCE_PER_SEGMENT_M = 0.05
 
         seconds_from_start = np.array(
             [t - traj_est.timestamps[0] for t in traj_est.timestamps]
@@ -165,7 +165,6 @@ def compute_tracking_stats(
             traj_ref.positions_xyz[0:initial_alignment_n, :].T,
             False,
         )
-        # import ipdb; ipdb.set_trace()
         transform_from(traj_est, lie.se3(r_a, t_a), 0)
 
         error_array = np.zeros(poses_count)
@@ -173,19 +172,30 @@ def compute_tracking_stats(
 
         i = 0
         interest_points[i] = traj_est.positions_xyz[i]
-        import ipdb; ipdb.set_trace()
+
+
+        fig, plot_mode = plt.figure(), PlotMode("xy")
+        ax = plot.prepare_axis(fig, plot_mode)
+        plot.traj(ax, plot_mode, traj_ref, style="--", color="gray", label="gt")
+        plot.traj(ax, plot_mode, traj_est, label=f"{i=}", alpha=0.75)
+        plt.show()
+        print(f"{poses_count=}")
         while i < poses_count:
             error3d = traj_est.positions_xyz[i] - traj_ref.positions_xyz[i]
             error1d = np.linalg.norm(error3d)
             error_array[i] = error1d
+            print(f"{i=} {error1d=}")
             if error1d > ERROR_TOLERANCE_PER_SEGMENT_M:
+                print("RESET")
                 interest_points[i] = traj_est.positions_xyz[i]
-
 
                 # Look for index that is 1 second after i
                 forward_1s_n = i
                 seconds_from_start_i = seconds_from_start[i]
-                while seconds_from_start[forward_1s_n] < seconds_from_start_i:
+                while (
+                    forward_1s_n < poses_count
+                    and seconds_from_start[forward_1s_n] < seconds_from_start_i + 1
+                ):
                     forward_1s_n += 1
 
                 r_a, t_a, s = geometry.umeyama_alignment(
@@ -193,48 +203,57 @@ def compute_tracking_stats(
                     traj_ref.positions_xyz[i:forward_1s_n, :].T,
                     False,
                 )
+
                 transform_from(traj_est, lie.se3(r_a, t_a), i)
 
+                fig, plot_mode = plt.figure(), PlotMode("xy")
+                ax = plot.prepare_axis(fig, plot_mode)
+                plot.traj(ax, plot_mode, traj_ref, style="--", color="gray", label="gt")
+                plot.traj(ax, plot_mode, traj_est, label=f"{i=}", alpha=0.75)
+                plt.show()
             i += 1
 
-            seg_result = Result()
-            metric_name = "Segments"
-            seg_result.add_info(
-                {
-                    "title": "Segments Metric TITLE",
-                    "ref_name": "groundtruth",
-                    "est_name": tracking_csv,
-                    "label": "{} {}".format(metric_name, "({})".format("m METERS")),
-                }
-            )
-            seg_result.add_stats({
+        seg_result = Result()
+        metric_name = "Segments"
+        seg_result.add_info(
+            {
+                "title": "Segments Metric TITLE",
+                "ref_name": "groundtruth",
+                "est_name": tracking_csv,
+                "label": "{} {}".format(metric_name, "({})".format("m METERS")),
+            }
+        )
+        seg_result.add_stats(
+            {
                 # "rmse"
                 # "mean"
                 # "median"
                 # "std"
+                # "min": min(error_array),
+                # "max": max(error_array),
                 "min": 0,
                 "max": ERROR_TOLERANCE_PER_SEGMENT_M,
                 # "sse"
-            })
-            seg_result.add_np_array("error_array", error_array)
+            }
+        )
+        seg_result.add_np_array("error_array", error_array)
 
-            seg_result.info["title"] = "Segment Metric TITTLTLTLE"
-            logger.info(seg_result.pretty_str())
-            seg_result.add_trajectory("groundtruth", traj_ref)
-            seg_result.add_trajectory(tracking_csv, traj_est)
-            seg_result.add_np_array("seconds_from_start", seconds_from_start)
-            seg_result.add_np_array("timestamps", traj_est.timestamps)
-            seg_result.add_np_array("distances_from_start", traj_ref.distances)
-            seg_result.add_np_array("distances", traj_est.distances)
-            seg_result.add_np_array("interest_points", interest_points)
-            import ipdb; ipdb.set_trace()
-            return seg_result
+        seg_result.info["title"] = "Segment Metric TITTLTLTLE"
+        logger.info(seg_result.pretty_str())
+        seg_result.add_trajectory("groundtruth", traj_ref)
+        seg_result.add_trajectory(tracking_csv, traj_est)
+        seg_result.add_np_array("seconds_from_start", seconds_from_start)
+        seg_result.add_np_array("timestamps", traj_est.timestamps)
+        seg_result.add_np_array("distances_from_start", traj_ref.distances)
+        seg_result.add_np_array("distances", traj_est.distances)
+        seg_result.add_np_array("interest_points", interest_points)
+        return seg_result
 
-            # result = {}
-            # trajectories[tracking_csv],
-            # np_arrays["error_array"]
+        # result = {}
+        # trajectories[tracking_csv],
+        # np_arrays["error_array"]
 
-            # align the trajectories
+        # align the trajectories
     else:
         error("Unexpected branch taken")
     return result
@@ -293,7 +312,7 @@ def get_tracking_stats(
                     min_map=result.stats["min"],
                     max_map=result.stats["max"],
                 )
-                ax.plot(result.np_arrays['interest_points'])
+                # ax.plot(result.np_arrays['interest_points'])
             else:
                 plot.traj(
                     ax,

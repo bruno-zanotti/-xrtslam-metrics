@@ -19,6 +19,8 @@ import evo.main_ape as main_ape
 import evo.main_rpe as main_rpe
 from evo.core.metrics import PoseRelation, Unit
 import logging
+from matplotlib.collections import LineCollection
+from mpl_toolkits.mplot3d.art3d import Line3DCollection
 
 logger = logging.getLogger(__name__)
 
@@ -176,7 +178,7 @@ def compute_tracking_stats(
             p, e = get_point_error(remainder, traj_ref, ri, i, dim)
             errors.append(e)
             if e > ERROR_TOLERANCE_PER_SEGMENT_M:
-                error_points_est.append(remainder.positions_xyz[ri])
+                error_points_est.append(remainder.positions_xyz[ri][0:dim])
                 error_points_ref.append(p)
                 segment, remainder = split_segment(traj_ref, traj_est, remainder, i, ri)
                 segments.append(segment)
@@ -204,6 +206,8 @@ def compute_tracking_stats(
         )
         seg_result.add_stats(
             {
+                # TODO: Report number of segments, and median/std/etc of length
+                # of segments
                 # "rmse"
                 # "mean"
                 # "median"
@@ -236,7 +240,7 @@ def compute_tracking_stats(
         ax = plot.prepare_axis(fig, plot_mode)
         plot.traj(ax, plot_mode, traj_ref, style="--", color="gray", label="gt")
         colors = make_color_iterator()
-        COLORMAP = True
+        COLORMAP = False
         if COLORMAP:
             merged = merge_segments(segments)
             maxerr = ERROR_TOLERANCE_PER_SEGMENT_M
@@ -244,6 +248,16 @@ def compute_tracking_stats(
         else:
             for i, segment in enumerate(segments):
                 plot.traj(ax, plot_mode, segment, color=next(colors), style="-")
+
+        error_lines = np.stack((error_points_est, error_points_ref), axis=1)
+        if dim == 3:
+            lines = Line3DCollection(error_lines, linestyles="--", colors="red")
+        elif dim == 2:
+            lines = LineCollection(error_lines, linestyles="--", colors="red")
+        else:
+            raise Exception(f"Unexpected {dim=}")
+        ax.add_collection(lines)
+
         ax.plot(*error_points_est[:, 0:dim].T, ".", color="black")
         ax.plot(*error_points_ref[:, 0:dim].T, ".", color="black")
 

@@ -4,9 +4,10 @@ from typing import Dict, List, Tuple, Sequence
 from pathlib import Path
 from argparse import ArgumentParser
 import numpy as np
-from copy import deepcopy
-
+import mplcursors
 import matplotlib.pyplot as plt
+from copy import deepcopy
+from evo.tools.settings import SETTINGS
 from evo.tools import file_interface, plot
 from evo.tools.plot import PlotMode
 from evo.core import sync
@@ -21,11 +22,10 @@ from evo.core.metrics import PoseRelation, Unit
 import logging
 from matplotlib.collections import LineCollection
 from mpl_toolkits.mplot3d.art3d import Line3DCollection
-
-logger = logging.getLogger(__name__)
-
 from completion import CompletionStats
 from utils import COMPLETION_FULL_SINCE, error, make_color_iterator, warn
+
+logger = logging.getLogger(__name__)  # TODO: what's this for?
 
 
 def parse_args():
@@ -79,9 +79,10 @@ def get_sanitized_trajectories(
     e0, e1 = traj_est.timestamps[0], traj_est.timestamps[-1]
     r0, r1 = traj_ref.timestamps[0], traj_ref.timestamps[-1]
     first_ts = max(e0, r0)
-    # last_ts = min(e1, r1)
+    last_ts = min(e1, r1)
     # TODO: Make it work with the entire trajectory, problem in alignment as of now
-    last_ts = traj_ref.timestamps[3000]
+    first_ts = traj_ref.timestamps[16]  # 16 - 8890 is bad, 17-8890 is good
+    last_ts = traj_ref.timestamps[8890]  # Appears idalamer
     traj_ref.reduce_to_time_range(first_ts, last_ts)
     traj_est.reduce_to_time_range(first_ts, last_ts)
 
@@ -238,7 +239,17 @@ def compute_tracking_stats(
         # other tracking metrics
         fig, plot_mode = plt.figure(), PlotMode(plot_mode_str)
         ax = plot.prepare_axis(fig, plot_mode)
-        plot.traj(ax, plot_mode, traj_ref, style="--", color="gray", label="gt")
+        plots = []
+        seconds_from_start = traj_ref.timestamps - traj_ref.timestamps[0]
+
+        plot.traj(ax, plot_mode, traj_ref, style="o-", color="gray", label="ref")
+        ax.lines[-1].timestamps = seconds_from_start
+        plots.append(ax.lines[-1])
+
+        plot.traj(ax, plot_mode, traj_est, style="o-", color="black", alpha=0.1)
+        ax.lines[-1].timestamps = seconds_from_start
+        plots.append(ax.lines[-1])
+
         colors = make_color_iterator()
         COLORMAP = False
         if COLORMAP:
@@ -247,7 +258,9 @@ def compute_tracking_stats(
             plot.traj_colormap(ax, merged, errors, plot_mode, min_map=0, max_map=maxerr)
         else:
             for i, segment in enumerate(segments):
-                plot.traj(ax, plot_mode, segment, color=next(colors), style="-")
+                plot.traj(ax, plot_mode, segment, color=next(colors), style="o-")
+                ax.lines[-1].timestamps = seconds_from_start
+                plots.append(ax.lines[-1])
 
         error_lines = np.stack((error_points_est, error_points_ref), axis=1)
         if dim == 3:
@@ -261,11 +274,19 @@ def compute_tracking_stats(
         ax.plot(*error_points_est[:, 0:dim].T, ".", color="black")
         ax.plot(*error_points_ref[:, 0:dim].T, ".", color="black")
 
+        # Set hover tooltip
+        cursor = mplcursors.cursor(plots, hover=mplcursors.HoverMode.Transient)
+        cursor.connect(
+            "add",
+            lambda s: s.annotation.set_text(f"{s.artist.timestamps[int(s.index)]:.2f}"),
+        )
+
         plt.show()
 
         return seg_result
     else:
         error("Unexpected branch taken")
+
     return result
 
 
@@ -294,9 +315,11 @@ def split_segment(
     NOTE: This function modifies `remainder`.
     """
 
-    print(f"segment {i=} {ri=}")
     segment = create_subtrajectory(remainder, 0, ri + 1)
     i_ts = traj_est.timestamps[i]
+    print(
+        f"{i=} {i_ts=} from_start={i_ts - traj_est.timestamps[0]:.2f} max={traj_est.timestamps[-1] - traj_est.timestamps[0]:.2f}"
+    )
     remainder.reduce_to_time_range(i_ts, end_timestamp=None)
     align_origin_at(remainder, traj_ref, i)
 

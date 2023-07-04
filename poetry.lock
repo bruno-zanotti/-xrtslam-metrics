@@ -687,6 +687,22 @@ files = [
 ]
 
 [[package]]
+name = "mplcursors"
+version = "0.5.2"
+description = "Interactive data selection cursors for Matplotlib."
+optional = false
+python-versions = ">=3.6"
+files = [
+    {file = "mplcursors-0.5.2.tar.gz", hash = "sha256:78febb32adf2d9040e2f6fc84b5e4cfb8f96b4ede4916fc418e5fffbcfdc0957"},
+]
+
+[package.dependencies]
+matplotlib = ">=3.1"
+
+[package.extras]
+docs = ["pandas", "pydata_sphinx_theme (!=0.10.1)", "sphinx", "sphinx-gallery"]
+
+[[package]]
 name = "mypy"
 version = "0.931"
 description = "Optional static typing for Python"
@@ -1625,4 +1641,4 @@ cffi = ["cffi (>=1.11)"]
 [metadata]
 lock-version = "2.0"
 python-versions = "~3.10"
-content-hash = "0e30c61e0d8bbfd2d3272a60b710cc884aa41a0a7015febf6a7013d32ae47be2"
+content-hash = "7af7a69b2f0aaaf87ba1bfdb98f47b4d322650deabaa9a82d0fcc45158a0b48b"

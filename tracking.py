@@ -25,8 +25,6 @@ from mpl_toolkits.mplot3d.art3d import Line3DCollection
 from completion import CompletionStats
 from utils import COMPLETION_FULL_SINCE, error, make_color_iterator, warn
 
-logger = logging.getLogger(__name__)  # TODO: what's this for?
-
 
 def parse_args():
     # TODO: Add argument for seg metric ERROR_TOLERANCE
@@ -257,7 +255,6 @@ def compute_tracking_stats(
         seg_result.add_np_array("error_points_ref", error_points_ref)
 
         seg_result.info["title"] = "Segment Metric TITTLTLTLE"
-        logger.info(seg_result.pretty_str())
         seg_result.add_trajectory("groundtruth", traj_ref)
         seg_result.add_trajectory(tracking_csv, traj_est)
         seg_result.add_np_array("timestamps", traj_est.timestamps)

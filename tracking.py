@@ -387,11 +387,17 @@ def get_point_error(
     tb = b.timestamps[bi]
     if tb != ta:
         ps, ts = b.positions_xyz[:, 0:dim], b.timestamps
-        l = bi - 1 if tb > ta else bi
-        r = bi + 1 if tb < ta else bi
-        pb = ps[l] + (ps[r] - ps[l]) * ((ta - ts[l]) / (ts[r] - ts[l]))
+        l = bi if tb < ta else bi - 1
+        r = l + 1
+        tl = ts[l] if l >= 0 else ts[0] - (ts[1] - ts[0])
+        pl = ps[l] if l >= 0 else ps[0] - (ps[1] - ps[0])
+        tr = ts[r] if r < len(ts) else ts[-1] + (ts[-1] - ts[-2])
+        pr = ps[r] if r < len(ps) else ps[-1] + (ps[-1] - ps[-2])
+        assert tl <= ta and ta <= tr
+        pb = pl + (pr - pl) * ((ta - tl) / (tr - tl))
     e = np.linalg.norm(pa - pb)
     return pb, e
+
 
 def get_tracking_stats(
     metric: str,  # rte, ate, seg

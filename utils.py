@@ -8,6 +8,7 @@ NUMBER_OF_NS_IN = {"ns": 1, "us": 1e3, "ms": 1e6, "s": 1e9}
 TIME_UNITS = NUMBER_OF_NS_IN.keys()
 DEFAULT_TIME_UNITS = "ms"
 COMPLETION_FULL_SINCE = 0.98  # Completion ratio to consider a complete run
+DEFAULT_SEGMENT_DRIFT_TOLERANCE_M = 0.01
 DEFAULT_TIMING_COLS = ("frames_received", "pose_produced")
 COLORS = [  # Regular cycle
     "#2196F3",  # blue

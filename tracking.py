@@ -23,7 +23,13 @@ import logging
 from matplotlib.collections import LineCollection
 from mpl_toolkits.mplot3d.art3d import Line3DCollection
 from completion import CompletionStats
-from utils import COMPLETION_FULL_SINCE, error, make_color_iterator, warn
+from utils import (
+    COMPLETION_FULL_SINCE,
+    DEFAULT_SEGMENT_DRIFT_TOLERANCE_M,
+    error,
+    make_color_iterator,
+    warn,
+)
 
 
 def parse_args():
@@ -61,6 +67,22 @@ def parse_args():
         default="xyz",
         help="Axes of the trajectory to plot",
         choices=["xy", "xz", "yx", "yz", "zx", "zy", "xyz"],
+    )
+    parser.add_argument(
+        "--sd_tolerance",
+        "-sdtol",
+        type=float,
+        default=DEFAULT_SEGMENT_DRIFT_TOLERANCE_M,
+        help="Segment error tolerance for the SD metric",
+    )
+    parser.add_argument(
+        "--sd_error_components",
+        "-sdec",
+        type=int,
+        nargs="+",
+        default=[0, 1, 2],
+        choices=[0, 1, 2],
+        help="Which axes to use for error computation in the SD metric",
     )
     return parser.parse_args()
 
@@ -113,6 +135,8 @@ def compute_tracking_stats(
     alignment: int = 0,  # -1: origin, 0: umemaya, >0 align first n points
     silence: bool = False,
     plot_mode_str: str = "xyz",
+    sd_tolerance: float = DEFAULT_SEGMENT_DRIFT_TOLERANCE_M,
+    sd_error_components: List[int] = [0, 1, 2],
 ) -> Result:
     traj_est, traj_ref = get_sanitized_trajectories(
         tracking_csv, groundtruth_csv, silence=silence
@@ -153,13 +177,9 @@ def compute_tracking_stats(
             support_loop=False,  # Seems to only be used to not modify the input trajectories in jupyter notebooks
         )
     elif metric == "seg":
-        # TODO: I'm limiting the error computation to the dimensionality of the
-        # graph is that a good idea?
-        dim = len(plot_mode_str)
-
-        INITIAL_ALIGNMENT_TIME_S = 5
-        SEGMENT_ALIGNMENT_TIME_S = 1
-        ERROR_TOLERANCE_PER_SEGMENT_M = 0.01
+        error_tolerance_per_segment = sd_tolerance
+        ijk = np.array(sd_error_components, dtype=int)
+        dim = len(ijk)
 
         segments = []
 
@@ -169,15 +189,14 @@ def compute_tracking_stats(
         traj_est.align_origin(traj_ref)
         remainder = deepcopy(traj_est)
 
-        # errors = np.zeros(poses_count)
         errors = []
         error_points_est = []
         error_points_ref = []
         while i < poses_count:
-            p, e = get_point_error(remainder, traj_ref, ri, i, dim)
+            p, e = get_point_error(remainder, traj_ref, ri, i, ijk)
             errors.append(e)
-            if e > ERROR_TOLERANCE_PER_SEGMENT_M:
-                error_points_est.append(remainder.positions_xyz[ri][0:dim])
+            if e > error_tolerance_per_segment:
+                error_points_est.append(remainder.positions_xyz[ri, ijk])
                 error_points_ref.append(p)
                 # TODO: Improve speed of the metric? maybe dont align the entire trajectory?
                 segment, remainder = split_segment(traj_ref, traj_est, remainder, i, ri)
@@ -208,7 +227,7 @@ def compute_tracking_stats(
 
         get_duration = lambda s: s.timestamps[-1] - s.timestamps[0]
         get_length = lambda s: sum(
-            np.linalg.norm([b - a][:dim])
+            np.linalg.norm((b - a)[ijk])
             for a, b in zip(s.positions_xyz, s.positions_xyz[1:])
         )
 
@@ -241,10 +260,10 @@ def compute_tracking_stats(
                 # "Median segment length %": round(np.median(lengths) / dataset_length * 100, 2),
                 # "Std segment length %": round(np.std(lengths) / dataset_length * 100, 2),
                 # TODO: Use the real max error of each segment instead of the fixed tolerance
-                "SDS": np.mean(ERROR_TOLERANCE_PER_SEGMENT_M / durations),
-                "SDS std": np.std(ERROR_TOLERANCE_PER_SEGMENT_M / durations),
-                "SDM": np.mean(ERROR_TOLERANCE_PER_SEGMENT_M / lengths),
-                "SDM std": np.std(ERROR_TOLERANCE_PER_SEGMENT_M / lengths),
+                "SDS": np.mean(error_tolerance_per_segment / durations),
+                "SDS std": np.std(error_tolerance_per_segment / durations),
+                "SDM": np.mean(error_tolerance_per_segment / lengths),
+                "SDM std": np.std(error_tolerance_per_segment / lengths),
             }
         )
 
@@ -283,7 +302,7 @@ def compute_tracking_stats(
         COLORMAP = False
         if COLORMAP:
             merged = merge_segments(segments)
-            maxerr = ERROR_TOLERANCE_PER_SEGMENT_M
+            maxerr = error_tolerance_per_segment
             plot.traj_colormap(ax, merged, errors, plot_mode, min_map=0, max_map=maxerr)
         else:
             for i, segment in enumerate(segments):
@@ -297,11 +316,11 @@ def compute_tracking_stats(
         elif dim == 2:
             lines = LineCollection(error_lines, linestyles="--", colors="red")
         else:
-            raise Exception(f"Unexpected {dim=}")
+            raise Exception(f"Unexpected {dim=} {ijk=}")
         ax.add_collection(lines)
 
-        ax.plot(*error_points_est[:, 0:dim].T, ".", color="black")
-        ax.plot(*error_points_ref[:, 0:dim].T, ".", color="black")
+        ax.plot(*error_points_est[:, ijk].T, ".", color="black")
+        ax.plot(*error_points_ref[:, ijk].T, ".", color="black")
 
         # Set hover tooltip
         cursor = mplcursors.cursor(plots, hover=mplcursors.HoverMode.Transient)
@@ -411,14 +430,18 @@ def orthonormalize_rotations(traj: PoseTrajectory3D):
 
 
 def get_point_error(
-    a: PoseTrajectory3D, b: PoseTrajectory3D, ai: int, bi: int, dim: int = 3
+    a: PoseTrajectory3D,
+    b: PoseTrajectory3D,
+    ai: int,
+    bi: int,
+    ijk: np.ndarray = [0, 1, 2],
 ):
-    pa = a.positions_xyz[:, 0:dim][ai]
-    pb = b.positions_xyz[:, 0:dim][bi]
+    pa = a.positions_xyz[:, ijk][ai]
+    pb = b.positions_xyz[:, ijk][bi]
     ta = a.timestamps[ai]
     tb = b.timestamps[bi]
     if tb != ta:
-        ps, ts = b.positions_xyz[:, 0:dim], b.timestamps
+        ps, ts = b.positions_xyz[:, ijk], b.timestamps
         l = bi if tb < ta else bi - 1
         r = l + 1
         tl = ts[l] if l >= 0 else ts[0] - (ts[1] - ts[0])
@@ -440,6 +463,8 @@ def get_tracking_stats(
     show_plot: bool = False,
     plot_mode: str = "xyz",  # "xz", "xy", etc
     silence: bool = False,
+    sd_tolerance: float = DEFAULT_SEGMENT_DRIFT_TOLERANCE_M,
+    sd_error_components: List[int] = [0, 1, 2],
 ) -> Dict[Path, Result]:
     results = {}
     ref_name = str(groundtruth_csv)
@@ -452,6 +477,8 @@ def get_tracking_stats(
             alignment,
             silence,
             plot_mode,
+            sd_tolerance,
+            sd_error_components,
         )
         results[tracking_csv] = result
 
@@ -500,9 +527,17 @@ def main():
     tracking_csvs = args.tracking_csvs
     show_plot = args.plot
     plot_mode = args.plot_mode
+    sd_tolerance = args.sd_tolerance
+    sd_error_components = args.sd_error_components
 
     results = get_tracking_stats(
-        metric, tracking_csvs, groundtruth_csv, show_plot=show_plot, plot_mode=plot_mode
+        metric,
+        tracking_csvs,
+        groundtruth_csv,
+        show_plot=show_plot,
+        plot_mode=plot_mode,
+        sd_tolerance=sd_tolerance,
+        sd_error_components=sd_error_components,
     )
 
     for tracking_csv, result in results.items():

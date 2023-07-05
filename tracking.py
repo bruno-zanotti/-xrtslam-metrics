@@ -80,9 +80,6 @@ def get_sanitized_trajectories(
     r0, r1 = traj_ref.timestamps[0], traj_ref.timestamps[-1]
     first_ts = max(e0, r0)
     last_ts = min(e1, r1)
-    # TODO: Make it work with the entire trajectory, problem in alignment as of now
-    first_ts = traj_ref.timestamps[16]  # 16 - 8890 is bad, 17-8890 is good
-    last_ts = traj_ref.timestamps[8890]  # Appears idalamer
     traj_ref.reduce_to_time_range(first_ts, last_ts)
     traj_est.reduce_to_time_range(first_ts, last_ts)
 
@@ -315,11 +312,20 @@ def split_segment(
     NOTE: This function modifies `remainder`.
     """
 
-    segment = create_subtrajectory(remainder, 0, ri + 1)
+    # Print
     i_ts = traj_est.timestamps[i]
+    i0_ts = remainder.timestamps[0]
+    i0 = next(i for i, t in enumerate(traj_est.timestamps) if t == i0_ts)
+    total_s = traj_est.timestamps[-1] - traj_est.timestamps[0]
+    current_s = i_ts - traj_est.timestamps[0]
     print(
-        f"{i=} {i_ts=} from_start={i_ts - traj_est.timestamps[0]:.2f} max={traj_est.timestamps[-1] - traj_est.timestamps[0]:.2f}"
+        f"Segment {100*current_s/total_s:.2f}% {current_s:.0f}/{total_s:.0f}s "
+        f"id=[{i0}, {i}] ts=[{i0_ts}, {i_ts}]",
+        end="\r",
     )
+
+    # Split
+    segment = create_subtrajectory(remainder, 0, ri + 1)
     remainder.reduce_to_time_range(i_ts, end_timestamp=None)
     align_origin_at(remainder, traj_ref, i)
 
@@ -345,9 +351,31 @@ def align_origin_at(a: PoseTrajectory3D, b: PoseTrajectory3D, i: int = 0) -> np.
     traj_origin = a.poses_se3[0]
     traj_ref_origin = b.poses_se3[i]
     to_ref_origin = np.dot(traj_ref_origin, lie.se3_inverse(traj_origin))
-    logger.debug("Origin alignment transformation:\n{}".format(to_ref_origin))
     a.transform(to_ref_origin)
+
+    # TODO: Check how much doing the orthonormalization sometimes vs always affects the metric
+    # After a couple of transforms the rotation lose determinant 1 due to
+    # floating point errors so we need to re-orthonormalize
+    if abs(np.linalg.det(to_ref_origin[:3, :3]) - 1) > 0.0001:
+        orthonormalize_rotations(a)
     return to_ref_origin
+
+
+def matrix_from_quaternion(q: np.ndarray) -> np.ndarray:
+    """Return a rotation matrix from a quaternion."""
+    qw, qx, qy, qz = q
+    r0 = [2 * (qw * qw + qx * qx) - 1, 2 * (qx * qy - qw * qz), 2 * (qx * qz + qw * qy)]
+    r1 = [2 * (qx * qy + qw * qz), 2 * (qw * qw + qy * qy) - 1, 2 * (qy * qz - qw * qx)]
+    r2 = [2 * (qx * qz - qw * qy), 2 * (qy * qz + qw * qx), 2 * (qw * qw + qz * qz) - 1]
+    return np.array([r0, r1, r2])
+
+
+def orthonormalize_rotations(traj: PoseTrajectory3D):
+    for se3 in traj.poses_se3:
+        q = tr.quaternion_from_matrix(se3)
+        q = q / np.linalg.norm(q)
+        # se3[:] = tr.quaternion_matrix(q) # For some reason this didn't work
+        se3[:3, :3] = matrix_from_quaternion(q)
 
 
 def get_point_error(
@@ -364,23 +392,6 @@ def get_point_error(
         pb = ps[l] + (ps[r] - ps[l]) * ((ta - ts[l]) / (ts[r] - ts[l]))
     e = np.linalg.norm(pa - pb)
     return pb, e
-
-
-def se3_poses_to_xyz_quat_wxyz(
-    poses: Sequence[np.ndarray],
-) -> Tuple[np.ndarray, np.ndarray]:
-    xyz = np.array([pose[:3, 3] for pose in poses])
-    quat_wxyz = np.array([tr.quaternion_from_matrix(pose) for pose in poses])
-    return xyz, quat_wxyz
-
-
-def transform_from(traj_est: PoseTrajectory3D, t: np.ndarray, i: int) -> None:
-    traj_est._poses_se3[i:] = [np.dot(t, p) for p in traj_est.poses_se3[i:]]
-    (
-        traj_est._positions_xyz[i:],
-        traj_est._orientations_quat_wxyz[i:],
-    ) = se3_poses_to_xyz_quat_wxyz(traj_est.poses_se3[i:])
-
 
 def get_tracking_stats(
     metric: str,  # rte, ate, seg

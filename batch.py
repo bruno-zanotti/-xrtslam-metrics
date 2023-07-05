@@ -83,7 +83,7 @@ def timing_main(batch: Batch):
 def features_main(batch: Batch):
     print("\nAverage feature count for each camera\n")
 
-    def measure_features(result_csv: Path, sys_name: str) -> np.ndarray:
+    def measure_features(result_csv: Path, _: str) -> np.ndarray:
         s = FeaturesStats(csv_fn=result_csv)
         return np.array([s.mean, s.std])
 
@@ -97,7 +97,7 @@ def features_main(batch: Batch):
 def completion_main(batch: Batch):
     print("\nAverage completion percentage [%]\n")
 
-    def measure_completion(result_csv: Path, target_csv: Path) -> str:
+    def measure_completion(result_csv: Path, target_csv: Path) -> float:
         s = load_completion_stats(result_csv, target_csv)
         return s.tracking_completion
 
@@ -112,7 +112,7 @@ def completion_main(batch: Batch):
 def ate_main(batch: Batch):
     print("\nAbsolute trajectory error (ATE) [m]\n")
 
-    def measure_ape(result_csv: Path, target_csv: Path) -> str:
+    def measure_ape(result_csv: Path, target_csv: Path) -> np.ndarray:
         results = get_tracking_stats("ate", [result_csv], target_csv, silence=True)
         s = results[result_csv].stats
         # Notice that std runs over APE while rmse over APE²
@@ -128,7 +128,7 @@ def ate_main(batch: Batch):
 def rte_main(batch: Batch):
     print("\nRelative trajectory error (RTE) [m]\n")
 
-    def measure_rpe(result_csv: Path, target_csv: Path) -> str:
+    def measure_rpe(result_csv: Path, target_csv: Path) -> np.ndarray:
         results = get_tracking_stats("rte", [result_csv], target_csv, silence=True)
         s = results[result_csv].stats
         # Notice that std runs over RPE while rmse over RPE²
@@ -146,7 +146,7 @@ def seg_main(batch: Batch):
     # TODO: Does SD tolerance affect a lot the final numbers in SDM/SDS?
     print("\n Segment drift per meter error (SDM 0.01m) [m/m]\n")
 
-    def measure_seg(result_csv: Path, target_csv: Path) -> str:
+    def measure_seg(result_csv: Path, target_csv: Path) -> np.ndarray:
         results = get_tracking_stats("seg", [result_csv], target_csv, silence=True)
         s = results[result_csv].stats
         return np.array([s["SDM"], s["SDM std"]])

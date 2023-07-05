@@ -140,6 +140,23 @@ def rte_main(batch: Batch):
 
     foreach_dataset(batch, "tracking.csv", "gt.csv", measure_rpe, measure_rpe_str)
 
+def seg_main(batch: Batch):
+    # TODO: Segment drift per second (SDS) second might be seful
+    # TODO: Get SDM tolerance programatically instead of hardcoding 1cm
+    # TODO: Does SD tolerance affect a lot the final numbers in SDM/SDS?
+    print("\n Segment drift per meter error (SDM 0.01m) [m/m]\n")
+
+    def measure_seg(result_csv: Path, target_csv: Path) -> str:
+        results = get_tracking_stats("seg", [result_csv], target_csv, silence=True)
+        s = results[result_csv].stats
+        return np.array([s["SDM"], s["SDM std"]])
+
+    def measure_seg_str(measure: np.ndarray) -> str:
+        drift, std = measure
+        return f"{drift:.4f} ± {std:.4f}"
+
+
+    foreach_dataset(batch, "tracking.csv", "gt.csv", measure_seg, measure_seg_str)
 
 def parse_args():
     parser = ArgumentParser(
@@ -191,6 +208,7 @@ def main():
     completion_main(batch)
     ate_main(batch)
     rte_main(batch)
+    seg_main(batch)
 
 
 if __name__ == "__main__":

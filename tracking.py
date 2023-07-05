@@ -29,6 +29,7 @@ logger = logging.getLogger(__name__)  # TODO: what's this for?
 
 
 def parse_args():
+    # TODO: Add argument for seg metric ERROR_TOLERANCE
     parser = ArgumentParser(
         description="Determine absolute pose error for a trajectory and its groundtruth",
     )
@@ -154,6 +155,8 @@ def compute_tracking_stats(
             support_loop=False,  # Seems to only be used to not modify the input trajectories in jupyter notebooks
         )
     elif metric == "seg":
+        # TODO: I'm limiting the error computation to the dimensionality of the
+        # graph is that a good idea?
         dim = len(plot_mode_str)
 
         INITIAL_ALIGNMENT_TIME_S = 5
@@ -178,6 +181,7 @@ def compute_tracking_stats(
             if e > ERROR_TOLERANCE_PER_SEGMENT_M:
                 error_points_est.append(remainder.positions_xyz[ri][0:dim])
                 error_points_ref.append(p)
+                # TODO: Improve speed of the metric? maybe dont align the entire trajectory?
                 segment, remainder = split_segment(traj_ref, traj_est, remainder, i, ri)
                 segments.append(segment)
                 errors.append(0)
@@ -186,7 +190,8 @@ def compute_tracking_stats(
             ri += 1
 
         segment, remainder = split_segment(traj_ref, traj_est, remainder, i - 1, ri)
-        segments.append(segment)
+        if len(segment.timestamps) > 1:
+            segments.append(segment)
         ri = 0
 
         error_points_est = np.array(error_points_est)
@@ -202,19 +207,46 @@ def compute_tracking_stats(
                 "label": "{} {}".format(metric_name, "({})".format("m METERS")),
             }
         )
+
+        get_duration = lambda s: s.timestamps[-1] - s.timestamps[0]
+        get_length = lambda s: sum(
+            np.linalg.norm([b - a][:dim])
+            for a, b in zip(s.positions_xyz, s.positions_xyz[1:])
+        )
+
+        segments_count = len(segments)
+        dataset_duration = get_duration(traj_est)
+        dataset_length = get_length(traj_est)
+        durations = np.array([get_duration(s) for s in segments])
+        lengths = np.array([get_length(s) for s in segments])
         seg_result.add_stats(
             {
-                # TODO: Report number of segments, and median/std/etc of length
-                # of segments
-                # "rmse"
-                # "mean"
-                # "median"
-                # "std"
-                # "min": min(error_array),
-                # "max": max(error_array),
-                "min": 0,
-                "max": ERROR_TOLERANCE_PER_SEGMENT_M,
-                # "sse"
+                "Number of segments": segments_count,
+                "Min error": min(e for e in errors if e != 0),  # TODO: Useful?
+                "Max error": max(errors),
+                "Segments p/second": segments_count / dataset_duration,
+                "Min segment duration": min(durations),
+                "Max segment duration": max(durations),
+                "Mean segment duration": np.mean(durations),
+                "Median segment duration": np.median(durations),
+                "Std segment duration": np.std(durations),
+                # "Mean segment duration %": round(np.mean(durations) / dataset_duration * 100, 2),
+                # "Median segment duration %": round(np.median(durations) / dataset_duration * 100, 2),
+                # "Std segment duration %": round(np.std(durations) / dataset_duration * 100, 2),
+                "Segments p/meter": segments_count / dataset_length,
+                "Min segment length": min(lengths),
+                "Max segment length": max(lengths),
+                "Mean segment length": np.mean(lengths),
+                "Median segment length": np.median(lengths),
+                "Std segment length": np.std(lengths),
+                # "Mean segment length %": round(np.mean(lengths) / dataset_length * 100, 2),
+                # "Median segment length %": round(np.median(lengths) / dataset_length * 100, 2),
+                # "Std segment length %": round(np.std(lengths) / dataset_length * 100, 2),
+                # TODO: Use the real max error of each segment instead of the fixed tolerance
+                "SDS": np.mean(ERROR_TOLERANCE_PER_SEGMENT_M / durations),
+                "SDS std": np.std(ERROR_TOLERANCE_PER_SEGMENT_M / durations),
+                "SDM": np.mean(ERROR_TOLERANCE_PER_SEGMENT_M / lengths),
+                "SDM std": np.std(ERROR_TOLERANCE_PER_SEGMENT_M / lengths),
             }
         )
 
@@ -231,6 +263,9 @@ def compute_tracking_stats(
         seg_result.add_np_array("timestamps", traj_est.timestamps)
         seg_result.add_np_array("distances_from_start", traj_ref.distances)
         seg_result.add_np_array("distances", traj_est.distances)
+        print(f"finished {tracking_csv} {' ' * 80}")
+
+        return seg_result
 
         # TODO: Move plotting outside of this if possible to match behaviour of
         # other tracking metrics

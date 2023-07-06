@@ -2,39 +2,40 @@
 
 # TODO: check all warnings and errors and try to fix them
 
-from typing import Dict, List, Tuple, Sequence, Union, cast
-from pathlib import Path
 from argparse import ArgumentParser
-import numpy as np
-import mplcursors
-from mplcursors import HoverMode
-import matplotlib.pyplot as plt
 from copy import deepcopy
-from evo.tools import file_interface, plot
-from evo.tools.plot import PlotMode
-from evo.core import sync
-from evo.core import lie_algebra as lie
-from evo.core.result import Result
+from pathlib import Path
+from typing import Dict, List, Sequence, Tuple, Union, cast
+
 import evo.core.transformations as tr
-from evo.core.trajectory import PoseTrajectory3D
 import evo.main_ape as main_ape
 import evo.main_rpe as main_rpe
+import matplotlib.pyplot as plt
+import mplcursors
+import numpy as np
+from evo.core import lie_algebra as lie
+from evo.core import sync
 from evo.core.metrics import PoseRelation, Unit
-import logging
+from evo.core.result import Result
+from evo.core.trajectory import PoseTrajectory3D
+from evo.tools import file_interface, plot
+from evo.tools.plot import PlotMode
 from matplotlib.collections import LineCollection
 from mpl_toolkits.mplot3d.art3d import Line3DCollection
+from mplcursors import HoverMode
+
 from completion import CompletionStats
 from utils import (
     COMPLETION_FULL_SINCE,
     DEFAULT_SEGMENT_DRIFT_TOLERANCE_M,
-    error,
-    make_color_iterator,
-    make_dark_color_iterator,
-    warn,
     SE3,
     SO3,
     Indices,
     Quaternion,
+    error,
+    make_color_iterator,
+    make_dark_color_iterator,
+    warn,
 )
 
 
@@ -205,11 +206,7 @@ class SegmentDriftErrorPlot(TrackingPlot):
             )
             for i, segment in enumerate(segments):
                 plot.traj(
-                    self.ax,
-                    self.plot_mode,
-                    segment,
-                    color=next(colors),
-                    style=".-"
+                    self.ax, self.plot_mode, segment, color=next(colors), style=".-"
                 )
                 self.ax.lines[-1].timestamps = (
                     segment.timestamps[0] - traj_est.timestamps[0]

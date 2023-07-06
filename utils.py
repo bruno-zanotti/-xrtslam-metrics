@@ -1,7 +1,8 @@
-from pathlib import Path
-from typing import List, Tuple, Iterable
-from itertools import cycle
 import math
+from itertools import cycle
+from pathlib import Path
+from typing import Iterable, List, Tuple
+
 import numpy as np
 import numpy.typing as npt
 
@@ -68,6 +69,7 @@ Vector4 = np.ndarray
 SE3 = Matrix4x4
 SO3 = Matrix3x3
 Quaternion = Vector4
+
 
 def moving_average_smooth(values: np.ndarray, window_size=100):
     n = window_size

@@ -5,14 +5,15 @@ from dataclasses import dataclass
 from pathlib import Path
 from typing import Any, Callable, Dict, Optional, Tuple, Union
 
-import pandas as pd
 import numpy as np
+import pandas as pd
 from tabulate import tabulate
-from timing import TimingStats
-from features import FeaturesStats
+
 from completion import load_completion_stats
+from features import FeaturesStats
+from timing import TimingStats
 from tracking import get_tracking_stats
-from utils import COMPLETION_FULL_SINCE, DEFAULT_TIMING_COLS, isnan, Vector2
+from utils import COMPLETION_FULL_SINCE, DEFAULT_TIMING_COLS, Vector2, isnan
 
 
 @dataclass

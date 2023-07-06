@@ -12,7 +12,7 @@ from timing import TimingStats
 from features import FeaturesStats
 from completion import load_completion_stats
 from tracking import get_tracking_stats
-from utils import COMPLETION_FULL_SINCE, DEFAULT_TIMING_COLS, isnan
+from utils import COMPLETION_FULL_SINCE, DEFAULT_TIMING_COLS, isnan, Vector2
 
 
 @dataclass
@@ -58,22 +58,22 @@ def foreach_dataset(
     # Add average row
     avg_row = df.apply(lambda col: col.mean(), result_type="reduce")
     new_index = df.shape[0]
-    df.loc[new_index] = avg_row
+    df.loc[new_index] = avg_row  # type: ignore
     df = df.rename({new_index: "[AVG]"})
     measure_str_none = lambda m: "—" if isnan(m) else measure_str(m)
     df_to_string = df.applymap(measure_str_none)
-    print(tabulate(df_to_string, headers="keys", tablefmt="pipe"))
+    print(tabulate(df_to_string, headers="keys", tablefmt="pipe"))  # type: ignore
 
 
 def timing_main(batch: Batch):
     print("\nAverage (± stdev) pose estimation time [ms]\n")
 
-    def measure_timing(result_csv: Path, sys_name: str) -> np.ndarray:
+    def measure_timing(result_csv: Path, sys_name: str) -> Vector2:
         cols = batch.timing_columns.get(sys_name, DEFAULT_TIMING_COLS)
         s = TimingStats(csv_fn=result_csv, cols=cols)
         return np.array([s.mean, s.std])
 
-    def measure_timing_str(measure: np.ndarray) -> str:
+    def measure_timing_str(measure: Vector2) -> str:
         mean, std = measure
         return f"{mean:.2f} ± {std:.2f}"
 
@@ -83,11 +83,11 @@ def timing_main(batch: Batch):
 def features_main(batch: Batch):
     print("\nAverage feature count for each camera\n")
 
-    def measure_features(result_csv: Path, _: str) -> np.ndarray:
+    def measure_features(result_csv: Path, _: str) -> Vector2:
         s = FeaturesStats(csv_fn=result_csv)
         return np.array([s.mean, s.std])
 
-    def measure_features_str(measure: np.ndarray) -> str:
+    def measure_features_str(measure: Vector2) -> str:
         mean, std = measure
         return f"{mean.astype(int)} ± {std.astype(int)}"
 
@@ -112,13 +112,13 @@ def completion_main(batch: Batch):
 def ate_main(batch: Batch):
     print("\nAbsolute trajectory error (ATE) [m]\n")
 
-    def measure_ape(result_csv: Path, target_csv: Path) -> np.ndarray:
+    def measure_ape(result_csv: Path, target_csv: Path) -> Vector2:
         results = get_tracking_stats("ate", [result_csv], target_csv, silence=True)
         s = results[result_csv].stats
         # Notice that std runs over APE while rmse over APE²
         return np.array([s["rmse"], s["std"]])
 
-    def measure_ape_str(measure: np.ndarray) -> str:
+    def measure_ape_str(measure: Vector2) -> str:
         rmse, std = measure
         return f"{rmse:.3f} ± {std:.3f}"
 
@@ -128,17 +128,18 @@ def ate_main(batch: Batch):
 def rte_main(batch: Batch):
     print("\nRelative trajectory error (RTE) [m]\n")
 
-    def measure_rpe(result_csv: Path, target_csv: Path) -> np.ndarray:
+    def measure_rpe(result_csv: Path, target_csv: Path) -> Vector2:
         results = get_tracking_stats("rte", [result_csv], target_csv, silence=True)
         s = results[result_csv].stats
         # Notice that std runs over RPE while rmse over RPE²
         return np.array([s["rmse"], s["std"]])
 
-    def measure_rpe_str(measure: np.ndarray) -> str:
+    def measure_rpe_str(measure: Vector2) -> str:
         rmse, std = measure
         return f"{rmse:.6f} ± {std:.6f}"
 
     foreach_dataset(batch, "tracking.csv", "gt.csv", measure_rpe, measure_rpe_str)
+
 
 def seg_main(batch: Batch):
     # TODO: Segment drift per second (SDS) second might be seful
@@ -146,17 +147,17 @@ def seg_main(batch: Batch):
     # TODO: Does SD tolerance affect a lot the final numbers in SDM/SDS?
     print("\n Segment drift per meter error (SDM 0.01m) [m/m]\n")
 
-    def measure_seg(result_csv: Path, target_csv: Path) -> np.ndarray:
+    def measure_seg(result_csv: Path, target_csv: Path) -> Vector2:
         results = get_tracking_stats("seg", [result_csv], target_csv, silence=True)
         s = results[result_csv].stats
         return np.array([s["SDM"], s["SDM std"]])
 
-    def measure_seg_str(measure: np.ndarray) -> str:
+    def measure_seg_str(measure: Vector2) -> str:
         drift, std = measure
         return f"{drift:.4f} ± {std:.4f}"
 
-
     foreach_dataset(batch, "tracking.csv", "gt.csv", measure_seg, measure_seg_str)
+
 
 def parse_args():
     parser = ArgumentParser(

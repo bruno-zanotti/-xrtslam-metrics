@@ -1,9 +1,12 @@
 #!/usr/bin/env python
 
-from typing import Dict, List, Tuple, Sequence
+# TODO: check all warnings and errors and try to fix them
+
+from typing import Dict, List, Tuple, Sequence, Union, cast
 from pathlib import Path
 from argparse import ArgumentParser
 import numpy as np
+import numpy.typing as npt
 import mplcursors
 import matplotlib.pyplot as plt
 from copy import deepcopy
@@ -20,7 +23,7 @@ import evo.main_ape as main_ape
 import evo.main_rpe as main_rpe
 from evo.core.metrics import PoseRelation, Unit
 import logging
-from matplotlib.collections import LineCollection
+from matplotlib.collections import LineCollection, Collection
 from mpl_toolkits.mplot3d.art3d import Line3DCollection
 from completion import CompletionStats
 from utils import (
@@ -28,8 +31,222 @@ from utils import (
     DEFAULT_SEGMENT_DRIFT_TOLERANCE_M,
     error,
     make_color_iterator,
+    make_dark_color_iterator,
     warn,
+    ArrayOfFloats,
+    SE3,
+    SO3,
+    Indices,
+    Quaternion,
 )
+
+
+class TrackingPlot:
+    def plot_reference_trajectory(
+        self, traj_ref: PoseTrajectory3D, ref_name: str = "reference"
+    ):
+        raise NotImplementedError
+
+    def plot_estimate_trajectory(self, *args, **kwargs):
+        raise NotImplementedError
+
+    def show(self):
+        raise NotImplementedError
+
+
+class TrajectoryErrorPlot(TrackingPlot):
+    show_plot: bool = False
+    plot_mode: PlotMode = PlotMode.xyz
+    use_color_map: bool = False
+    metric: str  # ate or rte
+    ax: plt.Axes
+    traj_ref: PoseTrajectory3D
+
+    def __init__(
+        self, show_plot: bool, plot_mode: str, use_color_map: bool, metric: str
+    ) -> None:
+        self.show_plot = show_plot
+        if not self.show_plot:
+            return
+
+        self.plot_mode = PlotMode(plot_mode)
+        self.use_color_map = use_color_map
+        self.metric = metric
+        self.fig = plt.figure()
+        self.ax = plot.prepare_axis(self.fig, self.plot_mode)
+        self.ax.set_title(f"Tracking error {metric.upper()} [m]")
+        self.colors = make_color_iterator()
+
+    def plot_reference_trajectory(
+        self, traj_ref: PoseTrajectory3D, ref_name: str = "reference"
+    ):
+        if not self.show_plot:
+            return
+        self.traj_ref = traj_ref
+        plot.traj(
+            self.ax, self.plot_mode, traj_ref, style="--", color="gray", label=ref_name
+        )
+
+    def plot_estimate_trajectory(
+        self,
+        traj_est: PoseTrajectory3D,
+        result: Result,
+        est_name: str = "estimate",
+    ):
+        if not self.show_plot:
+            return
+
+        errors = result.np_arrays["error_array"]
+        min_error = result.stats["min"]
+        max_error = result.stats["max"]
+
+        if self.use_color_map:
+            plot.traj_colormap(
+                self.ax,
+                traj_est,
+                errors,
+                self.plot_mode,
+                min_map=min_error,
+                max_map=max_error,
+            )
+        else:
+            plot.traj(
+                self.ax,
+                self.plot_mode,
+                traj_est,
+                color=next(self.colors),
+                label=est_name,
+                alpha=0.75,
+            )
+
+    def show(self):
+        plt.show()
+
+
+class SegmentDriftErrorPlot(TrackingPlot):
+    show_plot: bool = False
+    plot_mode: PlotMode = PlotMode.xyz
+    use_color_map: bool = False
+    metric: str  # should be seg
+    ax: plt.Axes
+    traj_ref: PoseTrajectory3D
+    traj_est: PoseTrajectory3D
+    seconds_from_start: ArrayOfFloats
+    plotted_estimates: int = 0
+
+    def __init__(
+        self, show_plot: bool, plot_mode: str, use_color_map: bool, metric: str
+    ) -> None:
+        self.show_plot = show_plot
+        if not self.show_plot:
+            return
+
+        self.plot_mode = PlotMode(plot_mode)
+        self.use_color_map = use_color_map
+        self.metric = metric
+        self.fig = plt.figure()
+        self.ax = plot.prepare_axis(self.fig, self.plot_mode)
+        self.ax.set_title(f"Tracking error {metric.upper()} [m]")
+
+    def plot_reference_trajectory(
+        self, traj_ref: PoseTrajectory3D, ref_name: str = "reference"
+    ):
+        if not self.show_plot:
+            return
+        self.plots = []
+        self.seconds_from_start = traj_ref.timestamps - traj_ref.timestamps[0]
+        self.traj_ref = traj_ref
+
+        plot.traj(
+            self.ax,
+            self.plot_mode,
+            traj_ref,
+            style="o-",
+            color="dimgray",
+            label=ref_name,
+        )
+        self.ax.lines[-1].timestamps = self.seconds_from_start
+        self.plots.append(self.ax.lines[-1])
+
+    def plot_estimate_trajectory(
+        self,
+        traj_est: PoseTrajectory3D,
+        segments: List[PoseTrajectory3D],
+        error_tolerance_per_segment: float,
+        result: Result,
+        ijk: Indices,
+        est_name: str = "estimate",
+    ):
+        if not self.show_plot:
+            return
+
+        plot.traj(
+            self.ax,
+            self.plot_mode,
+            traj_est,
+            style="o-",
+            color="silver",
+            label=est_name,
+        )
+        self.ax.lines[-1].timestamps = self.seconds_from_start
+        self.plots.append(self.ax.lines[-1])
+
+        errors = result.np_arrays["errors"]
+        error_points_est = result.np_arrays["error_points_est"]
+        error_points_ref = result.np_arrays["error_points_ref"]
+
+        # Plot segments
+        if self.use_color_map:
+            merged = merge_segments(segments)
+            maxerr = error_tolerance_per_segment
+            plot.traj_colormap(
+                self.ax, merged, errors, self.plot_mode, min_map=0, max_map=maxerr
+            )
+        else:
+            colors = (
+                make_color_iterator()
+                if self.plotted_estimates % 2 == 0
+                else make_dark_color_iterator()
+            )
+            for i, segment in enumerate(segments):
+                plot.traj(
+                    self.ax,
+                    self.plot_mode,
+                    segment,
+                    color=next(colors),
+                    style="o-",
+                )
+                self.ax.lines[-1].timestamps = self.seconds_from_start
+                self.plots.append(self.ax.lines[-1])
+
+        # Plot red error lines when between segment ends and starts
+        error_lines = cast(
+            Sequence, np.stack((error_points_est, error_points_ref), axis=1)
+        )
+        dim = len(ijk)
+        if dim == 3:
+            lines = Line3DCollection(error_lines, linestyles="--", colors="red")
+        elif dim == 2:
+            lines = LineCollection(error_lines, linestyles="--", colors="red")
+        else:
+            raise Exception(f"Unexpected {dim=} {ijk=}")
+        self.ax.add_collection(lines)  # type: ignore
+        self.ax.plot(*error_points_est.T, ".", color="black")
+        self.ax.plot(*error_points_ref.T, ".", color="black")
+        self.plotted_estimates += 1
+
+    def show(self):
+        if not self.show_plot:
+            return
+
+        # Set hover tooltip
+        cursor = mplcursors.cursor(self.plots, hover=mplcursors.HoverMode.Transient)
+        # TODO: Use self.seconds_from_start instead of s.artist.timestamps, and remove when it's set
+        cursor.connect(
+            "add",
+            lambda s: s.annotation.set_text(f"{s.artist.timestamps[int(s.index)]:.2f}"),
+        )
+        plt.show()
 
 
 def parse_args():
@@ -69,6 +286,13 @@ def parse_args():
         choices=["xy", "xz", "yx", "yz", "zx", "zy", "xyz"],
     )
     parser.add_argument(
+        "--use_color_map",
+        "-cm",
+        type=bool,
+        default=None,
+        help="Use color map for trajectory color based on error from groundtruth",
+    )
+    parser.add_argument(
         "--sd_tolerance",
         "-sdtol",
         type=float,
@@ -80,7 +304,7 @@ def parse_args():
         "-sdec",
         type=int,
         nargs="+",
-        default=[0, 1, 2],
+        default=None,
         choices=[0, 1, 2],
         help="Which axes to use for error computation in the SD metric",
     )
@@ -131,16 +355,21 @@ def compute_tracking_stats(
     metric: str,  # rte, ate
     tracking_csv: Path,
     groundtruth_csv: Path,
+    tracking_plot: TrajectoryErrorPlot | SegmentDriftErrorPlot,
     pose_relation: PoseRelation = PoseRelation.translation_part,
     alignment: int = 0,  # -1: origin, 0: umemaya, >0 align first n points
     silence: bool = False,
-    plot_mode_str: str = "xyz",
     sd_tolerance: float = DEFAULT_SEGMENT_DRIFT_TOLERANCE_M,
-    sd_error_components: List[int] = [0, 1, 2],
+    sd_error_components: Sequence[int] = (0, 1, 2),
 ) -> Result:
     traj_est, traj_ref = get_sanitized_trajectories(
         tracking_csv, groundtruth_csv, silence=silence
     )
+    est_name = str(tracking_csv)
+    ref_name = "groundtruth"
+
+    result = Result()
+
     if metric == "ate":
         # NOTE: Possible issues for VR.
         # - Umemaya alignment does not account how off are we from the starting point
@@ -153,9 +382,16 @@ def compute_tracking_stats(
             correct_scale=False,
             n_to_align=alignment if alignment > 0 else -1,
             align_origin=alignment == -1,
-            ref_name="groundtruth",
-            est_name=tracking_csv,
+            ref_name=ref_name,
+            est_name=est_name,
         )
+
+        cast(TrajectoryErrorPlot, tracking_plot).plot_estimate_trajectory(
+            traj_est,
+            result,
+            est_name=est_name,
+        )
+
     elif metric == "rte":
         # NOTE: Possible issues for VR.
         # - Umemaya alignment seems to certainly be a bad idea for relative error, align_first_n sounds better
@@ -172,14 +408,19 @@ def compute_tracking_stats(
             correct_scale=False,
             n_to_align=alignment if alignment > 0 else -1,
             align_origin=alignment == -1,
-            ref_name="groundtruth",
-            est_name=tracking_csv,
+            ref_name=ref_name,
+            est_name=est_name,
             support_loop=False,  # Seems to only be used to not modify the input trajectories in jupyter notebooks
+        )
+
+        cast(TrajectoryErrorPlot, tracking_plot).plot_estimate_trajectory(
+            traj_est,
+            result,
+            est_name=est_name,
         )
     elif metric == "seg":
         error_tolerance_per_segment = sd_tolerance
         ijk = np.array(sd_error_components, dtype=int)
-        dim = len(ijk)
 
         segments = []
 
@@ -189,19 +430,19 @@ def compute_tracking_stats(
         traj_est.align_origin(traj_ref)
         remainder = deepcopy(traj_est)
 
-        errors = []
-        error_points_est = []
-        error_points_ref = []
+        errors_list = []
+        error_points_est_list = []
+        error_points_ref_list = []
         while i < poses_count:
             p, e = get_point_error(remainder, traj_ref, ri, i, ijk)
-            errors.append(e)
+            errors_list.append(e)
             if e > error_tolerance_per_segment:
-                error_points_est.append(remainder.positions_xyz[ri, ijk])
-                error_points_ref.append(p)
+                error_points_est_list.append(remainder.positions_xyz[ri, ijk])
+                error_points_ref_list.append(p)
                 # TODO: Improve speed of the metric? maybe dont align the entire trajectory?
                 segment, remainder = split_segment(traj_ref, traj_est, remainder, i, ri)
                 segments.append(segment)
-                errors.append(0)
+                errors_list.append(0)
                 ri = 0
             i += 1
             ri += 1
@@ -211,23 +452,24 @@ def compute_tracking_stats(
             segments.append(segment)
         ri = 0
 
-        error_points_est = np.array(error_points_est)
-        error_points_ref = np.array(error_points_ref)
+        errors = np.array(errors_list)
+        error_points_est = np.array(error_points_est_list)
+        error_points_ref = np.array(error_points_ref_list)
 
         seg_result = Result()
         metric_name = "Segments"
         seg_result.add_info(
             {
                 "title": "Segments Metric TITLE",
-                "ref_name": "groundtruth",
-                "est_name": tracking_csv,
+                "ref_name": ref_name,
+                "est_name": est_name,
                 "label": "{} {}".format(metric_name, "({})".format("m METERS")),
             }
         )
 
         get_duration = lambda s: s.timestamps[-1] - s.timestamps[0]
         get_length = lambda s: sum(
-            np.linalg.norm((b - a)[ijk])
+            cast(float, np.linalg.norm((b - a)[ijk]))
             for a, b in zip(s.positions_xyz, s.positions_xyz[1:])
         )
 
@@ -274,64 +516,23 @@ def compute_tracking_stats(
         seg_result.add_np_array("error_points_ref", error_points_ref)
 
         seg_result.info["title"] = "Segment Metric TITTLTLTLE"
-        seg_result.add_trajectory("groundtruth", traj_ref)
-        seg_result.add_trajectory(tracking_csv, traj_est)
+        seg_result.add_trajectory(ref_name, traj_ref)
+        seg_result.add_trajectory(est_name, traj_est)
         seg_result.add_np_array("timestamps", traj_est.timestamps)
         seg_result.add_np_array("distances_from_start", traj_ref.distances)
         seg_result.add_np_array("distances", traj_est.distances)
+        result = seg_result
         print(f"finished {tracking_csv} {' ' * 80}")
 
-        return seg_result
-
-        # TODO: Move plotting outside of this if possible to match behaviour of
-        # other tracking metrics
-        fig, plot_mode = plt.figure(), PlotMode(plot_mode_str)
-        ax = plot.prepare_axis(fig, plot_mode)
-        plots = []
-        seconds_from_start = traj_ref.timestamps - traj_ref.timestamps[0]
-
-        plot.traj(ax, plot_mode, traj_ref, style="o-", color="gray", label="ref")
-        ax.lines[-1].timestamps = seconds_from_start
-        plots.append(ax.lines[-1])
-
-        plot.traj(ax, plot_mode, traj_est, style="o-", color="black", alpha=0.1)
-        ax.lines[-1].timestamps = seconds_from_start
-        plots.append(ax.lines[-1])
-
-        colors = make_color_iterator()
-        COLORMAP = False
-        if COLORMAP:
-            merged = merge_segments(segments)
-            maxerr = error_tolerance_per_segment
-            plot.traj_colormap(ax, merged, errors, plot_mode, min_map=0, max_map=maxerr)
-        else:
-            for i, segment in enumerate(segments):
-                plot.traj(ax, plot_mode, segment, color=next(colors), style="o-")
-                ax.lines[-1].timestamps = seconds_from_start
-                plots.append(ax.lines[-1])
-
-        error_lines = np.stack((error_points_est, error_points_ref), axis=1)
-        if dim == 3:
-            lines = Line3DCollection(error_lines, linestyles="--", colors="red")
-        elif dim == 2:
-            lines = LineCollection(error_lines, linestyles="--", colors="red")
-        else:
-            raise Exception(f"Unexpected {dim=} {ijk=}")
-        ax.add_collection(lines)
-
-        ax.plot(*error_points_est[:, ijk].T, ".", color="black")
-        ax.plot(*error_points_ref[:, ijk].T, ".", color="black")
-
-        # Set hover tooltip
-        cursor = mplcursors.cursor(plots, hover=mplcursors.HoverMode.Transient)
-        cursor.connect(
-            "add",
-            lambda s: s.annotation.set_text(f"{s.artist.timestamps[int(s.index)]:.2f}"),
+        cast(SegmentDriftErrorPlot, tracking_plot).plot_estimate_trajectory(
+            traj_est,
+            segments,
+            error_tolerance_per_segment,
+            seg_result,
+            ijk=ijk,
+            est_name=est_name,
         )
 
-        plt.show()
-
-        return seg_result
     else:
         error("Unexpected branch taken")
 
@@ -390,7 +591,8 @@ def create_subtrajectory(traj: PoseTrajectory3D, i: int, j: int) -> PoseTrajecto
     return PoseTrajectory3D(xyz, quat, stamps)
 
 
-def align_origin_at(a: PoseTrajectory3D, b: PoseTrajectory3D, i: int = 0) -> np.ndarray:
+# TODO: Look for all types np.ndarray and change it for an alis that is more descriptive
+def align_origin_at(a: PoseTrajectory3D, b: PoseTrajectory3D, i: int = 0) -> SE3:
     """
     align the origin to the origin of a reference trajectory
     :param a: trajectory to align
@@ -412,7 +614,7 @@ def align_origin_at(a: PoseTrajectory3D, b: PoseTrajectory3D, i: int = 0) -> np.
     return to_ref_origin
 
 
-def matrix_from_quaternion(q: np.ndarray) -> np.ndarray:
+def matrix_from_quaternion(q: Quaternion) -> SO3:
     """Return a rotation matrix from a quaternion."""
     qw, qx, qy, qz = q
     r0 = [2 * (qw * qw + qx * qx) - 1, 2 * (qx * qy - qw * qz), 2 * (qx * qz + qw * qy)]
@@ -434,20 +636,20 @@ def get_point_error(
     b: PoseTrajectory3D,
     ai: int,
     bi: int,
-    ijk: np.ndarray = [0, 1, 2],
+    ijk: Indices = np.array([0, 1, 2]),
 ):
-    pa = a.positions_xyz[:, ijk][ai]
-    pb = b.positions_xyz[:, ijk][bi]
+    pa = a.positions_xyz[ai][ijk]
+    pb = b.positions_xyz[bi][ijk]
     ta = a.timestamps[ai]
     tb = b.timestamps[bi]
     if tb != ta:
-        ps, ts = b.positions_xyz[:, ijk], b.timestamps
+        ps, ts = b.positions_xyz, b.timestamps
         l = bi if tb < ta else bi - 1
         r = l + 1
         tl = ts[l] if l >= 0 else ts[0] - (ts[1] - ts[0])
-        pl = ps[l] if l >= 0 else ps[0] - (ps[1] - ps[0])
+        pl = (ps[l] if l >= 0 else ps[0] - (ps[1] - ps[0]))[ijk]
         tr = ts[r] if r < len(ts) else ts[-1] + (ts[-1] - ts[-2])
-        pr = ps[r] if r < len(ps) else ps[-1] + (ps[-1] - ps[-2])
+        pr = (ps[r] if r < len(ps) else ps[-1] + (ps[-1] - ps[-2]))[ijk]
         assert tl <= ta and ta <= tr
         pb = pl + (pr - pl) * ((ta - tl) / (tr - tl))
     e = np.linalg.norm(pa - pb)
@@ -462,61 +664,36 @@ def get_tracking_stats(
     alignment: int = 0,  # -1: origin, 0: umemaya, >0 align first n points
     show_plot: bool = False,
     plot_mode: str = "xyz",  # "xz", "xy", etc
+    use_color_map: bool = False,
     silence: bool = False,
     sd_tolerance: float = DEFAULT_SEGMENT_DRIFT_TOLERANCE_M,
-    sd_error_components: List[int] = [0, 1, 2],
+    sd_error_components: Sequence[int] = (0, 1, 2),
 ) -> Dict[Path, Result]:
+    tracking_plot = (
+        SegmentDriftErrorPlot(show_plot, plot_mode, use_color_map, metric)
+        if metric == "seg"
+        else TrajectoryErrorPlot(show_plot, plot_mode, use_color_map, metric)
+    )
+    _, gt = get_sanitized_trajectories(  # NOTE: sanitizing only against first traj
+        tracking_csvs[0], groundtruth_csv, silence=True
+    )
+    tracking_plot.plot_reference_trajectory(gt)
     results = {}
-    ref_name = str(groundtruth_csv)
     for tracking_csv in tracking_csvs:
         result = compute_tracking_stats(
             metric,
             tracking_csv,
             groundtruth_csv,
-            pose_relation,
-            alignment,
-            silence,
-            plot_mode,
-            sd_tolerance,
-            sd_error_components,
+            tracking_plot,
+            pose_relation=pose_relation,
+            alignment=alignment,
+            silence=silence,
+            sd_tolerance=sd_tolerance,
+            sd_error_components=sd_error_components,
         )
         results[tracking_csv] = result
 
-    if show_plot:
-        fig = plt.figure()
-        plot_mode = PlotMode(plot_mode)
-        ax = plot.prepare_axis(fig, plot_mode)
-        _, gt = get_sanitized_trajectories(  # NOTE: sanitizing only against first traj
-            tracking_csvs[0], groundtruth_csv, silence=True
-        )
-        plot.traj(ax, plot_mode, gt, style="--", color="gray", label=groundtruth_csv)
-        colors = make_color_iterator()
-
-        for tracking_csv, result in results.items():
-            # TODO: seg metric coesnt support more than one csv yet
-            if len(tracking_csvs) == 1:
-                # TODO: This doesnt work with seg yet
-                plot.traj_colormap(
-                    ax,
-                    result.trajectories[tracking_csv],
-                    result.np_arrays["errors"],
-                    plot_mode,
-                    min_map=result.stats["min"],
-                    max_map=result.stats["max"],
-                )
-                # ax.plot(result.np_arrays['interest_points'])
-            else:
-                plot.traj(
-                    ax,
-                    plot_mode,
-                    result.trajectories[tracking_csv],
-                    color=next(colors),
-                    label=tracking_csv,
-                    alpha=0.75,
-                )
-        plt.title("Tracking error")
-        plt.show()
-
+    tracking_plot.show()
     return results
 
 
@@ -527,8 +704,14 @@ def main():
     tracking_csvs = args.tracking_csvs
     show_plot = args.plot
     plot_mode = args.plot_mode
+    use_color_map = args.use_color_map
     sd_tolerance = args.sd_tolerance
     sd_error_components = args.sd_error_components
+
+    if sd_error_components is None:
+        sd_error_components = [{"x": 0, "y": 1, "z": 2}[i] for i in plot_mode]
+    if use_color_map is None:
+        use_color_map = metric in ["ate", "rte"] and len(tracking_csvs) == 1
 
     results = get_tracking_stats(
         metric,
@@ -536,6 +719,7 @@ def main():
         groundtruth_csv,
         show_plot=show_plot,
         plot_mode=plot_mode,
+        use_color_map=use_color_map,
         sd_tolerance=sd_tolerance,
         sd_error_components=sd_error_components,
     )

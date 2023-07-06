@@ -3,6 +3,7 @@ from typing import List, Tuple, Iterable
 from itertools import cycle
 import math
 import numpy as np
+import numpy.typing as npt
 
 NUMBER_OF_NS_IN = {"ns": 1, "us": 1e3, "ms": 1e6, "s": 1e9}
 TIME_UNITS = NUMBER_OF_NS_IN.keys()
@@ -52,7 +53,21 @@ DARK_COLORS = [  # Regular cycle
 ]
 
 make_color_iterator = lambda: cycle(COLORS)
+make_dark_color_iterator = lambda: cycle(DARK_COLORS)
 
+# Types: These are mostly just aliases to generic numpy arrays in the hopes that
+# one day numpy has proper type support and we can just use it here, also it
+# helps for documentation
+Indices = np.ndarray
+ArrayOfFloats = npt.ArrayLike
+ArrayOfPoints = npt.ArrayLike  # either 2D or 3D points
+Matrix4x4 = np.ndarray
+Matrix3x3 = np.ndarray
+Vector2 = np.ndarray
+Vector4 = np.ndarray
+SE3 = Matrix4x4
+SO3 = Matrix3x3
+Quaternion = Vector4
 
 def moving_average_smooth(values: np.ndarray, window_size=100):
     n = window_size

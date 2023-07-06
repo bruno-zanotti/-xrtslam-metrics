@@ -6,24 +6,22 @@ from typing import Dict, List, Tuple, Sequence, Union, cast
 from pathlib import Path
 from argparse import ArgumentParser
 import numpy as np
-import numpy.typing as npt
 import mplcursors
+from mplcursors import HoverMode
 import matplotlib.pyplot as plt
 from copy import deepcopy
-from evo.tools.settings import SETTINGS
 from evo.tools import file_interface, plot
 from evo.tools.plot import PlotMode
 from evo.core import sync
-import evo.core.geometry as geometry
 from evo.core import lie_algebra as lie
 from evo.core.result import Result
 import evo.core.transformations as tr
-from evo.core.trajectory import PoseTrajectory3D, PosePath3D, merge
+from evo.core.trajectory import PoseTrajectory3D
 import evo.main_ape as main_ape
 import evo.main_rpe as main_rpe
 from evo.core.metrics import PoseRelation, Unit
 import logging
-from matplotlib.collections import LineCollection, Collection
+from matplotlib.collections import LineCollection
 from mpl_toolkits.mplot3d.art3d import Line3DCollection
 from completion import CompletionStats
 from utils import (
@@ -33,7 +31,6 @@ from utils import (
     make_color_iterator,
     make_dark_color_iterator,
     warn,
-    ArrayOfFloats,
     SE3,
     SO3,
     Indices,
@@ -130,8 +127,6 @@ class SegmentDriftErrorPlot(TrackingPlot):
     metric: str  # should be seg
     ax: plt.Axes
     traj_ref: PoseTrajectory3D
-    traj_est: PoseTrajectory3D
-    seconds_from_start: ArrayOfFloats
     plotted_estimates: int = 0
 
     def __init__(
@@ -153,20 +148,20 @@ class SegmentDriftErrorPlot(TrackingPlot):
     ):
         if not self.show_plot:
             return
-        self.plots = []
-        self.seconds_from_start = traj_ref.timestamps - traj_ref.timestamps[0]
+        self.traj_plots = []
+        self.error_plots = []
         self.traj_ref = traj_ref
 
         plot.traj(
             self.ax,
             self.plot_mode,
             traj_ref,
-            style="o-",
-            color="dimgray",
+            style=".-",
+            color="silver",
             label=ref_name,
         )
-        self.ax.lines[-1].timestamps = self.seconds_from_start
-        self.plots.append(self.ax.lines[-1])
+        self.ax.lines[-1].timestamps = traj_ref.timestamps - traj_ref.timestamps[0]
+        self.traj_plots.append(self.ax.lines[-1])
 
     def plot_estimate_trajectory(
         self,
@@ -180,16 +175,16 @@ class SegmentDriftErrorPlot(TrackingPlot):
         if not self.show_plot:
             return
 
-        plot.traj(
-            self.ax,
-            self.plot_mode,
-            traj_est,
-            style="o-",
-            color="silver",
-            label=est_name,
-        )
-        self.ax.lines[-1].timestamps = self.seconds_from_start
-        self.plots.append(self.ax.lines[-1])
+        # plot.traj(
+        #     self.ax,
+        #     self.plot_mode,
+        #     traj_est,
+        #     style="o-",
+        #     color="grey",
+        #     label=est_name,
+        # )
+        # self.ax.lines[-1].timestamps = traj_est.timestamps - traj_est.timestamps[0]
+        # self.traj_plots.append(self.ax.lines[-1])
 
         errors = result.np_arrays["errors"]
         error_points_est = result.np_arrays["error_points_est"]
@@ -214,10 +209,17 @@ class SegmentDriftErrorPlot(TrackingPlot):
                     self.plot_mode,
                     segment,
                     color=next(colors),
-                    style="o-",
+                    style=".-"
                 )
-                self.ax.lines[-1].timestamps = self.seconds_from_start
-                self.plots.append(self.ax.lines[-1])
+                self.ax.lines[-1].timestamps = (
+                    segment.timestamps[0] - traj_est.timestamps[0]
+                ) + (segment.timestamps - segment.timestamps[0])
+                ps = segment.positions_xyz
+                diff = ps[1:] - ps[:-1]  # type: ignore
+                self.ax.lines[-1].lengths = np.hstack(
+                    (np.linalg.norm(diff[:, ijk], axis=1), [0])
+                )
+                self.traj_plots.append(self.ax.lines[-1])
 
         # Plot red error lines when between segment ends and starts
         error_lines = cast(
@@ -231,21 +233,40 @@ class SegmentDriftErrorPlot(TrackingPlot):
         else:
             raise Exception(f"Unexpected {dim=} {ijk=}")
         self.ax.add_collection(lines)  # type: ignore
-        self.ax.plot(*error_points_est.T, ".", color="black")
-        self.ax.plot(*error_points_ref.T, ".", color="black")
+        self.ax.collections[-1].errors = np.linalg.norm(
+            error_points_ref - error_points_est, axis=1
+        )
+        self.error_plots.append(self.ax.collections[-1])
+        self.ax.plot(*error_points_est.T, ".", fillstyle="none", color="black")
+        self.ax.plot(*error_points_ref.T, ".", fillstyle="none", color="black")
         self.plotted_estimates += 1
 
     def show(self):
         if not self.show_plot:
             return
 
-        # Set hover tooltip
-        cursor = mplcursors.cursor(self.plots, hover=mplcursors.HoverMode.Transient)
-        # TODO: Use self.seconds_from_start instead of s.artist.timestamps, and remove when it's set
-        cursor.connect(
-            "add",
-            lambda s: s.annotation.set_text(f"{s.artist.timestamps[int(s.index)]:.2f}"),
-        )
+        # Set hover tooltips
+
+        def on_hover_trajectory(s):
+            i = int(s.index)
+            time = s.artist.timestamps[i]
+            text = f"{time:.2f}s"
+            # import ipdb; ipdb.set_trace()
+            if hasattr(s.artist, "lengths"):
+                length = s.artist.lengths[i]
+                text += f"\n{length:.4f}m"
+            s.annotation.set_text(text)
+
+        cursor = mplcursors.cursor(self.traj_plots, hover=HoverMode.Transient)
+        cursor.connect("add", on_hover_trajectory)
+
+        def on_hover_error_lines(s):
+            # import ipdb; ipdb.set_trace()
+            s.annotation.set_text(f"{s.artist.errors[int(s.index[0])]:.4f}m")
+            # s.annotation.set_text(f"{s.index}")
+
+        c = mplcursors.cursor(self.error_plots, hover=HoverMode.Transient)
+        c.connect("add", on_hover_error_lines)
         plt.show()
 
 
@@ -692,6 +713,8 @@ def get_tracking_stats(
             sd_error_components=sd_error_components,
         )
         results[tracking_csv] = result
+        print(f"File {tracking_csv}")
+        print(result)
 
     tracking_plot.show()
     return results
@@ -723,10 +746,6 @@ def main():
         sd_tolerance=sd_tolerance,
         sd_error_components=sd_error_components,
     )
-
-    for tracking_csv, result in results.items():
-        print(f"File {tracking_csv}")
-        print(result)
 
     # TODO: Try to reuse EVO settings as much as possible
     # TODO: Bring position/rpy graphs as well like in evo_traj

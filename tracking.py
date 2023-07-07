@@ -5,9 +5,8 @@
 from argparse import ArgumentParser
 from copy import deepcopy
 from pathlib import Path
-from typing import Dict, List, Sequence, Tuple, Union, cast
+from typing import Dict, List, Sequence, Tuple, cast
 
-import evo.core.transformations as tr
 import evo.main_ape as main_ape
 import evo.main_rpe as main_rpe
 import matplotlib.pyplot as plt
@@ -18,6 +17,7 @@ from evo.core import sync
 from evo.core.metrics import PoseRelation, Unit
 from evo.core.result import Result
 from evo.core.trajectory import PoseTrajectory3D
+from evo.core.transformations import quaternion_from_matrix
 from evo.tools import file_interface, plot
 from evo.tools.plot import PlotMode
 from matplotlib.collections import LineCollection
@@ -85,7 +85,7 @@ class TrajectoryErrorPlot(TrackingPlot):
             self.ax, self.plot_mode, traj_ref, style="--", color="gray", label=ref_name
         )
 
-    def plot_estimate_trajectory(
+    def plot_estimate_trajectory(  # pylint: disable=arguments-differ
         self,
         traj_est: PoseTrajectory3D,
         result: Result,
@@ -143,14 +143,14 @@ class SegmentDriftErrorPlot(TrackingPlot):
         self.fig = plt.figure()
         self.ax = plot.prepare_axis(self.fig, self.plot_mode)
         self.ax.set_title(f"Tracking error {metric.upper()} [m]")
+        self.traj_plots = []
+        self.error_plots = []
 
     def plot_reference_trajectory(
         self, traj_ref: PoseTrajectory3D, ref_name: str = "reference"
     ):
         if not self.show_plot:
             return
-        self.traj_plots = []
-        self.error_plots = []
         self.traj_ref = traj_ref
 
         plot.traj(
@@ -165,14 +165,14 @@ class SegmentDriftErrorPlot(TrackingPlot):
         # self.ax.lines[-1].timestamps = traj_ref.timestamps - traj_ref.timestamps[0]
         # self.traj_plots.append(self.ax.lines[-1])
 
-    def plot_estimate_trajectory(
+    def plot_estimate_trajectory(  # pylint: disable=arguments-differ
         self,
         traj_est: PoseTrajectory3D,
         segments: List[PoseTrajectory3D],
         error_tolerance_per_segment: float,
         result: Result,
         ijk: Indices,
-        est_name: str = "estimate",
+        est_name: str = "estimate",  # pylint: disable=unused-argument
     ):
         if not self.show_plot:
             return
@@ -234,7 +234,7 @@ class SegmentDriftErrorPlot(TrackingPlot):
         elif dim == 2:
             lines = LineCollection(error_lines, linestyles="--", colors="red")
         else:
-            raise Exception(f"Unexpected {dim=} {ijk=}")
+            raise ValueError(f"Unexpected {dim=} {ijk=}")
         self.ax.add_collection(lines)  # type: ignore
         self.ax.collections[-1].errors = np.linalg.norm(
             error_points_ref - error_points_est, axis=1
@@ -478,13 +478,12 @@ def compute_tracking_stats(
         error_points_ref = np.array(error_points_ref_list)
 
         seg_result = Result()
-        metric_name = "Segments"
         seg_result.add_info(
             {
-                "title": "Segments Metric TITLE",
+                "title": "Segment Drift",
                 "ref_name": ref_name,
                 "est_name": est_name,
-                "label": "{} {}".format(metric_name, "({})".format("m METERS")),
+                "label": "Segment Drift (m)",
             }
         )
 
@@ -505,7 +504,7 @@ def compute_tracking_stats(
         seg_result.add_stats(
             {
                 "Number of segments": segments_count,
-                "Min error": min(e for e in errors if e != 0),  # TODO: Useful?
+                "Min error": min(e for e in errors if e != 0),  # Not very useful
                 "Max error": max(errors),
                 "Segments p/second": segments_count / dataset_duration,
                 "Min segment duration": min(durations),
@@ -536,7 +535,6 @@ def compute_tracking_stats(
         seg_result.add_np_array("error_points_est", error_points_est)
         seg_result.add_np_array("error_points_ref", error_points_ref)
 
-        seg_result.info["title"] = "Segment Metric TITTLTLTLE"
         seg_result.add_trajectory(ref_name, traj_ref)
         seg_result.add_trajectory(est_name, traj_est)
         seg_result.add_np_array("timestamps", traj_est.timestamps)
@@ -612,7 +610,6 @@ def create_subtrajectory(traj: PoseTrajectory3D, i: int, j: int) -> PoseTrajecto
     return PoseTrajectory3D(xyz, quat, stamps)
 
 
-# TODO: Look for all types np.ndarray and change it for an alis that is more descriptive
 def align_origin_at(a: PoseTrajectory3D, b: PoseTrajectory3D, i: int = 0) -> SE3:
     """
     align the origin to the origin of a reference trajectory
@@ -621,7 +618,7 @@ def align_origin_at(a: PoseTrajectory3D, b: PoseTrajectory3D, i: int = 0) -> SE3
     :return: the used transformation
     """
     if a.num_poses == 0 or b.num_poses == 0:
-        raise Exception("can't align an empty trajectory...")
+        raise ValueError("can't align an empty trajectory...")
     traj_origin = a.poses_se3[0]
     traj_ref_origin = b.poses_se3[i]
     to_ref_origin = np.dot(traj_ref_origin, lie.se3_inverse(traj_origin))
@@ -646,9 +643,9 @@ def matrix_from_quaternion(q: Quaternion) -> SO3:
 
 def orthonormalize_rotations(traj: PoseTrajectory3D):
     for se3 in traj.poses_se3:
-        q = tr.quaternion_from_matrix(se3)
+        q = quaternion_from_matrix(se3)
         q = q / np.linalg.norm(q)
-        # se3[:] = tr.quaternion_matrix(q) # For some reason this didn't work
+        # se3[:] = quaternion_matrix(q) # For some reason this didn't work
         se3[:3, :3] = matrix_from_quaternion(q)
 
 
@@ -736,7 +733,7 @@ def main():
     if use_color_map is None:
         use_color_map = metric in ["ate", "rte"] and len(tracking_csvs) == 1
 
-    results = get_tracking_stats(
+    get_tracking_stats(
         metric,
         tracking_csvs,
         groundtruth_csv,

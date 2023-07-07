@@ -74,7 +74,7 @@ Quaternion = Vector4
 def moving_average_smooth(values: np.ndarray, window_size=100):
     n = window_size
     cs = np.cumsum(values)
-    moving_avg = (cs[n:] - cs[:-n]) / n
+    moving_avg = (cs[n:] - cs[:-n]) / n  # type: ignore
     padded_w_zeros = np.zeros(values.shape)
     padded_w_zeros[n:] = moving_avg
     return padded_w_zeros
@@ -129,6 +129,7 @@ def load_csv_safer(csv_fn: Path, dtype=np.int64) -> Tuple[List[str], np.ndarray]
 
 def color_string(string, fg=None):
     ANSI_COLORS = {  # List some colors that may be needed
+        None: "\033[31m",  # Red
         "red": "\033[31m",
         "pink": "\033[38;5;206m",
         "green": "\033[32m",

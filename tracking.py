@@ -161,8 +161,9 @@ class SegmentDriftErrorPlot(TrackingPlot):
             color="silver",
             label=ref_name,
         )
-        self.ax.lines[-1].timestamps = traj_ref.timestamps - traj_ref.timestamps[0]
-        self.traj_plots.append(self.ax.lines[-1])
+        # NOTE: Toggle these comments to enable hover cursor on groundtruth line
+        # self.ax.lines[-1].timestamps = traj_ref.timestamps - traj_ref.timestamps[0]
+        # self.traj_plots.append(self.ax.lines[-1])
 
     def plot_estimate_trajectory(
         self,
@@ -211,6 +212,11 @@ class SegmentDriftErrorPlot(TrackingPlot):
                 self.ax.lines[-1].timestamps = (
                     segment.timestamps[0] - traj_est.timestamps[0]
                 ) + (segment.timestamps - segment.timestamps[0])
+                self.ax.lines[-1].offset_frame = next(
+                    i
+                    for i, t in enumerate(traj_est.timestamps)
+                    if t == segment.timestamps[0]
+                )
                 ps = segment.positions_xyz
                 diff = ps[1:] - ps[:-1]  # type: ignore
                 self.ax.lines[-1].lengths = np.hstack(
@@ -248,19 +254,17 @@ class SegmentDriftErrorPlot(TrackingPlot):
             i = int(s.index)
             time = s.artist.timestamps[i]
             text = f"{time:.2f}s"
-            # import ipdb; ipdb.set_trace()
             if hasattr(s.artist, "lengths"):
-                length = s.artist.lengths[i]
-                text += f"\n{length:.4f}m"
+                text += f"\n{s.artist.lengths[i]:.4f}m"
+            if hasattr(s.artist, "offset_frame"):
+                text += f"\nframe {s.artist.offset_frame + i}"
             s.annotation.set_text(text)
 
         cursor = mplcursors.cursor(self.traj_plots, hover=HoverMode.Transient)
         cursor.connect("add", on_hover_trajectory)
 
         def on_hover_error_lines(s):
-            # import ipdb; ipdb.set_trace()
             s.annotation.set_text(f"{s.artist.errors[int(s.index[0])]:.4f}m")
-            # s.annotation.set_text(f"{s.index}")
 
         c = mplcursors.cursor(self.error_plots, hover=HoverMode.Transient)
         c.connect("add", on_hover_error_lines)
@@ -268,7 +272,6 @@ class SegmentDriftErrorPlot(TrackingPlot):
 
 
 def parse_args():
-    # TODO: Add argument for seg metric ERROR_TOLERANCE
     parser = ArgumentParser(
         description="Determine absolute pose error for a trajectory and its groundtruth",
     )
@@ -496,6 +499,9 @@ def compute_tracking_stats(
         dataset_length = get_length(traj_est)
         durations = np.array([get_duration(s) for s in segments])
         lengths = np.array([get_length(s) for s in segments])
+        segment_errors = [e for e in errors_list if e >= error_tolerance_per_segment]
+        segment_errors = np.append(segment_errors, error_tolerance_per_segment)
+        assert len(segment_errors) == len(segments)
         seg_result.add_stats(
             {
                 "Number of segments": segments_count,
@@ -519,16 +525,13 @@ def compute_tracking_stats(
                 # "Mean segment length %": round(np.mean(lengths) / dataset_length * 100, 2),
                 # "Median segment length %": round(np.median(lengths) / dataset_length * 100, 2),
                 # "Std segment length %": round(np.std(lengths) / dataset_length * 100, 2),
-                # TODO: Use the real max error of each segment instead of the fixed tolerance
-                "SDS": np.mean(error_tolerance_per_segment / durations),
-                "SDS std": np.std(error_tolerance_per_segment / durations),
-                "SDM": np.mean(error_tolerance_per_segment / lengths),
-                "SDM std": np.std(error_tolerance_per_segment / lengths),
+                "SDS": np.mean(segment_errors / durations),
+                "SDS std": np.std(segment_errors / durations),
+                "SDM": np.mean(segment_errors / lengths),
+                "SDM std": np.std(segment_errors / lengths),
             }
         )
 
-        # TODO: Review these results, specially the names I gave
-        # TODO: Review comments and remove dangling ones
         seg_result.add_np_array("errors", errors)
         seg_result.add_np_array("error_points_est", error_points_est)
         seg_result.add_np_array("error_points_ref", error_points_ref)

@@ -1,7 +1,5 @@
 #!/usr/bin/env python
 
-# TODO: check all warnings and errors and try to fix them
-
 from argparse import ArgumentParser
 from copy import deepcopy
 from pathlib import Path
@@ -624,10 +622,9 @@ def align_origin_at(a: PoseTrajectory3D, b: PoseTrajectory3D, i: int = 0) -> SE3
     to_ref_origin = np.dot(traj_ref_origin, lie.se3_inverse(traj_origin))
     a.transform(to_ref_origin)
 
-    # TODO: Check how much doing the orthonormalization sometimes vs always affects the metric
     # After a couple of transforms the rotation lose determinant 1 due to
-    # floating point errors so we need to re-orthonormalize
-    if abs(np.linalg.det(to_ref_origin[:3, :3]) - 1) > 0.0001:
+    # floating point errors so we re-orthonormalize every so often
+    if abs(np.linalg.det(to_ref_origin[:3, :3]) - 1) > 1e-9:
         orthonormalize_rotations(a)
     return to_ref_origin
 

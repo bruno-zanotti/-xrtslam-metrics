@@ -223,10 +223,11 @@ class SegmentDriftErrorPlot(TrackingPlot):
                 self.traj_plots.append(self.ax.lines[-1])
 
         # Plot red error lines when between segment ends and starts
-        error_lines = cast(
-            Sequence, np.stack((error_points_est, error_points_ref), axis=1)
-        )
-        dim = len(ijk)
+        plot_ijk = [{"x": 0, "y": 1, "z": 2}[i] for i in self.plot_mode.value]
+        errpoints_est = error_points_est[:, plot_ijk]
+        errpoints_ref = error_points_ref[:, plot_ijk]
+        error_lines = cast(Sequence, np.stack((errpoints_est, errpoints_ref), axis=1))
+        dim = len(plot_ijk)
         if dim == 3:
             lines = Line3DCollection(error_lines, linestyles="--", colors="red")
         elif dim == 2:
@@ -238,8 +239,8 @@ class SegmentDriftErrorPlot(TrackingPlot):
             error_points_ref - error_points_est, axis=1
         )
         self.error_plots.append(self.ax.collections[-1])
-        self.ax.plot(*error_points_est.T, ".", fillstyle="none", color="black")
-        self.ax.plot(*error_points_ref.T, ".", fillstyle="none", color="black")
+        self.ax.plot(*errpoints_est.T, ".", fillstyle="none", color="black")
+        self.ax.plot(*errpoints_ref.T, ".", fillstyle="none", color="black")
         self.plotted_estimates += 1
 
     def show(self):
@@ -321,10 +322,8 @@ def parse_args():
     parser.add_argument(
         "--sd_error_components",
         "-sdec",
-        type=int,
-        nargs="+",
-        default=None,
-        choices=[0, 1, 2],
+        default="xyz",
+        choices=["xy", "xz", "yx", "yz", "zx", "zy", "xyz"],
         help="Which axes to use for error computation in the SD metric",
     )
     return parser.parse_args()
@@ -437,7 +436,7 @@ def compute_tracking_stats(
             result,
             est_name=est_name,
         )
-    elif metric == "seg":
+    elif metric == "seg":  # Segment Drift
         error_tolerance_per_segment = sd_tolerance
         ijk = np.array(sd_error_components, dtype=int)
 
@@ -738,8 +737,7 @@ def main():
     sd_tolerance = args.sd_tolerance
     sd_error_components = args.sd_error_components
 
-    if sd_error_components is None:
-        sd_error_components = [{"x": 0, "y": 1, "z": 2}[i] for i in plot_mode]
+    sd_error_components = [{"x": 0, "y": 1, "z": 2}[i] for i in sd_error_components]
     if use_color_map is None:
         use_color_map = metric in ["ate", "rte"] and len(tracking_csvs) == 1
 

@@ -12,6 +12,8 @@ tabulate = "0.8.9"
 evo = "1.18.0"
 matplotlib = "3.5.1"
 pandas = "1.4.1"
+pyqt5 = "5.15.9"
+mplcursors = "^0.5.2"
 
 [tool.poetry.dev-dependencies]
 mypy = "0.931"
@@ -23,3 +25,6 @@ black = "22.3.0"
 [build-system]
 requires = ["poetry-core>=1.0.0"]
 build-backend = "poetry.core.masonry.api"
+
+[tool.mypy]
+plugins = "numpy.typing.mypy_plugin"

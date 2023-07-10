@@ -43,7 +43,7 @@ See what percentage of the dataset the run was able to complete without crashing
 
 ### Tracking error
 
-See ATE or RTE stats for a particular run.
+See ATE, RTE, or SDM stats for a particular run.
 
 ```bash
 ./tracking.py ate test/data/targets/EV202/gt.csv test/data/runs/Basalt/EV202/tracking.csv --plot --plot_mode xyz

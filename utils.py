@@ -1,12 +1,16 @@
-from pathlib import Path
-from typing import List, Tuple, Iterable
 import math
+from itertools import cycle
+from pathlib import Path
+from typing import Iterable, List, Tuple
+
 import numpy as np
+import numpy.typing as npt
 
 NUMBER_OF_NS_IN = {"ns": 1, "us": 1e3, "ms": 1e6, "s": 1e9}
 TIME_UNITS = NUMBER_OF_NS_IN.keys()
 DEFAULT_TIME_UNITS = "ms"
 COMPLETION_FULL_SINCE = 0.98  # Completion ratio to consider a complete run
+DEFAULT_SEGMENT_DRIFT_TOLERANCE_M = 0.01
 DEFAULT_TIMING_COLS = ("frames_received", "pose_produced")
 COLORS = [  # Regular cycle
     "#2196F3",  # blue
@@ -27,12 +31,7 @@ COLORS = [  # Regular cycle
     "#F44336",  # red
     "#795548",  # brown
     "#607D8B",  # bluegrey
-    "#546E7A",  # shade of gray
-    "#455A64",  # shade of gray
-    "#37474F",  # shade of gray
-    "#263238",  # shade of gray
-    "#212121",  # shade of gray
-] + ["#000000"] * 100
+]
 DARK_COLORS = [  # Regular cycle
     "#1976D2",  # blue
     "#388E3C",  # green
@@ -52,15 +51,30 @@ DARK_COLORS = [  # Regular cycle
     "#D32F2F",  # red
     "#5D4037",  # brown
     "#455A64",  # bluegrey
-] + ["#000000"] * 100
+]
 
-make_color_iterator = lambda: (c for c in COLORS)
+make_color_iterator = lambda: cycle(COLORS)
+make_dark_color_iterator = lambda: cycle(DARK_COLORS)
+
+# Types: These are mostly just aliases to generic numpy arrays in the hopes that
+# one day numpy has proper type support and we can just use it here, also it
+# helps for documentation
+Indices = np.ndarray
+ArrayOfFloats = npt.ArrayLike
+ArrayOfPoints = npt.ArrayLike  # either 2D or 3D points
+Matrix4x4 = np.ndarray
+Matrix3x3 = np.ndarray
+Vector2 = np.ndarray
+Vector4 = np.ndarray
+SE3 = Matrix4x4
+SO3 = Matrix3x3
+Quaternion = Vector4
 
 
 def moving_average_smooth(values: np.ndarray, window_size=100):
     n = window_size
     cs = np.cumsum(values)
-    moving_avg = (cs[n:] - cs[:-n]) / n
+    moving_avg = (cs[n:] - cs[:-n]) / n  # type: ignore
     padded_w_zeros = np.zeros(values.shape)
     padded_w_zeros[n:] = moving_avg
     return padded_w_zeros
@@ -115,6 +129,7 @@ def load_csv_safer(csv_fn: Path, dtype=np.int64) -> Tuple[List[str], np.ndarray]
 
 def color_string(string, fg=None):
     ANSI_COLORS = {  # List some colors that may be needed
+        None: "\033[31m",  # Red
         "red": "\033[31m",
         "pink": "\033[38;5;206m",
         "green": "\033[32m",

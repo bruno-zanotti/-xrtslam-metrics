@@ -123,13 +123,19 @@ class SegmentDriftErrorPlot(TrackingPlot):
     show_plot: bool = False
     plot_mode: PlotMode = PlotMode.xyz
     use_color_map: bool = False
+    segment_color_map: bool = False
     metric: str  # should be seg
     ax: plt.Axes
     traj_ref: PoseTrajectory3D
     plotted_estimates: int = 0
 
     def __init__(
-        self, show_plot: bool, plot_mode: str, use_color_map: bool, metric: str
+        self,
+        show_plot: bool,
+        plot_mode: str,
+        use_color_map: bool,
+        segment_color_map: bool,
+        metric: str,
     ) -> None:
         self.show_plot = show_plot
         if not self.show_plot:
@@ -137,6 +143,7 @@ class SegmentDriftErrorPlot(TrackingPlot):
 
         self.plot_mode = PlotMode(plot_mode)
         self.use_color_map = use_color_map
+        self.segment_color_map = segment_color_map
         self.metric = metric
         self.fig = plt.figure()
         self.ax = plot.prepare_axis(self.fig, self.plot_mode)
@@ -193,9 +200,35 @@ class SegmentDriftErrorPlot(TrackingPlot):
         # Plot segments
         if self.use_color_map:
             merged = merge_segments(segments)
-            maxerr = error_tolerance_per_segment
+            segment_errors = result.np_arrays["segment_errors"]
+
             plot.traj_colormap(
-                self.ax, merged, errors, self.plot_mode, min_map=0, max_map=maxerr
+                self.ax,
+                merged,
+                errors,
+                self.plot_mode,
+                min_map=min(segment_errors),
+                max_map=max(segment_errors),
+            )
+        elif self.segment_color_map:
+            merged = merge_segments(segments)
+            segment_errors = result.np_arrays["segment_errors"]
+
+            merged_errors = np.zeros(len(errors))
+            m, e = 0, 0
+            while m < len(merged_errors):
+                merged_errors[m] = segment_errors[e]
+                if errors[m] > error_tolerance_per_segment:
+                    e += 1
+                m += 1
+
+            plot.traj_colormap(
+                self.ax,
+                merged,
+                merged_errors,
+                self.plot_mode,
+                min_map=min(segment_errors),
+                max_map=max(segment_errors),
             )
         else:
             colors = (
@@ -305,12 +338,27 @@ def parse_args():
         help="Axes of the trajectory to plot",
         choices=["xy", "xz", "yx", "yz", "zx", "zy", "xyz"],
     )
+    parser.set_defaults(use_color_map=None)
     parser.add_argument(
-        "--use_color_map",
+        "--color_map",
         "-cm",
-        type=bool,
-        default=None,
+        dest="use_color_map",
+        action="store_true",
         help="Use color map for trajectory color based on error from groundtruth",
+    )
+    parser.add_argument(
+        "--no_color_map",
+        "-nocm",
+        dest="use_color_map",
+        action="store_false",
+        help="Do not use color map for trajectory color based on error from groundtruth",
+    )
+    parser.add_argument(
+        "--segment_color_map",
+        "-scm",
+        dest="segment_color_map",
+        action="store_true",
+        help="Use color map to paint entire segments in the segment-drift plot",
     )
     parser.add_argument(
         "--sd_tolerance",
@@ -528,6 +576,7 @@ def compute_tracking_stats(
         )
 
         seg_result.add_np_array("errors", errors)
+        seg_result.add_np_array("segment_errors", segment_errors)
         seg_result.add_np_array("error_points_est", error_points_est)
         seg_result.add_np_array("error_points_ref", error_points_ref)
 
@@ -692,12 +741,15 @@ def get_tracking_stats(
     show_plot: bool = False,
     plot_mode: str = "xyz",  # "xz", "xy", etc
     use_color_map: bool = False,
+    segment_color_map: bool = False,
     silence: bool = False,
     sd_tolerance: float = DEFAULT_SEGMENT_DRIFT_TOLERANCE_M,
     sd_error_components: Sequence[int] = (0, 1, 2),
 ) -> Dict[Path, Result]:
     tracking_plot = (
-        SegmentDriftErrorPlot(show_plot, plot_mode, use_color_map, metric)
+        SegmentDriftErrorPlot(
+            show_plot, plot_mode, use_color_map, segment_color_map, metric
+        )
         if metric == "seg"
         else TrajectoryErrorPlot(show_plot, plot_mode, use_color_map, metric)
     )
@@ -734,6 +786,7 @@ def main():
     show_plot = args.plot
     plot_mode = args.plot_mode
     use_color_map = args.use_color_map
+    segment_color_map = args.segment_color_map
     sd_tolerance = args.sd_tolerance
     sd_error_components = args.sd_error_components
 
@@ -748,6 +801,7 @@ def main():
         show_plot=show_plot,
         plot_mode=plot_mode,
         use_color_map=use_color_map,
+        segment_color_map=segment_color_map,
         sd_tolerance=sd_tolerance,
         sd_error_components=sd_error_components,
     )

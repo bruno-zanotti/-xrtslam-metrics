@@ -153,7 +153,7 @@ def seg_main(batch: Batch):
     print(f"\n Segment drift per meter error (SDM {tol}m) [m/m]\n")
 
     def measure_seg(result_csv: Path, target_csv: Path) -> Vector2:
-        results = get_tracking_stats("seg", [result_csv], target_csv, silence=True)
+        results = get_tracking_stats("sdm", [result_csv], target_csv, silence=True)
         s = results[result_csv].stats
         return np.array([s["SDM"], s["SDM std"]])
 

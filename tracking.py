@@ -124,7 +124,7 @@ class SegmentDriftErrorPlot(TrackingPlot):
     plot_mode: PlotMode = PlotMode.xyz
     use_color_map: bool = False
     segment_color_map: bool = False
-    metric: str  # should be seg
+    metric: str  # should be sdm
     ax: plt.Axes
     traj_ref: PoseTrajectory3D
     plotted_estimates: int = 0
@@ -312,7 +312,7 @@ def parse_args():
         type=str,
         help="What tracking metric to compute",
         default="ate",
-        choices=["ate", "rte", "seg"],
+        choices=["ate", "rte", "sdm"],
     )
     parser.add_argument(
         "groundtruth_csv",
@@ -484,7 +484,7 @@ def compute_tracking_stats(
             result,
             est_name=est_name,
         )
-    elif metric == "seg":  # Segment Drift
+    elif metric == "sdm":  # Segment Drift per meter
         error_tolerance_per_segment = sd_tolerance
         ijk = np.array(sd_error_components, dtype=int)
 
@@ -733,7 +733,7 @@ def get_point_error(
 
 
 def get_tracking_stats(
-    metric: str,  # rte, ate, seg
+    metric: str,  # rte, ate, sdm
     tracking_csvs: List[Path],
     groundtruth_csv: Path,
     pose_relation: PoseRelation = PoseRelation.translation_part,
@@ -750,7 +750,7 @@ def get_tracking_stats(
         SegmentDriftErrorPlot(
             show_plot, plot_mode, use_color_map, segment_color_map, metric
         )
-        if metric == "seg"
+        if metric == "sdm"
         else TrajectoryErrorPlot(show_plot, plot_mode, use_color_map, metric)
     )
     _, gt = get_sanitized_trajectories(  # NOTE: sanitizing only against first traj

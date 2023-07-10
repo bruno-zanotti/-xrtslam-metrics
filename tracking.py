@@ -458,7 +458,6 @@ def compute_tracking_stats(
             if e > error_tolerance_per_segment:
                 error_points_est_list.append(remainder.positions_xyz[ri, ijk])
                 error_points_ref_list.append(p)
-                # TODO: Improve speed of the metric? maybe dont align the entire trajectory?
                 segment, remainder = split_segment(traj_ref, traj_est, remainder, i, ri)
                 segments.append(segment)
                 errors_list.append(0)
@@ -603,9 +602,23 @@ def split_segment(
 
 def create_subtrajectory(traj: PoseTrajectory3D, i: int, j: int) -> PoseTrajectory3D:
     stamps = traj.timestamps[i:j]
-    xyz = traj.positions_xyz[i:j]
-    quat = traj.orientations_quat_wxyz[i:j]
-    return PoseTrajectory3D(xyz, quat, stamps)
+    poses = traj.poses_se3[i:j]
+    return PoseTrajectory3D(timestamps=stamps, poses_se3=poses)
+
+
+def transform_trajectory(traj: PoseTrajectory3D, t: SE3):
+    """Same as PoseTrajectory3D.transform but faster due to skipping some
+    cache generation"""
+
+    traj._poses_se3 = [  # pylint: disable=protected-access
+        np.dot(t, p) for p in traj.poses_se3
+    ]
+
+    # Invalidate cache
+    if hasattr(traj, "_positions_xyz"):
+        del traj._positions_xyz
+    if hasattr(traj, "_orientations_quat_wxyz"):
+        del traj._orientations_quat_wxyz
 
 
 def align_origin_at(a: PoseTrajectory3D, b: PoseTrajectory3D, i: int = 0) -> SE3:
@@ -620,7 +633,7 @@ def align_origin_at(a: PoseTrajectory3D, b: PoseTrajectory3D, i: int = 0) -> SE3
     traj_origin = a.poses_se3[0]
     traj_ref_origin = b.poses_se3[i]
     to_ref_origin = np.dot(traj_ref_origin, lie.se3_inverse(traj_origin))
-    a.transform(to_ref_origin)
+    transform_trajectory(a, to_ref_origin)
 
     # After a couple of transforms the rotation lose determinant 1 due to
     # floating point errors so we re-orthonormalize every so often

@@ -13,7 +13,13 @@ from completion import load_completion_stats
 from features import FeaturesStats
 from timing import TimingStats
 from tracking import get_tracking_stats
-from utils import COMPLETION_FULL_SINCE, DEFAULT_TIMING_COLS, Vector2, isnan
+from utils import (
+    COMPLETION_FULL_SINCE,
+    DEFAULT_SEGMENT_DRIFT_TOLERANCE_M,
+    DEFAULT_TIMING_COLS,
+    Vector2,
+    isnan,
+)
 
 
 @dataclass
@@ -143,10 +149,8 @@ def rte_main(batch: Batch):
 
 
 def seg_main(batch: Batch):
-    # TODO: Segment drift per second (SDS) second might be seful
-    # TODO: Get SDM tolerance programatically instead of hardcoding 1cm
-    # TODO: Does SD tolerance affect a lot the final numbers in SDM/SDS?
-    print("\n Segment drift per meter error (SDM 0.01m) [m/m]\n")
+    tol = DEFAULT_SEGMENT_DRIFT_TOLERANCE_M
+    print(f"\n Segment drift per meter error (SDM {tol}m) [m/m]\n")
 
     def measure_seg(result_csv: Path, target_csv: Path) -> Vector2:
         results = get_tracking_stats("seg", [result_csv], target_csv, silence=True)

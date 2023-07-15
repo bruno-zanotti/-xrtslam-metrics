@@ -166,9 +166,9 @@ class SegmentDriftErrorPlot(TrackingPlot):
             color="silver",
             label=ref_name,
         )
-        # NOTE: Toggle these comments to enable hover cursor on groundtruth line
-        # self.ax.lines[-1].timestamps = traj_ref.timestamps - traj_ref.timestamps[0]
-        # self.traj_plots.append(self.ax.lines[-1])
+        # NOTE: These next two lines make hovering over groundtruth show info
+        self.ax.lines[-1].timestamps = traj_ref.timestamps - traj_ref.timestamps[0]
+        self.traj_plots.append(self.ax.lines[-1])
 
     def plot_estimate_trajectory(  # pylint: disable=arguments-differ
         self,
@@ -207,8 +207,8 @@ class SegmentDriftErrorPlot(TrackingPlot):
                 merged,
                 errors,
                 self.plot_mode,
-                min_map=min(segment_errors),
-                max_map=max(segment_errors),
+                min_map=0,
+                max_map=error_tolerance_per_segment,
             )
         elif self.segment_color_map:
             merged = merge_segments(segments)

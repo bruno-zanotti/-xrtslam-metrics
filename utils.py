@@ -94,6 +94,13 @@ def check_monotonic_rows(rows: np.ndarray) -> None:
         last_ts = ts
 
 
+def load_csv_unsafe(csv_fn: Path, dtype=np.int64) -> np.ndarray:
+    data = np.genfromtxt(
+        csv_fn, delimiter=",", comments="#", dtype=dtype, invalid_raise=False
+    )
+    return data
+
+
 def load_csv(csv_fn: Path, dtype=np.int64) -> np.ndarray:
     data = np.genfromtxt(
         csv_fn, delimiter=",", comments="#", dtype=dtype, invalid_raise=False

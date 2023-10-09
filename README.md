@@ -69,3 +69,16 @@ themselves. To ease things a bit, you can uncompress
 `tar -xvf test/data/targets.tar.xz -C test/data/` to get those files for all EuRoC,
 TUM-VI room, and [our custom (without
 groundtruth)](https://bit.ly/monado-datasets) inside `test/data/targets`.
+
+### EuRoC tools
+
+The script `euroc/euroc_ops.py` contains multiple commands for operating on EuRoC datasets:
+
+- `imu2cam_ts`: Applies a time offset to all IMU samples. Read code.
+- `get_duration`: Print duration of the dataset.
+- `verify`: Perform a number of checks on the dataset to verify it's a valid one.
+- `get_max_sensor_dt`: Get the maximum deltatime between samples of one of the dataset's sensors.
+- `cam_offset_ts`: Create a new camera csv file with its timestamps offseted by some delta nanoseconds from input.
+- `trim`: Produce a trimmed-down copy of the dataset between two timestamps (or rather, _seconds_ into the dataset) specified as input.
+- `apply_imu_calib`: Given a basalt calibration file, it precalibrates all IMU samples; i.e., it applies the IMU [mixing matrix and biases](https://vladyslavusenko.gitlab.io/basalt-headers/classbasalt_1_1CalibGyroBias.html#details) to all samples.
+- `preview_video`: It generates a preview video from a given dataset using `ffmpeg`.

@@ -543,7 +543,8 @@ def compute_tracking_stats(
         durations = np.array([get_duration(s) for s in segments])
         lengths = np.array([get_length(s) for s in segments])
         segment_errors = [e for e in errors_list if e >= error_tolerance_per_segment]
-        segment_errors = np.append(segment_errors, error_tolerance_per_segment)
+        if len(segment_errors) == len(segments) - 1:  # In case last error is >tolerance
+            segment_errors = np.append(segment_errors, error_tolerance_per_segment)
         assert len(segment_errors) == len(segments)
         seg_result.add_stats(
             {
@@ -771,8 +772,6 @@ def get_tracking_stats(
             sd_error_components=sd_error_components,
         )
         results[tracking_csv] = result
-        print(f"File {tracking_csv}")
-        print(result)
 
     tracking_plot.show()
     return results

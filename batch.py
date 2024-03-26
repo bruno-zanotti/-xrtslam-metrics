@@ -112,7 +112,7 @@ def completion_main(batch: Batch):
         return f"{completion * 100:.2f}%" if completion < COMPLETION_FULL_SINCE else "✓"
 
     foreach_dataset(
-        batch, "tracking.csv", "cam0.csv", measure_completion, measure_completion_str
+        batch, "trajectory.csv", "cam0.csv", measure_completion, measure_completion_str
     )
 
 
@@ -129,7 +129,7 @@ def ate_main(batch: Batch):
         rmse, std = measure
         return f"{rmse:.3f} ± {std:.3f}"
 
-    foreach_dataset(batch, "tracking.csv", "gt.csv", measure_ape, measure_ape_str)
+    foreach_dataset(batch, "trajectory.csv", "gt.csv", measure_ape, measure_ape_str)
 
 
 def rte_main(batch: Batch):
@@ -145,7 +145,7 @@ def rte_main(batch: Batch):
         rmse, std = measure
         return f"{rmse:.6f} ± {std:.6f}"
 
-    foreach_dataset(batch, "tracking.csv", "gt.csv", measure_rpe, measure_rpe_str)
+    foreach_dataset(batch, "trajectory.csv", "gt.csv", measure_rpe, measure_rpe_str)
 
 
 def seg_main(batch: Batch):
@@ -161,7 +161,7 @@ def seg_main(batch: Batch):
         drift, std = measure
         return f"{drift:.4f} ± {std:.4f}"
 
-    foreach_dataset(batch, "tracking.csv", "gt.csv", measure_seg, measure_seg_str)
+    foreach_dataset(batch, "trajectory.csv", "gt.csv", measure_seg, measure_seg_str)
 
 
 def parse_args():
@@ -209,7 +209,7 @@ def batch_from_args(args) -> Batch:
 
 def main():
     batch = batch_from_args(parse_args())
-    timing_main(batch)
+    # timing_main(batch)
     features_main(batch)
     completion_main(batch)
     ate_main(batch)

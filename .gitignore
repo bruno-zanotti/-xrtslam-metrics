@@ -2,4 +2,8 @@
 __pycache__
 evaluation
 .mypy_cache
-test/data
+# test/data
+*.ubjson
+startfinish
+faillist
+*.csv

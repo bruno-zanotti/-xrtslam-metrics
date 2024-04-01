@@ -17,44 +17,54 @@ from utils import (
 )
 
 
-class FeaturesStats:
+class RecallStats:
     def __init__(self, csv_fn: Path):
         ds_name = csv_fn.parent.name
         sys_name = csv_fn.parent.parent.name
         self.name = f"{sys_name}/{ds_name}"
         self.column_names, self.features_data = load_csv_safer(csv_fn)
-        self.nof_features = self.features_data[:, 1:2]
+        self.features = self.features_data[:, 1:2]
+        self.recalls = self.features_data[:, 2:3]
+        self.pct_recalls = self.recalls / self.features * 100
 
     @property
     def mean(self):
-        return np.mean(self.nof_features, axis=0)
+        return np.mean(self.recalls, axis=0)
 
     @property
     def std(self):
-        return np.std(self.nof_features, axis=0)
+        return np.std(self.recalls, axis=0)
+
+    @property
+    def pct_mean(self):
+        return np.mean(self.pct_recalls, axis=0)
+
+    @property
+    def pct_std(self):
+        return np.std(self.pct_recalls, axis=0)
 
     @property
     def min(self):
-        return np.min(self.nof_features, axis=0)
+        return np.min(self.recalls, axis=0)
 
     @property
     def q1(self):
-        return np.quantile(self.nof_features, 0.25, axis=0)
+        return np.quantile(self.recalls, 0.25, axis=0)
 
     @property
     def q2(self):
-        return np.median(self.nof_features, axis=0)
+        return np.median(self.recalls, axis=0)
 
     @property
     def q3(self):
-        return np.quantile(self.nof_features, 0.75, axis=0)
+        return np.quantile(self.recalls, 0.75, axis=0)
 
     @property
     def max(self):
-        return np.max(self.nof_features, axis=0)
+        return np.max(self.recalls, axis=0)
 
     def __str__(self) -> str:
-        return f"FeaturesStats(mean={self.mean}, std={self.std}, min={self.min}, q1={self.q1}, q2={self.q2}, q3={self.q3}, max={self.max})"
+        return f"RecallStats(mean={self.mean}, std={self.std}, min={self.min}, q1={self.q1}, q2={self.q2}, q3={self.q3}, max={self.max})"
 
     def plot(self, ax, i) -> None:
         fd = self.features_data
@@ -65,19 +75,19 @@ class FeaturesStats:
         ax.set_prop_cycle(color_cycler)
         ax.stackplot(
             framepose_tss,
-            fd[:, 1:2].T,
-            labels=[f"{self.name}"],
+            fd[:, 2:3].T,
+            labels=[f"{self.name} recalls"],
             alpha=0.4,
         )
 
         # Moving average lines of those stackplots
         fc_sum = np.zeros_like(fd[:, 1])
-        for j, color in zip(range(1, 2), cycle(color_cycler)):
+        for j, color in zip(range(2, fd.shape[1]), cycle(color_cycler)):
             fc_sum += fd[:, j]
             plt.plot(
                 framepose_tss,
                 moving_average_smooth(fc_sum),
-                label=f"{self.name} smoothed",
+                label=f"{self.name} {'features' if j == 1 else 'recalls'} smoothed",
                 color=color["color"],
             )
 
@@ -115,7 +125,7 @@ def main():
         _, ax = plt.subplots()
 
     for i, feature_csv in enumerate(features_csvs):
-        s = FeaturesStats(csv_fn=feature_csv)
+        s = RecallStats(csv_fn=feature_csv)
         print(s)
         if plot:
             s.plot(ax, i)

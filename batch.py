@@ -12,6 +12,7 @@ from tabulate import tabulate
 from completion import load_completion_stats
 from features import FeaturesStats
 from timing import TimingStats
+from recall import RecallStats
 from tracking import get_tracking_stats
 from utils import (
     COMPLETION_FULL_SINCE,
@@ -88,7 +89,7 @@ def timing_main(batch: Batch):
 
 
 def features_main(batch: Batch):
-    print("\nAverage feature count for each camera\n")
+    print("\nAverage total features\n")
 
     def measure_features(result_csv: Path, _: str) -> Vector2:
         s = FeaturesStats(csv_fn=result_csv)
@@ -96,10 +97,34 @@ def features_main(batch: Batch):
 
     def measure_features_str(measure: Vector2) -> str:
         mean, std = measure
-        return f"{mean.astype(int)} ± {std.astype(int)}"
+        return f"{mean.astype(float)[0]:.2f} ± {std.astype(float)[0]:.2f}"
 
     foreach_dataset(batch, "features.csv", None, measure_features, measure_features_str)
 
+def recall_main(batch: Batch):
+    print("\nAverage features recalled\n")
+
+    def measure_recall(result_csv: Path, _: str) -> Vector2:
+        s = RecallStats(csv_fn=result_csv)
+        return np.array([s.mean, s.std])
+
+    def measure_recall_str(measure: Vector2) -> str:
+        mean, std = measure
+        return f"{mean.astype(float)[0]:.2f} ± {std.astype(float)[0]:.2f}"
+
+    foreach_dataset(batch, "features.csv", None, measure_recall, measure_recall_str)
+
+    print("\nPercentage of the features that were recalled\n")
+
+    def measure_recall(result_csv: Path, _: str) -> Vector2:
+        s = RecallStats(csv_fn=result_csv)
+        return np.array([s.pct_mean, s.pct_std])
+
+    def measure_recall_str(measure: Vector2) -> str:
+        mean, std = measure
+        return f"{mean.astype(float)[0]:.2f}% ± {std.astype(float)[0]:.2f}%"
+
+    foreach_dataset(batch, "features.csv", None, measure_recall, measure_recall_str)
 
 def completion_main(batch: Batch):
     print("\nAverage completion percentage [%]\n")
@@ -211,6 +236,7 @@ def main():
     batch = batch_from_args(parse_args())
     # timing_main(batch)
     features_main(batch)
+    recall_main(batch)
     completion_main(batch)
     ate_main(batch)
     rte_main(batch)

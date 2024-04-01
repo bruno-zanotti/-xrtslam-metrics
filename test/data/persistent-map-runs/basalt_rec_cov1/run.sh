@@ -16,6 +16,7 @@ run_basalt_vio() {
                   --config-path $config_path \
                   --show-gui $show_gui \
                   --save-trajectory euroc \
+                  --save-features 1 \
        > /dev/null; then
         end_time=$(date +%s.%N)
         diff=$(echo $end_time - $start_time | bc -l)

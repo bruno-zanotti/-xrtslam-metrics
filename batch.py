@@ -44,8 +44,8 @@ def foreach_dataset(
     measure_str: MeasureStringFunction,
     bold_fn=None,
 ):
-    sys_dirs = [r for r in batch.evaluation_path.iterdir() if r.is_dir()]
-    ordered_set = {d.name: 0 for r in sys_dirs for d in r.iterdir() if d.is_dir()}
+    sys_dirs = [r for r in batch.evaluation_path.iterdir() if r.is_dir() and not r.name.startswith('_')]
+    ordered_set = {d.name: 0 for r in sys_dirs for d in r.iterdir() if d.is_dir() and not d.name.startswith('_')}
     ds_names = sorted(ordered_set.keys())
     sys_names = sorted([d.name for d in sys_dirs])
     df = pd.DataFrame(None, columns=sys_names, index=ds_names)

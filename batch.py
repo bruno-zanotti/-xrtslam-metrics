@@ -42,6 +42,7 @@ def foreach_dataset(
     target_fn: Optional[str],
     measure,  #: MeasureFunction
     measure_str: MeasureStringFunction,
+    bold_fn=None,
 ):
     sys_dirs = [r for r in batch.evaluation_path.iterdir() if r.is_dir()]
     ordered_set = {d.name: 0 for r in sys_dirs for d in r.iterdir() if d.is_dir()}
@@ -68,8 +69,22 @@ def foreach_dataset(
     new_index = df.shape[0]
     df.loc[new_index] = avg_row  # type: ignore
     df = df.rename({new_index: "[AVG]"})
+
+    def get_value(val):
+        return val if isinstance(val, np.float64) else val[0] if isinstance(val[0], np.float64) else val[0][0]
+
+    bold_index = None
+    if bold_fn and hasattr(df, bold_fn):
+        bold_index = getattr(df.applymap(lambda m: m if isnan(m) else get_value(m)), bold_fn)(axis=1)
+
     measure_str_none = lambda m: "—" if isnan(m) else measure_str(m)
     df_to_string = df.applymap(measure_str_none)
+
+    if bold_index is not None:
+        for index in df_to_string.index:
+            if not isnan(bold_index[index]):
+                df_to_string[bold_index[index]][index] = '**' + df_to_string[bold_index[index]][index] + '**'
+
     print(tabulate(df_to_string, headers="keys", tablefmt="pipe"))  # type: ignore
 
 
@@ -99,7 +114,7 @@ def features_main(batch: Batch):
         mean, std = measure
         return f"{mean.astype(float)[0]:.2f} ± {std.astype(float)[0]:.2f}"
 
-    foreach_dataset(batch, "features.csv", None, measure_features, measure_features_str)
+    foreach_dataset(batch, "features.csv", None, measure_features, measure_features_str, 'idxmax')
 
 def recall_main(batch: Batch):
     print("\nAverage features recalled\n")
@@ -112,7 +127,7 @@ def recall_main(batch: Batch):
         mean, std = measure
         return f"{mean.astype(float)[0]:.2f} ± {std.astype(float)[0]:.2f}"
 
-    foreach_dataset(batch, "features.csv", None, measure_recall, measure_recall_str)
+    foreach_dataset(batch, "features.csv", None, measure_recall, measure_recall_str, 'idxmax')
 
     print("\nPercentage of the features that were recalled\n")
 
@@ -124,7 +139,7 @@ def recall_main(batch: Batch):
         mean, std = measure
         return f"{mean.astype(float)[0]:.2f}% ± {std.astype(float)[0]:.2f}%"
 
-    foreach_dataset(batch, "features.csv", None, measure_recall, measure_recall_str)
+    foreach_dataset(batch, "features.csv", None, measure_recall, measure_recall_str, 'idxmax')
 
 def completion_main(batch: Batch):
     print("\nAverage completion percentage [%]\n")
@@ -154,7 +169,7 @@ def ate_main(batch: Batch):
         rmse, std = measure
         return f"{rmse:.3f} ± {std:.3f}"
 
-    foreach_dataset(batch, "trajectory.csv", "gt.csv", measure_ape, measure_ape_str)
+    foreach_dataset(batch, "trajectory.csv", "gt.csv", measure_ape, measure_ape_str, 'idxmin')
 
 
 def rte_main(batch: Batch):
@@ -170,7 +185,7 @@ def rte_main(batch: Batch):
         rmse, std = measure
         return f"{rmse:.6f} ± {std:.6f}"
 
-    foreach_dataset(batch, "trajectory.csv", "gt.csv", measure_rpe, measure_rpe_str)
+    foreach_dataset(batch, "trajectory.csv", "gt.csv", measure_rpe, measure_rpe_str, 'idxmin')
 
 
 def seg_main(batch: Batch):
@@ -186,7 +201,7 @@ def seg_main(batch: Batch):
         drift, std = measure
         return f"{drift:.4f} ± {std:.4f}"
 
-    foreach_dataset(batch, "trajectory.csv", "gt.csv", measure_seg, measure_seg_str)
+    foreach_dataset(batch, "trajectory.csv", "gt.csv", measure_seg, measure_seg_str, 'idxmin')
 
 
 def parse_args():

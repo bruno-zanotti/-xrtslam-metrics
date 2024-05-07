@@ -6,4 +6,4 @@ evaluation
 *.ubjson
 startfinish
 faillist
-*.csv
+# *.csv

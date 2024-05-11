@@ -18,20 +18,22 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 
-title: Basalt Ablation Study
+title: Basalt Metrics
 email: brunozanotti96@gmail.com
-description: >- # this means to ignore newlines until "baseurl:"
-  Ablation study of different Basalt improvements, metrics of different sequences and personal conclusions.
-domain: "bruno-zanotti.github.io"
-baseurl: "/xrtslam-metrics" # the subpath of your site, e.g. /blog
-url: "https://bruno-zanotti.github.io/xrtslam-metrics" # the base hostname & protocol for your site, e.g. http://example.com
+description: >-
+# domain: "bruno-zanotti.github.io"
+# baseurl: "/xrtslam-metrics" # the subpath of your site, e.g. /blog
+# url: "https://bruno-zanotti.github.io/xrtslam-metrics" # the base hostname & protocol for your site, e.g. http://example.com
 # twitter_username: jekyllrb
-github_username:  bruno-zanotti
+# github_username:  bruno-zanotti
 
 # Build settings
 theme: minima
 plugins:
   - jekyll-feed
+
+permalink: /:title
+
 
 # Exclude from processing.
 # The following items will not be processed, by default.

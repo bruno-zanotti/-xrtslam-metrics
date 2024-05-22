@@ -36,16 +36,19 @@ DATASETS_DIR=~/tesina/datasets
 EUROC_DIR=$DATASETS_DIR/euroc
 TUM_DIR=$DATASETS_DIR/tum
 MSDMI_DIR=$DATASETS_DIR/msdmi
+MSDMG_DIR=$DATASETS_DIR/msdmg
 
 # CALIB
 CALIB_DIR=$ROOT/_calibs
 euroc_calib=$CALIB_DIR/euroc.json
 msdmi_calib=$CALIB_DIR/msdmi.json
+msdmg_calib=$CALIB_DIR/msdmg.json
 
 # CONFIG
 CONFIG_DIR=$ROOT/$RUN/_configs
 euroc_config=$CONFIG_DIR/euroc.json
 msdmi_config=$CONFIG_DIR/msdmi.json
+msdmg_config=$CONFIG_DIR/msdmg.json
 
 rm -f faillist
 rm -f startfinish
@@ -65,6 +68,12 @@ done
 for dataset in "${msdmi_datasets[@]}"; do
     dataset_path=$MSDMI_DIR/$dataset
     run_basalt_vio $dataset $dataset_path $msdmi_calib $msdmi_config $show_gui
+done
+
+# MSDMG
+for dataset in "${msdmg_datasets[@]}"; do
+    dataset_path=$MSDMG_DIR/$dataset
+    run_basalt_vio $dataset $dataset_path $msdmg_calib $msdmg_config $show_gui
 done
 
 date +%s >> startfinish

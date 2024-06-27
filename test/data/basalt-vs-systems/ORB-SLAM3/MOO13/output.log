@@ -1,0 +1,54 @@
+num_seq = 1
+file name: trajectory
+Loading images for sequence 0...LOADED!
+Loading IMU for sequence 0...LOADED!
+
+-------
+
+ORB-SLAM3 Copyright (C) 2017-2020 Carlos Campos, Richard Elvira, Juan J. Gómez, José M.M. Montiel and Juan D. Tardós, University of Zaragoza.
+ORB-SLAM2 Copyright (C) 2014-2016 Raúl Mur-Artal, José M.M. Montiel and Juan D. Tardós, University of Zaragoza.
+This program comes with ABSOLUTELY NO WARRANTY;
+This is free software, and you are welcome to redistribute it
+under certain conditions. See LICENSE.txt.
+
+Input sensor was set to: Stereo-Inertial
+Loading settings from /home/bruno/tesina/xrtslam-metrics/test/data/basalt-vs-systems/ORB-SLAM3/../ORB-SLAM3/_configs/msdmo.yaml
+	-Loaded camera 1
+	-Loaded camera 2
+Camera.newHeight optional parameter does not exist...
+Camera.newWidth optional parameter does not exist...
+	-Loaded image info
+IMU.InsertKFsWhenLost optional parameter does not exist...
+	-Loaded IMU calibration
+	-Loaded ORB settings
+Viewer.imageViewScale optional parameter does not exist...
+	-Loaded viewer settings
+System.LoadAtlasFromFile optional parameter does not exist...
+System.SaveAtlasToFile optional parameter does not exist...
+	-Loaded Atlas settings
+System.thFarPoints optional parameter does not exist...
+	-Loaded misc parameters
+----------------------------------
+SLAM settings: 
+	-Camera 1 parameters (Kannala-Brandt): [ 268.19598388671875 268.05746459960938 323.31707763671875 245.75222778320312 0.078676655888557434 -0.030847668647766113 0.20850846171379089 -0.11969230324029922 ]
+	-Camera 2 parameters (Kannala-Brandt: [ 269.40740966796875 269.80233764648438 322.776123046875 251.10163879394531 0.078676655888557434 -0.030847668647766113 0.20850846171379089 -0.11969230324029922 ]
+	-Original image size: [ 640 , 480 ]
+	-Current image size: [ 640 , 480 ]
+	-Sequence FPS: 30
+	-Stereo baseline: 0.10507494211196899
+	-Stereo depth threshold : 35
+	-Camera 1 overlapping area: [ 247 , 639 ]
+	-Camera 2 overlapping area: [ 0 , 392 ]
+	-Gyro noise: 0.00095000001601874828
+	-Accelerometer noise: 0.010700000450015068
+	-Gyro walk: 0.0099999997764825821
+	-Accelerometer walk: 0.10000000149011612
+	-IMU frequency: 250
+	-Features per image: 1000
+	-ORB scale factor: 1.2000000476837158
+	-ORB number of scales: 8
+	-Initial FAST threshold: 20
+	-Min FAST threshold: 7
+
+
+Loading ORB Vocabulary. This could take a while...

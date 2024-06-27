@@ -1,0 +1,116 @@
+%YAML:1.0
+
+#--------------------------------------------------------------------------------------------
+# Camera Parameters. Adjust them!
+#--------------------------------------------------------------------------------------------
+File.version: "1.0"
+
+Camera.type: "KannalaBrandt8"
+
+# Left Camera calibration and distortion parameters (OpenCV)
+Camera1.fx: 268.195975920864
+Camera1.fy: 268.0574654154223
+Camera1.cx: 323.31709283956959
+Camera1.cy: 245.75222869648526
+
+# Kannala-Brandt distortion parameters
+Camera1.k1: 0.0786766526301811
+Camera1.k2: -0.030847669265979546
+Camera1.k3: 0.20850845540314143
+Camera1.k4: -0.1196923005962833
+
+# Right Camera calibration and distortion parameters (OpenCV)
+Camera2.fx: 269.40740366226648
+Camera2.fy: 269.8023515180134
+Camera2.cx: 322.776132065183
+Camera2.cy: 251.10164045580167
+
+# Kannala-Brandt distortion parameters
+Camera2.k1: 0.06239234153858448
+Camera2.k2: -0.010654168469050596
+Camera2.k3: 0.19636276150943167
+Camera2.k4: -0.11784770077286101
+
+# Transform point from right camera frame to left camera frame (moves left to right)
+Stereo.T_c1_c2: !!opencv-matrix
+  rows: 4
+  cols: 4
+  dt: f
+  data: [0.6870889067649841, -0.004866383969783783, 0.7265570759773254, 0.09644559770822525,
+        -0.0066884770058095455, 0.9998928308486938, 0.013022296130657196, 0.0005517095560207963,
+        -0.726542592048645, -0.01380703505128622, 0.6869827508926392, -0.04169754683971405,
+        0.0, 0.0, 0.0, 1.0]
+
+# Lapping area between images
+Camera1.overlappingBegin: 247
+Camera1.overlappingEnd: 639
+
+Camera2.overlappingBegin: 0
+Camera2.overlappingEnd: 392
+
+# Camera resolution
+Camera.width: 640
+Camera.height: 480
+
+# Camera frames per second
+Camera.fps: 30
+
+# Color order of the images (0: BGR, 1: RGB. It is ignored if images are grayscale)
+Camera.RGB: 1
+
+Stereo.ThDepth: 35.0
+
+# Transformation from left camera space to body-frame (IMU) space (transforms IMU to camera)
+IMU.T_b_c1: !!opencv-matrix
+  rows: 4
+  cols: 4
+  dt: f
+  data: [0.918566882610321, 0.0016602915711700916, -0.39526209235191345, -0.08394275605678558,
+        0.13899369537830353, 0.9347679018974304, 0.32693997025489807, -0.0025952591095119715,
+        0.37002113461494446, -0.3552551865577698, 0.8584160208702087, 0.0026445253752171993,
+        0.0, 0.0, 0.0, 1.0]
+  # This one (the transpose) is WRONG. Letting this here just for reference
+  # data: [0.918566882610321, 0.13899369537830353, 0.37002116441726685, 0.07648923993110657,
+  #       0.0016602800460532308, 0.9347679018974304, -0.3552551865577698, 0.0035048143472522497,
+  #       -0.3952621519565582, 0.32694002985954285, 0.8584160804748535, -0.03460100665688515,
+  #       0.0, 0.0, 0.0, 1.0]
+
+IMU.Frequency: 250.0
+IMU.NoiseGyro: 0.00095000001601874828
+IMU.NoiseAcc: 0.010700000450015068
+IMU.GyroWalk: 0.009999999873689375
+IMU.AccWalk: 0.0999999988824129
+
+#--------------------------------------------------------------------------------------------
+# ORB Parameters
+#--------------------------------------------------------------------------------------------
+
+# ORB Extractor: Number of features per image
+ORBextractor.nFeatures: 1000 # Tested with 1250
+
+# ORB Extractor: Scale factor between levels in the scale pyramid
+ORBextractor.scaleFactor: 1.2
+
+# ORB Extractor: Number of levels in the scale pyramid
+ORBextractor.nLevels: 8
+
+# ORB Extractor: Fast threshold
+# Image is divided in a grid. At each cell FAST are extracted imposing a minimum response.
+# Firstly we impose iniThFAST. If no corners are detected we impose a lower value minThFAST
+# You can lower these values if your images have low contrast
+ORBextractor.iniThFAST: 20 # 20
+ORBextractor.minThFAST: 7 # 7
+
+#--------------------------------------------------------------------------------------------
+# Viewer Parameters
+#--------------------------------------------------------------------------------------------
+Viewer.KeyFrameSize: 0.05
+Viewer.KeyFrameLineWidth: 1.0
+Viewer.GraphLineWidth: 0.9
+Viewer.PointSize: 2.0
+Viewer.CameraSize: 0.08
+Viewer.CameraLineWidth: 3.0
+Viewer.ViewpointX: 0.0
+Viewer.ViewpointY: -0.7
+Viewer.ViewpointZ: -3.5
+Viewer.ViewpointF: 500.0

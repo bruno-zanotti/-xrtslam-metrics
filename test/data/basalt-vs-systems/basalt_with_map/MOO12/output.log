@@ -1,0 +1,3 @@
+Loaded camera with 2 cameras
+No dataset found in /home/bruno/tesina/datasets/msdmo/MOO12
+./run.sh: line 15: 3011223 Segmentation fault      (core dumped) basalt_vio --dataset-path /home/bruno/tesina/datasets/msdmo/MOO12 --cam-calib /home/bruno/tesina/xrtslam-metrics/test/data/basalt-vs-systems/basalt_with_map/../_calibs/msdmo.json --dataset-type euroc --config-path /home/bruno/tesina/xrtslam-metrics/test/data/basalt-vs-systems/basalt_with_map/../basalt_with_map/_configs/msdmo.json --show-gui 0 --save-trajectory euroc --save-features 1

@@ -21,15 +21,15 @@ run_orb_slam3() {
     local dataset=$1
     local dataset_path=$2
     local config_path=$3
-    local show_gui=$4
-    local timestamp_file="$ORBSLAM3_DIR/Examples/Stereo-Inertial/EuRoC_TimeStamps/${dataset:1}.txt"
+    local timestamps_path=$4
+    local show_gui=$5
+    local timestamp_file="$timestamps_path/${dataset}.txt"
     local trajectory_file="trajectory"
 
     mkdir -p "$ROOT/$RUN/$dataset" && cd "$ROOT/$RUN/$dataset"
     printf "%s " $dataset
 
     cmd="$ORBSLAM3_DIR/Examples/Stereo-Inertial/stereo_inertial_euroc $ORBSLAM3_DIR/Vocabulary/ORBvoc.txt $config_path $dataset_path $timestamp_file $trajectory_file"
-
     start_time=$(date +%s.%N)
     eval "$cmd" &> "$ROOT/$RUN/$dataset/output.log"
     if [ $? -ne 0 ]; then
@@ -58,6 +58,7 @@ EUROC_DIR=$DATASETS_DIR/euroc
 TUM_DIR=$DATASETS_DIR/tum
 MSDMI_DIR=$DATASETS_DIR/msdmi
 MSDMG_DIR=$DATASETS_DIR/msdmg
+MSDMO_DIR=$DATASETS_DIR/msdmo
 
 # CALIB
 # CALIB_DIR=$ROOT/_calibs
@@ -71,6 +72,10 @@ euroc_config=$CONFIG_DIR/euroc.yaml
 tumvi_config=$CONFIG_DIR/tumvi.yaml
 # msdmi_config=$CONFIG_DIR/msdmi.json
 # msdmg_config=$CONFIG_DIR/msdmg.json
+msdmo_config=$CONFIG_DIR/msdmo.yaml
+
+# TIMESTAMPS
+msdmo_timestamps="$ORBSLAM3_DIR/Examples/Stereo-Inertial/msdmo_timestamps"
 
 rm -f faillist
 rm -f startfinish
@@ -96,6 +101,12 @@ done
 for dataset in "${msdmg_datasets[@]}"; do
     dataset_path=$MSDMG_DIR/$dataset
     run_orb_slam3 $dataset $dataset_path $msdmg_config $show_gui
+done
+
+# MSDMO
+for dataset in "${msdmo_datasets[@]}"; do
+    dataset_path=$MSDMO_DIR/$dataset
+    run_orb_slam3 $dataset $dataset_path $msdmo_config $msdmo_timestamps $show_gui
 done
 
 date +%s >> startfinish

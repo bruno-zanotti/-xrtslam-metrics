@@ -1,0 +1,316 @@
+num_seq = 1
+file name: trajectory
+Loading images for sequence 0...LOADED!
+Loading IMU for sequence 0...LOADED!
+
+-------
+
+ORB-SLAM3 Copyright (C) 2017-2020 Carlos Campos, Richard Elvira, Juan J. Gómez, José M.M. Montiel and Juan D. Tardós, University of Zaragoza.
+ORB-SLAM2 Copyright (C) 2014-2016 Raúl Mur-Artal, José M.M. Montiel and Juan D. Tardós, University of Zaragoza.
+This program comes with ABSOLUTELY NO WARRANTY;
+This is free software, and you are welcome to redistribute it
+under certain conditions. See LICENSE.txt.
+
+Input sensor was set to: Stereo-Inertial
+Loading settings from /home/bruno/tesina/xrtslam-metrics/test/data/basalt-vs-systems/ORB-SLAM3/../ORB-SLAM3/_configs/msdmo.yaml
+	-Loaded camera 1
+	-Loaded camera 2
+Camera.newHeight optional parameter does not exist...
+Camera.newWidth optional parameter does not exist...
+	-Loaded image info
+IMU.InsertKFsWhenLost optional parameter does not exist...
+	-Loaded IMU calibration
+	-Loaded ORB settings
+Viewer.imageViewScale optional parameter does not exist...
+	-Loaded viewer settings
+System.LoadAtlasFromFile optional parameter does not exist...
+System.SaveAtlasToFile optional parameter does not exist...
+	-Loaded Atlas settings
+System.thFarPoints optional parameter does not exist...
+	-Loaded misc parameters
+----------------------------------
+SLAM settings: 
+	-Camera 1 parameters (Kannala-Brandt): [ 268.19598388671875 268.05746459960938 323.31707763671875 245.75222778320312 0.078676655888557434 -0.030847668647766113 0.20850846171379089 -0.11969230324029922 ]
+	-Camera 2 parameters (Kannala-Brandt: [ 269.40740966796875 269.80233764648438 322.776123046875 251.10163879394531 0.078676655888557434 -0.030847668647766113 0.20850846171379089 -0.11969230324029922 ]
+	-Original image size: [ 640 , 480 ]
+	-Current image size: [ 640 , 480 ]
+	-Sequence FPS: 30
+	-Stereo baseline: 0.10507494211196899
+	-Stereo depth threshold : 35
+	-Camera 1 overlapping area: [ 247 , 639 ]
+	-Camera 2 overlapping area: [ 0 , 392 ]
+	-Gyro noise: 0.00095000001601874828
+	-Accelerometer noise: 0.010700000450015068
+	-Gyro walk: 0.0099999997764825821
+	-Accelerometer walk: 0.10000000149011612
+	-IMU frequency: 250
+	-Features per image: 1000
+	-ORB scale factor: 1.2000000476837158
+	-ORB number of scales: 8
+	-Initial FAST threshold: 20
+	-Min FAST threshold: 7
+
+
+Loading ORB Vocabulary. This could take a while...
+Vocabulary loaded!
+
+Initialization of Atlas from scratch 
+Creation of new map with id: 0
+Creation of new map with last KF id: 0
+Seq. Name: 
+There are 2 cameras in the atlas
+Camera 0 is fisheye
+Camera 2 is fisheye
+not IMU meas
+not IMU meas
+not enough acceleration
+not enough acceleration
+not enough acceleration
+not enough acceleration
+not enough acceleration
+not enough acceleration
+not enough acceleration
+not enough acceleration
+not enough acceleration
+not enough acceleration
+not enough acceleration
+not enough acceleration
+not enough acceleration
+not enough acceleration
+not enough acceleration
+not enough acceleration
+not enough acceleration
+not enough acceleration
+not enough acceleration
+not enough acceleration
+not enough acceleration
+not enough acceleration
+not enough acceleration
+not enough acceleration
+not enough acceleration
+not enough acceleration
+not enough acceleration
+not enough acceleration
+not enough acceleration
+not enough acceleration
+not enough acceleration
+First KF:0; Map init KF:0
+New Map created with 40 points
+start VIBA 1
+end VIBA 1
+start VIBA 2
+end VIBA 2
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+*Loop detected
+phi =    0.0988470743136282 0.0060850476676676335   0.21230790129794433
+BAD LOOP!!!
+*Loop detected
+phi = 0.11776500438992524 0.05646567768046535 0.22549206284084092
+BAD LOOP!!!
+*Loop detected
+phi =  0.023491068253615979 -0.031113353032451694   0.21146604084105233
+BAD LOOP!!!
+*Loop detected
+phi = 0.024114399476979347 0.027571512140785504  0.20859617869340241
+BAD LOOP!!!
+*Loop detected
+phi =   0.03746944674326308 -0.001491924202222693   0.25262025305856434
+BAD LOOP!!!
+*Loop detected
+phi = 0.035686790700073245 0.016298839039010214  0.21329137947254526
+BAD LOOP!!!
+*Loop detected
+phi = -0.015203395065478279 -0.041598226087842576   0.19240588857013755
+BAD LOOP!!!
+*Loop detected
+phi = 0.034818147830321028 0.024310443893873563  0.17882044743518616
+BAD LOOP!!!
+*Loop detected
+phi = 0.048238660772217765 0.014479585483526132  0.22797830000439623
+BAD LOOP!!!
+*Loop detected
+phi =   0.02058035704974882 0.0045101175275516535   0.23718696270873926
+BAD LOOP!!!
+*Loop detected
+phi = 0.049683966285458805 0.021945662232926974  0.21962037420305047
+BAD LOOP!!!
+*Loop detected
+phi = 0.037091782154663556 0.016755684918116083  0.19988276651450654
+BAD LOOP!!!
+*Loop detected
+phi = -0.0053281619274825175 -0.0096586492526818026    0.21756103021745862
+BAD LOOP!!!
+*Loop detected
+phi = 0.091657106814132777 0.090550159642459091  0.22138078323547947
+BAD LOOP!!!
+*Loop detected
+phi =  0.023919939551788418 -0.024772249161042127   0.23886164125993598
+BAD LOOP!!!
+*Loop detected
+phi =  0.0047969555345824342 -0.0014570049835020097    0.23001083891691451
+Local Mapping STOP
+Local Mapping RELEASE
+Local Mapping STOP
+Local Mapping RELEASE
+Shutdown
+
+Saving trajectory to f_trajectory.txt ...
+There are 1 maps in the atlas
+  Map 0 has 149 KFs
+
+End of saving trajectory to f_trajectory.txt ...
+
+Saving keyframe trajectory to kf_trajectory.txt ...

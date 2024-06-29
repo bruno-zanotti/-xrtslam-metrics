@@ -60,21 +60,18 @@ MSDMI_DIR=$DATASETS_DIR/msdmi
 MSDMG_DIR=$DATASETS_DIR/msdmg
 MSDMO_DIR=$DATASETS_DIR/msdmo
 
-# CALIB
-# CALIB_DIR=$ROOT/_calibs
-# euroc_calib=$CALIB_DIR/euroc.json
-# msdmi_calib=$CALIB_DIR/msdmi.json
-# msdmg_calib=$CALIB_DIR/msdmg.json
-
 # CONFIG
 CONFIG_DIR=$ROOT/$RUN/_configs
 euroc_config=$CONFIG_DIR/euroc.yaml
 tumvi_config=$CONFIG_DIR/tumvi.yaml
-# msdmi_config=$CONFIG_DIR/msdmi.json
-# msdmg_config=$CONFIG_DIR/msdmg.json
+msdmi_config=$CONFIG_DIR/msdmi.yaml
+msdmg_config=$CONFIG_DIR/msdmg.yaml
 msdmo_config=$CONFIG_DIR/msdmo.yaml
 
 # TIMESTAMPS
+euroc_timestamps="$ORBSLAM3_DIR/Examples/Stereo-Inertial/EuRoC_TimeStamps"
+msdmi_timestamps="$ORBSLAM3_DIR/Examples/Stereo-Inertial/msdmi_timestamps"
+msdmg_timestamps="$ORBSLAM3_DIR/Examples/Stereo-Inertial/msdmg_timestamps"
 msdmo_timestamps="$ORBSLAM3_DIR/Examples/Stereo-Inertial/msdmo_timestamps"
 
 rm -f faillist
@@ -88,19 +85,19 @@ echo Running $RUN:
 # EUROC
 for dataset in "${euroc_datasets[@]}"; do
     dataset_path=$EUROC_DIR/$dataset
-    run_orb_slam3 $dataset $dataset_path $euroc_config $show_gui
+    run_orb_slam3 $dataset $dataset_path $euroc_config $euroc_timestamps $show_gui
 done
 
 # MSDMI
 for dataset in "${msdmi_datasets[@]}"; do
     dataset_path=$MSDMI_DIR/$dataset
-    run_orb_slam3 $dataset $dataset_path $msdmi_config $show_gui
+    run_orb_slam3 $dataset $dataset_path $msdmi_config $msdmi_timestamps $show_gui
 done
 
 # MSDMG
 for dataset in "${msdmg_datasets[@]}"; do
     dataset_path=$MSDMG_DIR/$dataset
-    run_orb_slam3 $dataset $dataset_path $msdmg_config $show_gui
+    run_orb_slam3 $dataset $dataset_path $msdmg_config $msdmo_timestamps $show_gui
 done
 
 # MSDMO

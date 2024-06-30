@@ -97,6 +97,12 @@ ORBextractor.nLevels: 8
 ORBextractor.iniThFAST: 20
 ORBextractor.minThFAST: 7
 
+# Loop closure
+loopClosing: 1
+
+# Show GUI
+showGui: 0
+
 #--------------------------------------------------------------------------------------------
 # Viewer Parameters
 #--------------------------------------------------------------------------------------------

@@ -26,8 +26,8 @@ vel_w_i 0 0 0
 Finished input_data thread 
 Total recalls: 21012
 Finished opt flow stats
-Finished VIOFilter Finished t4
-
+Finished VIOFilter 
+Finished t4
 ---------------------------------------------------
 | Persistent Map                                  |
 ---------------------------------------------------
@@ -46,47 +46,49 @@ number of associations 19380
 num_cams             (19376):    12.4+-1.7 [0, 14]
 num_lms              (19376):   111.1+-48.2 [7, 246]
 num_obs              (19376):   501.4+-223.6 [50, 1300]
-allocateLMB          (19376):    0.07+-0.08 [0.01, 7.83]
-linearizeProblem     (127276):    0.05+-0.01 [0.01, 0.93]
-performQR            (127276):    0.01+-0.02 [0.00, 7.57]
-get_dense_H_b        (135051):    0.13+-0.05 [0.01, 6.52]
-solve                (135051):    0.05+-0.01 [0.01, 0.09]
-backSubstitute       (135051):    0.02+-0.12 [0.00, 10.34]
-computerError2       (135051):    0.02+-0.05 [0.01, 7.71]
-iteration            (135051):    0.30+-0.16 [0.04, 10.68]
-resident_memory      (135051): 2468107502.00+-1191688565.61 [214159360.00, 4575936512.00]
-resident_memory_peak (135051): 2468107755.80+-1191688470.40 [214159360.00, 4575936512.00]
-optimize             (19376):    2.16+-0.80 [0.22, 19.82]
+allocateLMB          (19376):    0.07+-0.13 [0.01, 15.43]
+linearizeProblem     (127276):    0.05+-0.04 [0.01, 7.56]
+performQR            (127276):    0.01+-0.01 [0.00, 0.71]
+get_dense_H_b        (135051):    0.14+-0.05 [0.01, 3.75]
+solve                (135051):    0.05+-0.01 [0.01, 0.27]
+backSubstitute       (135051):    0.02+-0.12 [0.00, 9.98]
+computerError2       (135051):    0.02+-0.03 [0.01, 5.36]
+iteration            (135051):    0.30+-0.17 [0.04, 16.27]
+resident_memory      (135051): 2468290931.20+-1192496679.27 [213606400.00, 4578566144.00]
+resident_memory_peak (135051): 2468291223.09+-1192496554.12 [213606400.00, 4578566144.00]
+optimize             (19376):    2.18+-0.80 [0.23, 20.33]
 num_it               (19376):     7.0+-1.7 [1, 8]
 num_it_rejected      (19376):     0.5+-1.4 [0, 7]
 === stats sums ===
-measure              (19380):    2.72+-1.45 [0.02, 33.78]
+measure              (19380):    2.75+-1.48 [0.02, 34.97]
 num_cams             (19376):    12.4+-1.7 [0, 14]
 num_lms              (19376):   111.1+-48.2 [7, 246]
 num_obs              (19376):   501.4+-223.6 [50, 1300]
-allocateLMB          (19376):    0.07+-0.08 [0.01, 7.83]
-linearizeProblem     (19376):    0.32+-0.12 [0.03, 1.49]
-performQR            (19376):    0.09+-0.07 [0.01, 7.91]
-get_dense_H_b        (19376):    0.94+-0.38 [0.06, 8.53]
-solve                (19376):    0.33+-0.09 [0.03, 0.50]
-backSubstitute       (19376):    0.15+-0.32 [0.01, 10.64]
-computerError2       (19376):    0.16+-0.15 [0.02, 7.84]
-iteration            (19376):    2.09+-0.79 [0.20, 19.48]
-resident_memory      (19376): 17202744955.24+-9167103158.68 [799776768.00, 36607492096.00]
-resident_memory_peak (19376): 17202746724.20+-9167102790.26 [799776768.00, 36607492096.00]
-optimize             (19376):    2.16+-0.80 [0.22, 19.82]
+allocateLMB          (19376):    0.07+-0.13 [0.01, 15.43]
+linearizeProblem     (19376):    0.32+-0.15 [0.03, 7.83]
+performQR            (19376):    0.09+-0.04 [0.01, 0.77]
+get_dense_H_b        (19376):    0.94+-0.37 [0.06, 5.24]
+solve                (19376):    0.34+-0.09 [0.03, 0.64]
+backSubstitute       (19376):    0.15+-0.33 [0.01, 10.13]
+computerError2       (19376):    0.16+-0.10 [0.02, 5.47]
+iteration            (19376):    2.10+-0.79 [0.22, 20.19]
+resident_memory      (19376): 17204023459.41+-9172041644.21 [799195136.00, 36628529152.00]
+resident_memory_peak (19376): 17204025493.88+-9172041106.86 [799195136.00, 36628529152.00]
+optimize             (19376):    2.18+-0.80 [0.23, 20.33]
 num_it               (19376):     7.0+-1.7 [1, 8]
 num_it_rejected      (19376):     0.5+-1.4 [0, 7]
-marg_linearize       (19376):    0.05+-0.02 [0.01, 0.38]
-marg_helper          (19376):    0.05+-0.01 [0.01, 0.30]
-marg                 (19376):    0.40+-1.12 [0.03, 29.50]
-marginalize          (19376):    0.41+-1.12 [0.04, 29.51]
+marg_linearize       (19376):    0.05+-0.01 [0.01, 0.28]
+marg_helper          (19376):    0.05+-0.02 [0.01, 0.39]
+marg                 (19376):    0.41+-1.14 [0.03, 30.58]
+marginalize          (19376):    0.41+-1.14 [0.03, 30.59]
 Saved ExecutionStats to stats_all.ubjson.
 Saved ExecutionStats to stats_sums.ubjson.
-Total runtime: 414.824s
+Total runtime: 419.098s
 Saved ExecutionStats to stats_opt_flow.ubjson.
 Saved ExecutionStats to stats_vio.ubjson.
 Saved ExecutionStats to stats_map.ubjson.
 Saving trajectory...
 Saved trajectory in Euroc Dataset format in trajectory.csv
 Saved features.csv
+
+Saved timing.csv

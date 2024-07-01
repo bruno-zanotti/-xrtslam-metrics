@@ -9,7 +9,7 @@ run_basalt_vio() {
 
     mkdir -p "$ROOT/$RUN/$dataset" && cd "$ROOT/$RUN/$dataset"
     printf "%s " $dataset
-    cmd="basalt_vio --dataset-path $dataset_path --cam-calib $cam_calib --dataset-type euroc --config-path $config_path --show-gui $show_gui --save-trajectory euroc --save-features 1"
+    cmd="basalt_vio --dataset-path $dataset_path --cam-calib $cam_calib --dataset-type euroc --config-path $config_path --show-gui $show_gui --save-trajectory euroc --save-features 1 --save-timing 1 "
 
     start_time=$(date +%s.%N)
     eval "$cmd" &> "$ROOT/$RUN/$dataset/output.log"

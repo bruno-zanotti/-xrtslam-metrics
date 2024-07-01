@@ -46,47 +46,49 @@ number of associations 185
 num_cams             ( 182):     8.3+-3.0 [0, 11]
 num_lms              ( 182):   130.3+-48.0 [35, 181]
 num_obs              ( 182):  1084.9+-343.0 [244, 1609]
-allocateLMB          ( 182):    0.08+-0.03 [0.02, 0.21]
-linearizeProblem     (1215):    0.07+-0.03 [0.01, 0.27]
-performQR            (1215):    0.02+-0.01 [0.00, 0.28]
-get_dense_H_b        (1228):    0.14+-0.07 [0.02, 0.28]
+allocateLMB          ( 182):    0.07+-0.02 [0.02, 0.17]
+linearizeProblem     (1215):    0.07+-0.02 [0.01, 0.17]
+performQR            (1215):    0.02+-0.01 [0.01, 0.10]
+get_dense_H_b        (1228):    0.14+-0.06 [0.02, 0.26]
 solve                (1228):    0.03+-0.01 [0.01, 0.06]
-backSubstitute       (1228):    0.02+-0.17 [0.00, 6.12]
+backSubstitute       (1228):    0.02+-0.01 [0.00, 0.07]
 computerError2       (1228):    0.05+-0.01 [0.02, 0.10]
-iteration            (1228):    0.35+-0.22 [0.08, 6.53]
-resident_memory      (1228): 201976595.18+-37167099.90 [109678592.00, 256004096.00]
-resident_memory_peak (1228): 203131807.27+-36996607.58 [109678592.00, 256004096.00]
-optimize             ( 182):    2.45+-0.85 [0.82, 10.00]
+iteration            (1228):    0.34+-0.12 [0.07, 0.65]
+resident_memory      (1228): 209611022.18+-42038472.75 [110018560.00, 274911232.00]
+resident_memory_peak (1228): 210853210.89+-42146562.21 [110018560.00, 274911232.00]
+optimize             ( 182):    2.37+-0.61 [0.76, 3.74]
 num_it               ( 182):     6.7+-1.2 [4, 8]
 num_it_rejected      ( 182):     0.1+-0.5 [0, 5]
 === stats sums ===
-measure              ( 186):    2.80+-1.01 [0.04, 10.51]
+measure              ( 186):    2.73+-0.80 [0.04, 4.24]
 num_cams             ( 182):     8.3+-3.0 [0, 11]
 num_lms              ( 182):   130.3+-48.0 [35, 181]
 num_obs              ( 182):  1084.9+-343.0 [244, 1609]
-allocateLMB          ( 182):    0.08+-0.03 [0.02, 0.21]
+allocateLMB          ( 182):    0.07+-0.02 [0.02, 0.17]
 linearizeProblem     ( 182):    0.47+-0.13 [0.13, 0.76]
-performQR            ( 182):    0.13+-0.04 [0.05, 0.42]
-get_dense_H_b        ( 182):    0.97+-0.37 [0.18, 1.71]
+performQR            ( 182):    0.13+-0.03 [0.05, 0.21]
+get_dense_H_b        ( 182):    0.93+-0.35 [0.16, 1.74]
 solve                ( 182):    0.23+-0.05 [0.08, 0.35]
-backSubstitute       ( 182):    0.14+-0.46 [0.05, 6.27]
-computerError2       ( 182):    0.33+-0.12 [0.14, 0.57]
-iteration            ( 182):    2.37+-0.84 [0.74, 9.89]
-resident_memory      ( 182): 1362787136.70+-202282471.21 [885686272.00, 2041741312.00]
-resident_memory_peak ( 182): 1370581644.66+-202728908.37 [885686272.00, 2041741312.00]
-optimize             ( 182):    2.45+-0.85 [0.82, 10.00]
+backSubstitute       ( 182):    0.10+-0.03 [0.04, 0.18]
+computerError2       ( 182):    0.33+-0.12 [0.14, 0.56]
+iteration            ( 182):    2.29+-0.61 [0.69, 3.65]
+resident_memory      ( 182): 1414298545.23+-220175999.72 [884736000.00, 2191949824.00]
+resident_memory_peak ( 182): 1422679906.46+-221113498.56 [884736000.00, 2191949824.00]
+optimize             ( 182):    2.37+-0.61 [0.76, 3.74]
 num_it               ( 182):     6.7+-1.2 [4, 8]
 num_it_rejected      ( 182):     0.1+-0.5 [0, 5]
-marg_linearize       ( 182):    0.06+-0.03 [0.01, 0.22]
+marg_linearize       ( 182):    0.06+-0.03 [0.01, 0.15]
 marg_helper          ( 182):    0.05+-0.04 [0.02, 0.45]
-marg                 ( 182):    0.20+-0.13 [0.03, 1.27]
-marginalize          ( 182):    0.21+-0.13 [0.03, 1.28]
+marg                 ( 182):    0.20+-0.12 [0.03, 1.19]
+marginalize          ( 182):    0.21+-0.13 [0.04, 1.20]
 Saved ExecutionStats to stats_all.ubjson.
 Saved ExecutionStats to stats_sums.ubjson.
-Total runtime: 1.990s
+Total runtime: 1.946s
 Saved ExecutionStats to stats_opt_flow.ubjson.
 Saved ExecutionStats to stats_vio.ubjson.
 Saved ExecutionStats to stats_map.ubjson.
 Saving trajectory...
 Saved trajectory in Euroc Dataset format in trajectory.csv
 Saved features.csv
+
+Saved timing.csv

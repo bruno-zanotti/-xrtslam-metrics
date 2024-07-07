@@ -1,0 +1,94 @@
+Loaded camera with 2 cameras
+marg_H (sqrt:1)
+  10000       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      0   10000       0       0       0       0       0       0       0       0       0       0       0       0       0
+      0       0   10000       0       0       0       0       0       0       0       0       0       0       0       0
+      0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      0       0       0       0       0   10000       0       0       0       0       0       0       0       0       0
+      0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      0       0       0       0       0       0       0       0       0 3.16228       0       0       0       0       0
+      0       0       0       0       0       0       0       0       0       0 3.16228       0       0       0       0
+      0       0       0       0       0       0       0       0       0       0       0 3.16228       0       0       0
+      0       0       0       0       0       0       0       0       0       0       0       0      10       0       0
+      0       0       0       0       0       0       0       0       0       0       0       0       0      10       0
+      0       0       0       0       0       0       0       0       0       0       0       0       0       0      10
+Started input_data thread 
+Setting up filter: t_ns 9741567680753
+T_w_i
+  -0.078524 -0.00665299     0.99689           0
+-0.00665299    0.999959  0.00614943           0
+   -0.99689 -0.00614943   -0.078565           0
+          0           0           0           1
+vel_w_i 0 0 0
+Finished input_data thread 
+Total recalls: 102230
+Finished opt flow stats
+Finished t4Finished VIOFilter 
+
+---------------------------------------------------
+| Persistent Map                                  |
+---------------------------------------------------
+| Keyframes count: 1122
+| Landmarks count: 13382
+| Observations count: 156553
+---------------------------------------------------
+T_align
+-0.862964 -0.483535 -0.146584 1.45181  
+-0.325711 0.310581  0.893001  -0.541985
+-0.386271 0.818372  -0.425513 -0.396556
+0         0         0         1        
+error 0.546549
+number of associations 7854
+=== stats all ===
+num_cams             (7851):     7.0+-0.3 [0, 7]
+num_lms              (7851):   124.8+-58.3 [11, 288]
+num_obs              (7851):   763.3+-401.6 [47, 2117]
+allocateLMB          (7851):    0.08+-0.05 [0.02, 3.52]
+linearizeProblem     (49872):    0.07+-0.06 [0.01, 6.81]
+performQR            (49872):    0.02+-0.05 [0.00, 7.57]
+get_dense_H_b        (50483):    0.11+-0.05 [0.02, 5.20]
+solve                (50483):    0.03+-0.01 [0.01, 0.17]
+backSubstitute       (50483):    0.01+-0.04 [0.00, 7.65]
+computerError2       (50483):    0.03+-0.11 [0.01, 24.02]
+iteration            (50483):    0.28+-0.18 [0.06, 24.22]
+resident_memory      (50483): 1738215162.09+-879167022.41 [144191488.00, 3234037760.00]
+resident_memory_peak (50483): 1738216742.54+-879166662.24 [144191488.00, 3234037760.00]
+optimize             (7851):    1.87+-0.76 [0.19, 26.31]
+num_it               (7851):     6.4+-2.0 [1, 8]
+num_it_rejected      (7851):     0.1+-0.6 [0, 7]
+=== stats sums ===
+measure              (7855):    2.79+-1.65 [0.04, 26.85]
+num_cams             (7851):     7.0+-0.3 [0, 7]
+num_lms              (7851):   124.8+-58.3 [11, 288]
+num_obs              (7851):   763.3+-401.6 [47, 2117]
+allocateLMB          (7851):    0.08+-0.05 [0.02, 3.52]
+linearizeProblem     (7851):    0.42+-0.22 [0.02, 7.18]
+performQR            (7851):    0.11+-0.14 [0.01, 7.60]
+get_dense_H_b        (7851):    0.68+-0.30 [0.05, 6.35]
+solve                (7851):    0.20+-0.06 [0.03, 0.39]
+backSubstitute       (7851):    0.08+-0.09 [0.01, 7.67]
+computerError2       (7851):    0.19+-0.30 [0.01, 24.20]
+iteration            (7851):    1.80+-0.75 [0.18, 26.15]
+resident_memory      (7851): 11176960390.77+-7235407830.67 [418930688.00, 25828261888.00]
+resident_memory_peak (7851): 11176970553.29+-7235407926.10 [418930688.00, 25828261888.00]
+optimize             (7851):    1.87+-0.76 [0.19, 26.31]
+num_it               (7851):     6.4+-2.0 [1, 8]
+num_it_rejected      (7851):     0.1+-0.6 [0, 7]
+marg_linearize       (7851):    0.06+-0.03 [0.01, 0.42]
+marg_helper          (7851):    0.05+-0.03 [0.01, 0.34]
+marg                 (7851):    0.68+-1.39 [0.03, 14.43]
+marginalize          (7851):    0.69+-1.39 [0.04, 14.44]
+Saved ExecutionStats to stats_all.ubjson.
+Saved ExecutionStats to stats_sums.ubjson.
+Total runtime: 80.411s
+Saved ExecutionStats to stats_opt_flow.ubjson.
+Saved ExecutionStats to stats_vio.ubjson.
+Saved ExecutionStats to stats_map.ubjson.
+Saving trajectory...
+Saved trajectory in Euroc Dataset format in trajectory.csv
+Saved features.csv
+
+Saved timing.csv

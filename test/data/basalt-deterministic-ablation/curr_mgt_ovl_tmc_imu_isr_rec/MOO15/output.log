@@ -1,0 +1,3 @@
+terminate called after throwing an instance of 'cereal::RapidJSONException'
+  what():  rapidjson internal assertion failure: IsObject()
+./run.sh: line 15: 403470 Aborted                 (core dumped) basalt_vio --dataset-path /home/bruno/tesina/datasets/msdmo/MOO15 --cam-calib /home/bruno/tesina/xrtslam-metrics/test/data/basalt-deterministic-ablation/curr_mgt_ovl_tmc_imu_isr_rec/../_calibs/msdmo.json --dataset-type euroc --config-path /home/bruno/tesina/xrtslam-metrics/test/data/basalt-deterministic-ablation/curr_mgt_ovl_tmc_imu_isr_rec/../curr_mgt_ovl_tmc_imu_isr_rec/_configs/msdmo.json --show-gui 0 --save-trajectory euroc --save-features 1 --save-timing 1

@@ -1,0 +1,241 @@
+Loaded camera with 2 cameras
+marg_H (sqrt:1)
+  10000       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      0   10000       0       0       0       0       0       0       0       0       0       0       0       0       0
+      0       0   10000       0       0       0       0       0       0       0       0       0       0       0       0
+      0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      0       0       0       0       0   10000       0       0       0       0       0       0       0       0       0
+      0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      0       0       0       0       0       0       0       0       0 3.16228       0       0       0       0       0
+      0       0       0       0       0       0       0       0       0       0 3.16228       0       0       0       0
+      0       0       0       0       0       0       0       0       0       0       0 3.16228       0       0       0
+      0       0       0       0       0       0       0       0       0       0       0       0      10       0       0
+      0       0       0       0       0       0       0       0       0       0       0       0       0      10       0
+      0       0       0       0       0       0       0       0       0       0       0       0       0       0      10
+Started input_data thread 
+Setting up filter: t_ns 1403715886584058112
+T_w_i
+ -0.378345 -0.0439182  -0.924623          0
+-0.0439182   0.998601 -0.0294613          0
+  0.924623  0.0294613  -0.379744          0
+         0          0          0          1
+vel_w_i 0 0 0
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Finished input_data thread 
+Total recalls: 48338
+Finished opt flow stats
+Finished t4
+Finished VIOFilter 
+---------------------------------------------------
+| Persistent Map                                  |
+---------------------------------------------------
+| Keyframes count: 304
+| Landmarks count: 9628
+| Observations count: 61696
+---------------------------------------------------
+T_align
+-0.989315   -0.14578    -0.00181409 0.894895   
+0.145786    -0.989306   -0.00438745 2.04548    
+-0.00115509 -0.00460504 0.999989    0.992459   
+0           0           0           1          
+error 0.0817205
+number of associations 2093
+=== stats all ===
+num_cams             (2145):     6.9+-0.5 [0, 7]
+num_lms              (2145):   266.8+-93.4 [25, 504]
+num_obs              (2145):  1420.4+-449.8 [150, 2920]
+allocateLMB          (2145):    0.08+-0.02 [0.02, 0.26]
+linearizeProblem     (13604):    0.07+-0.02 [0.01, 1.18]
+performQR            (13604):    0.03+-0.01 [0.00, 0.54]
+get_dense_H_b        (13822):    0.18+-0.05 [0.01, 1.08]
+solve                (13822):    0.03+-0.00 [0.01, 0.07]
+backSubstitute       (13822):    0.02+-0.01 [0.00, 0.72]
+computerError2       (13822):    0.03+-0.01 [0.01, 0.15]
+iteration            (13822):    0.37+-0.10 [0.05, 1.58]
+resident_memory      (13822): 296273327.62+-105129844.28 [86609920.00, 461107200.00]
+resident_memory_peak (13822): 296737361.86+-105093517.95 [86609920.00, 461107200.00]
+optimize             (2145):    2.48+-0.82 [0.29, 5.53]
+num_it               (2145):     6.4+-1.8 [1, 8]
+num_it_rejected      (2145):     0.2+-0.7 [0, 6]
+=== stats sums ===
+measure              (2149):    3.07+-1.03 [0.03, 7.50]
+num_cams             (2145):     6.9+-0.5 [0, 7]
+num_lms              (2145):   266.8+-93.4 [25, 504]
+num_obs              (2145):  1420.4+-449.8 [150, 2920]
+allocateLMB          (2145):    0.08+-0.02 [0.02, 0.26]
+linearizeProblem     (2145):    0.47+-0.17 [0.05, 1.66]
+performQR            (2145):    0.18+-0.07 [0.01, 0.93]
+get_dense_H_b        (2145):    1.13+-0.42 [0.08, 2.62]
+solve                (2145):    0.19+-0.05 [0.03, 0.28]
+backSubstitute       (2145):    0.11+-0.04 [0.01, 0.83]
+computerError2       (2145):    0.22+-0.08 [0.04, 0.42]
+iteration            (2145):    2.41+-0.81 [0.28, 5.40]
+resident_memory      (2145): 1909132836.52+-920777030.83 [118128640.00, 3688857600.00]
+resident_memory_peak (2145): 1912122990.99+-921154401.91 [118128640.00, 3688857600.00]
+optimize             (2145):    2.48+-0.82 [0.29, 5.53]
+num_it               (2145):     6.4+-1.8 [1, 8]
+num_it_rejected      (2145):     0.2+-0.7 [0, 6]
+marg_linearize       (2145):    0.06+-0.02 [0.01, 0.29]
+marg_helper          (2145):    0.05+-0.05 [0.01, 0.38]
+marg                 (2145):    0.32+-0.35 [0.03, 2.71]
+marginalize          (2145):    0.32+-0.35 [0.03, 2.72]
+Saved ExecutionStats to stats_all.ubjson.
+Saved ExecutionStats to stats_sums.ubjson.
+Total runtime: 14.120s
+Saved ExecutionStats to stats_opt_flow.ubjson.
+Saved ExecutionStats to stats_vio.ubjson.
+Saved ExecutionStats to stats_map.ubjson.
+Saving trajectory...
+Saved trajectory in Euroc Dataset format in trajectory.csv
+Saved features.csv
+
+Saved timing.csv

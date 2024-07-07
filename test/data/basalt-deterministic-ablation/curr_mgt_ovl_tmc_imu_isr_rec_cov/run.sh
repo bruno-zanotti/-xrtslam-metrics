@@ -31,7 +31,7 @@ source $ROOT/settings.cfg
 # DATASETS
 DATASETS_DIR=~/tesina/datasets
 EUROC_DIR=$DATASETS_DIR/euroc
-TUM_DIR=$DATASETS_DIR/tum
+TUMVI_DIR=$DATASETS_DIR/tumvi
 MSDMI_DIR=$DATASETS_DIR/msdmi
 MSDMG_DIR=$DATASETS_DIR/msdmg
 MSDMO_DIR=$DATASETS_DIR/msdmo
@@ -39,6 +39,7 @@ MSDMO_DIR=$DATASETS_DIR/msdmo
 # CALIB
 CALIB_DIR=$ROOT/_calibs
 euroc_calib=$CALIB_DIR/euroc.json
+tumvi_calib=$CALIB_DIR/tumvi.json
 msdmi_calib=$CALIB_DIR/msdmi.json
 msdmg_calib=$CALIB_DIR/msdmg.json
 msdmo_calib=$CALIB_DIR/msdmo.json
@@ -46,6 +47,7 @@ msdmo_calib=$CALIB_DIR/msdmo.json
 # CONFIG
 CONFIG_DIR=$ROOT/$RUN/_configs
 euroc_config=$CONFIG_DIR/euroc.json
+tumvi_config=$CONFIG_DIR/tumvi.json
 msdmi_config=$CONFIG_DIR/msdmi.json
 msdmg_config=$CONFIG_DIR/msdmg.json
 msdmo_config=$CONFIG_DIR/msdmo.json
@@ -62,6 +64,12 @@ echo Running $RUN:
 for dataset in "${euroc_datasets[@]}"; do
     dataset_path=$EUROC_DIR/$dataset
     run_basalt_vio $dataset $dataset_path $euroc_calib $euroc_config $show_gui
+done
+
+# TUM-VI
+for dataset in "${tumvi_datasets[@]}"; do
+    dataset_path=$TUMVI_DIR/$dataset
+    run_basalt_vio $dataset $dataset_path $tumvi_calib $tumvi_config $show_gui
 done
 
 # MSDMI

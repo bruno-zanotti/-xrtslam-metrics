@@ -1,0 +1,208 @@
+num_seq = 1
+Loading images for sequence 0.../home/bruno/tesina/datasets/tumvi/TR2/mav0/cam0/data
+/home/bruno/tesina/datasets/tumvi/TR2/mav0/cam1/data
+/home/bruno/tesina/orb_slam3/Examples/Stereo-Inertial/TUM_TimeStamps/TR2.txt
+Total images: 2882
+Total cam ts: 2882
+first cam ts: 1.52053e+09
+LOADED!
+Loading IMU for sequence 0...Total IMU meas: 28732
+first IMU ts: 1.52053e+09
+LOADED!
+
+-------
+
+ORB-SLAM3 Copyright (C) 2017-2020 Carlos Campos, Richard Elvira, Juan J. Gómez, José M.M. Montiel and Juan D. Tardós, University of Zaragoza.
+ORB-SLAM2 Copyright (C) 2014-2016 Raúl Mur-Artal, José M.M. Montiel and Juan D. Tardós, University of Zaragoza.
+This program comes with ABSOLUTELY NO WARRANTY;
+This is free software, and you are welcome to redistribute it
+under certain conditions. See LICENSE.txt.
+
+Input sensor was set to: Stereo-Inertial
+Loading settings from /home/bruno/tesina/xrtslam-metrics/test/data/basalt-vs-systems/ORB-SLAM3/../ORB-SLAM3/_configs/tumvi.yaml
+	-Loaded camera 1
+	-Loaded camera 2
+Camera.newHeight optional parameter does not exist...
+Camera.newWidth optional parameter does not exist...
+	-Loaded image info
+IMU.InsertKFsWhenLost optional parameter does not exist...
+	-Loaded IMU calibration
+	-Loaded ORB settings
+Viewer.imageViewScale optional parameter does not exist...
+	-Loaded viewer settings
+System.LoadAtlasFromFile optional parameter does not exist...
+System.SaveAtlasToFile optional parameter does not exist...
+	-Loaded Atlas settings
+System.thFarPoints optional parameter does not exist...
+	-Loaded misc parameters
+----------------------------------
+SLAM settings: 
+	-Camera 1 parameters (Kannala-Brandt): [ 190.97846984863281 190.97331237792969 254.93170166015625 256.89743041992188 0.0034823894966393709 0.00071503483923152089 -0.0020532361231744289 0.00020293673151172698 ]
+	-Camera 2 parameters (Kannala-Brandt: [ 190.44236755371094 190.43443298339844 252.59950256347656 254.917236328125 0.0034823894966393709 0.00071503483923152089 -0.0020532361231744289 0.00020293673151172698 ]
+	-Original image size: [ 512 , 512 ]
+	-Current image size: [ 512 , 512 ]
+	-Sequence FPS: 20
+	-Stereo baseline: 0.10108726471662521
+	-Stereo depth threshold : 40
+	-Camera 1 overlapping area: [ 0 , 511 ]
+	-Camera 2 overlapping area: [ 0 , 511 ]
+	-Gyro noise: 0.00015999999595806003
+	-Accelerometer noise: 0.00279999990016222
+	-Gyro walk: 2.2000000171829015e-05
+	-Accelerometer walk: 0.00085999997099861503
+	-IMU frequency: 200
+	-Features per image: 1000
+	-ORB scale factor: 1.2000000476837158
+	-ORB number of scales: 8
+	-Initial FAST threshold: 20
+	-Min FAST threshold: 7
+
+LOOP CLOSURE ACTIVO
+
+Loading ORB Vocabulary. This could take a while...
+Vocabulary loaded!
+
+Initialization of Atlas from scratch 
+Creation of new map with id: 0
+Creation of new map with last KF id: 0
+Seq. Name: trajectory
+There are 2 cameras in the atlas
+Camera 0 is fisheye
+Camera 2 is fisheye
+not IMU meas
+not IMU meas
+not enough acceleration
+not enough acceleration
+not enough acceleration
+not enough acceleration
+not enough acceleration
+not enough acceleration
+First KF:0; Map init KF:0
+New Map created with 227 points
+Not enough motion for initializing. Reseting...
+LM: Reseting current map in Local Mapping...
+LM: End reseting Local Mapping...
+LM: Reset free the mutex
+Not enough motion for initializing. Reseting...
+LM: Reseting current map in Local Mapping...
+LM: End reseting Local Mapping...
+LM: Reset free the mutex
+Not enough motion for initializing. Reseting...
+LM: Reseting current map in Local Mapping...
+LM: End reseting Local Mapping...
+LM: Reset free the mutex
+Not enough motion for initializing. Reseting...
+LM: Reseting current map in Local Mapping...
+LM: End reseting Local Mapping...
+LM: Reset free the mutex
+Not enough motion for initializing. Reseting...
+LM: Reseting current map in Local Mapping...
+LM: End reseting Local Mapping...
+LM: Reset free the mutex
+Not enough motion for initializing. Reseting...
+LM: Reseting current map in Local Mapping...
+LM: End reseting Local Mapping...
+LM: Reset free the mutex
+Not enough motion for initializing. Reseting...
+LM: Reseting current map in Local Mapping...
+LM: End reseting Local Mapping...
+LM: Reset free the mutex
+Not enough motion for initializing. Reseting...
+LM: Reseting current map in Local Mapping...
+LM: End reseting Local Mapping...
+LM: Reset free the mutex
+Not enough motion for initializing. Reseting...
+LM: Reseting current map in Local Mapping...
+LM: End reseting Local Mapping...
+LM: Reset free the mutex
+start VIBA 1
+end VIBA 1
+start VIBA 2
+end VIBA 2
+Shutdown
+
+ TIME STATS in ms (mean$\pm$std)
+OpenCV version: 4.5.4
+---------------------------
+Tracking
+
+ORB Extraction: 4.0862$\pm$0.70908
+Stereo Matching: 1.3038$\pm$0.2782
+IMU Preintegration: 0.04371$\pm$0.010464
+Pose Prediction: 0.13359$\pm$0.72275
+LM Track: 7.4856$\pm$1.2995
+New KF decision: 0.04298$\pm$0.037443
+Total Tracking: 13.951$\pm$1.8545
+
+
+
+Local Mapping
+
+KF Insertion: 5.4943$\pm$0.83104
+MP Culling: 0.16975$\pm$0.055279
+MP Creation: 20.394$\pm$5.4968
+LBA: 70.009$\pm$23.957
+KF Culling: 7.102$\pm$4.0755
+Total Local Mapping: 103.17$\pm$31.913
+---------------------------
+
+LBA complexity (mean$\pm$std)
+LBA Edges: 2263.2$\pm$757.42
+LBA KF optimized: 6.5$\pm$2.2913
+LBA KF fixed: 1$\pm$0
+LBA MP: -nan$\pm$-nan
+
+LBA executions: 448
+LBA aborts: 0
+---------------------------
+
+Map complexity
+KFs in map: 76
+MPs in map: 2769
+---------------------------
+
+Place Recognition (mean$\pm$std)
+Database Query: 0.94655$\pm$0.4015
+SE3 estimation: 0.49482$\pm$0.8178
+Total Place Recognition: 1.2235$\pm$1.067
+
+
+Loop Closing (mean$\pm$std)
+Loop Fusion: -nan$\pm$-nan
+Essential Graph: -nan$\pm$-nan
+Total Loop Closing: -nan$\pm$-nan
+
+Num exec: 0
+Number of KFs: -nan$\pm$-nan
+
+Map Merging (mean$\pm$std)
+Merge Maps: -nan$\pm$-nan
+Welding BA: -nan$\pm$-nan
+Optimization Ess.: -nan$\pm$-nan
+Total Map Merging: -nan$\pm$-nan
+
+Num exec: 0
+Number of KFs: -nan$\pm$-nan
+Number of MPs: -nan$\pm$-nan
+
+Full GBA (mean$\pm$std)
+GBA: -nan$\pm$-nan
+Map Update: -nan$\pm$-nan
+Total Full GBA: -nan$\pm$-nan
+
+Num exec: 0
+Num abort: 0
+Number of KFs: -nan$\pm$-nan
+Number of MPs: -nan$\pm$-nan
+
+Saving trajectory to f_trajectory.txt ...
+There are 1 maps in the atlas
+  Map 0 has 76 KFs
+
+End of saving trajectory to f_trajectory.txt ...
+
+Saving keyframe trajectory to kf_trajectory.txt ...
+-------
+
+median tracking time: 0.013889
+mean tracking time: 0.013951

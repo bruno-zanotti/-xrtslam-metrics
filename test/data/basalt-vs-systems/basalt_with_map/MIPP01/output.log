@@ -72,8 +72,8 @@ Numerical failure in backsubstitution
 Finished input_data thread 
 Total recalls: 224083
 Finished opt flow stats
-Finished VIOFilter 
-Finished t4
+Finished VIOFilter Finished t4
+
 ---------------------------------------------------
 | Persistent Map                                  |
 ---------------------------------------------------
@@ -92,47 +92,49 @@ number of associations 19056
 num_cams             (19053):    12.0+-0.8 [0, 14]
 num_lms              (19053):   124.6+-44.9 [22, 348]
 num_obs              (19053):   781.4+-290.2 [145, 2308]
-allocateLMB          (19053):    0.08+-0.02 [0.02, 0.94]
-linearizeProblem     (99625):    0.07+-0.05 [0.01, 7.52]
-performQR            (99625):    0.02+-0.01 [0.00, 0.30]
-get_dense_H_b        (102530):    0.16+-0.04 [0.01, 1.19]
-solve                (102530):    0.05+-0.00 [0.01, 0.28]
-backSubstitute       (102530):    0.02+-0.07 [0.00, 17.83]
-computerError2       (102530):    0.03+-0.01 [0.01, 0.23]
-iteration            (102530):    0.36+-0.13 [0.05, 18.17]
-resident_memory      (102530): 4195482768.36+-2278113316.71 [186650624.00, 8095850496.00]
-resident_memory_peak (102530): 4195484282.31+-2278113369.47 [186650624.00, 8095850496.00]
-optimize             (19053):    1.99+-0.84 [0.34, 20.53]
+allocateLMB          (19053):    0.16+-0.49 [0.02, 28.02]
+linearizeProblem     (99625):    0.08+-0.21 [0.01, 17.39]
+performQR            (99625):    0.02+-0.09 [0.00, 11.85]
+get_dense_H_b        (102530):    0.18+-0.15 [0.01, 15.42]
+solve                (102530):    0.05+-0.02 [0.01, 1.75]
+backSubstitute       (102530):    0.04+-0.32 [0.00, 30.83]
+computerError2       (102530):    0.04+-0.09 [0.01, 12.50]
+iteration            (102530):    0.45+-0.51 [0.05, 31.88]
+resident_memory      (102530): 4200675464.63+-2280004808.17 [182587392.00, 8103301120.00]
+resident_memory_peak (102530): 4200677506.35+-2280004612.10 [182587392.00, 8103301120.00]
+optimize             (19053):    2.47+-1.60 [0.40, 47.90]
 num_it               (19053):     5.4+-2.3 [1, 8]
 num_it_rejected      (19053):     0.2+-1.0 [0, 7]
 === stats sums ===
-measure              (19057):    3.55+-3.53 [0.03, 63.92]
+measure              (19057):    4.29+-4.17 [0.03, 71.49]
 num_cams             (19053):    12.0+-0.8 [0, 14]
 num_lms              (19053):   124.6+-44.9 [22, 348]
 num_obs              (19053):   781.4+-290.2 [145, 2308]
-allocateLMB          (19053):    0.08+-0.02 [0.02, 0.94]
-linearizeProblem     (19053):    0.35+-0.20 [0.03, 8.29]
-performQR            (19053):    0.09+-0.04 [0.01, 0.46]
-get_dense_H_b        (19053):    0.84+-0.39 [0.13, 4.43]
-solve                (19053):    0.26+-0.11 [0.04, 0.47]
-backSubstitute       (19053):    0.11+-0.16 [0.02, 17.93]
-computerError2       (19053):    0.16+-0.08 [0.02, 0.75]
-iteration            (19053):    1.92+-0.82 [0.32, 20.43]
-resident_memory      (19053): 22577171481.64+-16430429411.05 [864428032.00, 64759463936.00]
-resident_memory_peak (19053): 22577179628.71+-16430432453.32 [864428032.00, 64759463936.00]
-optimize             (19053):    1.99+-0.84 [0.34, 20.53]
+allocateLMB          (19053):    0.16+-0.49 [0.02, 28.02]
+linearizeProblem     (19053):    0.43+-0.52 [0.03, 17.87]
+performQR            (19053):    0.12+-0.22 [0.01, 11.94]
+get_dense_H_b        (19053):    0.97+-0.58 [0.14, 15.74]
+solve                (19053):    0.26+-0.12 [0.05, 2.01]
+backSubstitute       (19053):    0.23+-0.77 [0.02, 30.98]
+computerError2       (19053):    0.20+-0.25 [0.02, 14.51]
+iteration            (19053):    2.40+-1.59 [0.37, 47.69]
+resident_memory      (19053): 22605114962.90+-16446389603.32 [873889792.00, 64818020352.00]
+resident_memory_peak (19053): 22605125950.06+-16446392979.10 [873889792.00, 64818020352.00]
+optimize             (19053):    2.47+-1.60 [0.40, 47.90]
 num_it               (19053):     5.4+-2.3 [1, 8]
 num_it_rejected      (19053):     0.2+-1.0 [0, 7]
-marg_linearize       (19053):    0.07+-0.02 [0.01, 0.30]
-marg_helper          (19053):    0.06+-0.03 [0.02, 0.41]
-marg                 (19053):    1.32+-3.37 [0.04, 60.49]
-marginalize          (19053):    1.33+-3.38 [0.04, 60.51]
+marg_linearize       (19053):    0.07+-0.10 [0.01, 8.58]
+marg_helper          (19053):    0.06+-0.05 [0.02, 1.43]
+marg                 (19053):    1.53+-3.83 [0.04, 68.67]
+marginalize          (19053):    1.54+-3.84 [0.04, 68.91]
 Saved ExecutionStats to stats_all.ubjson.
 Saved ExecutionStats to stats_sums.ubjson.
-Total runtime: 240.864s
+Total runtime: 285.720s
 Saved ExecutionStats to stats_opt_flow.ubjson.
 Saved ExecutionStats to stats_vio.ubjson.
 Saved ExecutionStats to stats_map.ubjson.
 Saving trajectory...
 Saved trajectory in Euroc Dataset format in trajectory.csv
 Saved features.csv
+
+Saved timing.csv

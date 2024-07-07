@@ -26,8 +26,8 @@ vel_w_i 0 0 0
 Finished input_data thread 
 Total recalls: 208559
 Finished opt flow stats
-Finished VIOFilter 
 Finished t4
+Finished VIOFilter 
 ---------------------------------------------------
 | Persistent Map                                  |
 ---------------------------------------------------
@@ -46,47 +46,49 @@ number of associations 8103
 num_cams             (8101):    12.9+-1.4 [0, 14]
 num_lms              (8101):   264.0+-68.4 [18, 429]
 num_obs              (8101):  1653.7+-422.9 [136, 2962]
-allocateLMB          (8101):    0.13+-0.10 [0.02, 8.46]
-linearizeProblem     (43868):    0.10+-0.10 [0.01, 20.00]
-performQR            (43868):    0.03+-0.01 [0.00, 1.10]
-get_dense_H_b        (43981):    0.30+-0.09 [0.01, 4.45]
-solve                (43981):    0.05+-0.01 [0.01, 0.10]
-backSubstitute       (43981):    0.03+-0.08 [0.00, 8.35]
-computerError2       (43981):    0.05+-0.01 [0.01, 0.76]
-iteration            (43981):    0.58+-0.22 [0.05, 21.33]
-resident_memory      (43981): 2084029949.31+-1104290214.34 [146845696.00, 3854442496.00]
-resident_memory_peak (43981): 2084031321.97+-1104289522.75 [146845696.00, 3854442496.00]
-optimize             (8101):    3.23+-1.19 [0.57, 29.85]
+allocateLMB          (8101):    0.22+-0.41 [0.03, 13.11]
+linearizeProblem     (43868):    0.13+-0.25 [0.01, 15.78]
+performQR            (43868):    0.04+-0.11 [0.00, 9.35]
+get_dense_H_b        (43981):    0.35+-0.21 [0.01, 8.14]
+solve                (43981):    0.05+-0.04 [0.01, 5.80]
+backSubstitute       (43981):    0.05+-0.26 [0.00, 11.44]
+computerError2       (43981):    0.06+-0.10 [0.01, 8.04]
+iteration            (43981):    0.72+-0.53 [0.06, 16.75]
+resident_memory      (43981): 2087968928.84+-1102774377.14 [147902464.00, 3856506880.00]
+resident_memory_peak (43981): 2087970114.58+-1102774039.13 [148033536.00, 3856506880.00]
+optimize             (8101):    3.98+-1.89 [0.69, 41.35]
 num_it               (8101):     5.4+-2.0 [2, 8]
 num_it_rejected      (8101):     0.0+-0.3 [0, 7]
 === stats sums ===
-measure              (8105):    4.29+-1.82 [0.03, 31.00]
+measure              (8105):    5.16+-2.41 [0.04, 45.68]
 num_cams             (8101):    12.9+-1.4 [0, 14]
 num_lms              (8101):   264.0+-68.4 [18, 429]
 num_obs              (8101):  1653.7+-422.9 [136, 2962]
-allocateLMB          (8101):    0.13+-0.10 [0.02, 8.46]
-linearizeProblem     (8101):    0.56+-0.31 [0.04, 21.26]
-performQR            (8101):    0.15+-0.06 [0.01, 1.26]
-get_dense_H_b        (8101):    1.63+-0.64 [0.12, 7.44]
-solve                (8101):    0.27+-0.09 [0.08, 0.48]
-backSubstitute       (8101):    0.14+-0.19 [0.02, 8.73]
-computerError2       (8101):    0.25+-0.09 [0.07, 1.48]
-iteration            (8101):    3.16+-1.17 [0.50, 29.68]
-resident_memory      (8101): 11314371213.51+-7969616129.41 [684331008.00, 30822957056.00]
-resident_memory_peak (8101): 11314378665.79+-7969612711.79 [684331008.00, 30822957056.00]
-optimize             (8101):    3.23+-1.19 [0.57, 29.85]
+allocateLMB          (8101):    0.22+-0.41 [0.03, 13.11]
+linearizeProblem     (8101):    0.69+-0.63 [0.07, 16.01]
+performQR            (8101):    0.21+-0.27 [0.02, 9.55]
+get_dense_H_b        (8101):    1.89+-0.86 [0.15, 9.68]
+solve                (8101):    0.28+-0.13 [0.09, 6.06]
+backSubstitute       (8101):    0.26+-0.67 [0.03, 18.62]
+computerError2       (8101):    0.31+-0.26 [0.07, 9.41]
+iteration            (8101):    3.90+-1.87 [0.60, 41.08]
+resident_memory      (8101): 11335756259.62+-7966256022.32 [706768896.00, 30840520704.00]
+resident_memory_peak (8101): 11335762697.13+-7966254018.80 [706768896.00, 30840520704.00]
+optimize             (8101):    3.98+-1.89 [0.69, 41.35]
 num_it               (8101):     5.4+-2.0 [2, 8]
 num_it_rejected      (8101):     0.0+-0.3 [0, 7]
-marg_linearize       (8101):    0.09+-0.03 [0.01, 0.42]
-marg_helper          (8101):    0.07+-0.06 [0.01, 0.44]
-marg                 (8101):    0.69+-1.23 [0.03, 13.12]
-marginalize          (8101):    0.70+-1.23 [0.03, 13.13]
+marg_linearize       (8101):    0.10+-0.10 [0.01, 4.68]
+marg_helper          (8101):    0.07+-0.08 [0.01, 1.33]
+marg                 (8101):    0.77+-1.30 [0.03, 14.50]
+marginalize          (8101):    0.78+-1.30 [0.04, 14.51]
 Saved ExecutionStats to stats_all.ubjson.
 Saved ExecutionStats to stats_sums.ubjson.
-Total runtime: 145.571s
+Total runtime: 167.981s
 Saved ExecutionStats to stats_opt_flow.ubjson.
 Saved ExecutionStats to stats_vio.ubjson.
 Saved ExecutionStats to stats_map.ubjson.
 Saving trajectory...
 Saved trajectory in Euroc Dataset format in trajectory.csv
 Saved features.csv
+
+Saved timing.csv

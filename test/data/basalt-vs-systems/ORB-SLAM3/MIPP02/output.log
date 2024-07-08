@@ -50,6 +50,7 @@ SLAM settings:
 	-Initial FAST threshold: 20
 	-Min FAST threshold: 7
 
+LOOP CLOSURE ACTIVO
 
 Loading ORB Vocabulary. This could take a while...
 Vocabulary loaded!
@@ -169,9 +170,83 @@ Fail to track local map!
 Fail to track local map!
 Shutdown
 
+ TIME STATS in ms (mean$\pm$std)
+OpenCV version: 4.5.4
+---------------------------
+Tracking
+
+ORB Extraction: 10.405$\pm$1.6521
+Stereo Matching: 1.4762$\pm$0.34056
+IMU Preintegration: 0.076475$\pm$0.032912
+Pose Prediction: 0.0742$\pm$0.27293
+LM Track: 8.5383$\pm$2.3799
+New KF decision: 0.044704$\pm$0.033101
+Total Tracking: 22.027$\pm$3.3393
+
+
+
+Local Mapping
+
+KF Insertion: 10.407$\pm$3.882
+MP Culling: 0.18874$\pm$0.090351
+MP Creation: 35.158$\pm$10.712
+LBA: 88.345$\pm$28.814
+KF Culling: 19.805$\pm$9.6607
+Total Local Mapping: 153.87$\pm$47.129
+---------------------------
+
+LBA complexity (mean$\pm$std)
+LBA Edges: 1092.5$\pm$405.08
+LBA KF optimized: 6.25$\pm$2.4367
+LBA KF fixed: 1.125$\pm$0.33072
+LBA MP: -nan$\pm$-nan
+
+LBA executions: 1170
+LBA aborts: 0
+---------------------------
+
+Map complexity
+KFs in map: 243
+MPs in map: 4752
+---------------------------
+
+Place Recognition (mean$\pm$std)
+Database Query: 1.6031$\pm$0.66843
+SE3 estimation: 0.17937$\pm$0.71823
+Total Place Recognition: 1.7976$\pm$1.2442
+
+
+Loop Closing (mean$\pm$std)
+Loop Fusion: -nan$\pm$-nan
+Essential Graph: -nan$\pm$-nan
+Total Loop Closing: -nan$\pm$-nan
+
+Num exec: 0
+Number of KFs: -nan$\pm$-nan
+
+Map Merging (mean$\pm$std)
+Merge Maps: -nan$\pm$-nan
+Welding BA: -nan$\pm$-nan
+Optimization Ess.: -nan$\pm$-nan
+Total Map Merging: -nan$\pm$-nan
+
+Num exec: 0
+Number of KFs: -nan$\pm$-nan
+Number of MPs: -nan$\pm$-nan
+
+Full GBA (mean$\pm$std)
+GBA: -nan$\pm$-nan
+Map Update: -nan$\pm$-nan
+Total Full GBA: -nan$\pm$-nan
+
+Num exec: 0
+Num abort: 0
+Number of KFs: -nan$\pm$-nan
+Number of MPs: -nan$\pm$-nan
+
 Saving trajectory to f_trajectory.txt ...
 There are 1 maps in the atlas
-  Map 0 has 237 KFs
+  Map 0 has 243 KFs
 
 End of saving trajectory to f_trajectory.txt ...
 

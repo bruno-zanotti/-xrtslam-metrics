@@ -50,6 +50,7 @@ SLAM settings:
 	-Initial FAST threshold: 20
 	-Min FAST threshold: 7
 
+LOOP CLOSURE ACTIVO
 
 Loading ORB Vocabulary. This could take a while...
 Vocabulary loaded!
@@ -82,9 +83,51 @@ LM: Reset free the mutex
 LM: Active map reset, Done!!!
 mnFirstFrameId = 9
 mnInitialFrameId = 0
-84 Frames set to lost
+75 Frames set to lost
 not IMU meas
-First KF:12; Map init KF:0
+First KF:10; Map init KF:0
+New Map created with 2 points
+TRACK_REF_KF: Less than 15 matches!!
+Fail to track local map!
+LM: Active map reset recieved
+LM: Active map reset, waiting...
+LM: Reseting current map in Local Mapping...
+LM: End reseting Local Mapping...
+LM: Reset free the mutex
+LM: Active map reset, Done!!!
+mnFirstFrameId = 85
+mnInitialFrameId = 83
+76 Frames set to lost
+not IMU meas
+First KF:11; Map init KF:10
+New Map created with 3 points
+TRACK_REF_KF: Less than 15 matches!!
+Fail to track local map!
+LM: Active map reset recieved
+LM: Active map reset, waiting...
+LM: Reseting current map in Local Mapping...
+LM: End reseting Local Mapping...
+LM: Reset free the mutex
+LM: Active map reset, Done!!!
+mnFirstFrameId = 88
+mnInitialFrameId = 86
+77 Frames set to lost
+not IMU meas
+First KF:12; Map init KF:11
+New Map created with 3 points
+TRACK_REF_KF: Less than 15 matches!!
+Fail to track local map!
+LM: Active map reset recieved
+LM: Active map reset, waiting...
+LM: Reseting current map in Local Mapping...
+LM: End reseting Local Mapping...
+LM: Reset free the mutex
+LM: Active map reset, Done!!!
+mnFirstFrameId = 91
+mnInitialFrameId = 89
+78 Frames set to lost
+not IMU meas
+First KF:13; Map init KF:12
 New Map created with 11 points
 Fail to track local map!
 IMU is not or recently initialized. Reseting active map...
@@ -96,9 +139,9 @@ LM: Reset free the mutex
 LM: Active map reset, Done!!!
 mnFirstFrameId = 94
 mnInitialFrameId = 92
-86 Frames set to lost
+80 Frames set to lost
 not IMU meas
-First KF:13; Map init KF:12
+First KF:14; Map init KF:13
 New Map created with 18 points
 Fail to track local map!
 IMU is not or recently initialized. Reseting active map...
@@ -110,9 +153,9 @@ LM: Reset free the mutex
 LM: Active map reset, Done!!!
 mnFirstFrameId = 97
 mnInitialFrameId = 95
-88 Frames set to lost
+82 Frames set to lost
 not IMU meas
-First KF:14; Map init KF:13
+First KF:15; Map init KF:14
 New Map created with 7 points
 TRACK_REF_KF: Less than 15 matches!!
 Fail to track local map!
@@ -124,9 +167,9 @@ LM: Reset free the mutex
 LM: Active map reset, Done!!!
 mnFirstFrameId = 100
 mnInitialFrameId = 98
-89 Frames set to lost
+83 Frames set to lost
 not IMU meas
-First KF:15; Map init KF:14
+First KF:16; Map init KF:15
 New Map created with 10 points
 TRACK_REF_KF: Less than 15 matches!!
 Fail to track local map!
@@ -138,9 +181,9 @@ LM: Reset free the mutex
 LM: Active map reset, Done!!!
 mnFirstFrameId = 103
 mnInitialFrameId = 101
-90 Frames set to lost
+84 Frames set to lost
 not IMU meas
-First KF:16; Map init KF:15
+First KF:17; Map init KF:16
 New Map created with 39 points
 start VIBA 1
 end VIBA 1
@@ -157,11 +200,85 @@ LM: Reset free the mutex
 LM: Active map reset, Done!!!
 mnFirstFrameId = 106
 mnInitialFrameId = 104
-355 Frames set to lost
+356 Frames set to lost
 not IMU meas
-First KF:48; Map init KF:16
-New Map created with 40 points
+First KF:54; Map init KF:17
+New Map created with 50 points
 Shutdown
+
+ TIME STATS in ms (mean$\pm$std)
+OpenCV version: 4.5.4
+---------------------------
+Tracking
+
+ORB Extraction: 3.8106$\pm$0.24815
+Stereo Matching: 0.52675$\pm$0.19372
+IMU Preintegration: 0.047805$\pm$0.0066993
+Pose Prediction: 0.7844$\pm$1.0708
+LM Track: 3.2623$\pm$2.0382
+New KF decision: 0.016602$\pm$0.022707
+Total Tracking: 8.7365$\pm$2.4195
+
+
+
+Local Mapping
+
+KF Insertion: 2.9646$\pm$0.78691
+MP Culling: 0.078276$\pm$0.060276
+MP Creation: 10.343$\pm$8.1908
+LBA: 17.795$\pm$11.532
+KF Culling: 1.1114$\pm$3.8102
+Total Local Mapping: 28.901$\pm$23.543
+---------------------------
+
+LBA complexity (mean$\pm$std)
+LBA Edges: 1759.1$\pm$987.18
+LBA KF optimized: 4.8333$\pm$1.8634
+LBA KF fixed: 1.8333$\pm$1.893
+LBA MP: -nan$\pm$-nan
+
+LBA executions: 45
+LBA aborts: 0
+---------------------------
+
+Map complexity
+KFs in map: 4
+MPs in map: 73
+---------------------------
+
+Place Recognition (mean$\pm$std)
+Database Query: -nan$\pm$-nan
+SE3 estimation: -nan$\pm$-nan
+Total Place Recognition: 0.14579$\pm$0.041267
+
+
+Loop Closing (mean$\pm$std)
+Loop Fusion: -nan$\pm$-nan
+Essential Graph: -nan$\pm$-nan
+Total Loop Closing: -nan$\pm$-nan
+
+Num exec: 0
+Number of KFs: -nan$\pm$-nan
+
+Map Merging (mean$\pm$std)
+Merge Maps: -nan$\pm$-nan
+Welding BA: -nan$\pm$-nan
+Optimization Ess.: -nan$\pm$-nan
+Total Map Merging: -nan$\pm$-nan
+
+Num exec: 0
+Number of KFs: -nan$\pm$-nan
+Number of MPs: -nan$\pm$-nan
+
+Full GBA (mean$\pm$std)
+GBA: -nan$\pm$-nan
+Map Update: -nan$\pm$-nan
+Total Full GBA: -nan$\pm$-nan
+
+Num exec: 0
+Num abort: 0
+Number of KFs: -nan$\pm$-nan
+Number of MPs: -nan$\pm$-nan
 
 Saving trajectory to f_trajectory.txt ...
 There are 1 maps in the atlas

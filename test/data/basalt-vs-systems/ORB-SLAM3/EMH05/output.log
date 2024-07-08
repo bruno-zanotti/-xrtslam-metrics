@@ -53,6 +53,7 @@ SLAM settings:
 	-Initial FAST threshold: 20
 	-Min FAST threshold: 7
 
+LOOP CLOSURE ACTIVO
 
 Loading ORB Vocabulary. This could take a while...
 Vocabulary loaded!
@@ -145,14 +146,8 @@ not enough acceleration
 not enough acceleration
 First KF:0; Map init KF:0
 New Map created with 120 points
-Not enough motion for initializing. Reseting...
-LM: Reseting current map in Local Mapping...
-LM: End reseting Local Mapping...
-LM: Reset free the mutex
-Not enough motion for initializing. Reseting...
-LM: Reseting current map in Local Mapping...
-LM: End reseting Local Mapping...
-LM: Reset free the mutex
+start VIBA 1
+end VIBA 1
 Not enough motion for initializing. Reseting...
 LM: Reseting current map in Local Mapping...
 LM: End reseting Local Mapping...
@@ -170,22 +165,10 @@ LM: Reset free the mutex
 LM: Active map reset, Done!!!
 mnFirstFrameId = 80
 mnInitialFrameId = 0
-111 Frames set to lost
+192 Frames set to lost
 not IMU meas
-First KF:48; Map init KF:0
-New Map created with 326 points
-Not enough motion for initializing. Reseting...
-LM: Reseting current map in Local Mapping...
-LM: End reseting Local Mapping...
-LM: Reset free the mutex
-Not enough motion for initializing. Reseting...
-LM: Reseting current map in Local Mapping...
-LM: End reseting Local Mapping...
-LM: Reset free the mutex
-Not enough motion for initializing. Reseting...
-LM: Reseting current map in Local Mapping...
-LM: End reseting Local Mapping...
-LM: Reset free the mutex
+First KF:71; Map init KF:0
+New Map created with 162 points
 Not enough motion for initializing. Reseting...
 LM: Reseting current map in Local Mapping...
 LM: End reseting Local Mapping...
@@ -240,9 +223,83 @@ start VIBA 2
 end VIBA 2
 Shutdown
 
+ TIME STATS in ms (mean$\pm$std)
+OpenCV version: 4.5.4
+---------------------------
+Tracking
+
+ORB Extraction: 6.0863$\pm$1.3956
+Stereo Matching: 2.3035$\pm$0.64059
+IMU Preintegration: 0.064092$\pm$0.037618
+Pose Prediction: 0.073688$\pm$0.17045
+LM Track: 5.0276$\pm$1.931
+New KF decision: 0.06416$\pm$0.061578
+Total Tracking: 15.272$\pm$3.6371
+
+
+
+Local Mapping
+
+KF Insertion: 4.0481$\pm$0.90582
+MP Culling: 0.10792$\pm$0.048291
+MP Creation: 9.0531$\pm$2.9805
+LBA: 64.445$\pm$23.15
+KF Culling: 4.5184$\pm$3.2139
+Total Local Mapping: 82.413$\pm$30.631
+---------------------------
+
+LBA complexity (mean$\pm$std)
+LBA Edges: 1437.6$\pm$776.22
+LBA KF optimized: 6.5$\pm$2.2913
+LBA KF fixed: 1$\pm$0
+LBA MP: -nan$\pm$-nan
+
+LBA executions: 618
+LBA aborts: 0
+---------------------------
+
+Map complexity
+KFs in map: 154
+MPs in map: 13616
+---------------------------
+
+Place Recognition (mean$\pm$std)
+Database Query: 0.70731$\pm$0.31139
+SE3 estimation: 5.1653$\pm$2.9938
+Total Place Recognition: 4.1339$\pm$3.8259
+
+
+Loop Closing (mean$\pm$std)
+Loop Fusion: -nan$\pm$-nan
+Essential Graph: -nan$\pm$-nan
+Total Loop Closing: -nan$\pm$-nan
+
+Num exec: 0
+Number of KFs: -nan$\pm$-nan
+
+Map Merging (mean$\pm$std)
+Merge Maps: -nan$\pm$-nan
+Welding BA: -nan$\pm$-nan
+Optimization Ess.: -nan$\pm$-nan
+Total Map Merging: -nan$\pm$-nan
+
+Num exec: 0
+Number of KFs: -nan$\pm$-nan
+Number of MPs: -nan$\pm$-nan
+
+Full GBA (mean$\pm$std)
+GBA: -nan$\pm$-nan
+Map Update: -nan$\pm$-nan
+Total Full GBA: -nan$\pm$-nan
+
+Num exec: 0
+Num abort: 0
+Number of KFs: -nan$\pm$-nan
+Number of MPs: -nan$\pm$-nan
+
 Saving trajectory to f_trajectory.txt ...
 There are 1 maps in the atlas
-  Map 0 has 157 KFs
+  Map 0 has 154 KFs
 
 End of saving trajectory to f_trajectory.txt ...
 

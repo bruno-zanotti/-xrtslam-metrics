@@ -50,6 +50,7 @@ SLAM settings:
 	-Initial FAST threshold: 20
 	-Min FAST threshold: 7
 
+LOOP CLOSURE ACTIVO
 
 Loading ORB Vocabulary. This could take a while...
 Vocabulary loaded!
@@ -187,184 +188,11 @@ mnInitialFrameId = 42
 not IMU meas
 First KF:7; Map init KF:6
 New Map created with 45 points
+virtual int g2o::SparseOptimizer::optimize(int, bool): 0 vertices to optimize, maybe forgot to call initializeOptimization()
 start VIBA 1
 end VIBA 1
 start VIBA 2
 end VIBA 2
-Fail to track local map!
-Fail to track local map!
-Fail to track local map!
-Fail to track local map!
-Fail to track local map!
-Fail to track local map!
-Fail to track local map!
-Fail to track local map!
-Fail to track local map!
-Fail to track local map!
-Fail to track local map!
-Fail to track local map!
-Fail to track local map!
-Fail to track local map!
-Fail to track local map!
-Fail to track local map!
-Fail to track local map!
-Fail to track local map!
-Fail to track local map!
-Fail to track local map!
-Fail to track local map!
-Fail to track local map!
-Fail to track local map!
-Fail to track local map!
-Fail to track local map!
-Fail to track local map!
-Fail to track local map!
-Fail to track local map!
-Fail to track local map!
-Fail to track local map!
-Fail to track local map!
-Fail to track local map!
-Fail to track local map!
-Fail to track local map!
-Fail to track local map!
-Fail to track local map!
-Fail to track local map!
-Fail to track local map!
-Fail to track local map!
-Fail to track local map!
-Fail to track local map!
-Fail to track local map!
-Fail to track local map!
-Fail to track local map!
-Fail to track local map!
-Fail to track local map!
-Fail to track local map!
-Fail to track local map!
-Fail to track local map!
-Fail to track local map!
-Fail to track local map!
-Fail to track local map!
-Fail to track local map!
-Fail to track local map!
-Fail to track local map!
-Fail to track local map!
-Fail to track local map!
-Fail to track local map!
-Fail to track local map!
-Fail to track local map!
-Fail to track local map!
-Fail to track local map!
-Fail to track local map!
-Fail to track local map!
-Fail to track local map!
-Fail to track local map!
-Fail to track local map!
-Fail to track local map!
-Fail to track local map!
-Fail to track local map!
-Fail to track local map!
-Fail to track local map!
-Fail to track local map!
-Fail to track local map!
-Fail to track local map!
-Fail to track local map!
-Fail to track local map!
-Fail to track local map!
-Fail to track local map!
-Fail to track local map!
-Fail to track local map!
-Fail to track local map!
-Fail to track local map!
-Fail to track local map!
-Fail to track local map!
-Fail to track local map!
-Fail to track local map!
-Fail to track local map!
-Fail to track local map!
-Fail to track local map!
-Fail to track local map!
-Fail to track local map!
-Fail to track local map!
-Fail to track local map!
-Fail to track local map!
-Fail to track local map!
-Fail to track local map!
-Fail to track local map!
-Fail to track local map!
-Fail to track local map!
-Fail to track local map!
-Fail to track local map!
-Fail to track local map!
-Fail to track local map!
-Fail to track local map!
-Fail to track local map!
-Fail to track local map!
-Fail to track local map!
-Fail to track local map!
-Fail to track local map!
-Fail to track local map!
-Fail to track local map!
-Fail to track local map!
-Fail to track local map!
-Fail to track local map!
-Fail to track local map!
-Fail to track local map!
-Fail to track local map!
-Fail to track local map!
-Fail to track local map!
-Fail to track local map!
-Fail to track local map!
-Fail to track local map!
-Fail to track local map!
-Fail to track local map!
-Fail to track local map!
-Fail to track local map!
-Fail to track local map!
-Fail to track local map!
-Fail to track local map!
-Fail to track local map!
-Fail to track local map!
-Fail to track local map!
-Fail to track local map!
-Fail to track local map!
-Fail to track local map!
-Fail to track local map!
-Fail to track local map!
-Fail to track local map!
-Fail to track local map!
-Fail to track local map!
-Fail to track local map!
-Fail to track local map!
-Fail to track local map!
-Fail to track local map!
-Fail to track local map!
-Fail to track local map!
-Fail to track local map!
-Fail to track local map!
-Fail to track local map!
-Fail to track local map!
-Fail to track local map!
-Fail to track local map!
-Fail to track local map!
-Fail to track local map!
-Fail to track local map!
-Fail to track local map!
-Fail to track local map!
-Fail to track local map!
-Fail to track local map!
-Fail to track local map!
-Fail to track local map!
-Fail to track local map!
-Fail to track local map!
-Fail to track local map!
-Fail to track local map!
-Fail to track local map!
-Fail to track local map!
-Fail to track local map!
-Fail to track local map!
-Fail to track local map!
-Fail to track local map!
-Fail to track local map!
-Fail to track local map!
 Fail to track local map!
 Fail to track local map!
 Fail to track local map!
@@ -723,39 +551,11 @@ Fail to track local map!
 Fail to track local map!
 Creation of new map with id: 1
 Stored map with ID: 0
-Creation of new map with last KF id: 515
+Creation of new map with last KF id: 240
 not IMU meas
 not IMU meas
-First KF:515; Map init KF:515
-New Map created with 64 points
-Fail to track local map!
-IMU is not or recently initialized. Reseting active map...
-LM: Active map reset recieved
-LM: Active map reset, waiting...
-LM: Reseting current map in Local Mapping...
-LM: End reseting Local Mapping...
-LM: Reset free the mutex
-LM: Active map reset, Done!!!
-mnFirstFrameId = 47
-mnInitialFrameId = 3324
-31 Frames set to lost
-not IMU meas
-First KF:523; Map init KF:515
-New Map created with 38 points
-Fail to track local map!
-IMU is not or recently initialized. Reseting active map...
-LM: Active map reset recieved
-LM: Active map reset, waiting...
-LM: Reseting current map in Local Mapping...
-LM: End reseting Local Mapping...
-LM: Reset free the mutex
-LM: Active map reset, Done!!!
-mnFirstFrameId = 47
-mnInitialFrameId = 3389
-0 Frames set to lost
-not IMU meas
-First KF:525; Map init KF:523
-New Map created with 40 points
+First KF:240; Map init KF:240
+New Map created with 16 points
 TRACK_REF_KF: Less than 15 matches!!
 Fail to track local map!
 LM: Active map reset recieved
@@ -765,95 +565,11 @@ LM: End reseting Local Mapping...
 LM: Reset free the mutex
 LM: Active map reset, Done!!!
 mnFirstFrameId = 47
-mnInitialFrameId = 3405
+mnInitialFrameId = 1499
 0 Frames set to lost
 not IMU meas
-First KF:526; Map init KF:525
-New Map created with 59 points
-Fail to track local map!
-IMU is not or recently initialized. Reseting active map...
-LM: Active map reset recieved
-LM: Active map reset, waiting...
-LM: Reseting current map in Local Mapping...
-LM: End reseting Local Mapping...
-LM: Reset free the mutex
-LM: Active map reset, Done!!!
-mnFirstFrameId = 47
-mnInitialFrameId = 3408
-0 Frames set to lost
-not IMU meas
-First KF:529; Map init KF:526
-New Map created with 81 points
-Fail to track local map!
-IMU is not or recently initialized. Reseting active map...
-LM: Active map reset recieved
-LM: Active map reset, waiting...
-LM: Reseting current map in Local Mapping...
-LM: End reseting Local Mapping...
-LM: Reset free the mutex
-LM: Active map reset, Done!!!
-mnFirstFrameId = 47
-mnInitialFrameId = 3430
-0 Frames set to lost
-not IMU meas
-First KF:531; Map init KF:529
-New Map created with 49 points
-Fail to track local map!
-IMU is not or recently initialized. Reseting active map...
-LM: Active map reset recieved
-LM: Active map reset, waiting...
-LM: Reseting current map in Local Mapping...
-LM: End reseting Local Mapping...
-LM: Reset free the mutex
-LM: Active map reset, Done!!!
-mnFirstFrameId = 47
-mnInitialFrameId = 3445
-0 Frames set to lost
-not IMU meas
-First KF:533; Map init KF:531
-New Map created with 19 points
-Fail to track local map!
-IMU is not or recently initialized. Reseting active map...
-LM: Active map reset recieved
-LM: Active map reset, waiting...
-LM: Reseting current map in Local Mapping...
-LM: End reseting Local Mapping...
-LM: Reset free the mutex
-LM: Active map reset, Done!!!
-mnFirstFrameId = 47
-mnInitialFrameId = 3460
-0 Frames set to lost
-not IMU meas
-First KF:534; Map init KF:533
-New Map created with 29 points
-Fail to track local map!
-IMU is not or recently initialized. Reseting active map...
-LM: Active map reset recieved
-LM: Active map reset, waiting...
-LM: Reseting current map in Local Mapping...
-LM: End reseting Local Mapping...
-LM: Reset free the mutex
-LM: Active map reset, Done!!!
-mnFirstFrameId = 47
-mnInitialFrameId = 3463
-0 Frames set to lost
-not IMU meas
-First KF:535; Map init KF:534
-New Map created with 23 points
-Fail to track local map!
-IMU is not or recently initialized. Reseting active map...
-LM: Active map reset recieved
-LM: Active map reset, waiting...
-LM: Reseting current map in Local Mapping...
-LM: End reseting Local Mapping...
-LM: Reset free the mutex
-LM: Active map reset, Done!!!
-mnFirstFrameId = 47
-mnInitialFrameId = 3466
-0 Frames set to lost
-not IMU meas
-First KF:536; Map init KF:535
-New Map created with 2 points
+First KF:241; Map init KF:240
+New Map created with 7 points
 TRACK_REF_KF: Less than 15 matches!!
 Fail to track local map!
 LM: Active map reset recieved
@@ -863,38 +579,10 @@ LM: End reseting Local Mapping...
 LM: Reset free the mutex
 LM: Active map reset, Done!!!
 mnFirstFrameId = 47
-mnInitialFrameId = 3469
+mnInitialFrameId = 1502
 0 Frames set to lost
 not IMU meas
-First KF:537; Map init KF:536
-New Map created with 9 points
-TRACK_REF_KF: Less than 15 matches!!
-Fail to track local map!
-LM: Active map reset recieved
-LM: Active map reset, waiting...
-LM: Reseting current map in Local Mapping...
-LM: End reseting Local Mapping...
-LM: Reset free the mutex
-LM: Active map reset, Done!!!
-mnFirstFrameId = 47
-mnInitialFrameId = 3472
-0 Frames set to lost
-not IMU meas
-First KF:538; Map init KF:537
-New Map created with 18 points
-TRACK_REF_KF: Less than 15 matches!!
-Fail to track local map!
-LM: Active map reset recieved
-LM: Active map reset, waiting...
-LM: Reseting current map in Local Mapping...
-LM: End reseting Local Mapping...
-LM: Reset free the mutex
-LM: Active map reset, Done!!!
-mnFirstFrameId = 47
-mnInitialFrameId = 3475
-0 Frames set to lost
-not IMU meas
-First KF:539; Map init KF:538
+First KF:242; Map init KF:241
 New Map created with 15 points
 TRACK_REF_KF: Less than 15 matches!!
 Fail to track local map!
@@ -905,10 +593,38 @@ LM: End reseting Local Mapping...
 LM: Reset free the mutex
 LM: Active map reset, Done!!!
 mnFirstFrameId = 47
-mnInitialFrameId = 3478
+mnInitialFrameId = 1505
 0 Frames set to lost
 not IMU meas
-First KF:540; Map init KF:539
+First KF:243; Map init KF:242
+New Map created with 22 points
+Fail to track local map!
+IMU is not or recently initialized. Reseting active map...
+LM: Active map reset recieved
+LM: Active map reset, waiting...
+LM: Reseting current map in Local Mapping...
+LM: End reseting Local Mapping...
+LM: Reset free the mutex
+LM: Active map reset, Done!!!
+mnFirstFrameId = 47
+mnInitialFrameId = 1508
+0 Frames set to lost
+not IMU meas
+First KF:244; Map init KF:243
+New Map created with 33 points
+Fail to track local map!
+IMU is not or recently initialized. Reseting active map...
+LM: Active map reset recieved
+LM: Active map reset, waiting...
+LM: Reseting current map in Local Mapping...
+LM: End reseting Local Mapping...
+LM: Reset free the mutex
+LM: Active map reset, Done!!!
+mnFirstFrameId = 47
+mnInitialFrameId = 1511
+0 Frames set to lost
+not IMU meas
+First KF:245; Map init KF:244
 New Map created with 31 points
 Fail to track local map!
 IMU is not or recently initialized. Reseting active map...
@@ -919,11 +635,11 @@ LM: End reseting Local Mapping...
 LM: Reset free the mutex
 LM: Active map reset, Done!!!
 mnFirstFrameId = 47
-mnInitialFrameId = 3481
+mnInitialFrameId = 1514
 0 Frames set to lost
 not IMU meas
-First KF:541; Map init KF:540
-New Map created with 48 points
+First KF:246; Map init KF:245
+New Map created with 40 points
 Fail to track local map!
 IMU is not or recently initialized. Reseting active map...
 LM: Active map reset recieved
@@ -933,146 +649,60 @@ LM: End reseting Local Mapping...
 LM: Reset free the mutex
 LM: Active map reset, Done!!!
 mnFirstFrameId = 47
-mnInitialFrameId = 3484
+mnInitialFrameId = 1517
 0 Frames set to lost
 not IMU meas
-First KF:543; Map init KF:541
-New Map created with 103 points
-virtual int g2o::SparseOptimizer::optimize(int, bool): 0 vertices to optimize, maybe forgot to call initializeOptimization()
+First KF:248; Map init KF:246
+New Map created with 12 points
+TRACK_REF_KF: Less than 15 matches!!
+Fail to track local map!
+LM: Active map reset recieved
+LM: Active map reset, waiting...
+LM: Reseting current map in Local Mapping...
+LM: End reseting Local Mapping...
+LM: Reset free the mutex
+LM: Active map reset, Done!!!
+mnFirstFrameId = 47
+mnInitialFrameId = 1527
+0 Frames set to lost
+not IMU meas
+First KF:249; Map init KF:248
+New Map created with 15 points
+TRACK_REF_KF: Less than 15 matches!!
+Fail to track local map!
+LM: Active map reset recieved
+LM: Active map reset, waiting...
+LM: Reseting current map in Local Mapping...
+LM: End reseting Local Mapping...
+LM: Reset free the mutex
+LM: Active map reset, Done!!!
+mnFirstFrameId = 47
+mnInitialFrameId = 1530
+0 Frames set to lost
+not IMU meas
+First KF:250; Map init KF:249
+New Map created with 29 points
+Fail to track local map!
+IMU is not or recently initialized. Reseting active map...
+LM: Active map reset recieved
+LM: Active map reset, waiting...
+LM: Reseting current map in Local Mapping...
+LM: End reseting Local Mapping...
+LM: Reset free the mutex
+LM: Active map reset, Done!!!
+mnFirstFrameId = 47
+mnInitialFrameId = 1533
+0 Frames set to lost
+not IMU meas
+First KF:251; Map init KF:250
+New Map created with 39 points
 start VIBA 1
 end VIBA 1
 start VIBA 2
 end VIBA 2
-Fail to track local map!
-Fail to track local map!
-Fail to track local map!
-Fail to track local map!
-Fail to track local map!
-Fail to track local map!
-Fail to track local map!
-Fail to track local map!
-Fail to track local map!
-Fail to track local map!
-Fail to track local map!
-Fail to track local map!
-Fail to track local map!
-Fail to track local map!
-Fail to track local map!
-Fail to track local map!
-Fail to track local map!
-Fail to track local map!
-Fail to track local map!
-Fail to track local map!
-Fail to track local map!
-Fail to track local map!
-Fail to track local map!
-Fail to track local map!
-Fail to track local map!
-Fail to track local map!
-Fail to track local map!
-Fail to track local map!
-Fail to track local map!
-Fail to track local map!
-Fail to track local map!
-Fail to track local map!
-Fail to track local map!
-Fail to track local map!
-Fail to track local map!
-Fail to track local map!
-Fail to track local map!
-Fail to track local map!
-Fail to track local map!
-Fail to track local map!
-Fail to track local map!
-Fail to track local map!
-Fail to track local map!
-Fail to track local map!
-Fail to track local map!
-Fail to track local map!
-Fail to track local map!
-Fail to track local map!
-Fail to track local map!
-Fail to track local map!
-Fail to track local map!
-Fail to track local map!
-Fail to track local map!
-Fail to track local map!
-Fail to track local map!
-Fail to track local map!
-Fail to track local map!
-Fail to track local map!
-Fail to track local map!
-Fail to track local map!
-Fail to track local map!
-Fail to track local map!
-Fail to track local map!
-Fail to track local map!
-Fail to track local map!
-Fail to track local map!
-Fail to track local map!
-Fail to track local map!
-Fail to track local map!
-Fail to track local map!
-Fail to track local map!
-Fail to track local map!
-Fail to track local map!
-Fail to track local map!
-Fail to track local map!
-Fail to track local map!
-Fail to track local map!
-Fail to track local map!
-Fail to track local map!
-Fail to track local map!
-Fail to track local map!
-Fail to track local map!
-Fail to track local map!
-Fail to track local map!
-Fail to track local map!
-Fail to track local map!
-Fail to track local map!
-Fail to track local map!
-*Loop detected
-phi =  0.082372549654693636 -0.032974300874149501  -0.43482768607976646
-BAD LOOP!!!
-*Loop detected
-phi = -0.0045559817428255699  -0.060237217148147629   -0.41225111830418393
-BAD LOOP!!!
-*Loop detected
-phi = -0.007271982800074202 -0.011473393643156788  -0.79831632148654652
-BAD LOOP!!!
-*Loop detected
-phi = 0.064939222181777029 0.094931598211053139 -0.54801931575935459
-BAD LOOP!!!
-*Loop detected
-phi =  0.0069154738871910126 0.00056028477517811948   -0.58527640728149166
-BAD LOOP!!!
-*Loop detected
-phi = 0.0096728323355444925  0.059081151050228695  -0.58057792254188756
-BAD LOOP!!!
-*Loop detected
-phi = 0.0091203684050205503 0.0067265804882255644  -0.58993919889649427
-BAD LOOP!!!
 Merge check transformation with IMU
 *Merge detected
 Local Mapping STOP
-Local Mapping RELEASE
-Merge finished!
-*Loop detected
-phi = -0.095779795659663478 -0.025007163773663754  -0.55535231450032752
-BAD LOOP!!!
-Fail to track local map!
-Fail to track local map!
-Fail to track local map!
-Fail to track local map!
-Fail to track local map!
-Fail to track local map!
-Shutdown
-
-Saving trajectory to f_trajectory.txt ...
-There are 2 maps in the atlas
-  Map 0 has 0 KFs
-  Map 1 has 469 KFs
-
-End of saving trajectory to f_trajectory.txt ...
-
-Saving keyframe trajectory to kf_trajectory.txt ...
+Sophus ensure failed in function 'static Sophus::SO3<Scalar_> Sophus::SO3<Scalar_, Options>::expAndTheta(const Tangent&, Sophus::SO3<Scalar_, Options>::Scalar*) [with Scalar_ = float; int Options = 0; Sophus::SO3<Scalar_, Options>::Tangent = Eigen::Matrix<float, 3, 1>; Sophus::SO3<Scalar_, Options>::Scalar = float]', file '/home/bruno/tesina/orb_slam3/Thirdparty/Sophus/sophus/so3.hpp', line 614.
+SO3::exp failed! omega: -nan -nan -nan, real: -nan, img: -nan
+./run.sh: line 34: 2340554 Aborted                 (core dumped) /home/bruno/tesina/orb_slam3/Examples/Stereo-Inertial/stereo_inertial_euroc /home/bruno/tesina/orb_slam3/Vocabulary/ORBvoc.txt /home/bruno/tesina/xrtslam-metrics/test/data/basalt-vs-systems/ORB-SLAM3/../ORB-SLAM3/_configs/msdmo.yaml /home/bruno/tesina/datasets/msdmo/MOO02 /home/bruno/tesina/orb_slam3/Examples/Stereo-Inertial/msdmo_timestamps/MOO02.txt trajectory

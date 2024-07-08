@@ -22,14 +22,21 @@ run_orb_slam3() {
     local dataset_path=$2
     local config_path=$3
     local timestamps_path=$4
-    local show_gui=$5
+    local format=$5
+    local show_gui=$6
     local timestamp_file="$timestamps_path/${dataset}.txt"
+    local imu_file="$ORBSLAM3_DIR/Examples/Stereo-Inertial/TUM_IMU/${dataset}.txt"
     local trajectory_file="trajectory"
 
     mkdir -p "$ROOT/$RUN/$dataset" && cd "$ROOT/$RUN/$dataset"
     printf "%s " $dataset
 
-    cmd="$ORBSLAM3_DIR/Examples/Stereo-Inertial/stereo_inertial_euroc $ORBSLAM3_DIR/Vocabulary/ORBvoc.txt $config_path $dataset_path $timestamp_file $trajectory_file"
+    if [ "$format" = "euroc" ]; then
+        cmd="$ORBSLAM3_DIR/Examples/Stereo-Inertial/stereo_inertial_euroc $ORBSLAM3_DIR/Vocabulary/ORBvoc.txt $config_path $dataset_path $timestamp_file $trajectory_file"
+    else
+        cmd="$ORBSLAM3_DIR/Examples/Stereo-Inertial/stereo_inertial_tum_vi $ORBSLAM3_DIR/Vocabulary/ORBvoc.txt $config_path $dataset_path/mav0/cam0/data $dataset_path/mav0/cam1/data $timestamp_file $imu_file $trajectory_file"
+    fi
+
     start_time=$(date +%s.%N)
     eval "$cmd" &> "$ROOT/$RUN/$dataset/output.log"
     if [ $? -ne 0 ]; then
@@ -55,7 +62,7 @@ ORBSLAM3_DIR=~/tesina/orb_slam3
 # DATASETS
 DATASETS_DIR=~/tesina/datasets
 EUROC_DIR=$DATASETS_DIR/euroc
-TUM_DIR=$DATASETS_DIR/tum
+TUMVI_DIR=$DATASETS_DIR/tumvi
 MSDMI_DIR=$DATASETS_DIR/msdmi
 MSDMG_DIR=$DATASETS_DIR/msdmg
 MSDMO_DIR=$DATASETS_DIR/msdmo
@@ -70,6 +77,7 @@ msdmo_config=$CONFIG_DIR/msdmo.yaml
 
 # TIMESTAMPS
 euroc_timestamps="$ORBSLAM3_DIR/Examples/Stereo-Inertial/EuRoC_TimeStamps"
+tumvi_timestamps="$ORBSLAM3_DIR/Examples/Stereo-Inertial/TUM_TimeStamps"
 msdmi_timestamps="$ORBSLAM3_DIR/Examples/Stereo-Inertial/msdmi_timestamps"
 msdmg_timestamps="$ORBSLAM3_DIR/Examples/Stereo-Inertial/msdmg_timestamps"
 msdmo_timestamps="$ORBSLAM3_DIR/Examples/Stereo-Inertial/msdmo_timestamps"
@@ -85,25 +93,31 @@ echo Running $RUN:
 # EUROC
 for dataset in "${euroc_datasets[@]}"; do
     dataset_path=$EUROC_DIR/$dataset
-    run_orb_slam3 $dataset $dataset_path $euroc_config $euroc_timestamps $show_gui
+    run_orb_slam3 $dataset $dataset_path $euroc_config $euroc_timestamps euroc $show_gui
+done
+
+# TUMVI
+for dataset in "${tumvi_datasets[@]}"; do
+    dataset_path=$TUMVI_DIR/$dataset
+    run_orb_slam3 $dataset $dataset_path $tumvi_config $tumvi_timestamps tumvi $show_gui
 done
 
 # MSDMI
 for dataset in "${msdmi_datasets[@]}"; do
     dataset_path=$MSDMI_DIR/$dataset
-    run_orb_slam3 $dataset $dataset_path $msdmi_config $msdmi_timestamps $show_gui
+    run_orb_slam3 $dataset $dataset_path $msdmi_config $msdmi_timestamps euroc $show_gui
 done
 
 # MSDMG
 for dataset in "${msdmg_datasets[@]}"; do
     dataset_path=$MSDMG_DIR/$dataset
-    run_orb_slam3 $dataset $dataset_path $msdmg_config $msdmo_timestamps $show_gui
+    run_orb_slam3 $dataset $dataset_path $msdmg_config $msdmg_timestamps euroc $show_gui
 done
 
 # MSDMO
 for dataset in "${msdmo_datasets[@]}"; do
     dataset_path=$MSDMO_DIR/$dataset
-    run_orb_slam3 $dataset $dataset_path $msdmo_config $msdmo_timestamps $show_gui
+    run_orb_slam3 $dataset $dataset_path $msdmo_config $msdmo_timestamps euroc $show_gui
 done
 
 date +%s >> startfinish

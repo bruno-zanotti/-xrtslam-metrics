@@ -50,5 +50,1251 @@ SLAM settings:
 	-Initial FAST threshold: 20
 	-Min FAST threshold: 7
 
+LOOP CLOSURE ACTIVO
 
 Loading ORB Vocabulary. This could take a while...
+Vocabulary loaded!
+
+Initialization of Atlas from scratch 
+Creation of new map with id: 0
+Creation of new map with last KF id: 0
+Seq. Name: 
+There are 2 cameras in the atlas
+Camera 0 is fisheye
+Camera 2 is fisheye
+not IMU meas
+not IMU meas
+not enough acceleration
+not enough acceleration
+not enough acceleration
+not enough acceleration
+not enough acceleration
+not enough acceleration
+not enough acceleration
+not enough acceleration
+not enough acceleration
+not enough acceleration
+not enough acceleration
+not enough acceleration
+not enough acceleration
+not enough acceleration
+not enough acceleration
+not enough acceleration
+not enough acceleration
+not enough acceleration
+not enough acceleration
+not enough acceleration
+not enough acceleration
+not enough acceleration
+not enough acceleration
+not enough acceleration
+not enough acceleration
+not enough acceleration
+not enough acceleration
+not enough acceleration
+not enough acceleration
+not enough acceleration
+not enough acceleration
+First KF:0; Map init KF:0
+New Map created with 46 points
+Fail to track local map!
+IMU is not or recently initialized. Reseting active map...
+LM: Active map reset recieved
+LM: Active map reset, waiting...
+LM: Reseting current map in Local Mapping...
+LM: End reseting Local Mapping...
+LM: Reset free the mutex
+LM: Active map reset, Done!!!
+mnFirstFrameId = 33
+mnInitialFrameId = 0
+8 Frames set to lost
+not IMU meas
+First KF:1; Map init KF:0
+New Map created with 6 points
+TRACK_REF_KF: Less than 15 matches!!
+Fail to track local map!
+LM: Active map reset recieved
+LM: Active map reset, waiting...
+LM: Reseting current map in Local Mapping...
+LM: End reseting Local Mapping...
+LM: Reset free the mutex
+LM: Active map reset, Done!!!
+mnFirstFrameId = 42
+mnInitialFrameId = 40
+9 Frames set to lost
+not IMU meas
+First KF:2; Map init KF:1
+New Map created with 8 points
+TRACK_REF_KF: Less than 15 matches!!
+Fail to track local map!
+LM: Active map reset recieved
+LM: Active map reset, waiting...
+LM: Reseting current map in Local Mapping...
+LM: End reseting Local Mapping...
+LM: Reset free the mutex
+LM: Active map reset, Done!!!
+mnFirstFrameId = 45
+mnInitialFrameId = 43
+10 Frames set to lost
+not IMU meas
+First KF:3; Map init KF:2
+New Map created with 17 points
+Fail to track local map!
+IMU is not or recently initialized. Reseting active map...
+LM: Active map reset recieved
+LM: Active map reset, waiting...
+LM: Reseting current map in Local Mapping...
+LM: End reseting Local Mapping...
+LM: Reset free the mutex
+LM: Active map reset, Done!!!
+mnFirstFrameId = 48
+mnInitialFrameId = 46
+12 Frames set to lost
+not IMU meas
+First KF:4; Map init KF:3
+New Map created with 17 points
+TRACK_REF_KF: Less than 15 matches!!
+Fail to track local map!
+LM: Active map reset recieved
+LM: Active map reset, waiting...
+LM: Reseting current map in Local Mapping...
+LM: End reseting Local Mapping...
+LM: Reset free the mutex
+LM: Active map reset, Done!!!
+mnFirstFrameId = 51
+mnInitialFrameId = 49
+13 Frames set to lost
+not IMU meas
+First KF:5; Map init KF:4
+New Map created with 18 points
+Fail to track local map!
+IMU is not or recently initialized. Reseting active map...
+LM: Active map reset recieved
+LM: Active map reset, waiting...
+LM: Reseting current map in Local Mapping...
+LM: End reseting Local Mapping...
+LM: Reset free the mutex
+LM: Active map reset, Done!!!
+mnFirstFrameId = 54
+mnInitialFrameId = 52
+15 Frames set to lost
+not IMU meas
+First KF:6; Map init KF:5
+New Map created with 14 points
+TRACK_REF_KF: Less than 15 matches!!
+Fail to track local map!
+LM: Active map reset recieved
+LM: Active map reset, waiting...
+LM: Reseting current map in Local Mapping...
+LM: End reseting Local Mapping...
+LM: Reset free the mutex
+LM: Active map reset, Done!!!
+mnFirstFrameId = 57
+mnInitialFrameId = 55
+16 Frames set to lost
+not IMU meas
+First KF:7; Map init KF:6
+New Map created with 22 points
+Fail to track local map!
+IMU is not or recently initialized. Reseting active map...
+LM: Active map reset recieved
+LM: Active map reset, waiting...
+LM: Reseting current map in Local Mapping...
+LM: End reseting Local Mapping...
+LM: Reset free the mutex
+LM: Active map reset, Done!!!
+mnFirstFrameId = 60
+mnInitialFrameId = 58
+18 Frames set to lost
+not IMU meas
+First KF:8; Map init KF:7
+New Map created with 27 points
+Fail to track local map!
+IMU is not or recently initialized. Reseting active map...
+LM: Active map reset recieved
+LM: Active map reset, waiting...
+LM: Reseting current map in Local Mapping...
+LM: End reseting Local Mapping...
+LM: Reset free the mutex
+LM: Active map reset, Done!!!
+mnFirstFrameId = 63
+mnInitialFrameId = 61
+20 Frames set to lost
+not IMU meas
+First KF:9; Map init KF:8
+New Map created with 47 points
+start VIBA 1
+end VIBA 1
+start VIBA 2
+end VIBA 2
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+*Loop detected
+phi = 0.14873312690135404  0.1175084672483873  0.5105940846538557
+BAD LOOP!!!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+*Loop detected
+phi = 0.12128106062563926 0.12924517024268231  2.2960101747146449
+BAD LOOP!!!
+*Loop detected
+phi = 0.087355223087804593  0.23416782557736945   2.4384968305237971
+BAD LOOP!!!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+*Loop detected
+phi =  0.11463862298163674 0.070573281524156234   2.4090964675450794
+BAD LOOP!!!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
+Shutdown
+
+ TIME STATS in ms (mean$\pm$std)
+OpenCV version: 4.5.4
+---------------------------
+Tracking
+
+ORB Extraction: 4.0756$\pm$0.53848
+Stereo Matching: 0.44142$\pm$0.16345
+IMU Preintegration: 0.051073$\pm$0.0096271
+Pose Prediction: 0.044265$\pm$0.29894
+LM Track: 3.0259$\pm$1.8184
+New KF decision: 0.025442$\pm$0.028574
+Total Tracking: 8.1175$\pm$2.2022
+
+
+
+Local Mapping
+
+KF Insertion: 3.5731$\pm$0.85976
+MP Culling: 0.14177$\pm$0.067528
+MP Creation: 25.876$\pm$11.637
+LBA: 25.648$\pm$11.353
+KF Culling: 2.6435$\pm$1.9378
+Total Local Mapping: 57.905$\pm$22.747
+---------------------------
+
+LBA complexity (mean$\pm$std)
+LBA Edges: 1727.9$\pm$946.76
+LBA KF optimized: 6.5$\pm$2.2913
+LBA KF fixed: 1$\pm$0
+LBA MP: -nan$\pm$-nan
+
+LBA executions: 820
+LBA aborts: 0
+---------------------------
+
+Map complexity
+KFs in map: 627
+MPs in map: 11045
+---------------------------
+
+Place Recognition (mean$\pm$std)
+Database Query: 3.1515$\pm$1.9288
+SE3 estimation: 2.1121$\pm$1.9054
+Total Place Recognition: 4.8793$\pm$3.2736
+
+
+Loop Closing (mean$\pm$std)
+Loop Fusion: -nan$\pm$-nan
+Essential Graph: -nan$\pm$-nan
+Total Loop Closing: -nan$\pm$-nan
+
+Num exec: 0
+Number of KFs: -nan$\pm$-nan
+
+Map Merging (mean$\pm$std)
+Merge Maps: -nan$\pm$-nan
+Welding BA: -nan$\pm$-nan
+Optimization Ess.: -nan$\pm$-nan
+Total Map Merging: -nan$\pm$-nan
+
+Num exec: 0
+Number of KFs: -nan$\pm$-nan
+Number of MPs: -nan$\pm$-nan
+
+Full GBA (mean$\pm$std)
+GBA: -nan$\pm$-nan
+Map Update: -nan$\pm$-nan
+Total Full GBA: -nan$\pm$-nan
+
+Num exec: 0
+Num abort: 0
+Number of KFs: -nan$\pm$-nan
+Number of MPs: -nan$\pm$-nan
+
+Saving trajectory to f_trajectory.txt ...
+There are 1 maps in the atlas
+  Map 0 has 627 KFs
+
+End of saving trajectory to f_trajectory.txt ...
+
+Saving keyframe trajectory to kf_trajectory.txt ...

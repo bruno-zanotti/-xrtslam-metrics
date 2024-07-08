@@ -50,6 +50,7 @@ SLAM settings:
 	-Initial FAST threshold: 20
 	-Min FAST threshold: 7
 
+LOOP CLOSURE ACTIVO
 
 Loading ORB Vocabulary. This could take a while...
 Vocabulary loaded!
@@ -183,9 +184,83 @@ start VIBA 2
 end VIBA 2
 Shutdown
 
+ TIME STATS in ms (mean$\pm$std)
+OpenCV version: 4.5.4
+---------------------------
+Tracking
+
+ORB Extraction: 10.114$\pm$1.7974
+Stereo Matching: 1.5436$\pm$0.36737
+IMU Preintegration: 0.065316$\pm$0.016702
+Pose Prediction: 0.088612$\pm$0.28544
+LM Track: 10.088$\pm$2.497
+New KF decision: 0.055902$\pm$0.039982
+Total Tracking: 23.163$\pm$3.5814
+
+
+
+Local Mapping
+
+KF Insertion: 14.665$\pm$5.9992
+MP Culling: 0.20652$\pm$0.083257
+MP Creation: 46.117$\pm$18.189
+LBA: 119.01$\pm$40.373
+KF Culling: 26.433$\pm$15.347
+Total Local Mapping: 206.36$\pm$74.698
+---------------------------
+
+LBA complexity (mean$\pm$std)
+LBA Edges: 1100.5$\pm$338.39
+LBA KF optimized: 5.5$\pm$1.3229
+LBA KF fixed: 1.625$\pm$0.85696
+LBA MP: -nan$\pm$-nan
+
+LBA executions: 843
+LBA aborts: 0
+---------------------------
+
+Map complexity
+KFs in map: 116
+MPs in map: 2817
+---------------------------
+
+Place Recognition (mean$\pm$std)
+Database Query: 1.2346$\pm$0.40114
+SE3 estimation: 0.072183$\pm$0.6008
+Total Place Recognition: 1.2934$\pm$0.88243
+
+
+Loop Closing (mean$\pm$std)
+Loop Fusion: -nan$\pm$-nan
+Essential Graph: -nan$\pm$-nan
+Total Loop Closing: -nan$\pm$-nan
+
+Num exec: 0
+Number of KFs: -nan$\pm$-nan
+
+Map Merging (mean$\pm$std)
+Merge Maps: -nan$\pm$-nan
+Welding BA: -nan$\pm$-nan
+Optimization Ess.: -nan$\pm$-nan
+Total Map Merging: -nan$\pm$-nan
+
+Num exec: 0
+Number of KFs: -nan$\pm$-nan
+Number of MPs: -nan$\pm$-nan
+
+Full GBA (mean$\pm$std)
+GBA: -nan$\pm$-nan
+Map Update: -nan$\pm$-nan
+Total Full GBA: -nan$\pm$-nan
+
+Num exec: 0
+Num abort: 0
+Number of KFs: -nan$\pm$-nan
+Number of MPs: -nan$\pm$-nan
+
 Saving trajectory to f_trajectory.txt ...
 There are 1 maps in the atlas
-  Map 0 has 130 KFs
+  Map 0 has 116 KFs
 
 End of saving trajectory to f_trajectory.txt ...
 

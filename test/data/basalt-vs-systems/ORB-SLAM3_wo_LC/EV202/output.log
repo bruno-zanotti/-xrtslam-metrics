@@ -144,9 +144,83 @@ start VIBA 2
 end VIBA 2
 Shutdown
 
+ TIME STATS in ms (mean$\pm$std)
+OpenCV version: 4.5.4
+---------------------------
+Tracking
+
+ORB Extraction: 4.5406$\pm$0.64894
+Stereo Matching: 1.8108$\pm$0.43126
+IMU Preintegration: 0.045736$\pm$0.017588
+Pose Prediction: 0.051522$\pm$0.22357
+LM Track: 3.9801$\pm$0.99489
+New KF decision: 0.068659$\pm$0.074775
+Total Tracking: 11.737$\pm$1.8229
+
+
+
+Local Mapping
+
+KF Insertion: 3.1655$\pm$0.62086
+MP Culling: 0.12083$\pm$0.036469
+MP Creation: 7.3566$\pm$2.4362
+LBA: 43.446$\pm$10.519
+KF Culling: 4.0243$\pm$2.3076
+Total Local Mapping: 58.156$\pm$14.731
+---------------------------
+
+LBA complexity (mean$\pm$std)
+LBA Edges: 3854.5$\pm$1121.1
+LBA KF optimized: 6.5$\pm$2.2913
+LBA KF fixed: 1$\pm$0
+LBA MP: -nan$\pm$-nan
+
+LBA executions: 687
+LBA aborts: 0
+---------------------------
+
+Map complexity
+KFs in map: 153
+MPs in map: 13626
+---------------------------
+
+Place Recognition (mean$\pm$std)
+Database Query: -nan$\pm$-nan
+SE3 estimation: -nan$\pm$-nan
+Total Place Recognition: 6.8467e-05$\pm$4.8313e-05
+
+
+Loop Closing (mean$\pm$std)
+Loop Fusion: -nan$\pm$-nan
+Essential Graph: -nan$\pm$-nan
+Total Loop Closing: -nan$\pm$-nan
+
+Num exec: 0
+Number of KFs: -nan$\pm$-nan
+
+Map Merging (mean$\pm$std)
+Merge Maps: -nan$\pm$-nan
+Welding BA: -nan$\pm$-nan
+Optimization Ess.: -nan$\pm$-nan
+Total Map Merging: -nan$\pm$-nan
+
+Num exec: 0
+Number of KFs: -nan$\pm$-nan
+Number of MPs: -nan$\pm$-nan
+
+Full GBA (mean$\pm$std)
+GBA: -nan$\pm$-nan
+Map Update: -nan$\pm$-nan
+Total Full GBA: -nan$\pm$-nan
+
+Num exec: 0
+Num abort: 0
+Number of KFs: -nan$\pm$-nan
+Number of MPs: -nan$\pm$-nan
+
 Saving trajectory to f_trajectory.txt ...
 There are 1 maps in the atlas
-  Map 0 has 149 KFs
+  Map 0 has 153 KFs
 
 End of saving trajectory to f_trajectory.txt ...
 

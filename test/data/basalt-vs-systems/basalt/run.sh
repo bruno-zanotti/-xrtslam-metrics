@@ -10,20 +10,18 @@ run_basalt_vio() {
 
     mkdir -p "$ROOT/$RUN/$dataset" && cd "$ROOT/$RUN/$dataset"
     printf "%s " $dataset
+    cmd="$USENKO_DIR/basalt_vio --dataset-path $dataset_path --cam-calib $cam_calib --dataset-type euroc --config-path $config_path --show-gui $show_gui --save-trajectory euroc "
+
     start_time=$(date +%s.%N)
-    if $USENKO_DIR/basalt_vio --dataset-path $dataset_path \
-                  --cam-calib $cam_calib \
-                  --dataset-type euroc \
-                  --config-path $config_path \
-                  --show-gui $show_gui \
-                  --save-trajectory euroc \
-       > /dev/null; then
-        end_time=$(date +%s.%N)
-        diff=$(echo $end_time - $start_time | bc -l)
-        awk -v start=$start_time -v end=$end_time 'BEGIN { diff = end - start; printf "%.2f seconds\n", diff }'
-    else
+    eval "$cmd" &> "$ROOT/$RUN/$dataset/output.log"
+    if [ $? -ne 0 ]; then
+        echo "Segmentation fault in dataset $dataset. Check output.log for details."
         echo $dataset >> $ROOT/$RUN/faillist
     fi
+    end_time=$(date +%s.%N)
+    diff=$(echo $end_time - $start_time | bc -l)
+    awk -v start=$start_time -v end=$end_time 'BEGIN { diff = end - start; printf "%.2f seconds\n", diff }'
+
 }
 
 SCRIPT_DIR=$(dirname "$(realpath "$0")")
@@ -37,7 +35,7 @@ USENKO_DIR=~/tesina/usenko/basalt/build
 # DATASETS
 DATASETS_DIR=~/tesina/datasets
 EUROC_DIR=$DATASETS_DIR/euroc
-TUM_DIR=$DATASETS_DIR/tum
+TUMVI_DIR=$DATASETS_DIR/tumvi
 MSDMI_DIR=$DATASETS_DIR/msdmi
 MSDMG_DIR=$DATASETS_DIR/msdmg
 MSDMO_DIR=$DATASETS_DIR/msdmo
@@ -45,13 +43,15 @@ MSDMO_DIR=$DATASETS_DIR/msdmo
 # CALIB
 CALIB_DIR=$ROOT/_calibs
 euroc_calib=$CALIB_DIR/euroc.json
+tumvi_calib=$CALIB_DIR/tumvi.json
 msdmi_calib=$CALIB_DIR/msdmi.json
-msdmg_calib=$CALIB_DIR/msdmg.json
+msdmg_calib=$CALIB_DIR/msdmg_2cams.json
 msdmo_calib=$CALIB_DIR/msdmo.json
 
 # CONFIG
 CONFIG_DIR=$ROOT/$RUN/_configs
 euroc_config=$CONFIG_DIR/euroc.json
+tumvi_config=$CONFIG_DIR/tumvi.json
 msdmi_config=$CONFIG_DIR/msdmi.json
 msdmg_config=$CONFIG_DIR/msdmg.json
 msdmo_config=$CONFIG_DIR/msdmo.json
@@ -68,6 +68,12 @@ echo Running $RUN:
 for dataset in "${euroc_datasets[@]}"; do
     dataset_path=$EUROC_DIR/$dataset
     run_basalt_vio $dataset $dataset_path $euroc_calib $euroc_config $show_gui
+done
+
+# TUM-VI
+for dataset in "${tumvi_datasets[@]}"; do
+    dataset_path=$TUMVI_DIR/$dataset
+    run_basalt_vio $dataset $dataset_path $tumvi_calib $tumvi_config $show_gui
 done
 
 # MSDMI

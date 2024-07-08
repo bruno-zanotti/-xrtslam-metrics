@@ -53,6 +53,7 @@ SLAM settings:
 	-Initial FAST threshold: 20
 	-Min FAST threshold: 7
 
+LOOP CLOSURE ACTIVO
 
 Loading ORB Vocabulary. This could take a while...
 Vocabulary loaded!
@@ -174,9 +175,83 @@ start VIBA 2
 end VIBA 2
 Shutdown
 
+ TIME STATS in ms (mean$\pm$std)
+OpenCV version: 4.5.4
+---------------------------
+Tracking
+
+ORB Extraction: 5.9408$\pm$0.98665
+Stereo Matching: 2.2832$\pm$0.62566
+IMU Preintegration: 0.067924$\pm$0.024381
+Pose Prediction: 0.078053$\pm$0.23871
+LM Track: 5.6478$\pm$1.2146
+New KF decision: 0.065094$\pm$0.079832
+Total Tracking: 15.775$\pm$2.4105
+
+
+
+Local Mapping
+
+KF Insertion: 4.2144$\pm$0.74837
+MP Culling: 0.16683$\pm$0.050414
+MP Creation: 10.261$\pm$2.89
+LBA: 79.083$\pm$23.094
+KF Culling: 8.1609$\pm$4.2274
+Total Local Mapping: 102.12$\pm$28.667
+---------------------------
+
+LBA complexity (mean$\pm$std)
+LBA Edges: 3613.6$\pm$1267.8
+LBA KF optimized: 6.5$\pm$2.2913
+LBA KF fixed: 1$\pm$0
+LBA MP: -nan$\pm$-nan
+
+LBA executions: 465
+LBA aborts: 0
+---------------------------
+
+Map complexity
+KFs in map: 104
+MPs in map: 8270
+---------------------------
+
+Place Recognition (mean$\pm$std)
+Database Query: 0.48287$\pm$0.21088
+SE3 estimation: 2.3159$\pm$2.2989
+Total Place Recognition: 2.6182$\pm$2.4577
+
+
+Loop Closing (mean$\pm$std)
+Loop Fusion: -nan$\pm$-nan
+Essential Graph: -nan$\pm$-nan
+Total Loop Closing: -nan$\pm$-nan
+
+Num exec: 0
+Number of KFs: -nan$\pm$-nan
+
+Map Merging (mean$\pm$std)
+Merge Maps: -nan$\pm$-nan
+Welding BA: -nan$\pm$-nan
+Optimization Ess.: -nan$\pm$-nan
+Total Map Merging: -nan$\pm$-nan
+
+Num exec: 0
+Number of KFs: -nan$\pm$-nan
+Number of MPs: -nan$\pm$-nan
+
+Full GBA (mean$\pm$std)
+GBA: -nan$\pm$-nan
+Map Update: -nan$\pm$-nan
+Total Full GBA: -nan$\pm$-nan
+
+Num exec: 0
+Num abort: 0
+Number of KFs: -nan$\pm$-nan
+Number of MPs: -nan$\pm$-nan
+
 Saving trajectory to f_trajectory.txt ...
 There are 1 maps in the atlas
-  Map 0 has 108 KFs
+  Map 0 has 104 KFs
 
 End of saving trajectory to f_trajectory.txt ...
 

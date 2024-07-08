@@ -23,24 +23,6 @@ T_w_i
  0.0335505  -0.998495 -0.0433825          0
          0          0          0          1
 vel_w_i 0 0 0
-Numerical failure in backsubstitution
-Numerical failure in backsubstitution
-Numerical failure in backsubstitution
-Numerical failure in backsubstitution
-Numerical failure in backsubstitution
-Numerical failure in backsubstitution
-Numerical failure in backsubstitution
-Numerical failure in backsubstitution
-Numerical failure in backsubstitution
-Numerical failure in backsubstitution
-Numerical failure in backsubstitution
-Numerical failure in backsubstitution
-Numerical failure in backsubstitution
-Numerical failure in backsubstitution
-Numerical failure in backsubstitution
-Numerical failure in backsubstitution
-Numerical failure in backsubstitution
-Numerical failure in backsubstitution
 did not expect numerical failure during linearization
 marg_H (sqrt:1)
   10000       0       0       0       0       0       0       0       0       0       0       0       0       0       0
@@ -58,3 +40,102 @@ marg_H (sqrt:1)
       0       0       0       0       0       0       0       0       0       0       0       0      10       0       0
       0       0       0       0       0       0       0       0       0       0       0       0       0      10       0
       0       0       0       0       0       0       0       0       0       0       0       0       0       0      10
+Setting up filter: t_ns 15352058147301
+T_w_i
+  0.999566  0.0196372 -0.0219702          0
+ 0.0196372   0.111984   0.993516          0
+ 0.0219702  -0.993516   0.111549          0
+         0          0          0          1
+vel_w_i 0 0 0
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Finished input_data thread 
+Total recalls: 56404
+Finished opt flow stats
+Finished VIOFilter 
+Finished t4
+---------------------------------------------------
+| Persistent Map                                  |
+---------------------------------------------------
+| Keyframes count: 3416
+| Landmarks count: 12569
+| Observations count: 299947
+---------------------------------------------------
+T_align
+0.353051   -0.929444  0.107188   0.678743  
+-0.475464  -0.0795662 0.87613    -0.937085 
+-0.805785  -0.360283  -0.470008  -1.48857  
+0          0          0          1         
+error 1.02082
+number of associations 23914
+=== stats all ===
+num_cams             (23906):    11.1+-3.1 [0, 21]
+num_lms              (23906):    88.9+-55.0 [7, 416]
+num_obs              (23906):   517.0+-271.1 [76, 1833]
+allocateLMB          (23906):    0.20+-1.08 [0.01, 41.39]
+linearizeProblem     (140700):    0.09+-0.37 [0.01, 36.10]
+performQR            (140700):    0.03+-0.18 [0.00, 24.78]
+get_dense_H_b        (151357):    0.18+-0.33 [0.01, 27.02]
+solve                (151357):    0.05+-0.09 [0.01, 18.14]
+backSubstitute       (151357):    0.04+-0.48 [0.00, 38.83]
+computerError2       (151357):    0.04+-0.21 [0.01, 27.64]
+iteration            (151357):    0.45+-0.91 [0.04, 41.82]
+resident_memory      (151357): 7682957245.78+-4064171522.37 [263077888.00, 14784315392.00]
+resident_memory_peak (151357): 7683012756.50+-4064212975.48 [263077888.00, 14784315392.00]
+optimize             (23906):    2.95+-2.87 [0.36, 73.69]
+num_it               (23906):     6.3+-1.9 [1, 8]
+num_it_rejected      (23906):     0.6+-1.4 [0, 7]
+=== stats sums ===
+measure              (23914):    4.44+-4.53 [0.03, 81.34]
+num_cams             (23906):    11.1+-3.1 [0, 21]
+num_lms              (23906):    88.9+-55.0 [7, 416]
+num_obs              (23906):   517.0+-271.1 [76, 1833]
+allocateLMB          (23906):    0.20+-1.08 [0.01, 41.39]
+linearizeProblem     (23906):    0.54+-0.94 [0.05, 36.72]
+performQR            (23906):    0.18+-0.46 [0.01, 24.95]
+get_dense_H_b        (23906):    1.12+-1.12 [0.08, 28.20]
+solve                (23906):    0.31+-0.26 [0.04, 18.59]
+backSubstitute       (23906):    0.24+-1.27 [0.01, 59.67]
+computerError2       (23906):    0.25+-0.56 [0.02, 28.74]
+iteration            (23906):    2.87+-2.86 [0.34, 73.50]
+resident_memory      (23906): 48643410016.29+-30488032416.62 [1147863040.00, 118274523136.00]
+resident_memory_peak (23906): 48643761473.52+-30488273945.23 [1147863040.00, 118274523136.00]
+optimize             (23906):    2.95+-2.87 [0.36, 73.69]
+num_it               (23906):     6.3+-1.9 [1, 8]
+num_it_rejected      (23906):     0.6+-1.4 [0, 7]
+marg_linearize       (23906):    0.09+-0.24 [0.01, 24.43]
+marg_helper          (23906):    0.07+-0.15 [0.02, 9.04]
+marg                 (23906):    1.17+-3.31 [0.04, 73.54]
+marginalize          (23906):    1.17+-3.32 [0.04, 73.75]
+Saved ExecutionStats to stats_all.ubjson.
+Saved ExecutionStats to stats_sums.ubjson.
+Total runtime: 262.540s
+Saved ExecutionStats to stats_opt_flow.ubjson.
+Saved ExecutionStats to stats_vio.ubjson.
+Saved ExecutionStats to stats_map.ubjson.
+Saving trajectory...
+Saved trajectory in Euroc Dataset format in trajectory.csv
+Saved features.csv
+
+Saved timing.csv

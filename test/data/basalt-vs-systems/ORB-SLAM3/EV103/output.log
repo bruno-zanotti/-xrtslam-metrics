@@ -53,6 +53,7 @@ SLAM settings:
 	-Initial FAST threshold: 20
 	-Min FAST threshold: 7
 
+LOOP CLOSURE ACTIVO
 
 Loading ORB Vocabulary. This could take a while...
 Vocabulary loaded!
@@ -206,16 +207,99 @@ end VIBA 1
 start VIBA 2
 end VIBA 2
 *Loop detected
-phi = -0.0055103179786280482 -0.0030589317114827347  -0.016815140460549813
+phi =    0.023105305513379037 -0.00051327583628922959   -0.037709606029616115
+BAD LOOP!!!
+*Loop detected
+phi =   -0.01780859599099625 0.00098189037673297405 -0.0043620384982529627
+BAD LOOP!!!
+*Loop detected
+phi = 0.0047160948561447936 -0.027943376983782617  0.033154326029509261
+BAD LOOP!!!
+*Loop detected
+phi = 0.00015217844810334083   0.001444761845559673  -0.021960687049421817
 Local Mapping STOP
 Local Mapping RELEASE
 Local Mapping STOP
 Local Mapping RELEASE
 Shutdown
 
+ TIME STATS in ms (mean$\pm$std)
+OpenCV version: 4.5.4
+---------------------------
+Tracking
+
+ORB Extraction: 5.4029$\pm$1.2424
+Stereo Matching: 2.1492$\pm$0.74395
+IMU Preintegration: 0.056135$\pm$0.022717
+Pose Prediction: 0.074627$\pm$0.23753
+LM Track: 4.6227$\pm$1.3037
+New KF decision: 0.093546$\pm$0.097905
+Total Tracking: 13.837$\pm$2.8952
+
+
+
+Local Mapping
+
+KF Insertion: 3.3314$\pm$0.88444
+MP Culling: 0.15828$\pm$0.060603
+MP Creation: 8.686$\pm$3.0403
+LBA: 56.798$\pm$19.615
+KF Culling: 5.2143$\pm$2.911
+Total Local Mapping: 74.469$\pm$25.573
+---------------------------
+
+LBA complexity (mean$\pm$std)
+LBA Edges: 3157$\pm$1136.3
+LBA KF optimized: 6.5$\pm$2.2913
+LBA KF fixed: 1$\pm$0
+LBA MP: -nan$\pm$-nan
+
+LBA executions: 668
+LBA aborts: 0
+---------------------------
+
+Map complexity
+KFs in map: 135
+MPs in map: 10419
+---------------------------
+
+Place Recognition (mean$\pm$std)
+Database Query: 0.53373$\pm$0.26062
+SE3 estimation: 3.3096$\pm$2.3832
+Total Place Recognition: 3.2786$\pm$2.7358
+
+
+Loop Closing (mean$\pm$std)
+Loop Fusion: 3.8574$\pm$0
+Essential Graph: 9.6176$\pm$0
+Total Loop Closing: 15.922$\pm$0
+
+Num exec: 1
+Number of KFs: -nan$\pm$-nan
+
+Map Merging (mean$\pm$std)
+Merge Maps: -nan$\pm$-nan
+Welding BA: -nan$\pm$-nan
+Optimization Ess.: -nan$\pm$-nan
+Total Map Merging: -nan$\pm$-nan
+
+Num exec: 0
+Number of KFs: -nan$\pm$-nan
+Number of MPs: -nan$\pm$-nan
+
+Full GBA (mean$\pm$std)
+GBA: 384.36$\pm$0
+Map Update: 3.5923$\pm$0
+Total Full GBA: 387.96$\pm$0
+
+Num exec: 1
+Num abort: 0
+Number of KFs: 67$\pm$0
+Number of MPs: 7190$\pm$0
+
 Saving trajectory to f_trajectory.txt ...
 There are 1 maps in the atlas
-  Map 0 has 126 KFs
+  Map 0 has 135 KFs
 
 End of saving trajectory to f_trajectory.txt ...
 

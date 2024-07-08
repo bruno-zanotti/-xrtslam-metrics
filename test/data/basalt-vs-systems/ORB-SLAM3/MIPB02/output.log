@@ -50,6 +50,7 @@ SLAM settings:
 	-Initial FAST threshold: 20
 	-Min FAST threshold: 7
 
+LOOP CLOSURE ACTIVO
 
 Loading ORB Vocabulary. This could take a while...
 Vocabulary loaded!
@@ -129,20 +130,104 @@ start VIBA 1
 end VIBA 1
 start VIBA 2
 end VIBA 2
+Fail to track local map!
+Fail to track local map!
+Fail to track local map!
 *Loop detected
-phi = -0.022909067023708408 -0.083726897258604563  0.060287246049085065
+phi = 0.017189211232295137 0.067159804259814063 -0.15794579300475148
 BAD LOOP!!!
 *Loop detected
-phi =  0.022468119789847231 -0.035965469598307778  0.017040575576653776
+phi =  0.050655726731442169 -0.022566511148089552   0.11632636781085738
 BAD LOOP!!!
 *Loop detected
-phi = 0.005069066695768309 0.020465430246677841 0.010679251791953713
+phi =   0.012572322161338216 -0.0046453404833553362    0.10504460882939137
 BAD LOOP!!!
+*Loop detected
+phi = -0.016991969302220848 -0.010069432220993206   0.12624013424690361
+BAD LOOP!!!
+*Loop detected
+phi = 0.00089468698467070533 -0.0067931297720349839    0.13693510191653147
+Local Mapping STOP
+Local Mapping RELEASE
 Shutdown
+
+ TIME STATS in ms (mean$\pm$std)
+OpenCV version: 4.5.4
+---------------------------
+Tracking
+
+ORB Extraction: 9.9992$\pm$1.5374
+Stereo Matching: 1.4735$\pm$0.34335
+IMU Preintegration: 0.077268$\pm$0.030178
+Pose Prediction: 0.077673$\pm$0.31651
+LM Track: 9.0193$\pm$2.6889
+New KF decision: 0.048143$\pm$0.039323
+Total Tracking: 22.116$\pm$3.4449
+
+
+
+Local Mapping
+
+KF Insertion: 8.1366$\pm$2.7837
+MP Culling: 0.21083$\pm$0.096705
+MP Creation: 30.378$\pm$9.4955
+LBA: 76.369$\pm$30.042
+KF Culling: 15.816$\pm$8.1233
+Total Local Mapping: 130.93$\pm$42.872
+---------------------------
+
+LBA complexity (mean$\pm$std)
+LBA Edges: 1173.4$\pm$300.79
+LBA KF optimized: 5.5$\pm$1.5
+LBA KF fixed: 1.5$\pm$0.70711
+LBA MP: -nan$\pm$-nan
+
+LBA executions: 1268
+LBA aborts: 0
+---------------------------
+
+Map complexity
+KFs in map: 474
+MPs in map: 7491
+---------------------------
+
+Place Recognition (mean$\pm$std)
+Database Query: 2.7912$\pm$1.6474
+SE3 estimation: 0.92695$\pm$1.7059
+Total Place Recognition: 3.6944$\pm$2.89
+
+
+Loop Closing (mean$\pm$std)
+Loop Fusion: 32.531$\pm$0
+Essential Graph: 204.64$\pm$0
+Total Loop Closing: 239.05$\pm$0
+
+Num exec: 1
+Number of KFs: -nan$\pm$-nan
+
+Map Merging (mean$\pm$std)
+Merge Maps: -nan$\pm$-nan
+Welding BA: -nan$\pm$-nan
+Optimization Ess.: -nan$\pm$-nan
+Total Map Merging: -nan$\pm$-nan
+
+Num exec: 0
+Number of KFs: -nan$\pm$-nan
+Number of MPs: -nan$\pm$-nan
+
+Full GBA (mean$\pm$std)
+GBA: -nan$\pm$-nan
+Map Update: -nan$\pm$-nan
+Total Full GBA: -nan$\pm$-nan
+
+Num exec: 0
+Num abort: 0
+Number of KFs: -nan$\pm$-nan
+Number of MPs: -nan$\pm$-nan
 
 Saving trajectory to f_trajectory.txt ...
 There are 1 maps in the atlas
-  Map 0 has 456 KFs
+  Map 0 has 474 KFs
 
 End of saving trajectory to f_trajectory.txt ...
 

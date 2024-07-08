@@ -121,14 +121,7 @@ not enough acceleration
 First KF:0; Map init KF:0
 New Map created with 204 points
 Not enough motion for initializing. Reseting...
-LM: Reseting current map in Local Mapping...
-LM: End reseting Local Mapping...
-LM: Reset free the mutex
-Not enough motion for initializing. Reseting...
 TRACK: Reset map because local mapper set the bad imu flag 
-LM: Reseting current map in Local Mapping...
-LM: End reseting Local Mapping...
-LM: Reset free the mutex
 LM: Active map reset recieved
 LM: Active map reset, waiting...
 LM: Reseting current map in Local Mapping...
@@ -137,10 +130,12 @@ LM: Reset free the mutex
 LM: Active map reset, Done!!!
 mnFirstFrameId = 56
 mnInitialFrameId = 0
-267 Frames set to lost
+264 Frames set to lost
 not IMU meas
-First KF:57; Map init KF:0
-New Map created with 198 points
+First KF:55; Map init KF:0
+New Map created with 170 points
+start VIBA 1
+end VIBA 1
 Not enough motion for initializing. Reseting...
 TRACK: Reset map because local mapper set the bad imu flag 
 LM: Active map reset recieved
@@ -149,26 +144,12 @@ LM: Reseting current map in Local Mapping...
 LM: End reseting Local Mapping...
 LM: Reset free the mutex
 LM: Active map reset, Done!!!
-mnFirstFrameId = 325
-mnInitialFrameId = 323
-553 Frames set to lost
+mnFirstFrameId = 322
+mnInitialFrameId = 320
+753 Frames set to lost
 not IMU meas
-First KF:89; Map init KF:57
-New Map created with 243 points
-Not enough motion for initializing. Reseting...
-TRACK: Reset map because local mapper set the bad imu flag 
-LM: Active map reset recieved
-LM: Active map reset, waiting...
-LM: Reseting current map in Local Mapping...
-LM: End reseting Local Mapping...
-LM: Reset free the mutex
-LM: Active map reset, Done!!!
-mnFirstFrameId = 613
-mnInitialFrameId = 611
-752 Frames set to lost
-not IMU meas
-First KF:114; Map init KF:89
-New Map created with 174 points
+First KF:127; Map init KF:55
+New Map created with 187 points
 Fail to track local map!
 IMU is not or recently initialized. Reseting active map...
 LM: Active map reset recieved
@@ -177,10 +158,10 @@ LM: Reseting current map in Local Mapping...
 LM: End reseting Local Mapping...
 LM: Reset free the mutex
 LM: Active map reset, Done!!!
-mnFirstFrameId = 814
-mnInitialFrameId = 812
-873 Frames set to lost
-First KF:123; Map init KF:114
+mnFirstFrameId = 813
+mnInitialFrameId = 811
+875 Frames set to lost
+First KF:136; Map init KF:127
 New Map created with 0 points
 TRACK_REF_KF: Less than 15 matches!!
 Fail to track local map!
@@ -192,9 +173,9 @@ LM: Reset free the mutex
 LM: Active map reset, Done!!!
 mnFirstFrameId = 936
 mnInitialFrameId = 934
-874 Frames set to lost
+876 Frames set to lost
 not IMU meas
-First KF:124; Map init KF:123
+First KF:137; Map init KF:136
 New Map created with 0 points
 TRACK_REF_KF: Less than 15 matches!!
 Fail to track local map!
@@ -206,9 +187,9 @@ LM: Reset free the mutex
 LM: Active map reset, Done!!!
 mnFirstFrameId = 939
 mnInitialFrameId = 937
-875 Frames set to lost
+877 Frames set to lost
 not IMU meas
-First KF:125; Map init KF:124
+First KF:138; Map init KF:137
 New Map created with 0 points
 TRACK_REF_KF: Less than 15 matches!!
 Fail to track local map!
@@ -220,9 +201,9 @@ LM: Reset free the mutex
 LM: Active map reset, Done!!!
 mnFirstFrameId = 942
 mnInitialFrameId = 940
-876 Frames set to lost
+878 Frames set to lost
 not IMU meas
-First KF:126; Map init KF:125
+First KF:139; Map init KF:138
 New Map created with 0 points
 TRACK_REF_KF: Less than 15 matches!!
 Fail to track local map!
@@ -234,9 +215,9 @@ LM: Reset free the mutex
 LM: Active map reset, Done!!!
 mnFirstFrameId = 945
 mnInitialFrameId = 943
-877 Frames set to lost
+879 Frames set to lost
 not IMU meas
-First KF:127; Map init KF:126
+First KF:140; Map init KF:139
 New Map created with 0 points
 TRACK_REF_KF: Less than 15 matches!!
 Fail to track local map!
@@ -248,9 +229,9 @@ LM: Reset free the mutex
 LM: Active map reset, Done!!!
 mnFirstFrameId = 948
 mnInitialFrameId = 946
-878 Frames set to lost
+880 Frames set to lost
 not IMU meas
-First KF:128; Map init KF:127
+First KF:141; Map init KF:140
 New Map created with 67 points
 Fail to track local map!
 IMU is not or recently initialized. Reseting active map...
@@ -262,9 +243,9 @@ LM: Reset free the mutex
 LM: Active map reset, Done!!!
 mnFirstFrameId = 951
 mnInitialFrameId = 949
-972 Frames set to lost
+974 Frames set to lost
 not IMU meas
-First KF:135; Map init KF:128
+First KF:148; Map init KF:141
 New Map created with 116 points
 Fail to track local map!
 IMU is not or recently initialized. Reseting active map...
@@ -276,10 +257,10 @@ LM: Reset free the mutex
 LM: Active map reset, Done!!!
 mnFirstFrameId = 1046
 mnInitialFrameId = 1044
-1078 Frames set to lost
+1082 Frames set to lost
 not IMU meas
-First KF:143; Map init KF:135
-New Map created with 80 points
+First KF:156; Map init KF:148
+New Map created with 110 points
 Fail to track local map!
 IMU is not or recently initialized. Reseting active map...
 LM: Active map reset recieved
@@ -288,11 +269,11 @@ LM: Reseting current map in Local Mapping...
 LM: End reseting Local Mapping...
 LM: Reset free the mutex
 LM: Active map reset, Done!!!
-mnFirstFrameId = 1153
-mnInitialFrameId = 1151
-1084 Frames set to lost
+mnFirstFrameId = 1155
+mnInitialFrameId = 1153
+1086 Frames set to lost
 not IMU meas
-First KF:144; Map init KF:143
+First KF:157; Map init KF:156
 New Map created with 6 points
 TRACK_REF_KF: Less than 15 matches!!
 Fail to track local map!
@@ -304,9 +285,9 @@ LM: Reset free the mutex
 LM: Active map reset, Done!!!
 mnFirstFrameId = 1160
 mnInitialFrameId = 1158
-1085 Frames set to lost
+1087 Frames set to lost
 not IMU meas
-First KF:145; Map init KF:144
+First KF:158; Map init KF:157
 New Map created with 33 points
 Fail to track local map!
 IMU is not or recently initialized. Reseting active map...
@@ -318,9 +299,9 @@ LM: Reset free the mutex
 LM: Active map reset, Done!!!
 mnFirstFrameId = 1163
 mnInitialFrameId = 1161
-1087 Frames set to lost
+1089 Frames set to lost
 not IMU meas
-First KF:146; Map init KF:145
+First KF:159; Map init KF:158
 New Map created with 90 points
 Fail to track local map!
 IMU is not or recently initialized. Reseting active map...
@@ -332,8 +313,8 @@ LM: Reset free the mutex
 LM: Active map reset, Done!!!
 mnFirstFrameId = 1166
 mnInitialFrameId = 1164
-1182 Frames set to lost
-First KF:153; Map init KF:146
+1184 Frames set to lost
+First KF:166; Map init KF:159
 New Map created with 20 points
 Fail to track local map!
 IMU is not or recently initialized. Reseting active map...
@@ -345,9 +326,9 @@ LM: Reset free the mutex
 LM: Active map reset, Done!!!
 mnFirstFrameId = 1267
 mnInitialFrameId = 1260
-1184 Frames set to lost
+1186 Frames set to lost
 not IMU meas
-First KF:154; Map init KF:153
+First KF:167; Map init KF:166
 New Map created with 50 points
 Fail to track local map!
 IMU is not or recently initialized. Reseting active map...
@@ -359,9 +340,9 @@ LM: Reset free the mutex
 LM: Active map reset, Done!!!
 mnFirstFrameId = 1270
 mnInitialFrameId = 1268
-1236 Frames set to lost
+1238 Frames set to lost
 not IMU meas
-First KF:158; Map init KF:154
+First KF:171; Map init KF:167
 New Map created with 17 points
 Fail to track local map!
 IMU is not or recently initialized. Reseting active map...
@@ -373,9 +354,9 @@ LM: Reset free the mutex
 LM: Active map reset, Done!!!
 mnFirstFrameId = 1327
 mnInitialFrameId = 1321
-1238 Frames set to lost
+1240 Frames set to lost
 not IMU meas
-First KF:159; Map init KF:158
+First KF:172; Map init KF:171
 New Map created with 121 points
 Fail to track local map!
 IMU is not or recently initialized. Reseting active map...
@@ -387,10 +368,10 @@ LM: Reset free the mutex
 LM: Active map reset, Done!!!
 mnFirstFrameId = 1330
 mnInitialFrameId = 1328
-1334 Frames set to lost
+1337 Frames set to lost
 not IMU meas
-First KF:166; Map init KF:159
-New Map created with 100 points
+First KF:179; Map init KF:172
+New Map created with 138 points
 Fail to track local map!
 IMU is not or recently initialized. Reseting active map...
 LM: Active map reset recieved
@@ -399,11 +380,11 @@ LM: Reseting current map in Local Mapping...
 LM: End reseting Local Mapping...
 LM: Reset free the mutex
 LM: Active map reset, Done!!!
-mnFirstFrameId = 1427
-mnInitialFrameId = 1425
-1555 Frames set to lost
+mnFirstFrameId = 1428
+mnInitialFrameId = 1426
+1552 Frames set to lost
 not IMU meas
-First KF:200; Map init KF:166
+First KF:210; Map init KF:179
 New Map created with 0 points
 TRACK_REF_KF: Less than 15 matches!!
 Fail to track local map!
@@ -413,25 +394,11 @@ LM: Reseting current map in Local Mapping...
 LM: End reseting Local Mapping...
 LM: Reset free the mutex
 LM: Active map reset, Done!!!
-mnFirstFrameId = 1649
-mnInitialFrameId = 1647
-1556 Frames set to lost
+mnFirstFrameId = 1644
+mnInitialFrameId = 1642
+1553 Frames set to lost
 not IMU meas
-First KF:201; Map init KF:200
-New Map created with 0 points
-TRACK_REF_KF: Less than 15 matches!!
-Fail to track local map!
-LM: Active map reset recieved
-LM: Active map reset, waiting...
-LM: Reseting current map in Local Mapping...
-LM: End reseting Local Mapping...
-LM: Reset free the mutex
-LM: Active map reset, Done!!!
-mnFirstFrameId = 1652
-mnInitialFrameId = 1650
-1557 Frames set to lost
-not IMU meas
-First KF:202; Map init KF:201
+First KF:211; Map init KF:210
 New Map created with 1 points
 TRACK_REF_KF: Less than 15 matches!!
 Fail to track local map!
@@ -441,25 +408,11 @@ LM: Reseting current map in Local Mapping...
 LM: End reseting Local Mapping...
 LM: Reset free the mutex
 LM: Active map reset, Done!!!
-mnFirstFrameId = 1655
-mnInitialFrameId = 1653
-1558 Frames set to lost
+mnFirstFrameId = 1647
+mnInitialFrameId = 1645
+1554 Frames set to lost
 not IMU meas
-First KF:203; Map init KF:202
-New Map created with 47 points
-Fail to track local map!
-IMU is not or recently initialized. Reseting active map...
-LM: Active map reset recieved
-LM: Active map reset, waiting...
-LM: Reseting current map in Local Mapping...
-LM: End reseting Local Mapping...
-LM: Reset free the mutex
-LM: Active map reset, Done!!!
-mnFirstFrameId = 1658
-mnInitialFrameId = 1656
-1562 Frames set to lost
-not IMU meas
-First KF:204; Map init KF:203
+First KF:212; Map init KF:211
 New Map created with 0 points
 TRACK_REF_KF: Less than 15 matches!!
 Fail to track local map!
@@ -469,12 +422,82 @@ LM: Reseting current map in Local Mapping...
 LM: End reseting Local Mapping...
 LM: Reset free the mutex
 LM: Active map reset, Done!!!
-mnFirstFrameId = 1663
-mnInitialFrameId = 1661
-1563 Frames set to lost
+mnFirstFrameId = 1650
+mnInitialFrameId = 1648
+1555 Frames set to lost
 not IMU meas
-First KF:205; Map init KF:204
-New Map created with 11 points
+First KF:213; Map init KF:212
+New Map created with 0 points
+TRACK_REF_KF: Less than 15 matches!!
+Fail to track local map!
+LM: Active map reset recieved
+LM: Active map reset, waiting...
+LM: Reseting current map in Local Mapping...
+LM: End reseting Local Mapping...
+LM: Reset free the mutex
+LM: Active map reset, Done!!!
+mnFirstFrameId = 1653
+mnInitialFrameId = 1651
+1556 Frames set to lost
+not IMU meas
+First KF:214; Map init KF:213
+New Map created with 9 points
+TRACK_REF_KF: Less than 15 matches!!
+Fail to track local map!
+LM: Active map reset recieved
+LM: Active map reset, waiting...
+LM: Reseting current map in Local Mapping...
+LM: End reseting Local Mapping...
+LM: Reset free the mutex
+LM: Active map reset, Done!!!
+mnFirstFrameId = 1656
+mnInitialFrameId = 1654
+1557 Frames set to lost
+not IMU meas
+First KF:215; Map init KF:214
+New Map created with 47 points
+TRACK_REF_KF: Less than 15 matches!!
+Fail to track local map!
+LM: Active map reset recieved
+LM: Active map reset, waiting...
+LM: Reseting current map in Local Mapping...
+LM: End reseting Local Mapping...
+LM: Reset free the mutex
+LM: Active map reset, Done!!!
+mnFirstFrameId = 1659
+mnInitialFrameId = 1657
+1558 Frames set to lost
+not IMU meas
+First KF:216; Map init KF:215
+New Map created with 0 points
+TRACK_REF_KF: Less than 15 matches!!
+Fail to track local map!
+LM: Active map reset recieved
+LM: Active map reset, waiting...
+LM: Reseting current map in Local Mapping...
+LM: End reseting Local Mapping...
+LM: Reset free the mutex
+LM: Active map reset, Done!!!
+mnFirstFrameId = 1662
+mnInitialFrameId = 1660
+1559 Frames set to lost
+not IMU meas
+First KF:217; Map init KF:216
+New Map created with 6 points
+TRACK_REF_KF: Less than 15 matches!!
+Fail to track local map!
+LM: Active map reset recieved
+LM: Active map reset, waiting...
+LM: Reseting current map in Local Mapping...
+LM: End reseting Local Mapping...
+LM: Reset free the mutex
+LM: Active map reset, Done!!!
+mnFirstFrameId = 1665
+mnInitialFrameId = 1663
+1560 Frames set to lost
+not IMU meas
+First KF:218; Map init KF:217
+New Map created with 44 points
 Fail to track local map!
 IMU is not or recently initialized. Reseting active map...
 LM: Active map reset recieved
@@ -483,12 +506,15 @@ LM: Reseting current map in Local Mapping...
 LM: End reseting Local Mapping...
 LM: Reset free the mutex
 LM: Active map reset, Done!!!
-mnFirstFrameId = 1666
-mnInitialFrameId = 1664
-1565 Frames set to lost
+mnFirstFrameId = 1668
+mnInitialFrameId = 1666
+1812 Frames set to lost
 not IMU meas
-First KF:206; Map init KF:205
-New Map created with 40 points
+First KF:258; Map init KF:218
+New Map created with 21 points
+virtual int g2o::SparseOptimizer::optimize(int, bool): 0 vertices to optimize, maybe forgot to call initializeOptimization()
+virtual int g2o::SparseOptimizer::optimize(int, bool): 0 vertices to optimize, maybe forgot to call initializeOptimization()
+virtual int g2o::SparseOptimizer::optimize(int, bool): 0 vertices to optimize, maybe forgot to call initializeOptimization()
 Fail to track local map!
 IMU is not or recently initialized. Reseting active map...
 LM: Active map reset recieved
@@ -497,12 +523,12 @@ LM: Reseting current map in Local Mapping...
 LM: End reseting Local Mapping...
 LM: Reset free the mutex
 LM: Active map reset, Done!!!
-mnFirstFrameId = 1669
-mnInitialFrameId = 1667
-1567 Frames set to lost
+mnFirstFrameId = 1921
+mnInitialFrameId = 1919
+1814 Frames set to lost
 not IMU meas
-First KF:207; Map init KF:206
-New Map created with 29 points
+First KF:259; Map init KF:258
+New Map created with 47 points
 Fail to track local map!
 IMU is not or recently initialized. Reseting active map...
 LM: Active map reset recieved
@@ -511,67 +537,11 @@ LM: Reseting current map in Local Mapping...
 LM: End reseting Local Mapping...
 LM: Reset free the mutex
 LM: Active map reset, Done!!!
-mnFirstFrameId = 1672
-mnInitialFrameId = 1670
-1569 Frames set to lost
+mnFirstFrameId = 1924
+mnInitialFrameId = 1922
+1824 Frames set to lost
 not IMU meas
-First KF:208; Map init KF:207
-New Map created with 42 points
-Fail to track local map!
-IMU is not or recently initialized. Reseting active map...
-LM: Active map reset recieved
-LM: Active map reset, waiting...
-LM: Reseting current map in Local Mapping...
-LM: End reseting Local Mapping...
-LM: Reset free the mutex
-LM: Active map reset, Done!!!
-mnFirstFrameId = 1675
-mnInitialFrameId = 1673
-1813 Frames set to lost
-not IMU meas
-First KF:249; Map init KF:208
-New Map created with 22 points
-Fail to track local map!
-IMU is not or recently initialized. Reseting active map...
-LM: Active map reset recieved
-LM: Active map reset, waiting...
-LM: Reseting current map in Local Mapping...
-LM: End reseting Local Mapping...
-LM: Reset free the mutex
-LM: Active map reset, Done!!!
-mnFirstFrameId = 1920
-mnInitialFrameId = 1918
-1815 Frames set to lost
-not IMU meas
-First KF:250; Map init KF:249
-New Map created with 30 points
-Fail to track local map!
-IMU is not or recently initialized. Reseting active map...
-LM: Active map reset recieved
-LM: Active map reset, waiting...
-LM: Reseting current map in Local Mapping...
-LM: End reseting Local Mapping...
-LM: Reset free the mutex
-LM: Active map reset, Done!!!
-mnFirstFrameId = 1923
-mnInitialFrameId = 1921
-1817 Frames set to lost
-not IMU meas
-First KF:251; Map init KF:250
-New Map created with 50 points
-Fail to track local map!
-IMU is not or recently initialized. Reseting active map...
-LM: Active map reset recieved
-LM: Active map reset, waiting...
-LM: Reseting current map in Local Mapping...
-LM: End reseting Local Mapping...
-LM: Reset free the mutex
-LM: Active map reset, Done!!!
-mnFirstFrameId = 1926
-mnInitialFrameId = 1924
-1825 Frames set to lost
-not IMU meas
-First KF:252; Map init KF:251
+First KF:260; Map init KF:259
 New Map created with 8 points
 TRACK_REF_KF: Less than 15 matches!!
 Fail to track local map!
@@ -583,9 +553,9 @@ LM: Reset free the mutex
 LM: Active map reset, Done!!!
 mnFirstFrameId = 1935
 mnInitialFrameId = 1933
-1826 Frames set to lost
+1825 Frames set to lost
 not IMU meas
-First KF:253; Map init KF:252
+First KF:261; Map init KF:260
 New Map created with 12 points
 TRACK_REF_KF: Less than 15 matches!!
 Fail to track local map!
@@ -597,9 +567,9 @@ LM: Reset free the mutex
 LM: Active map reset, Done!!!
 mnFirstFrameId = 1938
 mnInitialFrameId = 1936
-1827 Frames set to lost
+1826 Frames set to lost
 not IMU meas
-First KF:254; Map init KF:253
+First KF:262; Map init KF:261
 New Map created with 21 points
 TRACK_REF_KF: Less than 15 matches!!
 Fail to track local map!
@@ -611,9 +581,9 @@ LM: Reset free the mutex
 LM: Active map reset, Done!!!
 mnFirstFrameId = 1941
 mnInitialFrameId = 1939
-1828 Frames set to lost
+1827 Frames set to lost
 not IMU meas
-First KF:255; Map init KF:254
+First KF:263; Map init KF:262
 New Map created with 74 points
 Fail to track local map!
 IMU is not or recently initialized. Reseting active map...
@@ -625,9 +595,9 @@ LM: Reset free the mutex
 LM: Active map reset, Done!!!
 mnFirstFrameId = 1944
 mnInitialFrameId = 1942
-1849 Frames set to lost
+1848 Frames set to lost
 not IMU meas
-First KF:257; Map init KF:255
+First KF:265; Map init KF:263
 New Map created with 8 points
 TRACK_REF_KF: Less than 15 matches!!
 Fail to track local map!
@@ -639,9 +609,9 @@ LM: Reset free the mutex
 LM: Active map reset, Done!!!
 mnFirstFrameId = 1969
 mnInitialFrameId = 1964
-1850 Frames set to lost
+1849 Frames set to lost
 not IMU meas
-First KF:258; Map init KF:257
+First KF:266; Map init KF:265
 New Map created with 24 points
 Fail to track local map!
 IMU is not or recently initialized. Reseting active map...
@@ -653,9 +623,9 @@ LM: Reset free the mutex
 LM: Active map reset, Done!!!
 mnFirstFrameId = 1972
 mnInitialFrameId = 1970
-1852 Frames set to lost
+1851 Frames set to lost
 not IMU meas
-First KF:259; Map init KF:258
+First KF:267; Map init KF:266
 New Map created with 70 points
 Fail to track local map!
 IMU is not or recently initialized. Reseting active map...
@@ -667,9 +637,9 @@ LM: Reset free the mutex
 LM: Active map reset, Done!!!
 mnFirstFrameId = 1975
 mnInitialFrameId = 1973
-1861 Frames set to lost
+1860 Frames set to lost
 not IMU meas
-First KF:260; Map init KF:259
+First KF:268; Map init KF:267
 New Map created with 21 points
 TRACK_REF_KF: Less than 15 matches!!
 Fail to track local map!
@@ -681,9 +651,9 @@ LM: Reset free the mutex
 LM: Active map reset, Done!!!
 mnFirstFrameId = 1985
 mnInitialFrameId = 1983
-1862 Frames set to lost
+1861 Frames set to lost
 not IMU meas
-First KF:261; Map init KF:260
+First KF:269; Map init KF:268
 New Map created with 3 points
 TRACK_REF_KF: Less than 15 matches!!
 Fail to track local map!
@@ -695,9 +665,9 @@ LM: Reset free the mutex
 LM: Active map reset, Done!!!
 mnFirstFrameId = 1988
 mnInitialFrameId = 1986
-1863 Frames set to lost
+1862 Frames set to lost
 not IMU meas
-First KF:262; Map init KF:261
+First KF:270; Map init KF:269
 New Map created with 10 points
 TRACK_REF_KF: Less than 15 matches!!
 Fail to track local map!
@@ -709,9 +679,9 @@ LM: Reset free the mutex
 LM: Active map reset, Done!!!
 mnFirstFrameId = 1991
 mnInitialFrameId = 1989
-1864 Frames set to lost
+1863 Frames set to lost
 not IMU meas
-First KF:263; Map init KF:262
+First KF:271; Map init KF:270
 New Map created with 83 points
 Fail to track local map!
 IMU is not or recently initialized. Reseting active map...
@@ -723,9 +693,9 @@ LM: Reset free the mutex
 LM: Active map reset, Done!!!
 mnFirstFrameId = 1994
 mnInitialFrameId = 1992
-1878 Frames set to lost
+1877 Frames set to lost
 not IMU meas
-First KF:264; Map init KF:263
+First KF:272; Map init KF:271
 New Map created with 25 points
 Fail to track local map!
 IMU is not or recently initialized. Reseting active map...
@@ -737,9 +707,9 @@ LM: Reset free the mutex
 LM: Active map reset, Done!!!
 mnFirstFrameId = 2009
 mnInitialFrameId = 2007
-1880 Frames set to lost
+1879 Frames set to lost
 not IMU meas
-First KF:265; Map init KF:264
+First KF:273; Map init KF:272
 New Map created with 19 points
 Fail to track local map!
 IMU is not or recently initialized. Reseting active map...
@@ -751,9 +721,9 @@ LM: Reset free the mutex
 LM: Active map reset, Done!!!
 mnFirstFrameId = 2012
 mnInitialFrameId = 2010
-1882 Frames set to lost
+1881 Frames set to lost
 not IMU meas
-First KF:266; Map init KF:265
+First KF:274; Map init KF:273
 New Map created with 40 points
 Fail to track local map!
 IMU is not or recently initialized. Reseting active map...
@@ -765,9 +735,9 @@ LM: Reset free the mutex
 LM: Active map reset, Done!!!
 mnFirstFrameId = 2015
 mnInitialFrameId = 2013
-1884 Frames set to lost
+1883 Frames set to lost
 not IMU meas
-First KF:267; Map init KF:266
+First KF:275; Map init KF:274
 New Map created with 131 points
 Fail to track local map!
 IMU is not or recently initialized. Reseting active map...
@@ -779,14 +749,10 @@ LM: Reset free the mutex
 LM: Active map reset, Done!!!
 mnFirstFrameId = 2018
 mnInitialFrameId = 2016
-1896 Frames set to lost
+1895 Frames set to lost
 not IMU meas
-First KF:268; Map init KF:267
+First KF:276; Map init KF:275
 New Map created with 131 points
-Not enough motion for initializing. Reseting...
-LM: Reseting current map in Local Mapping...
-LM: End reseting Local Mapping...
-LM: Reset free the mutex
 Fail to track local map!
 IMU is not or recently initialized. Reseting active map...
 LM: Active map reset recieved
@@ -797,9 +763,23 @@ LM: Reset free the mutex
 LM: Active map reset, Done!!!
 mnFirstFrameId = 2031
 mnInitialFrameId = 2029
-2091 Frames set to lost
+2087 Frames set to lost
 not IMU meas
-First KF:306; Map init KF:268
+First KF:313; Map init KF:276
+New Map created with 18 points
+Fail to track local map!
+IMU is not or recently initialized. Reseting active map...
+LM: Active map reset recieved
+LM: Active map reset, waiting...
+LM: Reseting current map in Local Mapping...
+LM: End reseting Local Mapping...
+LM: Reset free the mutex
+LM: Active map reset, Done!!!
+mnFirstFrameId = 2224
+mnInitialFrameId = 2222
+2089 Frames set to lost
+not IMU meas
+First KF:314; Map init KF:313
 New Map created with 20 points
 Fail to track local map!
 IMU is not or recently initialized. Reseting active map...
@@ -811,9 +791,9 @@ LM: Reset free the mutex
 LM: Active map reset, Done!!!
 mnFirstFrameId = 2227
 mnInitialFrameId = 2225
-2093 Frames set to lost
+2091 Frames set to lost
 not IMU meas
-First KF:307; Map init KF:306
+First KF:315; Map init KF:314
 New Map created with 13 points
 TRACK_REF_KF: Less than 15 matches!!
 Fail to track local map!
@@ -825,9 +805,9 @@ LM: Reset free the mutex
 LM: Active map reset, Done!!!
 mnFirstFrameId = 2230
 mnInitialFrameId = 2228
-2094 Frames set to lost
+2092 Frames set to lost
 not IMU meas
-First KF:308; Map init KF:307
+First KF:316; Map init KF:315
 New Map created with 6 points
 TRACK_REF_KF: Less than 15 matches!!
 Fail to track local map!
@@ -839,9 +819,9 @@ LM: Reset free the mutex
 LM: Active map reset, Done!!!
 mnFirstFrameId = 2233
 mnInitialFrameId = 2231
-2095 Frames set to lost
+2093 Frames set to lost
 not IMU meas
-First KF:309; Map init KF:308
+First KF:317; Map init KF:316
 New Map created with 12 points
 TRACK_REF_KF: Less than 15 matches!!
 Fail to track local map!
@@ -853,9 +833,9 @@ LM: Reset free the mutex
 LM: Active map reset, Done!!!
 mnFirstFrameId = 2236
 mnInitialFrameId = 2234
-2096 Frames set to lost
+2094 Frames set to lost
 not IMU meas
-First KF:310; Map init KF:309
+First KF:318; Map init KF:317
 New Map created with 5 points
 TRACK_REF_KF: Less than 15 matches!!
 Fail to track local map!
@@ -867,9 +847,9 @@ LM: Reset free the mutex
 LM: Active map reset, Done!!!
 mnFirstFrameId = 2239
 mnInitialFrameId = 2237
-2097 Frames set to lost
+2095 Frames set to lost
 not IMU meas
-First KF:311; Map init KF:310
+First KF:319; Map init KF:318
 New Map created with 8 points
 TRACK_REF_KF: Less than 15 matches!!
 Fail to track local map!
@@ -881,9 +861,9 @@ LM: Reset free the mutex
 LM: Active map reset, Done!!!
 mnFirstFrameId = 2242
 mnInitialFrameId = 2240
-2098 Frames set to lost
+2096 Frames set to lost
 not IMU meas
-First KF:312; Map init KF:311
+First KF:320; Map init KF:319
 New Map created with 8 points
 TRACK_REF_KF: Less than 15 matches!!
 Fail to track local map!
@@ -895,9 +875,9 @@ LM: Reset free the mutex
 LM: Active map reset, Done!!!
 mnFirstFrameId = 2245
 mnInitialFrameId = 2243
-2099 Frames set to lost
+2097 Frames set to lost
 not IMU meas
-First KF:313; Map init KF:312
+First KF:321; Map init KF:320
 New Map created with 0 points
 TRACK_REF_KF: Less than 15 matches!!
 Fail to track local map!
@@ -909,9 +889,9 @@ LM: Reset free the mutex
 LM: Active map reset, Done!!!
 mnFirstFrameId = 2248
 mnInitialFrameId = 2246
-2100 Frames set to lost
+2098 Frames set to lost
 not IMU meas
-First KF:314; Map init KF:313
+First KF:322; Map init KF:321
 New Map created with 0 points
 TRACK_REF_KF: Less than 15 matches!!
 Fail to track local map!
@@ -923,9 +903,9 @@ LM: Reset free the mutex
 LM: Active map reset, Done!!!
 mnFirstFrameId = 2251
 mnInitialFrameId = 2249
-2101 Frames set to lost
+2099 Frames set to lost
 not IMU meas
-First KF:315; Map init KF:314
+First KF:323; Map init KF:322
 New Map created with 2 points
 TRACK_REF_KF: Less than 15 matches!!
 Fail to track local map!
@@ -937,9 +917,9 @@ LM: Reset free the mutex
 LM: Active map reset, Done!!!
 mnFirstFrameId = 2254
 mnInitialFrameId = 2252
-2102 Frames set to lost
+2100 Frames set to lost
 not IMU meas
-First KF:316; Map init KF:315
+First KF:324; Map init KF:323
 New Map created with 3 points
 TRACK_REF_KF: Less than 15 matches!!
 Fail to track local map!
@@ -951,9 +931,9 @@ LM: Reset free the mutex
 LM: Active map reset, Done!!!
 mnFirstFrameId = 2257
 mnInitialFrameId = 2255
-2103 Frames set to lost
+2101 Frames set to lost
 not IMU meas
-First KF:317; Map init KF:316
+First KF:325; Map init KF:324
 New Map created with 1 points
 TRACK_REF_KF: Less than 15 matches!!
 Fail to track local map!
@@ -965,9 +945,9 @@ LM: Reset free the mutex
 LM: Active map reset, Done!!!
 mnFirstFrameId = 2260
 mnInitialFrameId = 2258
-2104 Frames set to lost
+2102 Frames set to lost
 not IMU meas
-First KF:318; Map init KF:317
+First KF:326; Map init KF:325
 New Map created with 3 points
 TRACK_REF_KF: Less than 15 matches!!
 Fail to track local map!
@@ -979,9 +959,9 @@ LM: Reset free the mutex
 LM: Active map reset, Done!!!
 mnFirstFrameId = 2263
 mnInitialFrameId = 2261
-2105 Frames set to lost
+2103 Frames set to lost
 not IMU meas
-First KF:319; Map init KF:318
+First KF:327; Map init KF:326
 New Map created with 0 points
 TRACK_REF_KF: Less than 15 matches!!
 Fail to track local map!
@@ -993,9 +973,9 @@ LM: Reset free the mutex
 LM: Active map reset, Done!!!
 mnFirstFrameId = 2266
 mnInitialFrameId = 2264
-2106 Frames set to lost
+2104 Frames set to lost
 not IMU meas
-First KF:320; Map init KF:319
+First KF:328; Map init KF:327
 New Map created with 0 points
 TRACK_REF_KF: Less than 15 matches!!
 Fail to track local map!
@@ -1007,9 +987,9 @@ LM: Reset free the mutex
 LM: Active map reset, Done!!!
 mnFirstFrameId = 2269
 mnInitialFrameId = 2267
-2107 Frames set to lost
+2105 Frames set to lost
 not IMU meas
-First KF:321; Map init KF:320
+First KF:329; Map init KF:328
 New Map created with 3 points
 TRACK_REF_KF: Less than 15 matches!!
 Fail to track local map!
@@ -1021,9 +1001,9 @@ LM: Reset free the mutex
 LM: Active map reset, Done!!!
 mnFirstFrameId = 2272
 mnInitialFrameId = 2270
-2108 Frames set to lost
+2106 Frames set to lost
 not IMU meas
-First KF:322; Map init KF:321
+First KF:330; Map init KF:329
 New Map created with 1 points
 TRACK_REF_KF: Less than 15 matches!!
 Fail to track local map!
@@ -1035,9 +1015,9 @@ LM: Reset free the mutex
 LM: Active map reset, Done!!!
 mnFirstFrameId = 2275
 mnInitialFrameId = 2273
-2109 Frames set to lost
+2107 Frames set to lost
 not IMU meas
-First KF:323; Map init KF:322
+First KF:331; Map init KF:330
 New Map created with 0 points
 TRACK_REF_KF: Less than 15 matches!!
 Fail to track local map!
@@ -1049,9 +1029,9 @@ LM: Reset free the mutex
 LM: Active map reset, Done!!!
 mnFirstFrameId = 2278
 mnInitialFrameId = 2276
-2110 Frames set to lost
+2108 Frames set to lost
 not IMU meas
-First KF:324; Map init KF:323
+First KF:332; Map init KF:331
 New Map created with 0 points
 TRACK_REF_KF: Less than 15 matches!!
 Fail to track local map!
@@ -1063,9 +1043,9 @@ LM: Reset free the mutex
 LM: Active map reset, Done!!!
 mnFirstFrameId = 2281
 mnInitialFrameId = 2279
-2111 Frames set to lost
+2109 Frames set to lost
 not IMU meas
-First KF:325; Map init KF:324
+First KF:333; Map init KF:332
 New Map created with 23 points
 Fail to track local map!
 IMU is not or recently initialized. Reseting active map...
@@ -1077,9 +1057,9 @@ LM: Reset free the mutex
 LM: Active map reset, Done!!!
 mnFirstFrameId = 2284
 mnInitialFrameId = 2282
-2113 Frames set to lost
+2111 Frames set to lost
 not IMU meas
-First KF:326; Map init KF:325
+First KF:334; Map init KF:333
 New Map created with 43 points
 Fail to track local map!
 IMU is not or recently initialized. Reseting active map...
@@ -1091,9 +1071,9 @@ LM: Reset free the mutex
 LM: Active map reset, Done!!!
 mnFirstFrameId = 2287
 mnInitialFrameId = 2285
-2115 Frames set to lost
+2113 Frames set to lost
 not IMU meas
-First KF:327; Map init KF:326
+First KF:335; Map init KF:334
 New Map created with 94 points
 Fail to track local map!
 IMU is not or recently initialized. Reseting active map...
@@ -1105,9 +1085,9 @@ LM: Reset free the mutex
 LM: Active map reset, Done!!!
 mnFirstFrameId = 2290
 mnInitialFrameId = 2288
-2182 Frames set to lost
+2180 Frames set to lost
 not IMU meas
-First KF:332; Map init KF:327
+First KF:340; Map init KF:335
 New Map created with 0 points
 TRACK_REF_KF: Less than 15 matches!!
 Fail to track local map!
@@ -1119,9 +1099,9 @@ LM: Reset free the mutex
 LM: Active map reset, Done!!!
 mnFirstFrameId = 2358
 mnInitialFrameId = 2356
-2183 Frames set to lost
+2181 Frames set to lost
 not IMU meas
-First KF:333; Map init KF:332
+First KF:341; Map init KF:340
 New Map created with 7 points
 TRACK_REF_KF: Less than 15 matches!!
 Fail to track local map!
@@ -1133,9 +1113,9 @@ LM: Reset free the mutex
 LM: Active map reset, Done!!!
 mnFirstFrameId = 2361
 mnInitialFrameId = 2359
-2184 Frames set to lost
+2182 Frames set to lost
 not IMU meas
-First KF:334; Map init KF:333
+First KF:342; Map init KF:341
 New Map created with 4 points
 TRACK_REF_KF: Less than 15 matches!!
 Fail to track local map!
@@ -1147,9 +1127,9 @@ LM: Reset free the mutex
 LM: Active map reset, Done!!!
 mnFirstFrameId = 2364
 mnInitialFrameId = 2362
-2185 Frames set to lost
+2183 Frames set to lost
 not IMU meas
-First KF:335; Map init KF:334
+First KF:343; Map init KF:342
 New Map created with 7 points
 TRACK_REF_KF: Less than 15 matches!!
 Fail to track local map!
@@ -1161,9 +1141,9 @@ LM: Reset free the mutex
 LM: Active map reset, Done!!!
 mnFirstFrameId = 2367
 mnInitialFrameId = 2365
-2186 Frames set to lost
+2184 Frames set to lost
 not IMU meas
-First KF:336; Map init KF:335
+First KF:344; Map init KF:343
 New Map created with 0 points
 TRACK_REF_KF: Less than 15 matches!!
 Fail to track local map!
@@ -1175,9 +1155,9 @@ LM: Reset free the mutex
 LM: Active map reset, Done!!!
 mnFirstFrameId = 2370
 mnInitialFrameId = 2368
-2187 Frames set to lost
+2185 Frames set to lost
 not IMU meas
-First KF:337; Map init KF:336
+First KF:345; Map init KF:344
 New Map created with 0 points
 TRACK_REF_KF: Less than 15 matches!!
 Fail to track local map!
@@ -1189,9 +1169,9 @@ LM: Reset free the mutex
 LM: Active map reset, Done!!!
 mnFirstFrameId = 2373
 mnInitialFrameId = 2371
-2188 Frames set to lost
+2186 Frames set to lost
 not IMU meas
-First KF:338; Map init KF:337
+First KF:346; Map init KF:345
 New Map created with 0 points
 TRACK_REF_KF: Less than 15 matches!!
 Fail to track local map!
@@ -1203,9 +1183,9 @@ LM: Reset free the mutex
 LM: Active map reset, Done!!!
 mnFirstFrameId = 2376
 mnInitialFrameId = 2374
-2189 Frames set to lost
+2187 Frames set to lost
 not IMU meas
-First KF:339; Map init KF:338
+First KF:347; Map init KF:346
 New Map created with 2 points
 TRACK_REF_KF: Less than 15 matches!!
 Fail to track local map!
@@ -1217,77 +1197,7 @@ LM: Reset free the mutex
 LM: Active map reset, Done!!!
 mnFirstFrameId = 2379
 mnInitialFrameId = 2377
-2190 Frames set to lost
-not IMU meas
-First KF:340; Map init KF:339
-New Map created with 1 points
-TRACK_REF_KF: Less than 15 matches!!
-Fail to track local map!
-LM: Active map reset recieved
-LM: Active map reset, waiting...
-LM: Reseting current map in Local Mapping...
-LM: End reseting Local Mapping...
-LM: Reset free the mutex
-LM: Active map reset, Done!!!
-mnFirstFrameId = 2382
-mnInitialFrameId = 2380
-2191 Frames set to lost
-not IMU meas
-First KF:341; Map init KF:340
-New Map created with 8 points
-TRACK_REF_KF: Less than 15 matches!!
-Fail to track local map!
-LM: Active map reset recieved
-LM: Active map reset, waiting...
-LM: Reseting current map in Local Mapping...
-LM: End reseting Local Mapping...
-LM: Reset free the mutex
-LM: Active map reset, Done!!!
-mnFirstFrameId = 2385
-mnInitialFrameId = 2383
-2192 Frames set to lost
-not IMU meas
-First KF:342; Map init KF:341
-New Map created with 65 points
-Fail to track local map!
-IMU is not or recently initialized. Reseting active map...
-LM: Active map reset recieved
-LM: Active map reset, waiting...
-LM: Reseting current map in Local Mapping...
-LM: End reseting Local Mapping...
-LM: Reset free the mutex
-LM: Active map reset, Done!!!
-mnFirstFrameId = 2388
-mnInitialFrameId = 2386
-2200 Frames set to lost
-not IMU meas
-First KF:343; Map init KF:342
-New Map created with 79 points
-Fail to track local map!
-IMU is not or recently initialized. Reseting active map...
-LM: Active map reset recieved
-LM: Active map reset, waiting...
-LM: Reseting current map in Local Mapping...
-LM: End reseting Local Mapping...
-LM: Reset free the mutex
-LM: Active map reset, Done!!!
-mnFirstFrameId = 2397
-mnInitialFrameId = 2395
-2254 Frames set to lost
-not IMU meas
-First KF:347; Map init KF:343
-New Map created with 8 points
-TRACK_REF_KF: Less than 15 matches!!
-Fail to track local map!
-LM: Active map reset recieved
-LM: Active map reset, waiting...
-LM: Reseting current map in Local Mapping...
-LM: End reseting Local Mapping...
-LM: Reset free the mutex
-LM: Active map reset, Done!!!
-mnFirstFrameId = 2452
-mnInitialFrameId = 2450
-2255 Frames set to lost
+2188 Frames set to lost
 not IMU meas
 First KF:348; Map init KF:347
 New Map created with 1 points
@@ -1299,11 +1209,81 @@ LM: Reseting current map in Local Mapping...
 LM: End reseting Local Mapping...
 LM: Reset free the mutex
 LM: Active map reset, Done!!!
-mnFirstFrameId = 2455
-mnInitialFrameId = 2453
-2256 Frames set to lost
+mnFirstFrameId = 2382
+mnInitialFrameId = 2380
+2189 Frames set to lost
 not IMU meas
 First KF:349; Map init KF:348
+New Map created with 8 points
+TRACK_REF_KF: Less than 15 matches!!
+Fail to track local map!
+LM: Active map reset recieved
+LM: Active map reset, waiting...
+LM: Reseting current map in Local Mapping...
+LM: End reseting Local Mapping...
+LM: Reset free the mutex
+LM: Active map reset, Done!!!
+mnFirstFrameId = 2385
+mnInitialFrameId = 2383
+2190 Frames set to lost
+not IMU meas
+First KF:350; Map init KF:349
+New Map created with 65 points
+Fail to track local map!
+IMU is not or recently initialized. Reseting active map...
+LM: Active map reset recieved
+LM: Active map reset, waiting...
+LM: Reseting current map in Local Mapping...
+LM: End reseting Local Mapping...
+LM: Reset free the mutex
+LM: Active map reset, Done!!!
+mnFirstFrameId = 2388
+mnInitialFrameId = 2386
+2198 Frames set to lost
+not IMU meas
+First KF:351; Map init KF:350
+New Map created with 79 points
+Fail to track local map!
+IMU is not or recently initialized. Reseting active map...
+LM: Active map reset recieved
+LM: Active map reset, waiting...
+LM: Reseting current map in Local Mapping...
+LM: End reseting Local Mapping...
+LM: Reset free the mutex
+LM: Active map reset, Done!!!
+mnFirstFrameId = 2397
+mnInitialFrameId = 2395
+2252 Frames set to lost
+not IMU meas
+First KF:355; Map init KF:351
+New Map created with 8 points
+TRACK_REF_KF: Less than 15 matches!!
+Fail to track local map!
+LM: Active map reset recieved
+LM: Active map reset, waiting...
+LM: Reseting current map in Local Mapping...
+LM: End reseting Local Mapping...
+LM: Reset free the mutex
+LM: Active map reset, Done!!!
+mnFirstFrameId = 2452
+mnInitialFrameId = 2450
+2253 Frames set to lost
+not IMU meas
+First KF:356; Map init KF:355
+New Map created with 1 points
+TRACK_REF_KF: Less than 15 matches!!
+Fail to track local map!
+LM: Active map reset recieved
+LM: Active map reset, waiting...
+LM: Reseting current map in Local Mapping...
+LM: End reseting Local Mapping...
+LM: Reset free the mutex
+LM: Active map reset, Done!!!
+mnFirstFrameId = 2455
+mnInitialFrameId = 2453
+2254 Frames set to lost
+not IMU meas
+First KF:357; Map init KF:356
 New Map created with 3 points
 TRACK_REF_KF: Less than 15 matches!!
 Fail to track local map!
@@ -1315,9 +1295,9 @@ LM: Reset free the mutex
 LM: Active map reset, Done!!!
 mnFirstFrameId = 2458
 mnInitialFrameId = 2456
-2257 Frames set to lost
+2255 Frames set to lost
 not IMU meas
-First KF:350; Map init KF:349
+First KF:358; Map init KF:357
 New Map created with 7 points
 TRACK_REF_KF: Less than 15 matches!!
 Fail to track local map!
@@ -1329,9 +1309,9 @@ LM: Reset free the mutex
 LM: Active map reset, Done!!!
 mnFirstFrameId = 2461
 mnInitialFrameId = 2459
-2258 Frames set to lost
+2256 Frames set to lost
 not IMU meas
-First KF:351; Map init KF:350
+First KF:359; Map init KF:358
 New Map created with 14 points
 Fail to track local map!
 IMU is not or recently initialized. Reseting active map...
@@ -1343,9 +1323,9 @@ LM: Reset free the mutex
 LM: Active map reset, Done!!!
 mnFirstFrameId = 2464
 mnInitialFrameId = 2462
-2260 Frames set to lost
+2258 Frames set to lost
 not IMU meas
-First KF:352; Map init KF:351
+First KF:360; Map init KF:359
 New Map created with 21 points
 Fail to track local map!
 IMU is not or recently initialized. Reseting active map...
@@ -1357,9 +1337,9 @@ LM: Reset free the mutex
 LM: Active map reset, Done!!!
 mnFirstFrameId = 2467
 mnInitialFrameId = 2465
-2262 Frames set to lost
+2260 Frames set to lost
 not IMU meas
-First KF:353; Map init KF:352
+First KF:361; Map init KF:360
 New Map created with 8 points
 TRACK_REF_KF: Less than 15 matches!!
 Fail to track local map!
@@ -1371,9 +1351,9 @@ LM: Reset free the mutex
 LM: Active map reset, Done!!!
 mnFirstFrameId = 2470
 mnInitialFrameId = 2468
-2263 Frames set to lost
+2261 Frames set to lost
 not IMU meas
-First KF:354; Map init KF:353
+First KF:362; Map init KF:361
 New Map created with 3 points
 TRACK_REF_KF: Less than 15 matches!!
 Fail to track local map!
@@ -1385,9 +1365,9 @@ LM: Reset free the mutex
 LM: Active map reset, Done!!!
 mnFirstFrameId = 2473
 mnInitialFrameId = 2471
-2264 Frames set to lost
+2262 Frames set to lost
 not IMU meas
-First KF:355; Map init KF:354
+First KF:363; Map init KF:362
 New Map created with 0 points
 TRACK_REF_KF: Less than 15 matches!!
 Fail to track local map!
@@ -1399,9 +1379,9 @@ LM: Reset free the mutex
 LM: Active map reset, Done!!!
 mnFirstFrameId = 2476
 mnInitialFrameId = 2474
-2265 Frames set to lost
+2263 Frames set to lost
 not IMU meas
-First KF:356; Map init KF:355
+First KF:364; Map init KF:363
 New Map created with 4 points
 TRACK_REF_KF: Less than 15 matches!!
 Fail to track local map!
@@ -1413,9 +1393,9 @@ LM: Reset free the mutex
 LM: Active map reset, Done!!!
 mnFirstFrameId = 2479
 mnInitialFrameId = 2477
-2266 Frames set to lost
+2264 Frames set to lost
 not IMU meas
-First KF:357; Map init KF:356
+First KF:365; Map init KF:364
 New Map created with 5 points
 TRACK_REF_KF: Less than 15 matches!!
 Fail to track local map!
@@ -1427,9 +1407,9 @@ LM: Reset free the mutex
 LM: Active map reset, Done!!!
 mnFirstFrameId = 2482
 mnInitialFrameId = 2480
-2267 Frames set to lost
+2265 Frames set to lost
 not IMU meas
-First KF:358; Map init KF:357
+First KF:366; Map init KF:365
 New Map created with 91 points
 Fail to track local map!
 IMU is not or recently initialized. Reseting active map...
@@ -1441,10 +1421,10 @@ LM: Reset free the mutex
 LM: Active map reset, Done!!!
 mnFirstFrameId = 2485
 mnInitialFrameId = 2483
-2450 Frames set to lost
+2437 Frames set to lost
 not IMU meas
-First KF:381; Map init KF:358
-New Map created with 130 points
+First KF:386; Map init KF:366
+New Map created with 152 points
 Fail to track local map!
 IMU is not or recently initialized. Reseting active map...
 LM: Active map reset recieved
@@ -1453,12 +1433,12 @@ LM: Reseting current map in Local Mapping...
 LM: End reseting Local Mapping...
 LM: Reset free the mutex
 LM: Active map reset, Done!!!
-mnFirstFrameId = 2669
-mnInitialFrameId = 2667
-2479 Frames set to lost
+mnFirstFrameId = 2658
+mnInitialFrameId = 2656
+2446 Frames set to lost
 not IMU meas
-First KF:384; Map init KF:381
-New Map created with 136 points
+First KF:387; Map init KF:386
+New Map created with 119 points
 Fail to track local map!
 IMU is not or recently initialized. Reseting active map...
 LM: Active map reset recieved
@@ -1467,26 +1447,12 @@ LM: Reseting current map in Local Mapping...
 LM: End reseting Local Mapping...
 LM: Reset free the mutex
 LM: Active map reset, Done!!!
-mnFirstFrameId = 2699
-mnInitialFrameId = 2697
-2673 Frames set to lost
+mnFirstFrameId = 2668
+mnInitialFrameId = 2666
+2484 Frames set to lost
 not IMU meas
-First KF:411; Map init KF:384
-New Map created with 97 points
-Not enough motion for initializing. Reseting...
-TRACK: Reset map because local mapper set the bad imu flag 
-LM: Active map reset recieved
-LM: Active map reset, waiting...
-LM: Reseting current map in Local Mapping...
-LM: End reseting Local Mapping...
-LM: Reset free the mutex
-LM: Active map reset, Done!!!
-mnFirstFrameId = 2894
-mnInitialFrameId = 2892
-2920 Frames set to lost
-not IMU meas
-First KF:458; Map init KF:411
-New Map created with 127 points
+First KF:390; Map init KF:387
+New Map created with 196 points
 Fail to track local map!
 IMU is not or recently initialized. Reseting active map...
 LM: Active map reset recieved
@@ -1495,11 +1461,25 @@ LM: Reseting current map in Local Mapping...
 LM: End reseting Local Mapping...
 LM: Reset free the mutex
 LM: Active map reset, Done!!!
-mnFirstFrameId = 3143
-mnInitialFrameId = 3141
-2929 Frames set to lost
+mnFirstFrameId = 2707
+mnInitialFrameId = 2705
+2672 Frames set to lost
 not IMU meas
-First KF:459; Map init KF:458
+First KF:416; Map init KF:390
+New Map created with 89 points
+Fail to track local map!
+IMU is not or recently initialized. Reseting active map...
+LM: Active map reset recieved
+LM: Active map reset, waiting...
+LM: Reseting current map in Local Mapping...
+LM: End reseting Local Mapping...
+LM: Reset free the mutex
+LM: Active map reset, Done!!!
+mnFirstFrameId = 2896
+mnInitialFrameId = 2894
+2928 Frames set to lost
+not IMU meas
+First KF:455; Map init KF:416
 New Map created with 5 points
 TRACK_REF_KF: Less than 15 matches!!
 Fail to track local map!
@@ -1511,9 +1491,9 @@ LM: Reset free the mutex
 LM: Active map reset, Done!!!
 mnFirstFrameId = 3153
 mnInitialFrameId = 3151
-2930 Frames set to lost
+2929 Frames set to lost
 not IMU meas
-First KF:460; Map init KF:459
+First KF:456; Map init KF:455
 New Map created with 24 points
 Fail to track local map!
 IMU is not or recently initialized. Reseting active map...
@@ -1525,9 +1505,9 @@ LM: Reset free the mutex
 LM: Active map reset, Done!!!
 mnFirstFrameId = 3156
 mnInitialFrameId = 3154
-2932 Frames set to lost
+2931 Frames set to lost
 not IMU meas
-First KF:461; Map init KF:460
+First KF:457; Map init KF:456
 New Map created with 48 points
 Fail to track local map!
 IMU is not or recently initialized. Reseting active map...
@@ -1539,9 +1519,9 @@ LM: Reset free the mutex
 LM: Active map reset, Done!!!
 mnFirstFrameId = 3159
 mnInitialFrameId = 3157
-2941 Frames set to lost
+2940 Frames set to lost
 not IMU meas
-First KF:462; Map init KF:461
+First KF:458; Map init KF:457
 New Map created with 68 points
 Fail to track local map!
 IMU is not or recently initialized. Reseting active map...
@@ -1553,9 +1533,9 @@ LM: Reset free the mutex
 LM: Active map reset, Done!!!
 mnFirstFrameId = 3169
 mnInitialFrameId = 3167
-2956 Frames set to lost
+2955 Frames set to lost
 not IMU meas
-First KF:464; Map init KF:462
+First KF:460; Map init KF:458
 New Map created with 16 points
 TRACK_REF_KF: Less than 15 matches!!
 Fail to track local map!
@@ -1567,9 +1547,9 @@ LM: Reset free the mutex
 LM: Active map reset, Done!!!
 mnFirstFrameId = 3185
 mnInitialFrameId = 3183
-2957 Frames set to lost
+2956 Frames set to lost
 not IMU meas
-First KF:465; Map init KF:464
+First KF:461; Map init KF:460
 New Map created with 149 points
 Fail to track local map!
 IMU is not or recently initialized. Reseting active map...
@@ -1581,9 +1561,9 @@ LM: Reset free the mutex
 LM: Active map reset, Done!!!
 mnFirstFrameId = 3188
 mnInitialFrameId = 3186
-2968 Frames set to lost
+2967 Frames set to lost
 not IMU meas
-First KF:466; Map init KF:465
+First KF:462; Map init KF:461
 New Map created with 29 points
 Fail to track local map!
 IMU is not or recently initialized. Reseting active map...
@@ -1595,9 +1575,9 @@ LM: Reset free the mutex
 LM: Active map reset, Done!!!
 mnFirstFrameId = 3200
 mnInitialFrameId = 3198
-2970 Frames set to lost
+2969 Frames set to lost
 not IMU meas
-First KF:467; Map init KF:466
+First KF:463; Map init KF:462
 New Map created with 63 points
 Fail to track local map!
 IMU is not or recently initialized. Reseting active map...
@@ -1609,9 +1589,9 @@ LM: Reset free the mutex
 LM: Active map reset, Done!!!
 mnFirstFrameId = 3203
 mnInitialFrameId = 3201
-2979 Frames set to lost
+2978 Frames set to lost
 not IMU meas
-First KF:468; Map init KF:467
+First KF:464; Map init KF:463
 New Map created with 24 points
 Fail to track local map!
 IMU is not or recently initialized. Reseting active map...
@@ -1623,9 +1603,9 @@ LM: Reset free the mutex
 LM: Active map reset, Done!!!
 mnFirstFrameId = 3213
 mnInitialFrameId = 3211
-2981 Frames set to lost
+2980 Frames set to lost
 not IMU meas
-First KF:469; Map init KF:468
+First KF:465; Map init KF:464
 New Map created with 36 points
 Fail to track local map!
 IMU is not or recently initialized. Reseting active map...
@@ -1637,9 +1617,9 @@ LM: Reset free the mutex
 LM: Active map reset, Done!!!
 mnFirstFrameId = 3216
 mnInitialFrameId = 3214
-2983 Frames set to lost
+2982 Frames set to lost
 not IMU meas
-First KF:470; Map init KF:469
+First KF:466; Map init KF:465
 New Map created with 14 points
 Fail to track local map!
 IMU is not or recently initialized. Reseting active map...
@@ -1651,9 +1631,9 @@ LM: Reset free the mutex
 LM: Active map reset, Done!!!
 mnFirstFrameId = 3219
 mnInitialFrameId = 3217
-2985 Frames set to lost
+2984 Frames set to lost
 not IMU meas
-First KF:471; Map init KF:470
+First KF:467; Map init KF:466
 New Map created with 0 points
 TRACK_REF_KF: Less than 15 matches!!
 Fail to track local map!
@@ -1665,9 +1645,9 @@ LM: Reset free the mutex
 LM: Active map reset, Done!!!
 mnFirstFrameId = 3222
 mnInitialFrameId = 3220
-2986 Frames set to lost
+2985 Frames set to lost
 not IMU meas
-First KF:472; Map init KF:471
+First KF:468; Map init KF:467
 New Map created with 2 points
 TRACK_REF_KF: Less than 15 matches!!
 Fail to track local map!
@@ -1679,9 +1659,9 @@ LM: Reset free the mutex
 LM: Active map reset, Done!!!
 mnFirstFrameId = 3225
 mnInitialFrameId = 3223
-2987 Frames set to lost
+2986 Frames set to lost
 not IMU meas
-First KF:473; Map init KF:472
+First KF:469; Map init KF:468
 New Map created with 1 points
 TRACK_REF_KF: Less than 15 matches!!
 Fail to track local map!
@@ -1693,9 +1673,9 @@ LM: Reset free the mutex
 LM: Active map reset, Done!!!
 mnFirstFrameId = 3228
 mnInitialFrameId = 3226
-2988 Frames set to lost
+2987 Frames set to lost
 not IMU meas
-First KF:474; Map init KF:473
+First KF:470; Map init KF:469
 New Map created with 16 points
 TRACK_REF_KF: Less than 15 matches!!
 Fail to track local map!
@@ -1707,9 +1687,9 @@ LM: Reset free the mutex
 LM: Active map reset, Done!!!
 mnFirstFrameId = 3231
 mnInitialFrameId = 3229
-2989 Frames set to lost
+2988 Frames set to lost
 not IMU meas
-First KF:475; Map init KF:474
+First KF:471; Map init KF:470
 New Map created with 65 points
 Fail to track local map!
 IMU is not or recently initialized. Reseting active map...
@@ -1721,9 +1701,9 @@ LM: Reset free the mutex
 LM: Active map reset, Done!!!
 mnFirstFrameId = 3234
 mnInitialFrameId = 3232
-3002 Frames set to lost
+3001 Frames set to lost
 not IMU meas
-First KF:476; Map init KF:475
+First KF:472; Map init KF:471
 New Map created with 146 points
 Fail to track local map!
 IMU is not or recently initialized. Reseting active map...
@@ -1735,9 +1715,9 @@ LM: Reset free the mutex
 LM: Active map reset, Done!!!
 mnFirstFrameId = 3248
 mnInitialFrameId = 3246
-3023 Frames set to lost
+3022 Frames set to lost
 not IMU meas
-First KF:478; Map init KF:476
+First KF:474; Map init KF:472
 New Map created with 12 points
 Fail to track local map!
 IMU is not or recently initialized. Reseting active map...
@@ -1749,9 +1729,9 @@ LM: Reset free the mutex
 LM: Active map reset, Done!!!
 mnFirstFrameId = 3270
 mnInitialFrameId = 3268
-3025 Frames set to lost
+3024 Frames set to lost
 not IMU meas
-First KF:479; Map init KF:478
+First KF:475; Map init KF:474
 New Map created with 54 points
 Fail to track local map!
 IMU is not or recently initialized. Reseting active map...
@@ -1763,9 +1743,9 @@ LM: Reset free the mutex
 LM: Active map reset, Done!!!
 mnFirstFrameId = 3273
 mnInitialFrameId = 3271
-3035 Frames set to lost
+3034 Frames set to lost
 not IMU meas
-First KF:480; Map init KF:479
+First KF:476; Map init KF:475
 New Map created with 1 points
 TRACK_REF_KF: Less than 15 matches!!
 Fail to track local map!
@@ -1777,9 +1757,9 @@ LM: Reset free the mutex
 LM: Active map reset, Done!!!
 mnFirstFrameId = 3284
 mnInitialFrameId = 3282
-3036 Frames set to lost
+3035 Frames set to lost
 not IMU meas
-First KF:481; Map init KF:480
+First KF:477; Map init KF:476
 New Map created with 3 points
 TRACK_REF_KF: Less than 15 matches!!
 Fail to track local map!
@@ -1791,9 +1771,9 @@ LM: Reset free the mutex
 LM: Active map reset, Done!!!
 mnFirstFrameId = 3287
 mnInitialFrameId = 3285
-3037 Frames set to lost
+3036 Frames set to lost
 not IMU meas
-First KF:482; Map init KF:481
+First KF:478; Map init KF:477
 New Map created with 3 points
 TRACK_REF_KF: Less than 15 matches!!
 Fail to track local map!
@@ -1805,9 +1785,9 @@ LM: Reset free the mutex
 LM: Active map reset, Done!!!
 mnFirstFrameId = 3290
 mnInitialFrameId = 3288
-3038 Frames set to lost
+3037 Frames set to lost
 not IMU meas
-First KF:483; Map init KF:482
+First KF:479; Map init KF:478
 New Map created with 7 points
 TRACK_REF_KF: Less than 15 matches!!
 Fail to track local map!
@@ -1819,9 +1799,9 @@ LM: Reset free the mutex
 LM: Active map reset, Done!!!
 mnFirstFrameId = 3293
 mnInitialFrameId = 3291
-3039 Frames set to lost
+3038 Frames set to lost
 not IMU meas
-First KF:484; Map init KF:483
+First KF:480; Map init KF:479
 New Map created with 12 points
 Fail to track local map!
 IMU is not or recently initialized. Reseting active map...
@@ -1833,9 +1813,9 @@ LM: Reset free the mutex
 LM: Active map reset, Done!!!
 mnFirstFrameId = 3296
 mnInitialFrameId = 3294
-3041 Frames set to lost
+3040 Frames set to lost
 not IMU meas
-First KF:485; Map init KF:484
+First KF:481; Map init KF:480
 New Map created with 10 points
 Fail to track local map!
 IMU is not or recently initialized. Reseting active map...
@@ -1847,9 +1827,9 @@ LM: Reset free the mutex
 LM: Active map reset, Done!!!
 mnFirstFrameId = 3299
 mnInitialFrameId = 3297
-3043 Frames set to lost
+3042 Frames set to lost
 not IMU meas
-First KF:486; Map init KF:485
+First KF:482; Map init KF:481
 New Map created with 21 points
 Fail to track local map!
 IMU is not or recently initialized. Reseting active map...
@@ -1861,9 +1841,9 @@ LM: Reset free the mutex
 LM: Active map reset, Done!!!
 mnFirstFrameId = 3302
 mnInitialFrameId = 3300
-3045 Frames set to lost
+3044 Frames set to lost
 not IMU meas
-First KF:487; Map init KF:486
+First KF:483; Map init KF:482
 New Map created with 62 points
 Fail to track local map!
 IMU is not or recently initialized. Reseting active map...
@@ -1875,9 +1855,9 @@ LM: Reset free the mutex
 LM: Active map reset, Done!!!
 mnFirstFrameId = 3305
 mnInitialFrameId = 3303
-3087 Frames set to lost
+3086 Frames set to lost
 not IMU meas
-First KF:490; Map init KF:487
+First KF:486; Map init KF:483
 New Map created with 7 points
 TRACK_REF_KF: Less than 15 matches!!
 Fail to track local map!
@@ -1889,9 +1869,9 @@ LM: Reset free the mutex
 LM: Active map reset, Done!!!
 mnFirstFrameId = 3348
 mnInitialFrameId = 3346
-3088 Frames set to lost
+3087 Frames set to lost
 not IMU meas
-First KF:491; Map init KF:490
+First KF:487; Map init KF:486
 New Map created with 8 points
 TRACK_REF_KF: Less than 15 matches!!
 Fail to track local map!
@@ -1903,9 +1883,9 @@ LM: Reset free the mutex
 LM: Active map reset, Done!!!
 mnFirstFrameId = 3351
 mnInitialFrameId = 3349
-3089 Frames set to lost
+3088 Frames set to lost
 not IMU meas
-First KF:492; Map init KF:491
+First KF:488; Map init KF:487
 New Map created with 3 points
 TRACK_REF_KF: Less than 15 matches!!
 Fail to track local map!
@@ -1917,9 +1897,9 @@ LM: Reset free the mutex
 LM: Active map reset, Done!!!
 mnFirstFrameId = 3354
 mnInitialFrameId = 3352
-3090 Frames set to lost
+3089 Frames set to lost
 not IMU meas
-First KF:493; Map init KF:492
+First KF:489; Map init KF:488
 New Map created with 18 points
 Fail to track local map!
 IMU is not or recently initialized. Reseting active map...
@@ -1931,9 +1911,9 @@ LM: Reset free the mutex
 LM: Active map reset, Done!!!
 mnFirstFrameId = 3357
 mnInitialFrameId = 3355
-3092 Frames set to lost
+3091 Frames set to lost
 not IMU meas
-First KF:494; Map init KF:493
+First KF:490; Map init KF:489
 New Map created with 38 points
 Fail to track local map!
 IMU is not or recently initialized. Reseting active map...
@@ -1945,9 +1925,9 @@ LM: Reset free the mutex
 LM: Active map reset, Done!!!
 mnFirstFrameId = 3360
 mnInitialFrameId = 3358
-3096 Frames set to lost
+3095 Frames set to lost
 not IMU meas
-First KF:495; Map init KF:494
+First KF:491; Map init KF:490
 New Map created with 15 points
 TRACK_REF_KF: Less than 15 matches!!
 Fail to track local map!
@@ -1959,12 +1939,16 @@ LM: Reset free the mutex
 LM: Active map reset, Done!!!
 mnFirstFrameId = 3365
 mnInitialFrameId = 3363
-3097 Frames set to lost
+3096 Frames set to lost
 not IMU meas
-First KF:496; Map init KF:495
+First KF:492; Map init KF:491
 New Map created with 61 points
-Fail to track local map!
-IMU is not or recently initialized. Reseting active map...
+Not enough motion for initializing. Reseting...
+LM: Reseting current map in Local Mapping...
+LM: End reseting Local Mapping...
+LM: Reset free the mutex
+Not enough motion for initializing. Reseting...
+TRACK: Reset map because local mapper set the bad imu flag 
 LM: Active map reset recieved
 LM: Active map reset, waiting...
 LM: Reseting current map in Local Mapping...
@@ -1973,10 +1957,10 @@ LM: Reset free the mutex
 LM: Active map reset, Done!!!
 mnFirstFrameId = 3368
 mnInitialFrameId = 3366
-3272 Frames set to lost
+3351 Frames set to lost
 not IMU meas
-First KF:524; Map init KF:496
-New Map created with 19 points
+First KF:552; Map init KF:492
+New Map created with 39 points
 Fail to track local map!
 IMU is not or recently initialized. Reseting active map...
 LM: Active map reset recieved
@@ -1985,235 +1969,11 @@ LM: Reseting current map in Local Mapping...
 LM: End reseting Local Mapping...
 LM: Reset free the mutex
 LM: Active map reset, Done!!!
-mnFirstFrameId = 3544
-mnInitialFrameId = 3542
-3274 Frames set to lost
+mnFirstFrameId = 3625
+mnInitialFrameId = 3623
+3568 Frames set to lost
 not IMU meas
-First KF:525; Map init KF:524
-New Map created with 19 points
-Fail to track local map!
-IMU is not or recently initialized. Reseting active map...
-LM: Active map reset recieved
-LM: Active map reset, waiting...
-LM: Reseting current map in Local Mapping...
-LM: End reseting Local Mapping...
-LM: Reset free the mutex
-LM: Active map reset, Done!!!
-mnFirstFrameId = 3547
-mnInitialFrameId = 3545
-3276 Frames set to lost
-not IMU meas
-First KF:526; Map init KF:525
-New Map created with 19 points
-Fail to track local map!
-IMU is not or recently initialized. Reseting active map...
-LM: Active map reset recieved
-LM: Active map reset, waiting...
-LM: Reseting current map in Local Mapping...
-LM: End reseting Local Mapping...
-LM: Reset free the mutex
-LM: Active map reset, Done!!!
-mnFirstFrameId = 3550
-mnInitialFrameId = 3548
-3278 Frames set to lost
-not IMU meas
-First KF:527; Map init KF:526
-New Map created with 17 points
-Fail to track local map!
-IMU is not or recently initialized. Reseting active map...
-LM: Active map reset recieved
-LM: Active map reset, waiting...
-LM: Reseting current map in Local Mapping...
-LM: End reseting Local Mapping...
-LM: Reset free the mutex
-LM: Active map reset, Done!!!
-mnFirstFrameId = 3553
-mnInitialFrameId = 3551
-3280 Frames set to lost
-not IMU meas
-First KF:528; Map init KF:527
-New Map created with 19 points
-Fail to track local map!
-IMU is not or recently initialized. Reseting active map...
-LM: Active map reset recieved
-LM: Active map reset, waiting...
-LM: Reseting current map in Local Mapping...
-LM: End reseting Local Mapping...
-LM: Reset free the mutex
-LM: Active map reset, Done!!!
-mnFirstFrameId = 3556
-mnInitialFrameId = 3554
-3282 Frames set to lost
-not IMU meas
-First KF:529; Map init KF:528
-New Map created with 11 points
-Fail to track local map!
-IMU is not or recently initialized. Reseting active map...
-LM: Active map reset recieved
-LM: Active map reset, waiting...
-LM: Reseting current map in Local Mapping...
-LM: End reseting Local Mapping...
-LM: Reset free the mutex
-LM: Active map reset, Done!!!
-mnFirstFrameId = 3559
-mnInitialFrameId = 3557
-3284 Frames set to lost
-not IMU meas
-First KF:530; Map init KF:529
-New Map created with 10 points
-TRACK_REF_KF: Less than 15 matches!!
-Fail to track local map!
-LM: Active map reset recieved
-LM: Active map reset, waiting...
-LM: Reseting current map in Local Mapping...
-LM: End reseting Local Mapping...
-LM: Reset free the mutex
-LM: Active map reset, Done!!!
-mnFirstFrameId = 3562
-mnInitialFrameId = 3560
-3285 Frames set to lost
-not IMU meas
-First KF:531; Map init KF:530
-New Map created with 3 points
-TRACK_REF_KF: Less than 15 matches!!
-Fail to track local map!
-LM: Active map reset recieved
-LM: Active map reset, waiting...
-LM: Reseting current map in Local Mapping...
-LM: End reseting Local Mapping...
-LM: Reset free the mutex
-LM: Active map reset, Done!!!
-mnFirstFrameId = 3565
-mnInitialFrameId = 3563
-3286 Frames set to lost
-not IMU meas
-First KF:532; Map init KF:531
-New Map created with 8 points
-TRACK_REF_KF: Less than 15 matches!!
-Fail to track local map!
-LM: Active map reset recieved
-LM: Active map reset, waiting...
-LM: Reseting current map in Local Mapping...
-LM: End reseting Local Mapping...
-LM: Reset free the mutex
-LM: Active map reset, Done!!!
-mnFirstFrameId = 3568
-mnInitialFrameId = 3566
-3287 Frames set to lost
-not IMU meas
-First KF:533; Map init KF:532
-New Map created with 15 points
-Fail to track local map!
-IMU is not or recently initialized. Reseting active map...
-LM: Active map reset recieved
-LM: Active map reset, waiting...
-LM: Reseting current map in Local Mapping...
-LM: End reseting Local Mapping...
-LM: Reset free the mutex
-LM: Active map reset, Done!!!
-mnFirstFrameId = 3571
-mnInitialFrameId = 3569
-3289 Frames set to lost
-not IMU meas
-First KF:534; Map init KF:533
-New Map created with 8 points
-TRACK_REF_KF: Less than 15 matches!!
-Fail to track local map!
-LM: Active map reset recieved
-LM: Active map reset, waiting...
-LM: Reseting current map in Local Mapping...
-LM: End reseting Local Mapping...
-LM: Reset free the mutex
-LM: Active map reset, Done!!!
-mnFirstFrameId = 3574
-mnInitialFrameId = 3572
-3290 Frames set to lost
-not IMU meas
-First KF:535; Map init KF:534
-New Map created with 4 points
-TRACK_REF_KF: Less than 15 matches!!
-Fail to track local map!
-LM: Active map reset recieved
-LM: Active map reset, waiting...
-LM: Reseting current map in Local Mapping...
-LM: End reseting Local Mapping...
-LM: Reset free the mutex
-LM: Active map reset, Done!!!
-mnFirstFrameId = 3577
-mnInitialFrameId = 3575
-3291 Frames set to lost
-not IMU meas
-First KF:536; Map init KF:535
-New Map created with 11 points
-TRACK_REF_KF: Less than 15 matches!!
-Fail to track local map!
-LM: Active map reset recieved
-LM: Active map reset, waiting...
-LM: Reseting current map in Local Mapping...
-LM: End reseting Local Mapping...
-LM: Reset free the mutex
-LM: Active map reset, Done!!!
-mnFirstFrameId = 3580
-mnInitialFrameId = 3578
-3292 Frames set to lost
-not IMU meas
-First KF:537; Map init KF:536
-New Map created with 18 points
-Fail to track local map!
-IMU is not or recently initialized. Reseting active map...
-LM: Active map reset recieved
-LM: Active map reset, waiting...
-LM: Reseting current map in Local Mapping...
-LM: End reseting Local Mapping...
-LM: Reset free the mutex
-LM: Active map reset, Done!!!
-mnFirstFrameId = 3583
-mnInitialFrameId = 3581
-3294 Frames set to lost
-not IMU meas
-First KF:538; Map init KF:537
-New Map created with 21 points
-Fail to track local map!
-IMU is not or recently initialized. Reseting active map...
-LM: Active map reset recieved
-LM: Active map reset, waiting...
-LM: Reseting current map in Local Mapping...
-LM: End reseting Local Mapping...
-LM: Reset free the mutex
-LM: Active map reset, Done!!!
-mnFirstFrameId = 3586
-mnInitialFrameId = 3584
-3296 Frames set to lost
-not IMU meas
-First KF:539; Map init KF:538
-New Map created with 45 points
-Fail to track local map!
-IMU is not or recently initialized. Reseting active map...
-LM: Active map reset recieved
-LM: Active map reset, waiting...
-LM: Reseting current map in Local Mapping...
-LM: End reseting Local Mapping...
-LM: Reset free the mutex
-LM: Active map reset, Done!!!
-mnFirstFrameId = 3589
-mnInitialFrameId = 3587
-3298 Frames set to lost
-not IMU meas
-First KF:540; Map init KF:539
-New Map created with 55 points
-Fail to track local map!
-IMU is not or recently initialized. Reseting active map...
-LM: Active map reset recieved
-LM: Active map reset, waiting...
-LM: Reseting current map in Local Mapping...
-LM: End reseting Local Mapping...
-LM: Reset free the mutex
-LM: Active map reset, Done!!!
-mnFirstFrameId = 3592
-mnInitialFrameId = 3590
-3548 Frames set to lost
-not IMU meas
-First KF:561; Map init KF:540
+First KF:574; Map init KF:552
 New Map created with 13 points
 Fail to track local map!
 IMU is not or recently initialized. Reseting active map...
@@ -2225,9 +1985,9 @@ LM: Reset free the mutex
 LM: Active map reset, Done!!!
 mnFirstFrameId = 3843
 mnInitialFrameId = 3841
-3550 Frames set to lost
+3570 Frames set to lost
 not IMU meas
-First KF:562; Map init KF:561
+First KF:575; Map init KF:574
 New Map created with 39 points
 Fail to track local map!
 IMU is not or recently initialized. Reseting active map...
@@ -2239,9 +1999,9 @@ LM: Reset free the mutex
 LM: Active map reset, Done!!!
 mnFirstFrameId = 3846
 mnInitialFrameId = 3844
-3552 Frames set to lost
+3572 Frames set to lost
 not IMU meas
-First KF:563; Map init KF:562
+First KF:576; Map init KF:575
 New Map created with 15 points
 Fail to track local map!
 IMU is not or recently initialized. Reseting active map...
@@ -2253,9 +2013,9 @@ LM: Reset free the mutex
 LM: Active map reset, Done!!!
 mnFirstFrameId = 3849
 mnInitialFrameId = 3847
-3554 Frames set to lost
+3574 Frames set to lost
 not IMU meas
-First KF:564; Map init KF:563
+First KF:577; Map init KF:576
 New Map created with 48 points
 Fail to track local map!
 IMU is not or recently initialized. Reseting active map...
@@ -2267,9 +2027,9 @@ LM: Reset free the mutex
 LM: Active map reset, Done!!!
 mnFirstFrameId = 3852
 mnInitialFrameId = 3850
-3568 Frames set to lost
+3588 Frames set to lost
 not IMU meas
-First KF:565; Map init KF:564
+First KF:578; Map init KF:577
 New Map created with 19 points
 Fail to track local map!
 IMU is not or recently initialized. Reseting active map...
@@ -2281,9 +2041,9 @@ LM: Reset free the mutex
 LM: Active map reset, Done!!!
 mnFirstFrameId = 3867
 mnInitialFrameId = 3865
-3570 Frames set to lost
+3590 Frames set to lost
 not IMU meas
-First KF:566; Map init KF:565
+First KF:579; Map init KF:578
 New Map created with 16 points
 Fail to track local map!
 IMU is not or recently initialized. Reseting active map...
@@ -2295,9 +2055,9 @@ LM: Reset free the mutex
 LM: Active map reset, Done!!!
 mnFirstFrameId = 3870
 mnInitialFrameId = 3868
-3572 Frames set to lost
+3592 Frames set to lost
 not IMU meas
-First KF:567; Map init KF:566
+First KF:580; Map init KF:579
 New Map created with 32 points
 Fail to track local map!
 IMU is not or recently initialized. Reseting active map...
@@ -2309,9 +2069,9 @@ LM: Reset free the mutex
 LM: Active map reset, Done!!!
 mnFirstFrameId = 3873
 mnInitialFrameId = 3871
-3574 Frames set to lost
+3594 Frames set to lost
 not IMU meas
-First KF:568; Map init KF:567
+First KF:581; Map init KF:580
 New Map created with 111 points
 Fail to track local map!
 IMU is not or recently initialized. Reseting active map...
@@ -2323,9 +2083,9 @@ LM: Reset free the mutex
 LM: Active map reset, Done!!!
 mnFirstFrameId = 3876
 mnInitialFrameId = 3874
-3605 Frames set to lost
+3625 Frames set to lost
 not IMU meas
-First KF:571; Map init KF:568
+First KF:584; Map init KF:581
 New Map created with 29 points
 Fail to track local map!
 IMU is not or recently initialized. Reseting active map...
@@ -2337,9 +2097,9 @@ LM: Reset free the mutex
 LM: Active map reset, Done!!!
 mnFirstFrameId = 3908
 mnInitialFrameId = 3906
-3607 Frames set to lost
+3627 Frames set to lost
 not IMU meas
-First KF:572; Map init KF:571
+First KF:585; Map init KF:584
 New Map created with 19 points
 Fail to track local map!
 IMU is not or recently initialized. Reseting active map...
@@ -2351,9 +2111,9 @@ LM: Reset free the mutex
 LM: Active map reset, Done!!!
 mnFirstFrameId = 3911
 mnInitialFrameId = 3909
-3609 Frames set to lost
+3629 Frames set to lost
 not IMU meas
-First KF:573; Map init KF:572
+First KF:586; Map init KF:585
 New Map created with 31 points
 Fail to track local map!
 IMU is not or recently initialized. Reseting active map...
@@ -2365,9 +2125,9 @@ LM: Reset free the mutex
 LM: Active map reset, Done!!!
 mnFirstFrameId = 3914
 mnInitialFrameId = 3912
-3611 Frames set to lost
+3631 Frames set to lost
 not IMU meas
-First KF:574; Map init KF:573
+First KF:587; Map init KF:586
 New Map created with 92 points
 Fail to track local map!
 IMU is not or recently initialized. Reseting active map...
@@ -2379,9 +2139,9 @@ LM: Reset free the mutex
 LM: Active map reset, Done!!!
 mnFirstFrameId = 3917
 mnInitialFrameId = 3915
-3621 Frames set to lost
+3641 Frames set to lost
 not IMU meas
-First KF:575; Map init KF:574
+First KF:588; Map init KF:587
 New Map created with 13 points
 TRACK_REF_KF: Less than 15 matches!!
 Fail to track local map!
@@ -2393,9 +2153,9 @@ LM: Reset free the mutex
 LM: Active map reset, Done!!!
 mnFirstFrameId = 3928
 mnInitialFrameId = 3926
-3622 Frames set to lost
+3642 Frames set to lost
 not IMU meas
-First KF:576; Map init KF:575
+First KF:589; Map init KF:588
 New Map created with 18 points
 Fail to track local map!
 IMU is not or recently initialized. Reseting active map...
@@ -2407,9 +2167,9 @@ LM: Reset free the mutex
 LM: Active map reset, Done!!!
 mnFirstFrameId = 3931
 mnInitialFrameId = 3929
-3624 Frames set to lost
+3644 Frames set to lost
 not IMU meas
-First KF:577; Map init KF:576
+First KF:590; Map init KF:589
 New Map created with 62 points
 Fail to track local map!
 IMU is not or recently initialized. Reseting active map...
@@ -2421,9 +2181,9 @@ LM: Reset free the mutex
 LM: Active map reset, Done!!!
 mnFirstFrameId = 3934
 mnInitialFrameId = 3932
-3633 Frames set to lost
+3653 Frames set to lost
 not IMU meas
-First KF:578; Map init KF:577
+First KF:591; Map init KF:590
 New Map created with 173 points
 Fail to track local map!
 IMU is not or recently initialized. Reseting active map...
@@ -2435,9 +2195,9 @@ LM: Reset free the mutex
 LM: Active map reset, Done!!!
 mnFirstFrameId = 3944
 mnInitialFrameId = 3942
-3642 Frames set to lost
+3662 Frames set to lost
 not IMU meas
-First KF:579; Map init KF:578
+First KF:592; Map init KF:591
 New Map created with 46 points
 Fail to track local map!
 IMU is not or recently initialized. Reseting active map...
@@ -2449,9 +2209,9 @@ LM: Reset free the mutex
 LM: Active map reset, Done!!!
 mnFirstFrameId = 3954
 mnInitialFrameId = 3952
-3647 Frames set to lost
+3667 Frames set to lost
 not IMU meas
-First KF:580; Map init KF:579
+First KF:593; Map init KF:592
 New Map created with 104 points
 Fail to track local map!
 IMU is not or recently initialized. Reseting active map...
@@ -2463,9 +2223,9 @@ LM: Reset free the mutex
 LM: Active map reset, Done!!!
 mnFirstFrameId = 3960
 mnInitialFrameId = 3958
-3660 Frames set to lost
+3680 Frames set to lost
 not IMU meas
-First KF:581; Map init KF:580
+First KF:594; Map init KF:593
 New Map created with 25 points
 Fail to track local map!
 IMU is not or recently initialized. Reseting active map...
@@ -2477,9 +2237,9 @@ LM: Reset free the mutex
 LM: Active map reset, Done!!!
 mnFirstFrameId = 3974
 mnInitialFrameId = 3972
-3662 Frames set to lost
+3682 Frames set to lost
 not IMU meas
-First KF:582; Map init KF:581
+First KF:595; Map init KF:594
 New Map created with 24 points
 Fail to track local map!
 IMU is not or recently initialized. Reseting active map...
@@ -2491,9 +2251,9 @@ LM: Reset free the mutex
 LM: Active map reset, Done!!!
 mnFirstFrameId = 3977
 mnInitialFrameId = 3975
-3664 Frames set to lost
+3684 Frames set to lost
 not IMU meas
-First KF:583; Map init KF:582
+First KF:596; Map init KF:595
 New Map created with 34 points
 TRACK_REF_KF: Less than 15 matches!!
 Fail to track local map!
@@ -2505,9 +2265,9 @@ LM: Reset free the mutex
 LM: Active map reset, Done!!!
 mnFirstFrameId = 3980
 mnInitialFrameId = 3978
-3665 Frames set to lost
+3685 Frames set to lost
 not IMU meas
-First KF:584; Map init KF:583
+First KF:597; Map init KF:596
 New Map created with 18 points
 virtual int g2o::SparseOptimizer::optimize(int, bool): 0 vertices to optimize, maybe forgot to call initializeOptimization()
 virtual int g2o::SparseOptimizer::optimize(int, bool): 0 vertices to optimize, maybe forgot to call initializeOptimization()
@@ -2522,9 +2282,9 @@ LM: Reset free the mutex
 LM: Active map reset, Done!!!
 mnFirstFrameId = 3983
 mnInitialFrameId = 3981
-3667 Frames set to lost
+3687 Frames set to lost
 not IMU meas
-First KF:585; Map init KF:584
+First KF:598; Map init KF:597
 New Map created with 55 points
 Fail to track local map!
 IMU is not or recently initialized. Reseting active map...
@@ -2536,9 +2296,9 @@ LM: Reset free the mutex
 LM: Active map reset, Done!!!
 mnFirstFrameId = 3986
 mnInitialFrameId = 3984
-3673 Frames set to lost
+3693 Frames set to lost
 not IMU meas
-First KF:586; Map init KF:585
+First KF:599; Map init KF:598
 New Map created with 105 points
 Fail to track local map!
 IMU is not or recently initialized. Reseting active map...
@@ -2550,9 +2310,9 @@ LM: Reset free the mutex
 LM: Active map reset, Done!!!
 mnFirstFrameId = 3993
 mnInitialFrameId = 3991
-3681 Frames set to lost
+3701 Frames set to lost
 not IMU meas
-First KF:587; Map init KF:586
+First KF:600; Map init KF:599
 New Map created with 116 points
 Fail to track local map!
 IMU is not or recently initialized. Reseting active map...
@@ -2564,9 +2324,9 @@ LM: Reset free the mutex
 LM: Active map reset, Done!!!
 mnFirstFrameId = 4002
 mnInitialFrameId = 4000
-3701 Frames set to lost
+3721 Frames set to lost
 not IMU meas
-First KF:589; Map init KF:587
+First KF:602; Map init KF:600
 New Map created with 106 points
 Fail to track local map!
 IMU is not or recently initialized. Reseting active map...
@@ -2578,9 +2338,9 @@ LM: Reset free the mutex
 LM: Active map reset, Done!!!
 mnFirstFrameId = 4023
 mnInitialFrameId = 4021
-3714 Frames set to lost
+3734 Frames set to lost
 not IMU meas
-First KF:590; Map init KF:589
+First KF:603; Map init KF:602
 New Map created with 126 points
 Fail to track local map!
 IMU is not or recently initialized. Reseting active map...
@@ -2592,9 +2352,9 @@ LM: Reset free the mutex
 LM: Active map reset, Done!!!
 mnFirstFrameId = 4037
 mnInitialFrameId = 4035
-3723 Frames set to lost
+3743 Frames set to lost
 not IMU meas
-First KF:591; Map init KF:590
+First KF:604; Map init KF:603
 New Map created with 163 points
 Fail to track local map!
 IMU is not or recently initialized. Reseting active map...
@@ -2606,9 +2366,9 @@ LM: Reset free the mutex
 LM: Active map reset, Done!!!
 mnFirstFrameId = 4047
 mnInitialFrameId = 4045
-3749 Frames set to lost
+3769 Frames set to lost
 not IMU meas
-First KF:593; Map init KF:591
+First KF:606; Map init KF:604
 New Map created with 12 points
 TRACK_REF_KF: Less than 15 matches!!
 Fail to track local map!
@@ -2620,9 +2380,9 @@ LM: Reset free the mutex
 LM: Active map reset, Done!!!
 mnFirstFrameId = 4074
 mnInitialFrameId = 4072
-3750 Frames set to lost
+3770 Frames set to lost
 not IMU meas
-First KF:594; Map init KF:593
+First KF:607; Map init KF:606
 New Map created with 9 points
 Fail to track local map!
 IMU is not or recently initialized. Reseting active map...
@@ -2634,9 +2394,9 @@ LM: Reset free the mutex
 LM: Active map reset, Done!!!
 mnFirstFrameId = 4077
 mnInitialFrameId = 4075
-3752 Frames set to lost
+3772 Frames set to lost
 not IMU meas
-First KF:595; Map init KF:594
+First KF:608; Map init KF:607
 New Map created with 14 points
 Fail to track local map!
 IMU is not or recently initialized. Reseting active map...
@@ -2648,9 +2408,9 @@ LM: Reset free the mutex
 LM: Active map reset, Done!!!
 mnFirstFrameId = 4080
 mnInitialFrameId = 4078
-3754 Frames set to lost
+3774 Frames set to lost
 not IMU meas
-First KF:596; Map init KF:595
+First KF:609; Map init KF:608
 New Map created with 31 points
 Fail to track local map!
 IMU is not or recently initialized. Reseting active map...
@@ -2662,9 +2422,9 @@ LM: Reset free the mutex
 LM: Active map reset, Done!!!
 mnFirstFrameId = 4083
 mnInitialFrameId = 4081
-3756 Frames set to lost
+3776 Frames set to lost
 not IMU meas
-First KF:597; Map init KF:596
+First KF:610; Map init KF:609
 New Map created with 82 points
 Fail to track local map!
 IMU is not or recently initialized. Reseting active map...
@@ -2676,9 +2436,9 @@ LM: Reset free the mutex
 LM: Active map reset, Done!!!
 mnFirstFrameId = 4086
 mnInitialFrameId = 4084
-3808 Frames set to lost
+3828 Frames set to lost
 not IMU meas
-First KF:601; Map init KF:597
+First KF:614; Map init KF:610
 New Map created with 122 points
 Fail to track local map!
 IMU is not or recently initialized. Reseting active map...
@@ -2690,9 +2450,9 @@ LM: Reset free the mutex
 LM: Active map reset, Done!!!
 mnFirstFrameId = 4139
 mnInitialFrameId = 4137
-3816 Frames set to lost
+3836 Frames set to lost
 not IMU meas
-First KF:602; Map init KF:601
+First KF:615; Map init KF:614
 New Map created with 112 points
 Fail to track local map!
 IMU is not or recently initialized. Reseting active map...
@@ -2704,9 +2464,9 @@ LM: Reset free the mutex
 LM: Active map reset, Done!!!
 mnFirstFrameId = 4148
 mnInitialFrameId = 4146
-3824 Frames set to lost
+3844 Frames set to lost
 not IMU meas
-First KF:603; Map init KF:602
+First KF:616; Map init KF:615
 New Map created with 86 points
 Fail to track local map!
 IMU is not or recently initialized. Reseting active map...
@@ -2718,9 +2478,9 @@ LM: Reset free the mutex
 LM: Active map reset, Done!!!
 mnFirstFrameId = 4157
 mnInitialFrameId = 4155
-3839 Frames set to lost
+3859 Frames set to lost
 not IMU meas
-First KF:605; Map init KF:603
+First KF:618; Map init KF:616
 New Map created with 130 points
 Fail to track local map!
 IMU is not or recently initialized. Reseting active map...
@@ -2732,9 +2492,9 @@ LM: Reset free the mutex
 LM: Active map reset, Done!!!
 mnFirstFrameId = 4173
 mnInitialFrameId = 4171
-3848 Frames set to lost
+3868 Frames set to lost
 not IMU meas
-First KF:606; Map init KF:605
+First KF:619; Map init KF:618
 New Map created with 102 points
 Fail to track local map!
 IMU is not or recently initialized. Reseting active map...
@@ -2746,9 +2506,9 @@ LM: Reset free the mutex
 LM: Active map reset, Done!!!
 mnFirstFrameId = 4183
 mnInitialFrameId = 4181
-3854 Frames set to lost
+3874 Frames set to lost
 not IMU meas
-First KF:607; Map init KF:606
+First KF:620; Map init KF:619
 New Map created with 139 points
 Fail to track local map!
 IMU is not or recently initialized. Reseting active map...
@@ -2760,9 +2520,9 @@ LM: Reset free the mutex
 LM: Active map reset, Done!!!
 mnFirstFrameId = 4190
 mnInitialFrameId = 4188
-3863 Frames set to lost
+3883 Frames set to lost
 not IMU meas
-First KF:608; Map init KF:607
+First KF:621; Map init KF:620
 New Map created with 31 points
 Fail to track local map!
 IMU is not or recently initialized. Reseting active map...
@@ -2774,9 +2534,9 @@ LM: Reset free the mutex
 LM: Active map reset, Done!!!
 mnFirstFrameId = 4200
 mnInitialFrameId = 4198
-3865 Frames set to lost
+3885 Frames set to lost
 not IMU meas
-First KF:609; Map init KF:608
+First KF:622; Map init KF:621
 New Map created with 18 points
 Fail to track local map!
 IMU is not or recently initialized. Reseting active map...
@@ -2788,9 +2548,9 @@ LM: Reset free the mutex
 LM: Active map reset, Done!!!
 mnFirstFrameId = 4203
 mnInitialFrameId = 4201
-3867 Frames set to lost
+3887 Frames set to lost
 not IMU meas
-First KF:610; Map init KF:609
+First KF:623; Map init KF:622
 New Map created with 15 points
 Fail to track local map!
 IMU is not or recently initialized. Reseting active map...
@@ -2802,9 +2562,9 @@ LM: Reset free the mutex
 LM: Active map reset, Done!!!
 mnFirstFrameId = 4206
 mnInitialFrameId = 4204
-3869 Frames set to lost
+3889 Frames set to lost
 not IMU meas
-First KF:611; Map init KF:610
+First KF:624; Map init KF:623
 New Map created with 15 points
 Fail to track local map!
 IMU is not or recently initialized. Reseting active map...
@@ -2816,9 +2576,9 @@ LM: Reset free the mutex
 LM: Active map reset, Done!!!
 mnFirstFrameId = 4209
 mnInitialFrameId = 4207
-3871 Frames set to lost
+3891 Frames set to lost
 not IMU meas
-First KF:612; Map init KF:611
+First KF:625; Map init KF:624
 New Map created with 5 points
 TRACK_REF_KF: Less than 15 matches!!
 Fail to track local map!
@@ -2830,9 +2590,9 @@ LM: Reset free the mutex
 LM: Active map reset, Done!!!
 mnFirstFrameId = 4212
 mnInitialFrameId = 4210
-3872 Frames set to lost
+3892 Frames set to lost
 not IMU meas
-First KF:613; Map init KF:612
+First KF:626; Map init KF:625
 New Map created with 10 points
 Fail to track local map!
 IMU is not or recently initialized. Reseting active map...
@@ -2844,9 +2604,9 @@ LM: Reset free the mutex
 LM: Active map reset, Done!!!
 mnFirstFrameId = 4215
 mnInitialFrameId = 4213
-3874 Frames set to lost
+3894 Frames set to lost
 not IMU meas
-First KF:614; Map init KF:613
+First KF:627; Map init KF:626
 New Map created with 8 points
 TRACK_REF_KF: Less than 15 matches!!
 Fail to track local map!
@@ -2858,9 +2618,9 @@ LM: Reset free the mutex
 LM: Active map reset, Done!!!
 mnFirstFrameId = 4218
 mnInitialFrameId = 4216
-3875 Frames set to lost
+3895 Frames set to lost
 not IMU meas
-First KF:615; Map init KF:614
+First KF:628; Map init KF:627
 New Map created with 4 points
 TRACK_REF_KF: Less than 15 matches!!
 Fail to track local map!
@@ -2872,9 +2632,9 @@ LM: Reset free the mutex
 LM: Active map reset, Done!!!
 mnFirstFrameId = 4221
 mnInitialFrameId = 4219
-3876 Frames set to lost
+3896 Frames set to lost
 not IMU meas
-First KF:616; Map init KF:615
+First KF:629; Map init KF:628
 New Map created with 3 points
 TRACK_REF_KF: Less than 15 matches!!
 Fail to track local map!
@@ -2886,9 +2646,9 @@ LM: Reset free the mutex
 LM: Active map reset, Done!!!
 mnFirstFrameId = 4224
 mnInitialFrameId = 4222
-3877 Frames set to lost
+3897 Frames set to lost
 not IMU meas
-First KF:617; Map init KF:616
+First KF:630; Map init KF:629
 New Map created with 24 points
 TRACK_REF_KF: Less than 15 matches!!
 Fail to track local map!
@@ -2900,9 +2660,9 @@ LM: Reset free the mutex
 LM: Active map reset, Done!!!
 mnFirstFrameId = 4227
 mnInitialFrameId = 4225
-3878 Frames set to lost
+3898 Frames set to lost
 not IMU meas
-First KF:618; Map init KF:617
+First KF:631; Map init KF:630
 New Map created with 105 points
 Fail to track local map!
 IMU is not or recently initialized. Reseting active map...
@@ -2914,9 +2674,9 @@ LM: Reset free the mutex
 LM: Active map reset, Done!!!
 mnFirstFrameId = 4230
 mnInitialFrameId = 4228
-3883 Frames set to lost
+3903 Frames set to lost
 not IMU meas
-First KF:619; Map init KF:618
+First KF:632; Map init KF:631
 New Map created with 62 points
 Fail to track local map!
 IMU is not or recently initialized. Reseting active map...
@@ -2928,9 +2688,9 @@ LM: Reset free the mutex
 LM: Active map reset, Done!!!
 mnFirstFrameId = 4236
 mnInitialFrameId = 4234
-3891 Frames set to lost
+3911 Frames set to lost
 not IMU meas
-First KF:620; Map init KF:619
+First KF:633; Map init KF:632
 New Map created with 128 points
 Fail to track local map!
 IMU is not or recently initialized. Reseting active map...
@@ -2942,9 +2702,9 @@ LM: Reset free the mutex
 LM: Active map reset, Done!!!
 mnFirstFrameId = 4245
 mnInitialFrameId = 4243
-3948 Frames set to lost
+3968 Frames set to lost
 not IMU meas
-First KF:625; Map init KF:620
+First KF:638; Map init KF:633
 New Map created with 3 points
 TRACK_REF_KF: Less than 15 matches!!
 Fail to track local map!
@@ -2956,9 +2716,9 @@ LM: Reset free the mutex
 LM: Active map reset, Done!!!
 mnFirstFrameId = 4303
 mnInitialFrameId = 4301
-3949 Frames set to lost
+3969 Frames set to lost
 not IMU meas
-First KF:626; Map init KF:625
+First KF:639; Map init KF:638
 New Map created with 18 points
 Fail to track local map!
 IMU is not or recently initialized. Reseting active map...
@@ -2970,9 +2730,9 @@ LM: Reset free the mutex
 LM: Active map reset, Done!!!
 mnFirstFrameId = 4306
 mnInitialFrameId = 4304
-3951 Frames set to lost
+3971 Frames set to lost
 not IMU meas
-First KF:627; Map init KF:626
+First KF:640; Map init KF:639
 New Map created with 6 points
 TRACK_REF_KF: Less than 15 matches!!
 Fail to track local map!
@@ -2984,9 +2744,9 @@ LM: Reset free the mutex
 LM: Active map reset, Done!!!
 mnFirstFrameId = 4309
 mnInitialFrameId = 4307
-3952 Frames set to lost
+3972 Frames set to lost
 not IMU meas
-First KF:628; Map init KF:627
+First KF:641; Map init KF:640
 New Map created with 16 points
 Fail to track local map!
 IMU is not or recently initialized. Reseting active map...
@@ -2998,9 +2758,9 @@ LM: Reset free the mutex
 LM: Active map reset, Done!!!
 mnFirstFrameId = 4312
 mnInitialFrameId = 4310
-3954 Frames set to lost
+3974 Frames set to lost
 not IMU meas
-First KF:629; Map init KF:628
+First KF:642; Map init KF:641
 New Map created with 8 points
 TRACK_REF_KF: Less than 15 matches!!
 Fail to track local map!
@@ -3012,9 +2772,9 @@ LM: Reset free the mutex
 LM: Active map reset, Done!!!
 mnFirstFrameId = 4315
 mnInitialFrameId = 4313
-3955 Frames set to lost
+3975 Frames set to lost
 not IMU meas
-First KF:630; Map init KF:629
+First KF:643; Map init KF:642
 New Map created with 9 points
 TRACK_REF_KF: Less than 15 matches!!
 Fail to track local map!
@@ -3026,9 +2786,9 @@ LM: Reset free the mutex
 LM: Active map reset, Done!!!
 mnFirstFrameId = 4318
 mnInitialFrameId = 4316
-3956 Frames set to lost
+3976 Frames set to lost
 not IMU meas
-First KF:631; Map init KF:630
+First KF:644; Map init KF:643
 New Map created with 13 points
 TRACK_REF_KF: Less than 15 matches!!
 Fail to track local map!
@@ -3040,9 +2800,9 @@ LM: Reset free the mutex
 LM: Active map reset, Done!!!
 mnFirstFrameId = 4321
 mnInitialFrameId = 4319
-3957 Frames set to lost
+3977 Frames set to lost
 not IMU meas
-First KF:632; Map init KF:631
+First KF:645; Map init KF:644
 New Map created with 7 points
 TRACK_REF_KF: Less than 15 matches!!
 Fail to track local map!
@@ -3054,9 +2814,9 @@ LM: Reset free the mutex
 LM: Active map reset, Done!!!
 mnFirstFrameId = 4324
 mnInitialFrameId = 4322
-3958 Frames set to lost
+3978 Frames set to lost
 not IMU meas
-First KF:633; Map init KF:632
+First KF:646; Map init KF:645
 New Map created with 5 points
 TRACK_REF_KF: Less than 15 matches!!
 Fail to track local map!
@@ -3068,9 +2828,9 @@ LM: Reset free the mutex
 LM: Active map reset, Done!!!
 mnFirstFrameId = 4327
 mnInitialFrameId = 4325
-3959 Frames set to lost
+3979 Frames set to lost
 not IMU meas
-First KF:634; Map init KF:633
+First KF:647; Map init KF:646
 New Map created with 13 points
 Fail to track local map!
 IMU is not or recently initialized. Reseting active map...
@@ -3082,9 +2842,9 @@ LM: Reset free the mutex
 LM: Active map reset, Done!!!
 mnFirstFrameId = 4330
 mnInitialFrameId = 4328
-3961 Frames set to lost
+3981 Frames set to lost
 not IMU meas
-First KF:635; Map init KF:634
+First KF:648; Map init KF:647
 New Map created with 2 points
 TRACK_REF_KF: Less than 15 matches!!
 Fail to track local map!
@@ -3096,9 +2856,9 @@ LM: Reset free the mutex
 LM: Active map reset, Done!!!
 mnFirstFrameId = 4333
 mnInitialFrameId = 4331
-3962 Frames set to lost
+3982 Frames set to lost
 not IMU meas
-First KF:636; Map init KF:635
+First KF:649; Map init KF:648
 New Map created with 3 points
 TRACK_REF_KF: Less than 15 matches!!
 Fail to track local map!
@@ -3110,9 +2870,9 @@ LM: Reset free the mutex
 LM: Active map reset, Done!!!
 mnFirstFrameId = 4336
 mnInitialFrameId = 4334
-3963 Frames set to lost
+3983 Frames set to lost
 not IMU meas
-First KF:637; Map init KF:636
+First KF:650; Map init KF:649
 New Map created with 1 points
 TRACK_REF_KF: Less than 15 matches!!
 Fail to track local map!
@@ -3124,9 +2884,9 @@ LM: Reset free the mutex
 LM: Active map reset, Done!!!
 mnFirstFrameId = 4339
 mnInitialFrameId = 4337
-3964 Frames set to lost
+3984 Frames set to lost
 not IMU meas
-First KF:638; Map init KF:637
+First KF:651; Map init KF:650
 New Map created with 0 points
 TRACK_REF_KF: Less than 15 matches!!
 Fail to track local map!
@@ -3138,9 +2898,9 @@ LM: Reset free the mutex
 LM: Active map reset, Done!!!
 mnFirstFrameId = 4342
 mnInitialFrameId = 4340
-3965 Frames set to lost
+3985 Frames set to lost
 not IMU meas
-First KF:639; Map init KF:638
+First KF:652; Map init KF:651
 New Map created with 2 points
 TRACK_REF_KF: Less than 15 matches!!
 Fail to track local map!
@@ -3152,9 +2912,9 @@ LM: Reset free the mutex
 LM: Active map reset, Done!!!
 mnFirstFrameId = 4345
 mnInitialFrameId = 4343
-3966 Frames set to lost
+3986 Frames set to lost
 not IMU meas
-First KF:640; Map init KF:639
+First KF:653; Map init KF:652
 New Map created with 7 points
 TRACK_REF_KF: Less than 15 matches!!
 Fail to track local map!
@@ -3166,9 +2926,9 @@ LM: Reset free the mutex
 LM: Active map reset, Done!!!
 mnFirstFrameId = 4348
 mnInitialFrameId = 4346
-3967 Frames set to lost
+3987 Frames set to lost
 not IMU meas
-First KF:641; Map init KF:640
+First KF:654; Map init KF:653
 New Map created with 48 points
 Fail to track local map!
 IMU is not or recently initialized. Reseting active map...
@@ -3180,9 +2940,9 @@ LM: Reset free the mutex
 LM: Active map reset, Done!!!
 mnFirstFrameId = 4351
 mnInitialFrameId = 4349
-3969 Frames set to lost
+3989 Frames set to lost
 not IMU meas
-First KF:642; Map init KF:641
+First KF:655; Map init KF:654
 New Map created with 97 points
 Fail to track local map!
 IMU is not or recently initialized. Reseting active map...
@@ -3194,9 +2954,9 @@ LM: Reset free the mutex
 LM: Active map reset, Done!!!
 mnFirstFrameId = 4354
 mnInitialFrameId = 4352
-4096 Frames set to lost
+4116 Frames set to lost
 not IMU meas
-First KF:652; Map init KF:642
+First KF:665; Map init KF:655
 New Map created with 8 points
 TRACK_REF_KF: Less than 15 matches!!
 Fail to track local map!
@@ -3208,9 +2968,9 @@ LM: Reset free the mutex
 LM: Active map reset, Done!!!
 mnFirstFrameId = 4482
 mnInitialFrameId = 4480
-4097 Frames set to lost
+4117 Frames set to lost
 not IMU meas
-First KF:653; Map init KF:652
+First KF:666; Map init KF:665
 New Map created with 18 points
 Fail to track local map!
 IMU is not or recently initialized. Reseting active map...
@@ -3222,9 +2982,9 @@ LM: Reset free the mutex
 LM: Active map reset, Done!!!
 mnFirstFrameId = 4485
 mnInitialFrameId = 4483
-4099 Frames set to lost
+4119 Frames set to lost
 not IMU meas
-First KF:654; Map init KF:653
+First KF:667; Map init KF:666
 New Map created with 6 points
 TRACK_REF_KF: Less than 15 matches!!
 Fail to track local map!
@@ -3236,9 +2996,9 @@ LM: Reset free the mutex
 LM: Active map reset, Done!!!
 mnFirstFrameId = 4488
 mnInitialFrameId = 4486
-4100 Frames set to lost
+4120 Frames set to lost
 not IMU meas
-First KF:655; Map init KF:654
+First KF:668; Map init KF:667
 New Map created with 19 points
 TRACK_REF_KF: Less than 15 matches!!
 Fail to track local map!
@@ -3250,9 +3010,9 @@ LM: Reset free the mutex
 LM: Active map reset, Done!!!
 mnFirstFrameId = 4491
 mnInitialFrameId = 4489
-4101 Frames set to lost
+4121 Frames set to lost
 not IMU meas
-First KF:656; Map init KF:655
+First KF:669; Map init KF:668
 New Map created with 64 points
 Fail to track local map!
 IMU is not or recently initialized. Reseting active map...
@@ -3264,9 +3024,9 @@ LM: Reset free the mutex
 LM: Active map reset, Done!!!
 mnFirstFrameId = 4494
 mnInitialFrameId = 4492
-4107 Frames set to lost
+4127 Frames set to lost
 not IMU meas
-First KF:657; Map init KF:656
+First KF:670; Map init KF:669
 New Map created with 16 points
 TRACK_REF_KF: Less than 15 matches!!
 Fail to track local map!
@@ -3278,9 +3038,9 @@ LM: Reset free the mutex
 LM: Active map reset, Done!!!
 mnFirstFrameId = 4501
 mnInitialFrameId = 4499
-4108 Frames set to lost
+4128 Frames set to lost
 not IMU meas
-First KF:658; Map init KF:657
+First KF:671; Map init KF:670
 New Map created with 27 points
 Fail to track local map!
 IMU is not or recently initialized. Reseting active map...
@@ -3292,9 +3052,9 @@ LM: Reset free the mutex
 LM: Active map reset, Done!!!
 mnFirstFrameId = 4504
 mnInitialFrameId = 4502
-4110 Frames set to lost
+4130 Frames set to lost
 not IMU meas
-First KF:659; Map init KF:658
+First KF:672; Map init KF:671
 New Map created with 17 points
 Fail to track local map!
 IMU is not or recently initialized. Reseting active map...
@@ -3306,9 +3066,9 @@ LM: Reset free the mutex
 LM: Active map reset, Done!!!
 mnFirstFrameId = 4507
 mnInitialFrameId = 4505
-4112 Frames set to lost
+4132 Frames set to lost
 not IMU meas
-First KF:660; Map init KF:659
+First KF:673; Map init KF:672
 New Map created with 15 points
 Fail to track local map!
 IMU is not or recently initialized. Reseting active map...
@@ -3320,9 +3080,9 @@ LM: Reset free the mutex
 LM: Active map reset, Done!!!
 mnFirstFrameId = 4510
 mnInitialFrameId = 4508
-4114 Frames set to lost
+4134 Frames set to lost
 not IMU meas
-First KF:661; Map init KF:660
+First KF:674; Map init KF:673
 New Map created with 73 points
 Fail to track local map!
 IMU is not or recently initialized. Reseting active map...
@@ -3334,9 +3094,9 @@ LM: Reset free the mutex
 LM: Active map reset, Done!!!
 mnFirstFrameId = 4513
 mnInitialFrameId = 4511
-4122 Frames set to lost
+4142 Frames set to lost
 not IMU meas
-First KF:662; Map init KF:661
+First KF:675; Map init KF:674
 New Map created with 107 points
 Fail to track local map!
 IMU is not or recently initialized. Reseting active map...
@@ -3348,9 +3108,9 @@ LM: Reset free the mutex
 LM: Active map reset, Done!!!
 mnFirstFrameId = 4522
 mnInitialFrameId = 4520
-4129 Frames set to lost
+4149 Frames set to lost
 not IMU meas
-First KF:663; Map init KF:662
+First KF:676; Map init KF:675
 New Map created with 137 points
 Fail to track local map!
 IMU is not or recently initialized. Reseting active map...
@@ -3362,9 +3122,9 @@ LM: Reset free the mutex
 LM: Active map reset, Done!!!
 mnFirstFrameId = 4530
 mnInitialFrameId = 4528
-4135 Frames set to lost
+4155 Frames set to lost
 not IMU meas
-First KF:664; Map init KF:663
+First KF:677; Map init KF:676
 New Map created with 55 points
 Fail to track local map!
 IMU is not or recently initialized. Reseting active map...
@@ -3376,9 +3136,9 @@ LM: Reset free the mutex
 LM: Active map reset, Done!!!
 mnFirstFrameId = 4537
 mnInitialFrameId = 4535
-4137 Frames set to lost
+4157 Frames set to lost
 not IMU meas
-First KF:665; Map init KF:664
+First KF:678; Map init KF:677
 New Map created with 169 points
 Fail to track local map!
 IMU is not or recently initialized. Reseting active map...
@@ -3390,9 +3150,9 @@ LM: Reset free the mutex
 LM: Active map reset, Done!!!
 mnFirstFrameId = 4540
 mnInitialFrameId = 4538
-4146 Frames set to lost
+4166 Frames set to lost
 not IMU meas
-First KF:666; Map init KF:665
+First KF:679; Map init KF:678
 New Map created with 5 points
 TRACK_REF_KF: Less than 15 matches!!
 Fail to track local map!
@@ -3404,9 +3164,9 @@ LM: Reset free the mutex
 LM: Active map reset, Done!!!
 mnFirstFrameId = 4550
 mnInitialFrameId = 4548
-4147 Frames set to lost
+4167 Frames set to lost
 not IMU meas
-First KF:667; Map init KF:666
+First KF:680; Map init KF:679
 New Map created with 14 points
 virtual int g2o::SparseOptimizer::optimize(int, bool): 0 vertices to optimize, maybe forgot to call initializeOptimization()
 virtual int g2o::SparseOptimizer::optimize(int, bool): 0 vertices to optimize, maybe forgot to call initializeOptimization()
@@ -3421,9 +3181,9 @@ LM: Reset free the mutex
 LM: Active map reset, Done!!!
 mnFirstFrameId = 4553
 mnInitialFrameId = 4551
-4149 Frames set to lost
+4169 Frames set to lost
 not IMU meas
-First KF:668; Map init KF:667
+First KF:681; Map init KF:680
 New Map created with 25 points
 Fail to track local map!
 IMU is not or recently initialized. Reseting active map...
@@ -3435,9 +3195,9 @@ LM: Reset free the mutex
 LM: Active map reset, Done!!!
 mnFirstFrameId = 4556
 mnInitialFrameId = 4554
-4151 Frames set to lost
+4171 Frames set to lost
 not IMU meas
-First KF:669; Map init KF:668
+First KF:682; Map init KF:681
 New Map created with 29 points
 Fail to track local map!
 IMU is not or recently initialized. Reseting active map...
@@ -3449,9 +3209,9 @@ LM: Reset free the mutex
 LM: Active map reset, Done!!!
 mnFirstFrameId = 4559
 mnInitialFrameId = 4557
-4153 Frames set to lost
+4173 Frames set to lost
 not IMU meas
-First KF:670; Map init KF:669
+First KF:683; Map init KF:682
 New Map created with 27 points
 Fail to track local map!
 IMU is not or recently initialized. Reseting active map...
@@ -3463,9 +3223,9 @@ LM: Reset free the mutex
 LM: Active map reset, Done!!!
 mnFirstFrameId = 4562
 mnInitialFrameId = 4560
-4155 Frames set to lost
+4175 Frames set to lost
 not IMU meas
-First KF:671; Map init KF:670
+First KF:684; Map init KF:683
 New Map created with 31 points
 Fail to track local map!
 IMU is not or recently initialized. Reseting active map...
@@ -3477,9 +3237,9 @@ LM: Reset free the mutex
 LM: Active map reset, Done!!!
 mnFirstFrameId = 4565
 mnInitialFrameId = 4563
-4157 Frames set to lost
+4177 Frames set to lost
 not IMU meas
-First KF:672; Map init KF:671
+First KF:685; Map init KF:684
 New Map created with 47 points
 Fail to track local map!
 IMU is not or recently initialized. Reseting active map...
@@ -3491,9 +3251,9 @@ LM: Reset free the mutex
 LM: Active map reset, Done!!!
 mnFirstFrameId = 4568
 mnInitialFrameId = 4566
-4166 Frames set to lost
+4186 Frames set to lost
 not IMU meas
-First KF:673; Map init KF:672
+First KF:686; Map init KF:685
 New Map created with 19 points
 Fail to track local map!
 IMU is not or recently initialized. Reseting active map...
@@ -3505,9 +3265,9 @@ LM: Reset free the mutex
 LM: Active map reset, Done!!!
 mnFirstFrameId = 4578
 mnInitialFrameId = 4576
-4168 Frames set to lost
+4188 Frames set to lost
 not IMU meas
-First KF:674; Map init KF:673
+First KF:687; Map init KF:686
 New Map created with 21 points
 Fail to track local map!
 IMU is not or recently initialized. Reseting active map...
@@ -3519,9 +3279,9 @@ LM: Reset free the mutex
 LM: Active map reset, Done!!!
 mnFirstFrameId = 4581
 mnInitialFrameId = 4579
-4170 Frames set to lost
+4190 Frames set to lost
 not IMU meas
-First KF:675; Map init KF:674
+First KF:688; Map init KF:687
 New Map created with 13 points
 Fail to track local map!
 IMU is not or recently initialized. Reseting active map...
@@ -3533,9 +3293,9 @@ LM: Reset free the mutex
 LM: Active map reset, Done!!!
 mnFirstFrameId = 4584
 mnInitialFrameId = 4582
-4172 Frames set to lost
+4192 Frames set to lost
 not IMU meas
-First KF:676; Map init KF:675
+First KF:689; Map init KF:688
 New Map created with 6 points
 TRACK_REF_KF: Less than 15 matches!!
 Fail to track local map!
@@ -3547,9 +3307,9 @@ LM: Reset free the mutex
 LM: Active map reset, Done!!!
 mnFirstFrameId = 4587
 mnInitialFrameId = 4585
-4173 Frames set to lost
+4193 Frames set to lost
 not IMU meas
-First KF:677; Map init KF:676
+First KF:690; Map init KF:689
 New Map created with 14 points
 Fail to track local map!
 IMU is not or recently initialized. Reseting active map...
@@ -3561,9 +3321,9 @@ LM: Reset free the mutex
 LM: Active map reset, Done!!!
 mnFirstFrameId = 4590
 mnInitialFrameId = 4588
-4175 Frames set to lost
+4195 Frames set to lost
 not IMU meas
-First KF:678; Map init KF:677
+First KF:691; Map init KF:690
 New Map created with 42 points
 Fail to track local map!
 IMU is not or recently initialized. Reseting active map...
@@ -3575,9 +3335,9 @@ LM: Reset free the mutex
 LM: Active map reset, Done!!!
 mnFirstFrameId = 4593
 mnInitialFrameId = 4591
-4177 Frames set to lost
+4197 Frames set to lost
 not IMU meas
-First KF:679; Map init KF:678
+First KF:692; Map init KF:691
 New Map created with 112 points
 Fail to track local map!
 IMU is not or recently initialized. Reseting active map...
@@ -3589,38 +3349,10 @@ LM: Reset free the mutex
 LM: Active map reset, Done!!!
 mnFirstFrameId = 4596
 mnInitialFrameId = 4594
-4357 Frames set to lost
-not IMU meas
-First KF:710; Map init KF:679
-New Map created with 163 points
-Fail to track local map!
-IMU is not or recently initialized. Reseting active map...
-LM: Active map reset recieved
-LM: Active map reset, waiting...
-LM: Reseting current map in Local Mapping...
-LM: End reseting Local Mapping...
-LM: Reset free the mutex
-LM: Active map reset, Done!!!
-mnFirstFrameId = 4777
-mnInitialFrameId = 4775
 4365 Frames set to lost
 not IMU meas
-First KF:711; Map init KF:710
-New Map created with 187 points
-Fail to track local map!
-IMU is not or recently initialized. Reseting active map...
-LM: Active map reset recieved
-LM: Active map reset, waiting...
-LM: Reseting current map in Local Mapping...
-LM: End reseting Local Mapping...
-LM: Reset free the mutex
-LM: Active map reset, Done!!!
-mnFirstFrameId = 4786
-mnInitialFrameId = 4784
-4370 Frames set to lost
-not IMU meas
-First KF:712; Map init KF:711
-New Map created with 5 points
+First KF:717; Map init KF:692
+New Map created with 10 points
 TRACK_REF_KF: Less than 15 matches!!
 Fail to track local map!
 LM: Active map reset recieved
@@ -3629,82 +3361,12 @@ LM: Reseting current map in Local Mapping...
 LM: End reseting Local Mapping...
 LM: Reset free the mutex
 LM: Active map reset, Done!!!
-mnFirstFrameId = 4792
-mnInitialFrameId = 4790
-4371 Frames set to lost
-not IMU meas
-First KF:713; Map init KF:712
-New Map created with 14 points
-Fail to track local map!
-IMU is not or recently initialized. Reseting active map...
-LM: Active map reset recieved
-LM: Active map reset, waiting...
-LM: Reseting current map in Local Mapping...
-LM: End reseting Local Mapping...
-LM: Reset free the mutex
-LM: Active map reset, Done!!!
-mnFirstFrameId = 4795
-mnInitialFrameId = 4793
-4373 Frames set to lost
-not IMU meas
-First KF:714; Map init KF:713
-New Map created with 26 points
-Fail to track local map!
-IMU is not or recently initialized. Reseting active map...
-LM: Active map reset recieved
-LM: Active map reset, waiting...
-LM: Reseting current map in Local Mapping...
-LM: End reseting Local Mapping...
-LM: Reset free the mutex
-LM: Active map reset, Done!!!
-mnFirstFrameId = 4798
-mnInitialFrameId = 4796
-4375 Frames set to lost
-not IMU meas
-First KF:715; Map init KF:714
-New Map created with 27 points
-Fail to track local map!
-IMU is not or recently initialized. Reseting active map...
-LM: Active map reset recieved
-LM: Active map reset, waiting...
-LM: Reseting current map in Local Mapping...
-LM: End reseting Local Mapping...
-LM: Reset free the mutex
-LM: Active map reset, Done!!!
-mnFirstFrameId = 4801
-mnInitialFrameId = 4799
-4377 Frames set to lost
-not IMU meas
-First KF:716; Map init KF:715
-New Map created with 21 points
-Fail to track local map!
-IMU is not or recently initialized. Reseting active map...
-LM: Active map reset recieved
-LM: Active map reset, waiting...
-LM: Reseting current map in Local Mapping...
-LM: End reseting Local Mapping...
-LM: Reset free the mutex
-LM: Active map reset, Done!!!
-mnFirstFrameId = 4804
-mnInitialFrameId = 4802
-4379 Frames set to lost
-not IMU meas
-First KF:717; Map init KF:716
-New Map created with 16 points
-Fail to track local map!
-IMU is not or recently initialized. Reseting active map...
-LM: Active map reset recieved
-LM: Active map reset, waiting...
-LM: Reseting current map in Local Mapping...
-LM: End reseting Local Mapping...
-LM: Reset free the mutex
-LM: Active map reset, Done!!!
-mnFirstFrameId = 4807
-mnInitialFrameId = 4805
-4381 Frames set to lost
+mnFirstFrameId = 4765
+mnInitialFrameId = 4763
+4366 Frames set to lost
 not IMU meas
 First KF:718; Map init KF:717
-New Map created with 0 points
+New Map created with 9 points
 TRACK_REF_KF: Less than 15 matches!!
 Fail to track local map!
 LM: Active map reset recieved
@@ -3713,12 +3375,12 @@ LM: Reseting current map in Local Mapping...
 LM: End reseting Local Mapping...
 LM: Reset free the mutex
 LM: Active map reset, Done!!!
-mnFirstFrameId = 4810
-mnInitialFrameId = 4808
-4382 Frames set to lost
+mnFirstFrameId = 4768
+mnInitialFrameId = 4766
+4367 Frames set to lost
 not IMU meas
 First KF:719; Map init KF:718
-New Map created with 2 points
+New Map created with 20 points
 TRACK_REF_KF: Less than 15 matches!!
 Fail to track local map!
 LM: Active map reset recieved
@@ -3727,9 +3389,9 @@ LM: Reseting current map in Local Mapping...
 LM: End reseting Local Mapping...
 LM: Reset free the mutex
 LM: Active map reset, Done!!!
-mnFirstFrameId = 4813
-mnInitialFrameId = 4811
-4383 Frames set to lost
+mnFirstFrameId = 4771
+mnInitialFrameId = 4769
+4368 Frames set to lost
 not IMU meas
 First KF:720; Map init KF:719
 New Map created with 13 points
@@ -3741,11 +3403,165 @@ LM: Reseting current map in Local Mapping...
 LM: End reseting Local Mapping...
 LM: Reset free the mutex
 LM: Active map reset, Done!!!
-mnFirstFrameId = 4816
-mnInitialFrameId = 4814
-4384 Frames set to lost
+mnFirstFrameId = 4774
+mnInitialFrameId = 4772
+4369 Frames set to lost
 not IMU meas
 First KF:721; Map init KF:720
+New Map created with 163 points
+Fail to track local map!
+IMU is not or recently initialized. Reseting active map...
+LM: Active map reset recieved
+LM: Active map reset, waiting...
+LM: Reseting current map in Local Mapping...
+LM: End reseting Local Mapping...
+LM: Reset free the mutex
+LM: Active map reset, Done!!!
+mnFirstFrameId = 4777
+mnInitialFrameId = 4775
+4377 Frames set to lost
+not IMU meas
+First KF:722; Map init KF:721
+New Map created with 187 points
+Fail to track local map!
+IMU is not or recently initialized. Reseting active map...
+LM: Active map reset recieved
+LM: Active map reset, waiting...
+LM: Reseting current map in Local Mapping...
+LM: End reseting Local Mapping...
+LM: Reset free the mutex
+LM: Active map reset, Done!!!
+mnFirstFrameId = 4786
+mnInitialFrameId = 4784
+4382 Frames set to lost
+not IMU meas
+First KF:723; Map init KF:722
+New Map created with 5 points
+TRACK_REF_KF: Less than 15 matches!!
+Fail to track local map!
+LM: Active map reset recieved
+LM: Active map reset, waiting...
+LM: Reseting current map in Local Mapping...
+LM: End reseting Local Mapping...
+LM: Reset free the mutex
+LM: Active map reset, Done!!!
+mnFirstFrameId = 4792
+mnInitialFrameId = 4790
+4383 Frames set to lost
+not IMU meas
+First KF:724; Map init KF:723
+New Map created with 14 points
+Fail to track local map!
+IMU is not or recently initialized. Reseting active map...
+LM: Active map reset recieved
+LM: Active map reset, waiting...
+LM: Reseting current map in Local Mapping...
+LM: End reseting Local Mapping...
+LM: Reset free the mutex
+LM: Active map reset, Done!!!
+mnFirstFrameId = 4795
+mnInitialFrameId = 4793
+4385 Frames set to lost
+not IMU meas
+First KF:725; Map init KF:724
+New Map created with 26 points
+Fail to track local map!
+IMU is not or recently initialized. Reseting active map...
+LM: Active map reset recieved
+LM: Active map reset, waiting...
+LM: Reseting current map in Local Mapping...
+LM: End reseting Local Mapping...
+LM: Reset free the mutex
+LM: Active map reset, Done!!!
+mnFirstFrameId = 4798
+mnInitialFrameId = 4796
+4387 Frames set to lost
+not IMU meas
+First KF:726; Map init KF:725
+New Map created with 27 points
+Fail to track local map!
+IMU is not or recently initialized. Reseting active map...
+LM: Active map reset recieved
+LM: Active map reset, waiting...
+LM: Reseting current map in Local Mapping...
+LM: End reseting Local Mapping...
+LM: Reset free the mutex
+LM: Active map reset, Done!!!
+mnFirstFrameId = 4801
+mnInitialFrameId = 4799
+4389 Frames set to lost
+not IMU meas
+First KF:727; Map init KF:726
+New Map created with 21 points
+Fail to track local map!
+IMU is not or recently initialized. Reseting active map...
+LM: Active map reset recieved
+LM: Active map reset, waiting...
+LM: Reseting current map in Local Mapping...
+LM: End reseting Local Mapping...
+LM: Reset free the mutex
+LM: Active map reset, Done!!!
+mnFirstFrameId = 4804
+mnInitialFrameId = 4802
+4391 Frames set to lost
+not IMU meas
+First KF:728; Map init KF:727
+New Map created with 16 points
+Fail to track local map!
+IMU is not or recently initialized. Reseting active map...
+LM: Active map reset recieved
+LM: Active map reset, waiting...
+LM: Reseting current map in Local Mapping...
+LM: End reseting Local Mapping...
+LM: Reset free the mutex
+LM: Active map reset, Done!!!
+mnFirstFrameId = 4807
+mnInitialFrameId = 4805
+4393 Frames set to lost
+not IMU meas
+First KF:729; Map init KF:728
+New Map created with 0 points
+TRACK_REF_KF: Less than 15 matches!!
+Fail to track local map!
+LM: Active map reset recieved
+LM: Active map reset, waiting...
+LM: Reseting current map in Local Mapping...
+LM: End reseting Local Mapping...
+LM: Reset free the mutex
+LM: Active map reset, Done!!!
+mnFirstFrameId = 4810
+mnInitialFrameId = 4808
+4394 Frames set to lost
+not IMU meas
+First KF:730; Map init KF:729
+New Map created with 2 points
+TRACK_REF_KF: Less than 15 matches!!
+Fail to track local map!
+LM: Active map reset recieved
+LM: Active map reset, waiting...
+LM: Reseting current map in Local Mapping...
+LM: End reseting Local Mapping...
+LM: Reset free the mutex
+LM: Active map reset, Done!!!
+mnFirstFrameId = 4813
+mnInitialFrameId = 4811
+4395 Frames set to lost
+not IMU meas
+First KF:731; Map init KF:730
+New Map created with 13 points
+TRACK_REF_KF: Less than 15 matches!!
+Fail to track local map!
+LM: Active map reset recieved
+LM: Active map reset, waiting...
+LM: Reseting current map in Local Mapping...
+LM: End reseting Local Mapping...
+LM: Reset free the mutex
+LM: Active map reset, Done!!!
+mnFirstFrameId = 4816
+mnInitialFrameId = 4814
+4396 Frames set to lost
+not IMU meas
+First KF:732; Map init KF:731
 New Map created with 14 points
 Fail to track local map!
 IMU is not or recently initialized. Reseting active map...
@@ -3757,9 +3573,9 @@ LM: Reset free the mutex
 LM: Active map reset, Done!!!
 mnFirstFrameId = 4819
 mnInitialFrameId = 4817
-4386 Frames set to lost
+4398 Frames set to lost
 not IMU meas
-First KF:722; Map init KF:721
+First KF:733; Map init KF:732
 New Map created with 7 points
 TRACK_REF_KF: Less than 15 matches!!
 Fail to track local map!
@@ -3771,9 +3587,9 @@ LM: Reset free the mutex
 LM: Active map reset, Done!!!
 mnFirstFrameId = 4822
 mnInitialFrameId = 4820
-4387 Frames set to lost
+4399 Frames set to lost
 not IMU meas
-First KF:723; Map init KF:722
+First KF:734; Map init KF:733
 New Map created with 196 points
 Fail to track local map!
 IMU is not or recently initialized. Reseting active map...
@@ -3785,9 +3601,9 @@ LM: Reset free the mutex
 LM: Active map reset, Done!!!
 mnFirstFrameId = 4825
 mnInitialFrameId = 4823
-4436 Frames set to lost
+4448 Frames set to lost
 not IMU meas
-First KF:727; Map init KF:723
+First KF:738; Map init KF:734
 New Map created with 164 points
 Fail to track local map!
 IMU is not or recently initialized. Reseting active map...
@@ -3799,9 +3615,9 @@ LM: Reset free the mutex
 LM: Active map reset, Done!!!
 mnFirstFrameId = 4875
 mnInitialFrameId = 4873
-4615 Frames set to lost
+4627 Frames set to lost
 not IMU meas
-First KF:745; Map init KF:727
+First KF:756; Map init KF:738
 New Map created with 88 points
 Fail to track local map!
 IMU is not or recently initialized. Reseting active map...
@@ -3813,9 +3629,9 @@ LM: Reset free the mutex
 LM: Active map reset, Done!!!
 mnFirstFrameId = 5055
 mnInitialFrameId = 5053
-4621 Frames set to lost
+4633 Frames set to lost
 not IMU meas
-First KF:746; Map init KF:745
+First KF:757; Map init KF:756
 New Map created with 96 points
 Fail to track local map!
 IMU is not or recently initialized. Reseting active map...
@@ -3827,9 +3643,9 @@ LM: Reset free the mutex
 LM: Active map reset, Done!!!
 mnFirstFrameId = 5062
 mnInitialFrameId = 5060
-4624 Frames set to lost
+4636 Frames set to lost
 not IMU meas
-First KF:747; Map init KF:746
+First KF:758; Map init KF:757
 New Map created with 123 points
 Fail to track local map!
 IMU is not or recently initialized. Reseting active map...
@@ -3841,9 +3657,9 @@ LM: Reset free the mutex
 LM: Active map reset, Done!!!
 mnFirstFrameId = 5066
 mnInitialFrameId = 5064
-4648 Frames set to lost
+4660 Frames set to lost
 not IMU meas
-First KF:749; Map init KF:747
+First KF:760; Map init KF:758
 New Map created with 135 points
 Fail to track local map!
 IMU is not or recently initialized. Reseting active map...
@@ -3855,9 +3671,9 @@ LM: Reset free the mutex
 LM: Active map reset, Done!!!
 mnFirstFrameId = 5091
 mnInitialFrameId = 5089
-4668 Frames set to lost
+4680 Frames set to lost
 not IMU meas
-First KF:751; Map init KF:749
+First KF:762; Map init KF:760
 New Map created with 72 points
 Fail to track local map!
 IMU is not or recently initialized. Reseting active map...
@@ -3869,9 +3685,9 @@ LM: Reset free the mutex
 LM: Active map reset, Done!!!
 mnFirstFrameId = 5112
 mnInitialFrameId = 5110
-4681 Frames set to lost
+4693 Frames set to lost
 not IMU meas
-First KF:752; Map init KF:751
+First KF:763; Map init KF:762
 New Map created with 70 points
 Fail to track local map!
 IMU is not or recently initialized. Reseting active map...
@@ -3883,9 +3699,9 @@ LM: Reset free the mutex
 LM: Active map reset, Done!!!
 mnFirstFrameId = 5126
 mnInitialFrameId = 5124
-4686 Frames set to lost
+4698 Frames set to lost
 not IMU meas
-First KF:753; Map init KF:752
+First KF:764; Map init KF:763
 New Map created with 89 points
 Fail to track local map!
 IMU is not or recently initialized. Reseting active map...
@@ -3897,9 +3713,9 @@ LM: Reset free the mutex
 LM: Active map reset, Done!!!
 mnFirstFrameId = 5132
 mnInitialFrameId = 5130
-4695 Frames set to lost
+4707 Frames set to lost
 not IMU meas
-First KF:754; Map init KF:753
+First KF:765; Map init KF:764
 New Map created with 204 points
 Fail to track local map!
 IMU is not or recently initialized. Reseting active map...
@@ -3911,9 +3727,9 @@ LM: Reset free the mutex
 LM: Active map reset, Done!!!
 mnFirstFrameId = 5142
 mnInitialFrameId = 5140
-4708 Frames set to lost
+4720 Frames set to lost
 not IMU meas
-First KF:755; Map init KF:754
+First KF:766; Map init KF:765
 New Map created with 28 points
 Fail to track local map!
 IMU is not or recently initialized. Reseting active map...
@@ -3925,9 +3741,9 @@ LM: Reset free the mutex
 LM: Active map reset, Done!!!
 mnFirstFrameId = 5156
 mnInitialFrameId = 5154
-4710 Frames set to lost
+4722 Frames set to lost
 not IMU meas
-First KF:756; Map init KF:755
+First KF:767; Map init KF:766
 New Map created with 60 points
 Fail to track local map!
 IMU is not or recently initialized. Reseting active map...
@@ -3939,9 +3755,9 @@ LM: Reset free the mutex
 LM: Active map reset, Done!!!
 mnFirstFrameId = 5159
 mnInitialFrameId = 5157
-4712 Frames set to lost
+4724 Frames set to lost
 not IMU meas
-First KF:757; Map init KF:756
+First KF:768; Map init KF:767
 New Map created with 33 points
 Fail to track local map!
 IMU is not or recently initialized. Reseting active map...
@@ -3953,9 +3769,9 @@ LM: Reset free the mutex
 LM: Active map reset, Done!!!
 mnFirstFrameId = 5162
 mnInitialFrameId = 5160
-4714 Frames set to lost
+4726 Frames set to lost
 not IMU meas
-First KF:758; Map init KF:757
+First KF:769; Map init KF:768
 New Map created with 173 points
 Fail to track local map!
 IMU is not or recently initialized. Reseting active map...
@@ -3967,9 +3783,9 @@ LM: Reset free the mutex
 LM: Active map reset, Done!!!
 mnFirstFrameId = 5165
 mnInitialFrameId = 5163
-4728 Frames set to lost
+4740 Frames set to lost
 not IMU meas
-First KF:759; Map init KF:758
+First KF:770; Map init KF:769
 New Map created with 120 points
 Fail to track local map!
 IMU is not or recently initialized. Reseting active map...
@@ -3981,9 +3797,9 @@ LM: Reset free the mutex
 LM: Active map reset, Done!!!
 mnFirstFrameId = 5180
 mnInitialFrameId = 5178
-4737 Frames set to lost
+4749 Frames set to lost
 not IMU meas
-First KF:760; Map init KF:759
+First KF:771; Map init KF:770
 New Map created with 173 points
 Fail to track local map!
 IMU is not or recently initialized. Reseting active map...
@@ -3995,10 +3811,10 @@ LM: Reset free the mutex
 LM: Active map reset, Done!!!
 mnFirstFrameId = 5190
 mnInitialFrameId = 5188
-4820 Frames set to lost
+4833 Frames set to lost
 not IMU meas
-First KF:766; Map init KF:760
-New Map created with 24 points
+First KF:777; Map init KF:771
+New Map created with 25 points
 Fail to track local map!
 IMU is not or recently initialized. Reseting active map...
 LM: Active map reset recieved
@@ -4007,12 +3823,12 @@ LM: Reseting current map in Local Mapping...
 LM: End reseting Local Mapping...
 LM: Reset free the mutex
 LM: Active map reset, Done!!!
-mnFirstFrameId = 5274
-mnInitialFrameId = 5272
-4822 Frames set to lost
+mnFirstFrameId = 5275
+mnInitialFrameId = 5273
+4835 Frames set to lost
 not IMU meas
-First KF:767; Map init KF:766
-New Map created with 59 points
+First KF:778; Map init KF:777
+New Map created with 49 points
 Fail to track local map!
 IMU is not or recently initialized. Reseting active map...
 LM: Active map reset recieved
@@ -4021,12 +3837,12 @@ LM: Reseting current map in Local Mapping...
 LM: End reseting Local Mapping...
 LM: Reset free the mutex
 LM: Active map reset, Done!!!
-mnFirstFrameId = 5277
-mnInitialFrameId = 5275
-4864 Frames set to lost
+mnFirstFrameId = 5278
+mnInitialFrameId = 5276
+4837 Frames set to lost
 not IMU meas
-First KF:770; Map init KF:767
-New Map created with 23 points
+First KF:779; Map init KF:778
+New Map created with 73 points
 Fail to track local map!
 IMU is not or recently initialized. Reseting active map...
 LM: Active map reset recieved
@@ -4035,12 +3851,12 @@ LM: Reseting current map in Local Mapping...
 LM: End reseting Local Mapping...
 LM: Reset free the mutex
 LM: Active map reset, Done!!!
-mnFirstFrameId = 5320
-mnInitialFrameId = 5318
-4866 Frames set to lost
+mnFirstFrameId = 5281
+mnInitialFrameId = 5279
+4873 Frames set to lost
 not IMU meas
-First KF:771; Map init KF:770
-New Map created with 34 points
+First KF:782; Map init KF:779
+New Map created with 52 points
 Fail to track local map!
 IMU is not or recently initialized. Reseting active map...
 LM: Active map reset recieved
@@ -4049,12 +3865,12 @@ LM: Reseting current map in Local Mapping...
 LM: End reseting Local Mapping...
 LM: Reset free the mutex
 LM: Active map reset, Done!!!
-mnFirstFrameId = 5323
-mnInitialFrameId = 5321
-4868 Frames set to lost
+mnFirstFrameId = 5318
+mnInitialFrameId = 5316
+4875 Frames set to lost
 not IMU meas
-First KF:772; Map init KF:771
-New Map created with 79 points
+First KF:783; Map init KF:782
+New Map created with 28 points
 Fail to track local map!
 IMU is not or recently initialized. Reseting active map...
 LM: Active map reset recieved
@@ -4063,11 +3879,39 @@ LM: Reseting current map in Local Mapping...
 LM: End reseting Local Mapping...
 LM: Reset free the mutex
 LM: Active map reset, Done!!!
-mnFirstFrameId = 5326
-mnInitialFrameId = 5324
-4896 Frames set to lost
+mnFirstFrameId = 5321
+mnInitialFrameId = 5319
+4877 Frames set to lost
 not IMU meas
-First KF:774; Map init KF:772
+First KF:784; Map init KF:783
+New Map created with 43 points
+Fail to track local map!
+IMU is not or recently initialized. Reseting active map...
+LM: Active map reset recieved
+LM: Active map reset, waiting...
+LM: Reseting current map in Local Mapping...
+LM: End reseting Local Mapping...
+LM: Reset free the mutex
+LM: Active map reset, Done!!!
+mnFirstFrameId = 5324
+mnInitialFrameId = 5322
+4879 Frames set to lost
+not IMU meas
+First KF:785; Map init KF:784
+New Map created with 69 points
+Fail to track local map!
+IMU is not or recently initialized. Reseting active map...
+LM: Active map reset recieved
+LM: Active map reset, waiting...
+LM: Reseting current map in Local Mapping...
+LM: End reseting Local Mapping...
+LM: Reset free the mutex
+LM: Active map reset, Done!!!
+mnFirstFrameId = 5327
+mnInitialFrameId = 5325
+4906 Frames set to lost
+not IMU meas
+First KF:787; Map init KF:785
 New Map created with 20 points
 Fail to track local map!
 IMU is not or recently initialized. Reseting active map...
@@ -4079,9 +3923,9 @@ LM: Reset free the mutex
 LM: Active map reset, Done!!!
 mnFirstFrameId = 5355
 mnInitialFrameId = 5353
-4898 Frames set to lost
+4908 Frames set to lost
 not IMU meas
-First KF:775; Map init KF:774
+First KF:788; Map init KF:787
 New Map created with 40 points
 Fail to track local map!
 IMU is not or recently initialized. Reseting active map...
@@ -4093,9 +3937,9 @@ LM: Reset free the mutex
 LM: Active map reset, Done!!!
 mnFirstFrameId = 5358
 mnInitialFrameId = 5356
-4900 Frames set to lost
+4910 Frames set to lost
 not IMU meas
-First KF:776; Map init KF:775
+First KF:789; Map init KF:788
 New Map created with 46 points
 Fail to track local map!
 IMU is not or recently initialized. Reseting active map...
@@ -4107,9 +3951,9 @@ LM: Reset free the mutex
 LM: Active map reset, Done!!!
 mnFirstFrameId = 5361
 mnInitialFrameId = 5359
-4902 Frames set to lost
+4912 Frames set to lost
 not IMU meas
-First KF:777; Map init KF:776
+First KF:790; Map init KF:789
 New Map created with 38 points
 Fail to track local map!
 IMU is not or recently initialized. Reseting active map...
@@ -4121,9 +3965,9 @@ LM: Reset free the mutex
 LM: Active map reset, Done!!!
 mnFirstFrameId = 5364
 mnInitialFrameId = 5362
-4904 Frames set to lost
+4914 Frames set to lost
 not IMU meas
-First KF:778; Map init KF:777
+First KF:791; Map init KF:790
 New Map created with 24 points
 Fail to track local map!
 IMU is not or recently initialized. Reseting active map...
@@ -4135,9 +3979,9 @@ LM: Reset free the mutex
 LM: Active map reset, Done!!!
 mnFirstFrameId = 5367
 mnInitialFrameId = 5365
-4906 Frames set to lost
+4916 Frames set to lost
 not IMU meas
-First KF:779; Map init KF:778
+First KF:792; Map init KF:791
 New Map created with 47 points
 Fail to track local map!
 IMU is not or recently initialized. Reseting active map...
@@ -4149,9 +3993,9 @@ LM: Reset free the mutex
 LM: Active map reset, Done!!!
 mnFirstFrameId = 5370
 mnInitialFrameId = 5368
-4908 Frames set to lost
+4918 Frames set to lost
 not IMU meas
-First KF:780; Map init KF:779
+First KF:793; Map init KF:792
 New Map created with 67 points
 Fail to track local map!
 IMU is not or recently initialized. Reseting active map...
@@ -4163,9 +4007,9 @@ LM: Reset free the mutex
 LM: Active map reset, Done!!!
 mnFirstFrameId = 5373
 mnInitialFrameId = 5371
-4914 Frames set to lost
+4924 Frames set to lost
 not IMU meas
-First KF:781; Map init KF:780
+First KF:794; Map init KF:793
 New Map created with 62 points
 Fail to track local map!
 IMU is not or recently initialized. Reseting active map...
@@ -4177,177 +4021,9 @@ LM: Reset free the mutex
 LM: Active map reset, Done!!!
 mnFirstFrameId = 5380
 mnInitialFrameId = 5378
-4957 Frames set to lost
+5027 Frames set to lost
 not IMU meas
-First KF:785; Map init KF:781
-New Map created with 119 points
-Fail to track local map!
-IMU is not or recently initialized. Reseting active map...
-LM: Active map reset recieved
-LM: Active map reset, waiting...
-LM: Reseting current map in Local Mapping...
-LM: End reseting Local Mapping...
-LM: Reset free the mutex
-LM: Active map reset, Done!!!
-mnFirstFrameId = 5424
-mnInitialFrameId = 5422
-4970 Frames set to lost
-not IMU meas
-First KF:786; Map init KF:785
-New Map created with 140 points
-Fail to track local map!
-IMU is not or recently initialized. Reseting active map...
-LM: Active map reset recieved
-LM: Active map reset, waiting...
-LM: Reseting current map in Local Mapping...
-LM: End reseting Local Mapping...
-LM: Reset free the mutex
-LM: Active map reset, Done!!!
-mnFirstFrameId = 5438
-mnInitialFrameId = 5436
-4980 Frames set to lost
-not IMU meas
-First KF:787; Map init KF:786
-New Map created with 44 points
-Fail to track local map!
-IMU is not or recently initialized. Reseting active map...
-LM: Active map reset recieved
-LM: Active map reset, waiting...
-LM: Reseting current map in Local Mapping...
-LM: End reseting Local Mapping...
-LM: Reset free the mutex
-LM: Active map reset, Done!!!
-mnFirstFrameId = 5449
-mnInitialFrameId = 5447
-4991 Frames set to lost
-not IMU meas
-First KF:788; Map init KF:787
-New Map created with 0 points
-TRACK_REF_KF: Less than 15 matches!!
-Fail to track local map!
-LM: Active map reset recieved
-LM: Active map reset, waiting...
-LM: Reseting current map in Local Mapping...
-LM: End reseting Local Mapping...
-LM: Reset free the mutex
-LM: Active map reset, Done!!!
-mnFirstFrameId = 5461
-mnInitialFrameId = 5459
-4992 Frames set to lost
-not IMU meas
-First KF:789; Map init KF:788
-New Map created with 3 points
-TRACK_REF_KF: Less than 15 matches!!
-Fail to track local map!
-LM: Active map reset recieved
-LM: Active map reset, waiting...
-LM: Reseting current map in Local Mapping...
-LM: End reseting Local Mapping...
-LM: Reset free the mutex
-LM: Active map reset, Done!!!
-mnFirstFrameId = 5464
-mnInitialFrameId = 5462
-4993 Frames set to lost
-not IMU meas
-First KF:790; Map init KF:789
-New Map created with 0 points
-TRACK_REF_KF: Less than 15 matches!!
-Fail to track local map!
-LM: Active map reset recieved
-LM: Active map reset, waiting...
-LM: Reseting current map in Local Mapping...
-LM: End reseting Local Mapping...
-LM: Reset free the mutex
-LM: Active map reset, Done!!!
-mnFirstFrameId = 5467
-mnInitialFrameId = 5465
-4994 Frames set to lost
-not IMU meas
-First KF:791; Map init KF:790
-New Map created with 2 points
-TRACK_REF_KF: Less than 15 matches!!
-Fail to track local map!
-LM: Active map reset recieved
-LM: Active map reset, waiting...
-LM: Reseting current map in Local Mapping...
-LM: End reseting Local Mapping...
-LM: Reset free the mutex
-LM: Active map reset, Done!!!
-mnFirstFrameId = 5470
-mnInitialFrameId = 5468
-4995 Frames set to lost
-not IMU meas
-First KF:792; Map init KF:791
-New Map created with 6 points
-TRACK_REF_KF: Less than 15 matches!!
-Fail to track local map!
-LM: Active map reset recieved
-LM: Active map reset, waiting...
-LM: Reseting current map in Local Mapping...
-LM: End reseting Local Mapping...
-LM: Reset free the mutex
-LM: Active map reset, Done!!!
-mnFirstFrameId = 5473
-mnInitialFrameId = 5471
-4996 Frames set to lost
-not IMU meas
-First KF:793; Map init KF:792
-New Map created with 11 points
-TRACK_REF_KF: Less than 15 matches!!
-Fail to track local map!
-LM: Active map reset recieved
-LM: Active map reset, waiting...
-LM: Reseting current map in Local Mapping...
-LM: End reseting Local Mapping...
-LM: Reset free the mutex
-LM: Active map reset, Done!!!
-mnFirstFrameId = 5476
-mnInitialFrameId = 5474
-4997 Frames set to lost
-not IMU meas
-First KF:794; Map init KF:793
-New Map created with 5 points
-TRACK_REF_KF: Less than 15 matches!!
-Fail to track local map!
-LM: Active map reset recieved
-LM: Active map reset, waiting...
-LM: Reseting current map in Local Mapping...
-LM: End reseting Local Mapping...
-LM: Reset free the mutex
-LM: Active map reset, Done!!!
-mnFirstFrameId = 5479
-mnInitialFrameId = 5477
-4998 Frames set to lost
-not IMU meas
-First KF:795; Map init KF:794
-New Map created with 7 points
-TRACK_REF_KF: Less than 15 matches!!
-Fail to track local map!
-LM: Active map reset recieved
-LM: Active map reset, waiting...
-LM: Reseting current map in Local Mapping...
-LM: End reseting Local Mapping...
-LM: Reset free the mutex
-LM: Active map reset, Done!!!
-mnFirstFrameId = 5482
-mnInitialFrameId = 5480
-4999 Frames set to lost
-not IMU meas
-First KF:796; Map init KF:795
-New Map created with 29 points
-Fail to track local map!
-IMU is not or recently initialized. Reseting active map...
-LM: Active map reset recieved
-LM: Active map reset, waiting...
-LM: Reseting current map in Local Mapping...
-LM: End reseting Local Mapping...
-LM: Reset free the mutex
-LM: Active map reset, Done!!!
-mnFirstFrameId = 5485
-mnInitialFrameId = 5483
-5001 Frames set to lost
-not IMU meas
-First KF:797; Map init KF:796
+First KF:802; Map init KF:794
 New Map created with 24 points
 Fail to track local map!
 IMU is not or recently initialized. Reseting active map...
@@ -4357,12 +4033,12 @@ LM: Reseting current map in Local Mapping...
 LM: End reseting Local Mapping...
 LM: Reset free the mutex
 LM: Active map reset, Done!!!
-mnFirstFrameId = 5488
-mnInitialFrameId = 5486
-5003 Frames set to lost
+mnFirstFrameId = 5484
+mnInitialFrameId = 5482
+5029 Frames set to lost
 not IMU meas
-First KF:798; Map init KF:797
-New Map created with 16 points
+First KF:803; Map init KF:802
+New Map created with 27 points
 Fail to track local map!
 IMU is not or recently initialized. Reseting active map...
 LM: Active map reset recieved
@@ -4371,81 +4047,25 @@ LM: Reseting current map in Local Mapping...
 LM: End reseting Local Mapping...
 LM: Reset free the mutex
 LM: Active map reset, Done!!!
-mnFirstFrameId = 5491
-mnInitialFrameId = 5489
-5005 Frames set to lost
-not IMU meas
-First KF:799; Map init KF:798
-New Map created with 1 points
-TRACK_REF_KF: Less than 15 matches!!
-Fail to track local map!
-LM: Active map reset recieved
-LM: Active map reset, waiting...
-LM: Reseting current map in Local Mapping...
-LM: End reseting Local Mapping...
-LM: Reset free the mutex
-LM: Active map reset, Done!!!
-mnFirstFrameId = 5494
-mnInitialFrameId = 5492
-5006 Frames set to lost
-not IMU meas
-First KF:800; Map init KF:799
-New Map created with 0 points
-TRACK_REF_KF: Less than 15 matches!!
-Fail to track local map!
-LM: Active map reset recieved
-LM: Active map reset, waiting...
-LM: Reseting current map in Local Mapping...
-LM: End reseting Local Mapping...
-LM: Reset free the mutex
-LM: Active map reset, Done!!!
-mnFirstFrameId = 5497
-mnInitialFrameId = 5495
-5007 Frames set to lost
-not IMU meas
-First KF:801; Map init KF:800
-New Map created with 3 points
-TRACK_REF_KF: Less than 15 matches!!
-Fail to track local map!
-LM: Active map reset recieved
-LM: Active map reset, waiting...
-LM: Reseting current map in Local Mapping...
-LM: End reseting Local Mapping...
-LM: Reset free the mutex
-LM: Active map reset, Done!!!
-mnFirstFrameId = 5500
-mnInitialFrameId = 5498
-5008 Frames set to lost
-not IMU meas
-First KF:802; Map init KF:801
-New Map created with 1 points
-TRACK_REF_KF: Less than 15 matches!!
-Fail to track local map!
-LM: Active map reset recieved
-LM: Active map reset, waiting...
-LM: Reseting current map in Local Mapping...
-LM: End reseting Local Mapping...
-LM: Reset free the mutex
-LM: Active map reset, Done!!!
-mnFirstFrameId = 5503
-mnInitialFrameId = 5501
-5009 Frames set to lost
-not IMU meas
-First KF:803; Map init KF:802
-New Map created with 3 points
-TRACK_REF_KF: Less than 15 matches!!
-Fail to track local map!
-LM: Active map reset recieved
-LM: Active map reset, waiting...
-LM: Reseting current map in Local Mapping...
-LM: End reseting Local Mapping...
-LM: Reset free the mutex
-LM: Active map reset, Done!!!
-mnFirstFrameId = 5506
-mnInitialFrameId = 5504
-5010 Frames set to lost
+mnFirstFrameId = 5487
+mnInitialFrameId = 5485
+5031 Frames set to lost
 not IMU meas
 First KF:804; Map init KF:803
+New Map created with 8 points
+TRACK_REF_KF: Less than 15 matches!!
+Fail to track local map!
+LM: Active map reset recieved
+LM: Active map reset, waiting...
+LM: Reseting current map in Local Mapping...
+LM: End reseting Local Mapping...
+LM: Reset free the mutex
+LM: Active map reset, Done!!!
+mnFirstFrameId = 5490
+mnInitialFrameId = 5488
+5032 Frames set to lost
+not IMU meas
+First KF:805; Map init KF:804
 New Map created with 5 points
 TRACK_REF_KF: Less than 15 matches!!
 Fail to track local map!
@@ -4455,11 +4075,25 @@ LM: Reseting current map in Local Mapping...
 LM: End reseting Local Mapping...
 LM: Reset free the mutex
 LM: Active map reset, Done!!!
-mnFirstFrameId = 5509
-mnInitialFrameId = 5507
-5011 Frames set to lost
+mnFirstFrameId = 5493
+mnInitialFrameId = 5491
+5033 Frames set to lost
 not IMU meas
-First KF:805; Map init KF:804
+First KF:806; Map init KF:805
+New Map created with 6 points
+TRACK_REF_KF: Less than 15 matches!!
+Fail to track local map!
+LM: Active map reset recieved
+LM: Active map reset, waiting...
+LM: Reseting current map in Local Mapping...
+LM: End reseting Local Mapping...
+LM: Reset free the mutex
+LM: Active map reset, Done!!!
+mnFirstFrameId = 5496
+mnInitialFrameId = 5494
+5034 Frames set to lost
+not IMU meas
+First KF:807; Map init KF:806
 New Map created with 2 points
 TRACK_REF_KF: Less than 15 matches!!
 Fail to track local map!
@@ -4469,25 +4103,11 @@ LM: Reseting current map in Local Mapping...
 LM: End reseting Local Mapping...
 LM: Reset free the mutex
 LM: Active map reset, Done!!!
-mnFirstFrameId = 5512
-mnInitialFrameId = 5510
-5012 Frames set to lost
+mnFirstFrameId = 5499
+mnInitialFrameId = 5497
+5035 Frames set to lost
 not IMU meas
-First KF:806; Map init KF:805
-New Map created with 0 points
-TRACK_REF_KF: Less than 15 matches!!
-Fail to track local map!
-LM: Active map reset recieved
-LM: Active map reset, waiting...
-LM: Reseting current map in Local Mapping...
-LM: End reseting Local Mapping...
-LM: Reset free the mutex
-LM: Active map reset, Done!!!
-mnFirstFrameId = 5515
-mnInitialFrameId = 5513
-5013 Frames set to lost
-not IMU meas
-First KF:807; Map init KF:806
+First KF:808; Map init KF:807
 New Map created with 3 points
 TRACK_REF_KF: Less than 15 matches!!
 Fail to track local map!
@@ -4497,12 +4117,12 @@ LM: Reseting current map in Local Mapping...
 LM: End reseting Local Mapping...
 LM: Reset free the mutex
 LM: Active map reset, Done!!!
-mnFirstFrameId = 5518
-mnInitialFrameId = 5516
-5014 Frames set to lost
+mnFirstFrameId = 5502
+mnInitialFrameId = 5500
+5036 Frames set to lost
 not IMU meas
-First KF:808; Map init KF:807
-New Map created with 0 points
+First KF:809; Map init KF:808
+New Map created with 5 points
 TRACK_REF_KF: Less than 15 matches!!
 Fail to track local map!
 LM: Active map reset recieved
@@ -4511,11 +4131,53 @@ LM: Reseting current map in Local Mapping...
 LM: End reseting Local Mapping...
 LM: Reset free the mutex
 LM: Active map reset, Done!!!
-mnFirstFrameId = 5521
-mnInitialFrameId = 5519
-5015 Frames set to lost
+mnFirstFrameId = 5505
+mnInitialFrameId = 5503
+5037 Frames set to lost
 not IMU meas
-First KF:809; Map init KF:808
+First KF:810; Map init KF:809
+New Map created with 4 points
+TRACK_REF_KF: Less than 15 matches!!
+Fail to track local map!
+LM: Active map reset recieved
+LM: Active map reset, waiting...
+LM: Reseting current map in Local Mapping...
+LM: End reseting Local Mapping...
+LM: Reset free the mutex
+LM: Active map reset, Done!!!
+mnFirstFrameId = 5508
+mnInitialFrameId = 5506
+5038 Frames set to lost
+not IMU meas
+First KF:811; Map init KF:810
+New Map created with 3 points
+TRACK_REF_KF: Less than 15 matches!!
+Fail to track local map!
+LM: Active map reset recieved
+LM: Active map reset, waiting...
+LM: Reseting current map in Local Mapping...
+LM: End reseting Local Mapping...
+LM: Reset free the mutex
+LM: Active map reset, Done!!!
+mnFirstFrameId = 5511
+mnInitialFrameId = 5509
+5039 Frames set to lost
+not IMU meas
+First KF:812; Map init KF:811
+New Map created with 5 points
+TRACK_REF_KF: Less than 15 matches!!
+Fail to track local map!
+LM: Active map reset recieved
+LM: Active map reset, waiting...
+LM: Reseting current map in Local Mapping...
+LM: End reseting Local Mapping...
+LM: Reset free the mutex
+LM: Active map reset, Done!!!
+mnFirstFrameId = 5514
+mnInitialFrameId = 5512
+5040 Frames set to lost
+not IMU meas
+First KF:813; Map init KF:812
 New Map created with 1 points
 TRACK_REF_KF: Less than 15 matches!!
 Fail to track local map!
@@ -4525,11 +4187,11 @@ LM: Reseting current map in Local Mapping...
 LM: End reseting Local Mapping...
 LM: Reset free the mutex
 LM: Active map reset, Done!!!
-mnFirstFrameId = 5524
-mnInitialFrameId = 5522
-5016 Frames set to lost
+mnFirstFrameId = 5517
+mnInitialFrameId = 5515
+5041 Frames set to lost
 not IMU meas
-First KF:810; Map init KF:809
+First KF:814; Map init KF:813
 New Map created with 3 points
 TRACK_REF_KF: Less than 15 matches!!
 Fail to track local map!
@@ -4539,12 +4201,12 @@ LM: Reseting current map in Local Mapping...
 LM: End reseting Local Mapping...
 LM: Reset free the mutex
 LM: Active map reset, Done!!!
-mnFirstFrameId = 5527
-mnInitialFrameId = 5525
-5017 Frames set to lost
+mnFirstFrameId = 5520
+mnInitialFrameId = 5518
+5042 Frames set to lost
 not IMU meas
-First KF:811; Map init KF:810
-New Map created with 2 points
+First KF:815; Map init KF:814
+New Map created with 3 points
 TRACK_REF_KF: Less than 15 matches!!
 Fail to track local map!
 LM: Active map reset recieved
@@ -4553,12 +4215,40 @@ LM: Reseting current map in Local Mapping...
 LM: End reseting Local Mapping...
 LM: Reset free the mutex
 LM: Active map reset, Done!!!
-mnFirstFrameId = 5530
-mnInitialFrameId = 5528
-5018 Frames set to lost
+mnFirstFrameId = 5523
+mnInitialFrameId = 5521
+5043 Frames set to lost
 not IMU meas
-First KF:812; Map init KF:811
-New Map created with 11 points
+First KF:816; Map init KF:815
+New Map created with 0 points
+TRACK_REF_KF: Less than 15 matches!!
+Fail to track local map!
+LM: Active map reset recieved
+LM: Active map reset, waiting...
+LM: Reseting current map in Local Mapping...
+LM: End reseting Local Mapping...
+LM: Reset free the mutex
+LM: Active map reset, Done!!!
+mnFirstFrameId = 5526
+mnInitialFrameId = 5524
+5044 Frames set to lost
+not IMU meas
+First KF:817; Map init KF:816
+New Map created with 1 points
+TRACK_REF_KF: Less than 15 matches!!
+Fail to track local map!
+LM: Active map reset recieved
+LM: Active map reset, waiting...
+LM: Reseting current map in Local Mapping...
+LM: End reseting Local Mapping...
+LM: Reset free the mutex
+LM: Active map reset, Done!!!
+mnFirstFrameId = 5529
+mnInitialFrameId = 5527
+5045 Frames set to lost
+not IMU meas
+First KF:818; Map init KF:817
+New Map created with 9 points
 Fail to track local map!
 IMU is not or recently initialized. Reseting active map...
 LM: Active map reset recieved
@@ -4567,12 +4257,12 @@ LM: Reseting current map in Local Mapping...
 LM: End reseting Local Mapping...
 LM: Reset free the mutex
 LM: Active map reset, Done!!!
-mnFirstFrameId = 5533
-mnInitialFrameId = 5531
-5020 Frames set to lost
+mnFirstFrameId = 5532
+mnInitialFrameId = 5530
+5047 Frames set to lost
 not IMU meas
-First KF:813; Map init KF:812
-New Map created with 60 points
+First KF:819; Map init KF:818
+New Map created with 34 points
 Fail to track local map!
 IMU is not or recently initialized. Reseting active map...
 LM: Active map reset recieved
@@ -4581,12 +4271,12 @@ LM: Reseting current map in Local Mapping...
 LM: End reseting Local Mapping...
 LM: Reset free the mutex
 LM: Active map reset, Done!!!
-mnFirstFrameId = 5536
-mnInitialFrameId = 5534
-5046 Frames set to lost
+mnFirstFrameId = 5535
+mnInitialFrameId = 5533
+5049 Frames set to lost
 not IMU meas
-First KF:815; Map init KF:813
-New Map created with 210 points
+First KF:820; Map init KF:819
+New Map created with 117 points
 Fail to track local map!
 IMU is not or recently initialized. Reseting active map...
 LM: Active map reset recieved
@@ -4595,11 +4285,11 @@ LM: Reseting current map in Local Mapping...
 LM: End reseting Local Mapping...
 LM: Reset free the mutex
 LM: Active map reset, Done!!!
-mnFirstFrameId = 5563
-mnInitialFrameId = 5561
-5182 Frames set to lost
+mnFirstFrameId = 5538
+mnInitialFrameId = 5536
+5210 Frames set to lost
 not IMU meas
-First KF:829; Map init KF:815
+First KF:844; Map init KF:820
 New Map created with 0 points
 TRACK_REF_KF: Less than 15 matches!!
 Fail to track local map!
@@ -4611,9 +4301,9 @@ LM: Reset free the mutex
 LM: Active map reset, Done!!!
 mnFirstFrameId = 5700
 mnInitialFrameId = 5698
-5183 Frames set to lost
+5211 Frames set to lost
 not IMU meas
-First KF:830; Map init KF:829
+First KF:845; Map init KF:844
 New Map created with 0 points
 TRACK_REF_KF: Less than 15 matches!!
 Fail to track local map!
@@ -4625,8 +4315,8 @@ LM: Reset free the mutex
 LM: Active map reset, Done!!!
 mnFirstFrameId = 5703
 mnInitialFrameId = 5701
-5184 Frames set to lost
-First KF:831; Map init KF:830
+5212 Frames set to lost
+First KF:846; Map init KF:845
 New Map created with 0 points
 TRACK_REF_KF: Less than 15 matches!!
 Fail to track local map!
@@ -4638,9 +4328,9 @@ LM: Reset free the mutex
 LM: Active map reset, Done!!!
 mnFirstFrameId = 5723
 mnInitialFrameId = 5704
-5185 Frames set to lost
+5213 Frames set to lost
 not IMU meas
-First KF:832; Map init KF:831
+First KF:847; Map init KF:846
 New Map created with 2 points
 TRACK_REF_KF: Less than 15 matches!!
 Fail to track local map!
@@ -4652,9 +4342,9 @@ LM: Reset free the mutex
 LM: Active map reset, Done!!!
 mnFirstFrameId = 5726
 mnInitialFrameId = 5724
-5186 Frames set to lost
+5214 Frames set to lost
 not IMU meas
-First KF:833; Map init KF:832
+First KF:848; Map init KF:847
 New Map created with 9 points
 TRACK_REF_KF: Less than 15 matches!!
 Fail to track local map!
@@ -4666,9 +4356,9 @@ LM: Reset free the mutex
 LM: Active map reset, Done!!!
 mnFirstFrameId = 5729
 mnInitialFrameId = 5727
-5187 Frames set to lost
+5215 Frames set to lost
 not IMU meas
-First KF:834; Map init KF:833
+First KF:849; Map init KF:848
 New Map created with 4 points
 TRACK_REF_KF: Less than 15 matches!!
 Fail to track local map!
@@ -4680,9 +4370,9 @@ LM: Reset free the mutex
 LM: Active map reset, Done!!!
 mnFirstFrameId = 5732
 mnInitialFrameId = 5730
-5188 Frames set to lost
+5216 Frames set to lost
 not IMU meas
-First KF:835; Map init KF:834
+First KF:850; Map init KF:849
 New Map created with 12 points
 TRACK_REF_KF: Less than 15 matches!!
 Fail to track local map!
@@ -4694,9 +4384,9 @@ LM: Reset free the mutex
 LM: Active map reset, Done!!!
 mnFirstFrameId = 5735
 mnInitialFrameId = 5733
-5189 Frames set to lost
+5217 Frames set to lost
 not IMU meas
-First KF:836; Map init KF:835
+First KF:851; Map init KF:850
 New Map created with 11 points
 TRACK_REF_KF: Less than 15 matches!!
 Fail to track local map!
@@ -4708,9 +4398,9 @@ LM: Reset free the mutex
 LM: Active map reset, Done!!!
 mnFirstFrameId = 5738
 mnInitialFrameId = 5736
-5190 Frames set to lost
+5218 Frames set to lost
 not IMU meas
-First KF:837; Map init KF:836
+First KF:852; Map init KF:851
 New Map created with 5 points
 TRACK_REF_KF: Less than 15 matches!!
 Fail to track local map!
@@ -4722,9 +4412,9 @@ LM: Reset free the mutex
 LM: Active map reset, Done!!!
 mnFirstFrameId = 5741
 mnInitialFrameId = 5739
-5191 Frames set to lost
+5219 Frames set to lost
 not IMU meas
-First KF:838; Map init KF:837
+First KF:853; Map init KF:852
 New Map created with 0 points
 TRACK_REF_KF: Less than 15 matches!!
 Fail to track local map!
@@ -4736,9 +4426,9 @@ LM: Reset free the mutex
 LM: Active map reset, Done!!!
 mnFirstFrameId = 5744
 mnInitialFrameId = 5742
-5192 Frames set to lost
+5220 Frames set to lost
 not IMU meas
-First KF:839; Map init KF:838
+First KF:854; Map init KF:853
 New Map created with 1 points
 TRACK_REF_KF: Less than 15 matches!!
 Fail to track local map!
@@ -4750,9 +4440,9 @@ LM: Reset free the mutex
 LM: Active map reset, Done!!!
 mnFirstFrameId = 5747
 mnInitialFrameId = 5745
-5193 Frames set to lost
+5221 Frames set to lost
 not IMU meas
-First KF:840; Map init KF:839
+First KF:855; Map init KF:854
 New Map created with 2 points
 TRACK_REF_KF: Less than 15 matches!!
 Fail to track local map!
@@ -4764,9 +4454,9 @@ LM: Reset free the mutex
 LM: Active map reset, Done!!!
 mnFirstFrameId = 5750
 mnInitialFrameId = 5748
-5194 Frames set to lost
+5222 Frames set to lost
 not IMU meas
-First KF:841; Map init KF:840
+First KF:856; Map init KF:855
 New Map created with 0 points
 TRACK_REF_KF: Less than 15 matches!!
 Fail to track local map!
@@ -4778,9 +4468,9 @@ LM: Reset free the mutex
 LM: Active map reset, Done!!!
 mnFirstFrameId = 5753
 mnInitialFrameId = 5751
-5195 Frames set to lost
+5223 Frames set to lost
 not IMU meas
-First KF:842; Map init KF:841
+First KF:857; Map init KF:856
 New Map created with 84 points
 Not enough motion for initializing. Reseting...
 TRACK: Reset map because local mapper set the bad imu flag 
@@ -4795,9 +4485,9 @@ LM: Reset free the mutex
 LM: Active map reset, Done!!!
 mnFirstFrameId = 5756
 mnInitialFrameId = 5754
-5325 Frames set to lost
+5353 Frames set to lost
 not IMU meas
-First KF:853; Map init KF:842
+First KF:868; Map init KF:857
 New Map created with 188 points
 Not enough motion for initializing. Reseting...
 TRACK: Reset map because local mapper set the bad imu flag 
@@ -4812,15 +4502,89 @@ LM: Reset free the mutex
 LM: Active map reset, Done!!!
 mnFirstFrameId = 5888
 mnInitialFrameId = 5886
-5455 Frames set to lost
+5483 Frames set to lost
 not IMU meas
-First KF:864; Map init KF:853
+First KF:879; Map init KF:868
 New Map created with 188 points
 Shutdown
 
+ TIME STATS in ms (mean$\pm$std)
+OpenCV version: 4.5.4
+---------------------------
+Tracking
+
+ORB Extraction: 8.9759$\pm$1.8695
+Stereo Matching: 1.1247$\pm$0.50084
+IMU Preintegration: 0.038964$\pm$0.013822
+Pose Prediction: 2.1534$\pm$2.056
+LM Track: 3.1207$\pm$2.2433
+New KF decision: 0.01669$\pm$0.033835
+Total Tracking: 15.989$\pm$4.6217
+
+
+
+Local Mapping
+
+KF Insertion: 3.4456$\pm$1.3923
+MP Culling: 0.094871$\pm$0.088261
+MP Creation: 11.028$\pm$11.529
+LBA: 21.835$\pm$15.138
+KF Culling: 1.2896$\pm$4.196
+Total Local Mapping: 29.022$\pm$29.07
+---------------------------
+
+LBA complexity (mean$\pm$std)
+LBA Edges: 1702.4$\pm$834.57
+LBA KF optimized: 5.3552$\pm$2.1037
+LBA KF fixed: 1.3169$\pm$0.92215
+LBA MP: -nan$\pm$-nan
+
+LBA executions: 531
+LBA aborts: 0
+---------------------------
+
+Map complexity
+KFs in map: 8
+MPs in map: 273
+---------------------------
+
+Place Recognition (mean$\pm$std)
+Database Query: -nan$\pm$-nan
+SE3 estimation: -nan$\pm$-nan
+Total Place Recognition: 6.8719e-05$\pm$6.9531e-05
+
+
+Loop Closing (mean$\pm$std)
+Loop Fusion: -nan$\pm$-nan
+Essential Graph: -nan$\pm$-nan
+Total Loop Closing: -nan$\pm$-nan
+
+Num exec: 0
+Number of KFs: -nan$\pm$-nan
+
+Map Merging (mean$\pm$std)
+Merge Maps: -nan$\pm$-nan
+Welding BA: -nan$\pm$-nan
+Optimization Ess.: -nan$\pm$-nan
+Total Map Merging: -nan$\pm$-nan
+
+Num exec: 0
+Number of KFs: -nan$\pm$-nan
+Number of MPs: -nan$\pm$-nan
+
+Full GBA (mean$\pm$std)
+GBA: -nan$\pm$-nan
+Map Update: -nan$\pm$-nan
+Total Full GBA: -nan$\pm$-nan
+
+Num exec: 0
+Num abort: 0
+Number of KFs: -nan$\pm$-nan
+Number of MPs: -nan$\pm$-nan
+
 Saving trajectory to f_trajectory.txt ...
 There are 1 maps in the atlas
-  Map 0 has 7 KFs
+  Map 0 has 8 KFs
 
 End of saving trajectory to f_trajectory.txt ...
 

@@ -53,6 +53,7 @@ SLAM settings:
 	-Initial FAST threshold: 20
 	-Min FAST threshold: 7
 
+LOOP CLOSURE ACTIVO
 
 Loading ORB Vocabulary. This could take a while...
 Vocabulary loaded!
@@ -157,9 +158,83 @@ start VIBA 2
 end VIBA 2
 Shutdown
 
+ TIME STATS in ms (mean$\pm$std)
+OpenCV version: 4.5.4
+---------------------------
+Tracking
+
+ORB Extraction: 5.8403$\pm$1.4566
+Stereo Matching: 2.3454$\pm$0.71627
+IMU Preintegration: 0.057074$\pm$0.022477
+Pose Prediction: 0.097381$\pm$0.35191
+LM Track: 4.8237$\pm$1.0165
+New KF decision: 0.063183$\pm$0.080732
+Total Tracking: 14.741$\pm$2.3939
+
+
+
+Local Mapping
+
+KF Insertion: 3.9921$\pm$0.74063
+MP Culling: 0.15652$\pm$0.054273
+MP Creation: 8.631$\pm$2.3483
+LBA: 62.419$\pm$18.18
+KF Culling: 5.2306$\pm$4.0958
+Total Local Mapping: 80.733$\pm$23.054
+---------------------------
+
+LBA complexity (mean$\pm$std)
+LBA Edges: 4543.6$\pm$1308.9
+LBA KF optimized: 6.5$\pm$2.2913
+LBA KF fixed: 1$\pm$0
+LBA MP: -nan$\pm$-nan
+
+LBA executions: 381
+LBA aborts: 0
+---------------------------
+
+Map complexity
+KFs in map: 95
+MPs in map: 8162
+---------------------------
+
+Place Recognition (mean$\pm$std)
+Database Query: 0.54568$\pm$0.24511
+SE3 estimation: 3.9391$\pm$2.5648
+Total Place Recognition: 3.824$\pm$2.9991
+
+
+Loop Closing (mean$\pm$std)
+Loop Fusion: -nan$\pm$-nan
+Essential Graph: -nan$\pm$-nan
+Total Loop Closing: -nan$\pm$-nan
+
+Num exec: 0
+Number of KFs: -nan$\pm$-nan
+
+Map Merging (mean$\pm$std)
+Merge Maps: -nan$\pm$-nan
+Welding BA: -nan$\pm$-nan
+Optimization Ess.: -nan$\pm$-nan
+Total Map Merging: -nan$\pm$-nan
+
+Num exec: 0
+Number of KFs: -nan$\pm$-nan
+Number of MPs: -nan$\pm$-nan
+
+Full GBA (mean$\pm$std)
+GBA: -nan$\pm$-nan
+Map Update: -nan$\pm$-nan
+Total Full GBA: -nan$\pm$-nan
+
+Num exec: 0
+Num abort: 0
+Number of KFs: -nan$\pm$-nan
+Number of MPs: -nan$\pm$-nan
+
 Saving trajectory to f_trajectory.txt ...
 There are 1 maps in the atlas
-  Map 0 has 94 KFs
+  Map 0 has 95 KFs
 
 End of saving trajectory to f_trajectory.txt ...
 

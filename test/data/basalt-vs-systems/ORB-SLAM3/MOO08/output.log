@@ -50,6 +50,7 @@ SLAM settings:
 	-Initial FAST threshold: 20
 	-Min FAST threshold: 7
 
+LOOP CLOSURE ACTIVO
 
 Loading ORB Vocabulary. This could take a while...
 Vocabulary loaded!
@@ -1687,6 +1688,80 @@ not IMU meas
 First KF:127; Map init KF:113
 New Map created with 30 points
 Shutdown
+
+ TIME STATS in ms (mean$\pm$std)
+OpenCV version: 4.5.4
+---------------------------
+Tracking
+
+ORB Extraction: 4.065$\pm$0.3729
+Stereo Matching: 0.39534$\pm$0.10981
+IMU Preintegration: 0.043663$\pm$0.0065443
+Pose Prediction: 1.4836$\pm$0.9369
+LM Track: 1.6431$\pm$1.7471
+New KF decision: 0.0082992$\pm$0.017456
+Total Tracking: 8.2599$\pm$3.0367
+
+
+
+Local Mapping
+
+KF Insertion: 2.6192$\pm$0.36803
+MP Culling: 0.0078099$\pm$0.020008
+MP Creation: 0.84497$\pm$2.6453
+LBA: 7.095$\pm$5.0523
+KF Culling: 0.16142$\pm$1.5235
+Total Local Mapping: 4.6251$\pm$6.6525
+---------------------------
+
+LBA complexity (mean$\pm$std)
+LBA Edges: 1400.5$\pm$1005.1
+LBA KF optimized: 6.2667$\pm$2.1746
+LBA KF fixed: 1$\pm$0
+LBA MP: -nan$\pm$-nan
+
+LBA executions: 19
+LBA aborts: 0
+---------------------------
+
+Map complexity
+KFs in map: 9
+MPs in map: 73
+---------------------------
+
+Place Recognition (mean$\pm$std)
+Database Query: -nan$\pm$-nan
+SE3 estimation: -nan$\pm$-nan
+Total Place Recognition: 0.10145$\pm$0.035007
+
+
+Loop Closing (mean$\pm$std)
+Loop Fusion: -nan$\pm$-nan
+Essential Graph: -nan$\pm$-nan
+Total Loop Closing: -nan$\pm$-nan
+
+Num exec: 0
+Number of KFs: -nan$\pm$-nan
+
+Map Merging (mean$\pm$std)
+Merge Maps: -nan$\pm$-nan
+Welding BA: -nan$\pm$-nan
+Optimization Ess.: -nan$\pm$-nan
+Total Map Merging: -nan$\pm$-nan
+
+Num exec: 0
+Number of KFs: -nan$\pm$-nan
+Number of MPs: -nan$\pm$-nan
+
+Full GBA (mean$\pm$std)
+GBA: -nan$\pm$-nan
+Map Update: -nan$\pm$-nan
+Total Full GBA: -nan$\pm$-nan
+
+Num exec: 0
+Num abort: 0
+Number of KFs: -nan$\pm$-nan
+Number of MPs: -nan$\pm$-nan
 
 Saving trajectory to f_trajectory.txt ...
 There are 1 maps in the atlas

@@ -50,6 +50,7 @@ SLAM settings:
 	-Initial FAST threshold: 20
 	-Min FAST threshold: 7
 
+LOOP CLOSURE ACTIVO
 
 Loading ORB Vocabulary. This could take a while...
 Vocabulary loaded!
@@ -182,9 +183,6 @@ First KF:0; Map init KF:0
 New Map created with 134 points
 Not enough motion for initializing. Reseting...
 TRACK: Reset map because local mapper set the bad imu flag 
-LM: Reseting current map in Local Mapping...
-LM: End reseting Local Mapping...
-LM: Reset free the mutex
 LM: Active map reset recieved
 LM: Active map reset, waiting...
 LM: Reseting current map in Local Mapping...
@@ -193,10 +191,10 @@ LM: Reset free the mutex
 LM: Active map reset, Done!!!
 mnFirstFrameId = 117
 mnInitialFrameId = 0
-161 Frames set to lost
+237 Frames set to lost
 not IMU meas
-First KF:16; Map init KF:0
-New Map created with 132 points
+First KF:29; Map init KF:0
+New Map created with 78 points
 Not enough motion for initializing. Reseting...
 LM: Reseting current map in Local Mapping...
 LM: End reseting Local Mapping...
@@ -212,41 +210,12 @@ LM: Reseting current map in Local Mapping...
 LM: End reseting Local Mapping...
 LM: Reset free the mutex
 LM: Active map reset, Done!!!
-mnFirstFrameId = 280
-mnInitialFrameId = 278
-300 Frames set to lost
+mnFirstFrameId = 356
+mnInitialFrameId = 354
+445 Frames set to lost
 not IMU meas
-First KF:29; Map init KF:16
-New Map created with 96 points
-Not enough motion for initializing. Reseting...
-TRACK: Reset map because local mapper set the bad imu flag 
-LM: Reseting current map in Local Mapping...
-LM: End reseting Local Mapping...
-LM: Reset free the mutex
-LM: Active map reset recieved
-LM: Active map reset, waiting...
-LM: Reseting current map in Local Mapping...
-LM: End reseting Local Mapping...
-LM: Reset free the mutex
-LM: Active map reset, Done!!!
-mnFirstFrameId = 421
-mnInitialFrameId = 419
-432 Frames set to lost
-not IMU meas
-First KF:41; Map init KF:29
-New Map created with 142 points
-Not enough motion for initializing. Reseting...
-LM: Reseting current map in Local Mapping...
-LM: End reseting Local Mapping...
-LM: Reset free the mutex
-Not enough motion for initializing. Reseting...
-LM: Reseting current map in Local Mapping...
-LM: End reseting Local Mapping...
-LM: Reset free the mutex
-Not enough motion for initializing. Reseting...
-LM: Reseting current map in Local Mapping...
-LM: End reseting Local Mapping...
-LM: Reset free the mutex
+First KF:48; Map init KF:29
+New Map created with 154 points
 Not enough motion for initializing. Reseting...
 LM: Reseting current map in Local Mapping...
 LM: End reseting Local Mapping...
@@ -262,12 +231,12 @@ LM: Reseting current map in Local Mapping...
 LM: End reseting Local Mapping...
 LM: Reset free the mutex
 LM: Active map reset, Done!!!
-mnFirstFrameId = 555
-mnInitialFrameId = 553
-565 Frames set to lost
+mnFirstFrameId = 566
+mnInitialFrameId = 564
+576 Frames set to lost
 not IMU meas
-First KF:56; Map init KF:41
-New Map created with 165 points
+First KF:60; Map init KF:48
+New Map created with 164 points
 Not enough motion for initializing. Reseting...
 TRACK: Reset map because local mapper set the bad imu flag 
 LM: Reseting current map in Local Mapping...
@@ -279,12 +248,12 @@ LM: Reseting current map in Local Mapping...
 LM: End reseting Local Mapping...
 LM: Reset free the mutex
 LM: Active map reset, Done!!!
-mnFirstFrameId = 690
-mnInitialFrameId = 688
-699 Frames set to lost
+mnFirstFrameId = 699
+mnInitialFrameId = 697
+713 Frames set to lost
 not IMU meas
-First KF:68; Map init KF:56
-New Map created with 133 points
+First KF:73; Map init KF:60
+New Map created with 134 points
 Not enough motion for initializing. Reseting...
 TRACK: Reset map because local mapper set the bad imu flag 
 LM: Reseting current map in Local Mapping...
@@ -296,20 +265,46 @@ LM: Reseting current map in Local Mapping...
 LM: End reseting Local Mapping...
 LM: Reset free the mutex
 LM: Active map reset, Done!!!
-mnFirstFrameId = 826
-mnInitialFrameId = 824
-829 Frames set to lost
+mnFirstFrameId = 838
+mnInitialFrameId = 836
+852 Frames set to lost
 not IMU meas
-First KF:79; Map init KF:68
-New Map created with 180 points
+First KF:88; Map init KF:73
+New Map created with 166 points
 Not enough motion for initializing. Reseting...
+TRACK: Reset map because local mapper set the bad imu flag 
 LM: Reseting current map in Local Mapping...
 LM: End reseting Local Mapping...
 LM: Reset free the mutex
-Not enough motion for initializing. Reseting...
+LM: Active map reset recieved
+LM: Active map reset, waiting...
 LM: Reseting current map in Local Mapping...
 LM: End reseting Local Mapping...
 LM: Reset free the mutex
+LM: Active map reset, Done!!!
+mnFirstFrameId = 979
+mnInitialFrameId = 977
+982 Frames set to lost
+not IMU meas
+First KF:99; Map init KF:88
+New Map created with 159 points
+Not enough motion for initializing. Reseting...
+TRACK: Reset map because local mapper set the bad imu flag 
+LM: Reseting current map in Local Mapping...
+LM: End reseting Local Mapping...
+LM: Reset free the mutex
+LM: Active map reset recieved
+LM: Active map reset, waiting...
+LM: Reseting current map in Local Mapping...
+LM: End reseting Local Mapping...
+LM: Reset free the mutex
+LM: Active map reset, Done!!!
+mnFirstFrameId = 1111
+mnInitialFrameId = 1109
+1112 Frames set to lost
+not IMU meas
+First KF:110; Map init KF:99
+New Map created with 112 points
 Not enough motion for initializing. Reseting...
 LM: Reseting current map in Local Mapping...
 LM: End reseting Local Mapping...
@@ -325,33 +320,12 @@ LM: Reseting current map in Local Mapping...
 LM: End reseting Local Mapping...
 LM: Reset free the mutex
 LM: Active map reset, Done!!!
-mnFirstFrameId = 958
-mnInitialFrameId = 956
-963 Frames set to lost
+mnFirstFrameId = 1243
+mnInitialFrameId = 1241
+1242 Frames set to lost
 not IMU meas
-First KF:93; Map init KF:79
-New Map created with 162 points
-Not enough motion for initializing. Reseting...
-TRACK: Reset map because local mapper set the bad imu flag 
-LM: Reseting current map in Local Mapping...
-LM: End reseting Local Mapping...
-LM: Reset free the mutex
-LM: Active map reset recieved
-LM: Active map reset, waiting...
-LM: Reseting current map in Local Mapping...
-LM: End reseting Local Mapping...
-LM: Reset free the mutex
-LM: Active map reset, Done!!!
-mnFirstFrameId = 1094
-mnInitialFrameId = 1092
-1093 Frames set to lost
-not IMU meas
-First KF:104; Map init KF:93
-New Map created with 100 points
-Not enough motion for initializing. Reseting...
-LM: Reseting current map in Local Mapping...
-LM: End reseting Local Mapping...
-LM: Reset free the mutex
+First KF:122; Map init KF:110
+New Map created with 143 points
 Not enough motion for initializing. Reseting...
 LM: Reseting current map in Local Mapping...
 LM: End reseting Local Mapping...
@@ -375,54 +349,95 @@ LM: Reseting current map in Local Mapping...
 LM: End reseting Local Mapping...
 LM: Reset free the mutex
 LM: Active map reset, Done!!!
-mnFirstFrameId = 1226
-mnInitialFrameId = 1224
-1228 Frames set to lost
+mnFirstFrameId = 1375
+mnInitialFrameId = 1373
+1376 Frames set to lost
 not IMU meas
-First KF:119; Map init KF:104
-New Map created with 130 points
-Not enough motion for initializing. Reseting...
-LM: Reseting current map in Local Mapping...
-LM: End reseting Local Mapping...
-LM: Reset free the mutex
-Not enough motion for initializing. Reseting...
-LM: Reseting current map in Local Mapping...
-LM: End reseting Local Mapping...
-LM: Reset free the mutex
-Not enough motion for initializing. Reseting...
-LM: Reseting current map in Local Mapping...
-LM: End reseting Local Mapping...
-LM: Reset free the mutex
-Not enough motion for initializing. Reseting...
-LM: Reseting current map in Local Mapping...
-LM: End reseting Local Mapping...
-LM: Reset free the mutex
-Not enough motion for initializing. Reseting...
-LM: Reseting current map in Local Mapping...
-TRACK: Reset map because local mapper set the bad imu flag 
-LM: End reseting Local Mapping...
-LM: Reset free the mutex
-LM: Active map reset recieved
-LM: Active map reset, waiting...
-LM: Reseting current map in Local Mapping...
-LM: End reseting Local Mapping...
-LM: Reset free the mutex
-LM: Active map reset, Done!!!
-mnFirstFrameId = 1363
-mnInitialFrameId = 1361
-1371 Frames set to lost
-not IMU meas
-First KF:134; Map init KF:119
-New Map created with 136 points
+First KF:136; Map init KF:122
+New Map created with 149 points
 start VIBA 1
 end VIBA 1
 start VIBA 2
 end VIBA 2
 Shutdown
 
+ TIME STATS in ms (mean$\pm$std)
+OpenCV version: 4.5.4
+---------------------------
+Tracking
+
+ORB Extraction: 9.7632$\pm$1.5272
+Stereo Matching: 1.33$\pm$0.42579
+IMU Preintegration: 0.063488$\pm$0.020909
+Pose Prediction: 0.3252$\pm$1.1221
+LM Track: 8.8283$\pm$2.6241
+New KF decision: 0.039479$\pm$0.080316
+Total Tracking: 21.55$\pm$3.427
+
+
+
+Local Mapping
+
+KF Insertion: 9.3602$\pm$4.1523
+MP Culling: 0.12883$\pm$0.092695
+MP Creation: 25.006$\pm$13.605
+LBA: 103.09$\pm$50.672
+KF Culling: 21.459$\pm$14.202
+Total Local Mapping: 157.68$\pm$77.922
+---------------------------
+
+LBA complexity (mean$\pm$std)
+LBA Edges: 1801.6$\pm$880.41
+LBA KF optimized: 6.5$\pm$2.2913
+LBA KF fixed: 1$\pm$0
+LBA MP: -nan$\pm$-nan
+
+LBA executions: 1339
+LBA aborts: 0
+---------------------------
+
+Map complexity
+KFs in map: 215
+MPs in map: 5531
+---------------------------
+
+Place Recognition (mean$\pm$std)
+Database Query: 2.7011$\pm$1.133
+SE3 estimation: 3.6456$\pm$1.5179
+Total Place Recognition: 5.5622$\pm$3.1198
+
+
+Loop Closing (mean$\pm$std)
+Loop Fusion: -nan$\pm$-nan
+Essential Graph: -nan$\pm$-nan
+Total Loop Closing: -nan$\pm$-nan
+
+Num exec: 0
+Number of KFs: -nan$\pm$-nan
+
+Map Merging (mean$\pm$std)
+Merge Maps: -nan$\pm$-nan
+Welding BA: -nan$\pm$-nan
+Optimization Ess.: -nan$\pm$-nan
+Total Map Merging: -nan$\pm$-nan
+
+Num exec: 0
+Number of KFs: -nan$\pm$-nan
+Number of MPs: -nan$\pm$-nan
+
+Full GBA (mean$\pm$std)
+GBA: -nan$\pm$-nan
+Map Update: -nan$\pm$-nan
+Total Full GBA: -nan$\pm$-nan
+
+Num exec: 0
+Num abort: 0
+Number of KFs: -nan$\pm$-nan
+Number of MPs: -nan$\pm$-nan
+
 Saving trajectory to f_trajectory.txt ...
 There are 1 maps in the atlas
-  Map 0 has 209 KFs
+  Map 0 has 215 KFs
 
 End of saving trajectory to f_trajectory.txt ...
 

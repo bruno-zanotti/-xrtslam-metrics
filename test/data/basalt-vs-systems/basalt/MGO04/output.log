@@ -1,0 +1,29 @@
+Loaded camera with 2 cameras
+marg_H (sqrt:1)
+  10000       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      0   10000       0       0       0       0       0       0       0       0       0       0       0       0       0
+      0       0   10000       0       0       0       0       0       0       0       0       0       0       0       0
+      0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      0       0       0       0       0   10000       0       0       0       0       0       0       0       0       0
+      0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      0       0       0       0       0       0       0       0       0 3.16228       0       0       0       0       0
+      0       0       0       0       0       0       0       0       0       0 3.16228       0       0       0       0
+      0       0       0       0       0       0       0       0       0       0       0 3.16228       0       0       0
+      0       0       0       0       0       0       0       0       0       0       0       0      10       0       0
+      0       0       0       0       0       0       0       0       0       0       0       0       0      10       0
+      0       0       0       0       0       0       0       0       0       0       0       0       0       0      10
+Started input_data thread 
+Setting up filter: t_ns 4527879468883
+T_w_i
+  0.998673  0.0374239 -0.0353783          0
+ 0.0374239 -0.0554509    0.99776          0
+ 0.0353783   -0.99776  -0.056778          0
+         0          0          0          1
+vel_w_i 0 0 0
+did not expect numerical failure during linearization
+***** Assertion (numerically_valid) failed in void basalt::SqrtKeypointVioEstimator<Scalar_>::optimize() [with Scalar_ = float]:
+/home/bruno/tesina/usenko/basalt/src/vi_estimator/sqrt_keypoint_vio.cpp:1113:
+./run.sh: line 16: 3465052 Aborted                 (core dumped) /home/bruno/tesina/usenko/basalt/build/basalt_vio --dataset-path /home/bruno/tesina/datasets/msdmg/MGO04 --cam-calib /home/bruno/tesina/xrtslam-metrics/test/data/basalt-vs-systems/basalt/../_calibs/msdmg_2cams.json --dataset-type euroc --config-path /home/bruno/tesina/xrtslam-metrics/test/data/basalt-vs-systems/basalt/../basalt/_configs/msdmg.json --show-gui 0 --save-trajectory euroc

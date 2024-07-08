@@ -1,3 +1,117 @@
-terminate called after throwing an instance of 'cereal::RapidJSONException'
-  what():  rapidjson internal assertion failure: IsObject()
-./run.sh: line 15: 14012 Aborted                 (core dumped) basalt_vio --dataset-path /home/bruno/tesina/datasets/msdmo/MOO15 --cam-calib /home/bruno/tesina/xrtslam-metrics/test/data/basalt-deterministic-ablation/curr_mgt_ovl/../_calibs/msdmo.json --dataset-type euroc --config-path /home/bruno/tesina/xrtslam-metrics/test/data/basalt-deterministic-ablation/curr_mgt_ovl/../curr_mgt_ovl/_configs/msdmo.json --show-gui 0 --save-trajectory euroc --save-features 1 --save-timing 1
+Loaded camera with 2 cameras
+marg_H (sqrt:1)
+  10000       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      0   10000       0       0       0       0       0       0       0       0       0       0       0       0       0
+      0       0   10000       0       0       0       0       0       0       0       0       0       0       0       0
+      0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      0       0       0       0       0   10000       0       0       0       0       0       0       0       0       0
+      0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      0       0       0       0       0       0       0       0       0 3.16228       0       0       0       0       0
+      0       0       0       0       0       0       0       0       0       0 3.16228       0       0       0       0
+      0       0       0       0       0       0       0       0       0       0       0 3.16228       0       0       0
+      0       0       0       0       0       0       0       0       0       0       0       0      10       0       0
+      0       0       0       0       0       0       0       0       0       0       0       0       0      10       0
+      0       0       0       0       0       0       0       0       0       0       0       0       0       0      10
+Started input_data thread 
+Setting up filter: t_ns 15553346892788
+T_w_i
+    0.99999  0.00305623 -0.00333676           0
+ 0.00305623   0.0875996    0.996151           0
+ 0.00333676   -0.996151   0.0875893           0
+          0           0           0           1
+vel_w_i 0 0 0
+did not expect numerical failure during linearization
+marg_H (sqrt:1)
+  10000       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      0   10000       0       0       0       0       0       0       0       0       0       0       0       0       0
+      0       0   10000       0       0       0       0       0       0       0       0       0       0       0       0
+      0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      0       0       0       0       0   10000       0       0       0       0       0       0       0       0       0
+      0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      0       0       0       0       0       0       0       0       0 3.16228       0       0       0       0       0
+      0       0       0       0       0       0       0       0       0       0 3.16228       0       0       0       0
+      0       0       0       0       0       0       0       0       0       0       0 3.16228       0       0       0
+      0       0       0       0       0       0       0       0       0       0       0       0      10       0       0
+      0       0       0       0       0       0       0       0       0       0       0       0       0      10       0
+      0       0       0       0       0       0       0       0       0       0       0       0       0       0      10
+Setting up filter: t_ns 15945795270488
+T_w_i
+  0.996731  0.0608667 -0.0531269          0
+ 0.0608667  -0.133315   0.989203          0
+ 0.0531269  -0.989203  -0.136584          0
+         0          0          0          1
+vel_w_i 0 0 0
+Finished input_data thread 
+Finished opt flow stats
+Finished VIOFilter 
+Finished t4
+---------------------------------------------------
+| Persistent Map                                  |
+---------------------------------------------------
+| Keyframes count: 2763
+| Landmarks count: 16297
+| Observations count: 160351
+---------------------------------------------------
+T_align
+-0.0227647 -0.973981  -0.225483  32479.5   
+0.966769   -0.0788924 0.243173   12718.4   
+-0.254635  -0.212454  0.943411   34988.8   
+0          0          0          1         
+error 100335
+number of associations 19379
+=== stats all ===
+num_cams             (19371):     7.0+-0.3 [0, 7]
+num_lms              (19371):    38.1+-21.2 [0, 145]
+num_obs              (19371):   271.0+-130.1 [0, 808]
+allocateLMB          (19371):    0.07+-0.46 [0.00, 21.14]
+linearizeProblem     (115049):    0.05+-0.15 [0.00, 29.95]
+performQR            (115049):    0.02+-0.05 [0.00, 8.99]
+get_dense_H_b        (145628):    0.07+-0.12 [0.01, 24.27]
+solve                (145628):    0.03+-0.02 [0.01, 2.89]
+backSubstitute       (145628):    0.01+-0.13 [0.00, 26.13]
+computerError2       (145628):    0.02+-0.08 [0.00, 16.67]
+iteration            (145628):    0.20+-0.31 [0.03, 31.82]
+resident_memory      (145628): 331595961.18+-28734844.01 [211640320.00, 374562816.00]
+resident_memory_peak (145628): 331595963.88+-28734839.20 [211640320.00, 374562816.00]
+optimize             (19371):    1.58+-1.00 [0.11, 33.97]
+num_it               (19371):     7.5+-1.2 [1, 8]
+num_it_rejected      (19371):     2.0+-2.1 [0, 7]
+=== stats sums ===
+measure              (19379):    2.23+-1.37 [0.02, 35.24]
+num_cams             (19371):     7.0+-0.3 [0, 7]
+num_lms              (19371):    38.1+-21.2 [0, 145]
+num_obs              (19371):   271.0+-130.1 [0, 808]
+allocateLMB          (19371):    0.07+-0.46 [0.00, 21.14]
+linearizeProblem     (19371):    0.28+-0.39 [0.00, 30.38]
+performQR            (19371):    0.10+-0.14 [0.00, 9.05]
+get_dense_H_b        (19371):    0.54+-0.37 [0.02, 24.73]
+solve                (19371):    0.24+-0.06 [0.03, 3.12]
+backSubstitute       (19371):    0.09+-0.36 [0.00, 26.22]
+computerError2       (19371):    0.17+-0.22 [0.00, 17.17]
+iteration            (19371):    1.50+-0.99 [0.09, 33.83]
+resident_memory      (19371): 2492884034.66+-455964136.64 [297230336.00, 2996502528.00]
+resident_memory_peak (19371): 2492884054.96+-455964121.55 [297230336.00, 2996502528.00]
+optimize             (19371):    1.58+-1.00 [0.11, 33.97]
+num_it               (19371):     7.5+-1.2 [1, 8]
+num_it_rejected      (19371):     2.0+-2.1 [0, 7]
+marg_linearize       (19371):    0.05+-0.19 [0.00, 13.16]
+marg_helper          (19371):    0.06+-0.03 [0.02, 0.94]
+marg                 (19371):    0.52+-0.72 [0.03, 15.53]
+marginalize          (19371):    0.52+-0.72 [0.03, 15.54]
+Saved ExecutionStats to stats_all.ubjson.
+Saved ExecutionStats to stats_sums.ubjson.
+Total runtime: 77.522s
+Saved ExecutionStats to stats_opt_flow.ubjson.
+Saved ExecutionStats to stats_vio.ubjson.
+Saved ExecutionStats to stats_map.ubjson.
+Saving trajectory...
+Saved trajectory in Euroc Dataset format in trajectory.csv
+Saved features.csv
+
+Saved timing.csv

@@ -23,14 +23,6 @@ T_w_i
  0.0422861  -0.998652 -0.0300879          0
          0          0          0          1
 vel_w_i 0 0 0
-Numerical failure in backsubstitution
-Numerical failure in backsubstitution
-Numerical failure in backsubstitution
-Numerical failure in backsubstitution
-Numerical failure in backsubstitution
-Numerical failure in backsubstitution
-Numerical failure in backsubstitution
-Numerical failure in backsubstitution
 did not expect numerical failure during linearization
 marg_H (sqrt:1)
   10000       0       0       0       0       0       0       0       0       0       0       0       0       0       0
@@ -48,3 +40,78 @@ marg_H (sqrt:1)
       0       0       0       0       0       0       0       0       0       0       0       0      10       0       0
       0       0       0       0       0       0       0       0       0       0       0       0       0      10       0
       0       0       0       0       0       0       0       0       0       0       0       0       0       0      10
+Setting up filter: t_ns 3860767879794
+T_w_i
+ 0.945593  0.297338  -0.13208         0
+ 0.297338 -0.624956  0.721818         0
+  0.13208 -0.721818 -0.679363         0
+        0         0         0         1
+vel_w_i 0 0 0
+Finished input_data thread 
+Finished opt flow stats
+Finished t4
+Finished VIOFilter 
+---------------------------------------------------
+| Persistent Map                                  |
+---------------------------------------------------
+| Keyframes count: 675
+| Landmarks count: 2440
+| Observations count: 10334
+---------------------------------------------------
+T_align
+-0.022285  -0.838738  0.544079   463.661   
+-0.977203  -0.0966567 -0.189029  -79.963   
+0.211135   -0.535888  -0.817463  27.6038   
+0          0          0          1         
+error 1109.54
+number of associations 4723
+=== stats all ===
+num_cams             (4715):     6.9+-0.5 [0, 7]
+num_lms              (4715):    13.2+-18.0 [0, 93]
+num_obs              (4715):    72.7+-110.8 [0, 562]
+allocateLMB          (4715):    0.02+-0.06 [0.00, 3.64]
+linearizeProblem     (26910):    0.01+-0.06 [0.00, 6.16]
+performQR            (26910):    0.00+-0.03 [0.00, 3.16]
+get_dense_H_b        (36024):    0.03+-0.06 [0.00, 6.51]
+solve                (36024):    0.03+-0.01 [0.01, 0.30]
+backSubstitute       (36024):    0.00+-0.02 [0.00, 2.31]
+computerError2       (36024):    0.01+-0.02 [0.00, 2.33]
+iteration            (36024):    0.08+-0.10 [0.02, 6.56]
+resident_memory      (36024): 189794048.85+-17701525.34 [125358080.00, 208850944.00]
+resident_memory_peak (36024): 189794048.85+-17701525.34 [125358080.00, 208850944.00]
+optimize             (4715):    0.70+-0.45 [0.05, 7.76]
+num_it               (4715):     7.6+-1.2 [1, 8]
+num_it_rejected      (4715):     2.3+-2.4 [0, 7]
+=== stats sums ===
+measure              (4723):    0.89+-0.52 [0.01, 8.04]
+num_cams             (4715):     6.9+-0.5 [0, 7]
+num_lms              (4715):    13.2+-18.0 [0, 93]
+num_obs              (4715):    72.7+-110.8 [0, 562]
+allocateLMB          (4715):    0.02+-0.06 [0.00, 3.64]
+linearizeProblem     (4715):    0.07+-0.15 [0.00, 6.30]
+performQR            (4715):    0.03+-0.08 [0.00, 3.29]
+get_dense_H_b        (4715):    0.21+-0.22 [0.01, 6.73]
+solve                (4715):    0.20+-0.05 [0.01, 0.82]
+backSubstitute       (4715):    0.03+-0.06 [0.00, 2.35]
+computerError2       (4715):    0.05+-0.07 [0.00, 2.49]
+iteration            (4715):    0.62+-0.44 [0.03, 7.67]
+resident_memory      (4715): 1450082887.78+-262179530.90 [125358080.00, 1670807552.00]
+resident_memory_peak (4715): 1450082887.78+-262179530.90 [125358080.00, 1670807552.00]
+optimize             (4715):    0.70+-0.45 [0.05, 7.76]
+num_it               (4715):     7.6+-1.2 [1, 8]
+num_it_rejected      (4715):     2.3+-2.4 [0, 7]
+marg_linearize       (4715):    0.02+-0.07 [0.00, 4.69]
+marg_helper          (4715):    0.05+-0.01 [0.02, 0.20]
+marg                 (4715):    0.13+-0.11 [0.03, 4.90]
+marginalize          (4715):    0.13+-0.11 [0.03, 4.90]
+Saved ExecutionStats to stats_all.ubjson.
+Saved ExecutionStats to stats_sums.ubjson.
+Total runtime: 33.868s
+Saved ExecutionStats to stats_opt_flow.ubjson.
+Saved ExecutionStats to stats_vio.ubjson.
+Saved ExecutionStats to stats_map.ubjson.
+Saving trajectory...
+Saved trajectory in Euroc Dataset format in trajectory.csv
+Saved features.csv
+
+Saved timing.csv

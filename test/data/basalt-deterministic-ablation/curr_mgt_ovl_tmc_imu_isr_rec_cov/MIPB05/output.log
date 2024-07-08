@@ -23,20 +23,72 @@ T_w_i
  -0.990996 -0.0126437  -0.133291          0
          0          0          0          1
 vel_w_i 0 0 0
-did not expect numerical failure during linearization
-marg_H (sqrt:1)
-  10000       0       0       0       0       0       0       0       0       0       0       0       0       0       0
-      0   10000       0       0       0       0       0       0       0       0       0       0       0       0       0
-      0       0   10000       0       0       0       0       0       0       0       0       0       0       0       0
-      0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
-      0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
-      0       0       0       0       0   10000       0       0       0       0       0       0       0       0       0
-      0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
-      0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
-      0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
-      0       0       0       0       0       0       0       0       0 3.16228       0       0       0       0       0
-      0       0       0       0       0       0       0       0       0       0 3.16228       0       0       0       0
-      0       0       0       0       0       0       0       0       0       0       0 3.16228       0       0       0
-      0       0       0       0       0       0       0       0       0       0       0       0      10       0       0
-      0       0       0       0       0       0       0       0       0       0       0       0       0      10       0
-      0       0       0       0       0       0       0       0       0       0       0       0       0       0      10
+Finished input_data thread 
+Total recalls: 183643
+Finished opt flow stats
+Finished VIOFilter 
+---------------------------------------------------
+| Persistent Map                                  |
+---------------------------------------------------
+| Keyframes count: Finished t4
+1316
+| Landmarks count: 26113
+| Observations count: 380295
+---------------------------------------------------
+T_align
+-0.916933   -0.398961   0.00802092  1.05933    
+0.00344554  0.012184    0.99992     -1.21439   
+-0.399027   0.916887    -0.00979729 -0.878971  
+0           0           0           1          
+error 0.0329314
+number of associations 9206
+=== stats all ===
+num_cams             (9204):    10.0+-2.6 [0, 20]
+num_lms              (9204):   261.0+-72.9 [37, 506]
+num_obs              (9204):  1667.0+-506.2 [193, 3105]
+allocateLMB          (9204):    0.20+-0.26 [0.03, 15.68]
+linearizeProblem     (47885):    0.13+-0.13 [0.01, 17.08]
+performQR            (47885):    0.05+-0.06 [0.01, 8.31]
+get_dense_H_b        (49175):    0.26+-0.14 [0.02, 4.47]
+solve                (49175):    0.04+-0.01 [0.01, 1.06]
+backSubstitute       (49175):    0.03+-0.11 [0.00, 13.83]
+computerError2       (49175):    0.06+-0.05 [0.01, 3.67]
+iteration            (49175):    0.62+-0.36 [0.06, 17.68]
+resident_memory      (49175): 2037128406.55+-978869911.84 [147152896.00, 3727343616.00]
+resident_memory_peak (49175): 2037420373.67+-978885401.40 [147152896.00, 3727343616.00]
+optimize             (9204):    3.38+-1.52 [0.44, 23.13]
+num_it               (9204):     5.3+-2.2 [1, 8]
+num_it_rejected      (9204):     0.2+-0.9 [0, 7]
+=== stats sums ===
+measure              (9208):    5.00+-2.84 [0.04, 31.99]
+num_cams             (9204):    10.0+-2.6 [0, 20]
+num_lms              (9204):   261.0+-72.9 [37, 506]
+num_obs              (9204):  1667.0+-506.2 [193, 3105]
+allocateLMB          (9204):    0.20+-0.26 [0.03, 15.68]
+linearizeProblem     (9204):    0.68+-0.41 [0.05, 17.64]
+performQR            (9204):    0.24+-0.18 [0.02, 8.41]
+get_dense_H_b        (9204):    1.41+-0.70 [0.12, 6.54]
+solve                (9204):    0.23+-0.11 [0.03, 1.15]
+backSubstitute       (9204):    0.17+-0.26 [0.01, 14.17]
+computerError2       (9204):    0.34+-0.18 [0.04, 4.49]
+iteration            (9204):    3.30+-1.50 [0.41, 23.01]
+resident_memory      (9204): 10883940611.89+-7086760506.82 [960774144.00, 29818748928.00]
+resident_memory_peak (9204): 10885500529.70+-7087097456.98 [960774144.00, 29818748928.00]
+optimize             (9204):    3.38+-1.52 [0.44, 23.13]
+num_it               (9204):     5.3+-2.2 [1, 8]
+num_it_rejected      (9204):     0.2+-0.9 [0, 7]
+marg_linearize       (9204):    0.10+-0.04 [0.01, 0.69]
+marg_helper          (9204):    0.07+-0.06 [0.02, 0.88]
+marg                 (9204):    1.17+-2.26 [0.04, 25.04]
+marginalize          (9204):    1.18+-2.27 [0.04, 25.05]
+Saved ExecutionStats to stats_all.ubjson.
+Saved ExecutionStats to stats_sums.ubjson.
+Total runtime: 91.618s
+Saved ExecutionStats to stats_opt_flow.ubjson.
+Saved ExecutionStats to stats_vio.ubjson.
+Saved ExecutionStats to stats_map.ubjson.
+Saving trajectory...
+Saved trajectory in Euroc Dataset format in trajectory.csv
+Saved features.csv
+
+Saved timing.csv

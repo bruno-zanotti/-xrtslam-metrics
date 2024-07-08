@@ -1,3 +1,93 @@
-terminate called after throwing an instance of 'cereal::RapidJSONException'
-  what():  rapidjson internal assertion failure: IsObject()
-./run.sh: line 15: 344605 Aborted                 (core dumped) basalt_vio --dataset-path /home/bruno/tesina/datasets/msdmo/MOO15 --cam-calib /home/bruno/tesina/xrtslam-metrics/test/data/basalt-deterministic-ablation/curr_mgt_ovl_tmc_imu/../_calibs/msdmo.json --dataset-type euroc --config-path /home/bruno/tesina/xrtslam-metrics/test/data/basalt-deterministic-ablation/curr_mgt_ovl_tmc_imu/../curr_mgt_ovl_tmc_imu/_configs/msdmo.json --show-gui 0 --save-trajectory euroc --save-features 1 --save-timing 1
+Loaded camera with 2 cameras
+marg_H (sqrt:1)
+  10000       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      0   10000       0       0       0       0       0       0       0       0       0       0       0       0       0
+      0       0   10000       0       0       0       0       0       0       0       0       0       0       0       0
+      0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      0       0       0       0       0   10000       0       0       0       0       0       0       0       0       0
+      0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      0       0       0       0       0       0       0       0       0 3.16228       0       0       0       0       0
+      0       0       0       0       0       0       0       0       0       0 3.16228       0       0       0       0
+      0       0       0       0       0       0       0       0       0       0       0 3.16228       0       0       0
+      0       0       0       0       0       0       0       0       0       0       0       0      10       0       0
+      0       0       0       0       0       0       0       0       0       0       0       0       0      10       0
+      0       0       0       0       0       0       0       0       0       0       0       0       0       0      10
+Started input_data thread 
+Setting up filter: t_ns 15553346892788
+T_w_i
+    0.99999  0.00305623 -0.00333676           0
+ 0.00305623   0.0875996    0.996151           0
+ 0.00333676   -0.996151   0.0875893           0
+          0           0           0           1
+vel_w_i 0 0 0
+Finished input_data thread 
+Finished opt flow stats
+Finished t4
+Finished VIOFilter 
+---------------------------------------------------
+| Persistent Map                                  |
+---------------------------------------------------
+| Keyframes count: 2769
+| Landmarks count: 9575
+| Observations count: 84211
+---------------------------------------------------
+T_align
+-0.061091 -0.253741 -0.965341 -181154  
+0.918973  0.363167  -0.153616 179493   
+0.389558  -0.896507 0.210995  -134824  
+0         0         0         1        
+error 495113
+number of associations 19380
+=== stats all ===
+num_cams             (19376):     7.0+-0.2 [0, 7]
+num_lms              (19376):    20.5+-24.5 [0, 117]
+num_obs              (19376):   139.3+-161.0 [0, 706]
+allocateLMB          (19376):    0.03+-0.16 [0.00, 14.98]
+linearizeProblem     (117769):    0.03+-0.09 [0.00, 24.71]
+performQR            (117769):    0.01+-0.03 [0.00, 5.32]
+get_dense_H_b        (148662):    0.04+-0.05 [0.01, 6.83]
+solve                (148662):    0.03+-0.01 [0.01, 1.85]
+backSubstitute       (148662):    0.01+-0.04 [0.00, 12.83]
+computerError2       (148662):    0.01+-0.04 [0.00, 10.60]
+iteration            (148662):    0.12+-0.16 [0.03, 25.05]
+resident_memory      (148662): 330126432.83+-21833215.42 [215552000.00, 358944768.00]
+resident_memory_peak (148662): 330126434.60+-21833209.37 [215552000.00, 358944768.00]
+optimize             (19376):    1.01+-0.74 [0.20, 27.69]
+num_it               (19376):     7.7+-1.1 [1, 8]
+num_it_rejected      (19376):     2.1+-2.0 [0, 7]
+=== stats sums ===
+measure              (19380):    1.61+-1.24 [0.02, 28.09]
+num_cams             (19376):     7.0+-0.2 [0, 7]
+num_lms              (19376):    20.5+-24.5 [0, 117]
+num_obs              (19376):   139.3+-161.0 [0, 706]
+allocateLMB          (19376):    0.03+-0.16 [0.00, 14.98]
+linearizeProblem     (19376):    0.16+-0.27 [0.01, 24.82]
+performQR            (19376):    0.05+-0.09 [0.00, 5.33]
+get_dense_H_b        (19376):    0.32+-0.27 [0.04, 7.36]
+solve                (19376):    0.22+-0.06 [0.03, 1.95]
+backSubstitute       (19376):    0.05+-0.13 [0.01, 12.91]
+computerError2       (19376):    0.09+-0.15 [0.01, 10.85]
+iteration            (19376):    0.94+-0.73 [0.18, 27.49]
+resident_memory      (19376): 2532888922.27+-415214330.63 [310972416.00, 2871558144.00]
+resident_memory_peak (19376): 2532888935.80+-415214314.63 [310972416.00, 2871558144.00]
+optimize             (19376):    1.01+-0.74 [0.20, 27.69]
+num_it               (19376):     7.7+-1.1 [1, 8]
+num_it_rejected      (19376):     2.1+-2.0 [0, 7]
+marg_linearize       (19376):    0.03+-0.07 [0.00, 8.85]
+marg_helper          (19376):    0.05+-0.02 [0.02, 1.31]
+marg                 (19376):    0.50+-0.89 [0.03, 19.60]
+marginalize          (19376):    0.50+-0.89 [0.03, 19.62]
+Saved ExecutionStats to stats_all.ubjson.
+Saved ExecutionStats to stats_sums.ubjson.
+Total runtime: 73.207s
+Saved ExecutionStats to stats_opt_flow.ubjson.
+Saved ExecutionStats to stats_vio.ubjson.
+Saved ExecutionStats to stats_map.ubjson.
+Saving trajectory...
+Saved trajectory in Euroc Dataset format in trajectory.csv
+Saved features.csv
+
+Saved timing.csv

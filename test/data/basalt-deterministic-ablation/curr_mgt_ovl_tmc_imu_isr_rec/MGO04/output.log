@@ -23,6 +23,86 @@ T_w_i
  0.0353783   -0.99776  -0.056778          0
          0          0          0          1
 vel_w_i 0 0 0
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
 did not expect numerical failure during linearization
 marg_H (sqrt:1)
   10000       0       0       0       0       0       0       0       0       0       0       0       0       0       0
@@ -40,3 +120,148 @@ marg_H (sqrt:1)
       0       0       0       0       0       0       0       0       0       0       0       0      10       0       0
       0       0       0       0       0       0       0       0       0       0       0       0       0      10       0
       0       0       0       0       0       0       0       0       0       0       0       0       0       0      10
+Setting up filter: t_ns 4612866301083
+T_w_i
+  0.945119   0.239701  -0.222022          0
+  0.239701 -0.0469265   0.969712          0
+  0.222022  -0.969712  -0.101808          0
+         0          0          0          1
+vel_w_i 0 0 0
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Finished input_data thread 
+Total recalls: 9517
+Finished opt flow stats
+Finished VIOFilter 
+Finished t4
+---------------------------------------------------
+| Persistent Map                                  |
+---------------------------------------------------
+| Keyframes count: 624
+| Landmarks count: 11278
+| Observations count: 48446
+---------------------------------------------------
+T_align
+-0.264598  -0.945808  -0.188244  0.731705  
+-0.543637  -0.0149366 0.839188   -1.03009  
+-0.796522  0.324384   -0.510223  -1.66828  
+0          0          0          1         
+error 1.65761
+number of associations 4362
+=== stats all ===
+num_cams             (4354):     6.9+-0.5 [0, 7]
+num_lms              (4354):   144.2+-63.2 [12, 407]
+num_obs              (4354):   578.1+-335.7 [29, 1697]
+allocateLMB          (4354):    0.22+-1.27 [0.01, 38.06]
+linearizeProblem     (29797):    0.08+-0.27 [0.01, 17.03]
+performQR            (29797):    0.03+-0.16 [0.00, 22.68]
+get_dense_H_b        (32159):    0.14+-0.21 [0.01, 19.77]
+solve                (32159):    0.03+-0.02 [0.01, 1.61]
+backSubstitute       (32159):    0.02+-0.20 [0.00, 20.55]
+computerError2       (32159):    0.03+-0.13 [0.00, 16.10]
+iteration            (32159):    0.37+-0.68 [0.04, 38.40]
+resident_memory      (32159): 1985715873.61+-1060133031.53 [130441216.00, 3834155008.00]
+resident_memory_peak (32159): 1985719242.98+-1060132592.43 [130572288.00, 3834155008.00]
+optimize             (4354):    2.79+-2.22 [0.20, 41.43]
+num_it               (4354):     7.4+-1.5 [1, 8]
+num_it_rejected      (4354):     0.7+-1.5 [0, 7]
+=== stats sums ===
+measure              (4362):    3.67+-2.43 [0.05, 43.02]
+num_cams             (4354):     6.9+-0.5 [0, 7]
+num_lms              (4354):   144.2+-63.2 [12, 407]
+num_obs              (4354):   578.1+-335.7 [29, 1697]
+allocateLMB          (4354):    0.22+-1.27 [0.01, 38.06]
+linearizeProblem     (4354):    0.53+-0.74 [0.01, 17.54]
+performQR            (4354):    0.23+-0.43 [0.01, 22.84]
+get_dense_H_b        (4354):    1.02+-0.68 [0.05, 20.72]
+solve                (4354):    0.24+-0.08 [0.03, 1.85]
+backSubstitute       (4354):    0.18+-0.57 [0.01, 20.82]
+computerError2       (4354):    0.24+-0.36 [0.01, 16.41]
+iteration            (4354):    2.70+-2.21 [0.18, 41.26]
+resident_memory      (4354): 14666659802.37+-7951364677.77 [803414016.00, 30626054144.00]
+resident_memory_peak (4354): 14666684688.82+-7951363895.32 [803414016.00, 30626054144.00]
+optimize             (4354):    2.79+-2.22 [0.20, 41.43]
+num_it               (4354):     7.4+-1.5 [1, 8]
+num_it_rejected      (4354):     0.7+-1.5 [0, 7]
+marg_linearize       (4354):    0.06+-0.04 [0.01, 1.10]
+marg_helper          (4354):    0.06+-0.05 [0.02, 1.63]
+marg                 (4354):    0.55+-0.60 [0.04, 10.10]
+marginalize          (4354):    0.56+-0.60 [0.04, 10.11]
+Saved ExecutionStats to stats_all.ubjson.
+Saved ExecutionStats to stats_sums.ubjson.
+Total runtime: 40.448s
+Saved ExecutionStats to stats_opt_flow.ubjson.
+Saved ExecutionStats to stats_vio.ubjson.
+Saved ExecutionStats to stats_map.ubjson.
+Saving trajectory...
+Saved trajectory in Euroc Dataset format in trajectory.csv
+Saved features.csv
+
+Saved timing.csv

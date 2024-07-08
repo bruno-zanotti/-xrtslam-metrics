@@ -45,7 +45,7 @@ CALIB_DIR=$ROOT/_calibs
 euroc_calib=$CALIB_DIR/euroc.json
 tumvi_calib=$CALIB_DIR/tumvi.json
 msdmi_calib=$CALIB_DIR/msdmi.json
-msdmg_calib=$CALIB_DIR/msdmg.json
+msdmg_calib=$CALIB_DIR/msdmg_2cams.json
 msdmo_calib=$CALIB_DIR/msdmo.json
 
 # CONFIG

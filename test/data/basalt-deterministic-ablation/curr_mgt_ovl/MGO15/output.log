@@ -1,0 +1,227 @@
+Loaded camera with 4 cameras
+marg_H (sqrt:1)
+  10000       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      0   10000       0       0       0       0       0       0       0       0       0       0       0       0       0
+      0       0   10000       0       0       0       0       0       0       0       0       0       0       0       0
+      0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      0       0       0       0       0   10000       0       0       0       0       0       0       0       0       0
+      0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      0       0       0       0       0       0       0       0       0 3.16228       0       0       0       0       0
+      0       0       0       0       0       0       0       0       0       0 3.16228       0       0       0       0
+      0       0       0       0       0       0       0       0       0       0       0 3.16228       0       0       0
+      0       0       0       0       0       0       0       0       0       0       0       0      10       0       0
+      0       0       0       0       0       0       0       0       0       0       0       0       0      10       0
+      0       0       0       0       0       0       0       0       0       0       0       0       0       0      10
+Started input_data thread 
+Setting up filter: t_ns 14985013888601
+T_w_i
+  0.998823  0.0350192 -0.0335505          0
+ 0.0350192 -0.0422058   0.998495          0
+ 0.0335505  -0.998495 -0.0433825          0
+         0          0          0          1
+vel_w_i 0 0 0
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Numerical failure in backsubstitution
+Finished input_data thread 
+Finished opt flow stats
+Finished VIOFilter 
+Finished t4
+---------------------------------------------------
+| Persistent Map                                  |
+---------------------------------------------------
+| Keyframes count: 3417
+| Landmarks count: 20858
+| Observations count: 190698
+---------------------------------------------------
+T_align
+-0.0801065 -0.695824  -0.713731  1.50391   
+-0.990327  0.13694    -0.0223539 -1.13455  
+0.113293   0.705037   -0.700063  -3.31331  
+0          0          0          1         
+error 1.74834
+number of associations 23915
+=== stats all ===
+num_cams             (23911):     7.0+-0.2 [0, 7]
+num_lms              (23911):    27.1+-12.9 [0, 86]
+num_obs              (23911):   236.1+-108.8 [0, 677]
+allocateLMB          (23911):    0.06+-0.28 [0.00, 23.94]
+linearizeProblem     (163037):    0.04+-0.12 [0.00, 19.85]
+performQR            (163037):    0.01+-0.08 [0.00, 20.62]
+get_dense_H_b        (184570):    0.06+-0.10 [0.01, 20.58]
+solve                (184570):    0.03+-0.01 [0.01, 2.29]
+backSubstitute       (184570):    0.01+-0.08 [0.00, 14.22]
+computerError2       (184570):    0.02+-0.06 [0.00, 9.32]
+iteration            (184570):    0.17+-0.24 [0.03, 26.62]
+resident_memory      (184570): 415252274.86+-48208455.15 [254402560.00, 485744640.00]
+resident_memory_peak (184570): 415252279.12+-48208448.94 [254402560.00, 485744640.00]
+optimize             (23911):    1.42+-0.82 [0.07, 33.88]
+num_it               (23911):     7.7+-0.9 [1, 8]
+num_it_rejected      (23911):     1.1+-1.8 [0, 7]
+=== stats sums ===
+measure              (23915):    2.81+-2.06 [0.03, 38.95]
+num_cams             (23911):     7.0+-0.2 [0, 7]
+num_lms              (23911):    27.1+-12.9 [0, 86]
+num_obs              (23911):   236.1+-108.8 [0, 677]
+allocateLMB          (23911):    0.06+-0.28 [0.00, 23.94]
+linearizeProblem     (23911):    0.30+-0.33 [0.00, 20.22]
+performQR            (23911):    0.09+-0.21 [0.00, 20.81]
+get_dense_H_b        (23911):    0.43+-0.32 [0.01, 21.09]
+solve                (23911):    0.23+-0.05 [0.03, 2.52]
+backSubstitute       (23911):    0.07+-0.23 [0.00, 14.30]
+computerError2       (23911):    0.13+-0.18 [0.00, 9.39]
+iteration            (23911):    1.33+-0.81 [0.05, 33.68]
+resident_memory      (23911): 3205349519.89+-522469637.93 [415883264.00, 3885957120.00]
+resident_memory_peak (23911): 3205349552.78+-522469596.13 [415883264.00, 3885957120.00]
+optimize             (23911):    1.42+-0.82 [0.07, 33.88]
+num_it               (23911):     7.7+-0.9 [1, 8]
+num_it_rejected      (23911):     1.1+-1.8 [0, 7]
+marg_linearize       (23911):    0.05+-0.08 [0.00, 6.26]
+marg_helper          (23911):    0.06+-0.06 [0.02, 3.69]
+marg                 (23911):    1.21+-1.75 [0.04, 24.48]
+marginalize          (23911):    1.22+-1.76 [0.04, 24.50]
+Saved ExecutionStats to stats_all.ubjson.
+Saved ExecutionStats to stats_sums.ubjson.
+Total runtime: 177.034s
+Saved ExecutionStats to stats_opt_flow.ubjson.
+Saved ExecutionStats to stats_vio.ubjson.
+Saved ExecutionStats to stats_map.ubjson.
+Saving trajectory...
+Saved trajectory in Euroc Dataset format in trajectory.csv
+Saved features.csv
+
+Saved timing.csv
